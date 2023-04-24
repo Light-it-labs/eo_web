@@ -1,0 +1,6 @@
+packages:
+  - apps/eo_web
+  - packages/config/*
+  - packages/hooks
+  - packages/shared
+  - packages/ui

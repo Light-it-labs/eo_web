@@ -1,0 +1,11 @@
+{
+  "extends": "../../tsconfig.json",
+  "exclude": [],
+  "include": [
+    "declarations.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.cjs",
+    "**/*.mjs"
+  ]
+}

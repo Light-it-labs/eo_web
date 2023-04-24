@@ -1,0 +1,39 @@
+{
+  "name": "@eo/ui",
+  "version": "0.1.0",
+  "main": "src/index.ts",
+  "scripts": {
+    "clean": "git clean -xdf dist .turbo node_modules",
+    "lint": "eslint .",
+    "lint:fix": "pnpm lint --fix",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@eo/hooks": "*",
+    "@eo/shared": "*",
+    "@eo/tailwind-config": "*",
+    "@headlessui/react": "^1.7.13",
+    "@heroicons/react": "^2.0.12",
+    "date-fns": "^2.29.3",
+    "lodash": "^4.17.21",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-dropzone": "^14.2.3",
+    "react-hook-form": "^7.43.9",
+    "zod": "^3.21.4"
+  },
+  "devDependencies": {
+    "@eo/eslint-config": "*",
+    "@tailwindcss/forms": "^0.5.3",
+    "@tailwindcss/typography": "^0.5.9",
+    "@types/lodash": "^4.14.194",
+    "@types/node": "^18.15.11",
+    "@types/react": "^18.0.37",
+    "@types/react-dom": "^18.0.11",
+    "autoprefixer": "^10.4.14",
+    "eslint": "^8.38.0",
+    "postcss": "^8.4.22",
+    "tailwindcss": "^3.3.1",
+    "typescript": "^5.0.4"
+  }
+}
