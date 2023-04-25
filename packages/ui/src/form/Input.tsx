@@ -19,6 +19,7 @@ export interface InputProps extends ComponentPropsWithoutRef<"input"> {
   error?: FormErrorType;
   left?: ReactNode;
   right?: ReactNode;
+  preventEventsRightIcon?: boolean;
   rightWidth?: number;
 }
 
@@ -36,6 +37,7 @@ export const Input = forwardRef(
       style,
       containerClassName,
       className,
+      preventEventsRightIcon,
       ...rest
     }: InputProps,
     ref: ForwardedRef<HTMLInputElement>,
@@ -44,7 +46,7 @@ export const Input = forwardRef(
       {!!label && <Label htmlFor={id} label={label} />}
       <div
         className={tw(
-          "flex flex-row rounded-md shadow-sm items-center",
+          "flex flex-row items-center rounded-md shadow-sm",
           !!rest.disabled && "opacity-30",
         )}
       >
@@ -59,10 +61,10 @@ export const Input = forwardRef(
           id={id}
           {...rest}
           className={tw(
-            "block w-full rounded-md shadow-xs text-neutrals-dark-400 border-gray-300 placeholder:text-primary-white-600 focus:border-secondary-green focus:ring-2 focus:ring-secondary-green-300 sm:text-sm",
+            "shadow-xs block w-full border-none text-neutrals-dark-400 placeholder:text-primary-white-600 focus:border-secondary-green focus:ring-2 focus:ring-secondary-green-300 sm:text-sm",
             !!error && "border-red focus:border-red focus:ring-red-200",
             !!left && "pl-10",
-            !!rest.disabled && "bg-black-100 border-gray-500",
+            !!rest.disabled && "border-gray-500 bg-black-100",
             className,
           )}
           style={{
@@ -71,7 +73,10 @@ export const Input = forwardRef(
         />
         {!!right && (
           <IconWrapper
-            className="pointer-events-none absolute right-0"
+            className={tw(
+              "absolute right-0",
+              preventEventsRightIcon ? "pointer-events-none" : "",
+            )}
             style={{ width: rightWidth }}
           >
             {right}

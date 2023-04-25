@@ -21,8 +21,8 @@ export default {
           600: "#0935B7",
           700: "#072889",
           800: "#041A5C",
-          900: "#020D2E",
-          DEFAULT: "#0B42E5",
+          900: "#B4F9C7",
+          DEFAULT: "#B4F9C7",
         },
         "primary-dark": {
           50: "#E8EBF3",
@@ -149,6 +149,9 @@ export default {
         },
         white: "#FFFFFF",
         transparent: "transparent",
+        cream: {
+          100: "#F8F6F3",
+        },
       },
     },
   },

@@ -1,11 +1,11 @@
 import { type ReactNode } from "react";
 import { Navigate, Outlet } from "react-router-dom";
 
-import { useUserStore } from "~/stores/useUserStore";
+import { useProfileStore } from "~/stores/useProfileStore";
 
 import { ROUTES } from "./routes";
 
-type UserState = "loggedIn" | "loggedOut";
+type ProfileState = "loggedIn" | "loggedOut";
 
 const HOME = {
   loggedIn: ROUTES.base,
@@ -17,10 +17,10 @@ export const ProtectedRoute = ({
   expected,
 }: {
   children?: ReactNode;
-  expected: UserState | UserState[];
+  expected: ProfileState | ProfileState[];
 }) => {
-  const userState = useUserStore((state) =>
-    state.user ? "loggedIn" : "loggedOut",
+  const userState = useProfileStore((state) =>
+    state.profile ? "loggedIn" : "loggedOut",
   );
 
   if (!expected.includes(userState)) {

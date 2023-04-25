@@ -10,7 +10,6 @@ const config = {
   rules: {
     "@next/next/no-html-link-for-pages": "off",
     "@next/next/no-img-element": "off",
-
     "@typescript-eslint/unbound-method": "off",
     "@typescript-eslint/restrict-template-expressions": "off",
     "@typescript-eslint/no-unused-vars": [
