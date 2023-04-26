@@ -1,0 +1,25 @@
+{
+  "../../packages/ui/src/assets/UploadFile.svg": {
+    "file": "assets/UploadFile-694e44b5.svg",
+    "src": "../../packages/ui/src/assets/UploadFile.svg"
+  },
+  "../../packages/ui/src/assets/avatar.svg": {
+    "file": "assets/avatar-37667ed6.svg",
+    "src": "../../packages/ui/src/assets/avatar.svg"
+  },
+  "src/main.css": {
+    "file": "assets/main-cd3ccd42.css",
+    "src": "src/main.css"
+  },
+  "src/main.tsx": {
+    "assets": [
+      "assets/UploadFile-694e44b5.svg"
+    ],
+    "css": [
+      "assets/main-cd3ccd42.css"
+    ],
+    "file": "assets/main-f1559378.js",
+    "isEntry": true,
+    "src": "src/main.tsx"
+  }
+}
