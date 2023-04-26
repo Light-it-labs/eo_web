@@ -1,6 +1,5 @@
 import { api } from "~/api/axios";
-
-const API_URL = "";
+import { API_URL } from "~/api/common";
 
 interface LoginResponse {
   profile: unknown;
@@ -11,15 +10,18 @@ export const login = async (credential: {
   email: string;
   password: string;
 }) => {
-  return await api.post<LoginResponse>(`${API_URL}/v2/login`, {
+  return await api.post<LoginResponse>(`${API_URL}/v2/profile/login`, {
     email: credential.email,
     password: credential.password,
   });
 };
 
-export const register = async (email: string, password: string) => {
-  return await api.post<LoginResponse>(`${API_URL}/v2/profile`, {
-    email,
-    password,
+export const register = async (credential: {
+  email: string;
+  password: string;
+}) => {
+  return await api.post<string>(`${API_URL}/v2/profile`, {
+    email: credential.email,
+    password: credential.password,
   });
 };

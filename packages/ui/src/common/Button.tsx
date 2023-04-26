@@ -44,7 +44,7 @@ export const Button = forwardRef(
       className={tw(
         "flex h-12 items-center gap-2 border border-transparent focus:outline-none focus:ring-2 focus:ring-offset-0",
         variant === "primary" &&
-          "bg-primary font-bold text-black hover:bg-primary-800 focus:bg-primary focus:ring-primary-100",
+          "bg-primary text-black hover:bg-primary-900 focus:bg-primary focus:ring-primary-100",
         variant === "outline" &&
           "border-primary text-primary hover:border-primary-800 hover:text-primary-800 focus:ring-primary-100",
         variant === "outline-white" &&

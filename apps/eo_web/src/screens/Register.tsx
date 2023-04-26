@@ -2,55 +2,79 @@ import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { z } from "zod";
 
 import { Button, Input, Typography, icons } from "@eo/ui";
 
-import { login } from "~/api/auth";
+import { register } from "~/api/auth";
 import { LayoutDefault } from "~/layouts/LayoutDefault";
 import { ROUTES } from "~/router";
-import {
-  useProfileStore,
-  type Profile,
-  type Session,
-} from "~/stores/useProfileStore";
 
 const newClientSchema = z.object({
   email: z
     .string()
     .min(1, { message: "Email is required" })
     .email({ message: "The email received it is not a valid email" }),
-  password: z.string().min(1, { message: "Password is required" }),
+  password: z
+    .string()
+    .min(8, { message: "The password must has 8 characters." })
+    .regex(
+      //make regex in javascript that has number, uppercase, and lowercase
+      /(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])/,
+      "The password must have at least one uppercase letter, one lowercase letter, one number",
+    ),
 });
 
 export type LoginFormSchema = z.infer<typeof newClientSchema>;
 
-export const Login = () => {
-  const setProfile = useProfileStore((state) => state.setProfile);
-  const setSession = useProfileStore((state) => state.setSession);
-  const [loginError, setLoginError] = useState<string>("");
-
-  const { mutate } = useMutation({
-    mutationFn: login,
-    onSuccess: ({ data }) => {
-      setProfile(data.profile as Profile);
-      setSession(data.session as Session);
-    },
-    onError: ({ response }) => {
-      if (response.status === 401) {
-        setLoginError("Your email or password is incorrect");
-      } else {
-        setLoginError(response.data.errors.default[0]);
-      }
-    },
-  });
+export const Register = () => {
+  const navigate = useNavigate();
 
   const {
     formState: { errors },
-    register,
+    register: registerForm,
     handleSubmit,
+    getValues,
+    setError,
   } = useForm<LoginFormSchema>({ resolver: zodResolver(newClientSchema) });
+
+  const { mutate } = useMutation({
+    mutationFn: register,
+    onError: (result: {
+      response: {
+        data: {
+          errors: {
+            email: Array<{ code: string; message: string }>;
+            password: Array<{ code: string; message: string }>;
+          };
+        };
+      };
+    }) => {
+      const errors = result.response.data.errors;
+
+      if (errors?.email) {
+        setError("email", {
+          message: errors.email.pop()?.message || "",
+        });
+      }
+
+      if (errors?.password) {
+        setError("password", {
+          message: errors.password.pop()?.message || "",
+        });
+      }
+    },
+    onSuccess: ({ data }) => {
+      if (typeof data === "string") {
+        navigate(ROUTES.registrationComplete, {
+          state: {
+            email: getValues("email"),
+          },
+        });
+      }
+    },
+  });
 
   const [showPassword, setShowPassword] = useState(false);
 
@@ -58,8 +82,8 @@ export const Login = () => {
     <LayoutDefault>
       <div className="flex h-full w-full flex-row items-center justify-center gap-20">
         <div>
-          <Typography variant="large" className="text-center">
-            Welcome
+          <Typography variant="large" font="medium" className="text-center">
+            Start here.
           </Typography>
           <form
             onSubmit={(e) => {
@@ -74,7 +98,7 @@ export const Login = () => {
               type="email"
               containerClassName="max-w-[327px]"
               className="h-12 shadow-md"
-              {...register("email")}
+              {...registerForm("email")}
               error={errors.email?.message}
             />
             <Input
@@ -93,32 +117,24 @@ export const Login = () => {
                   />
                 )
               }
-              containerClassName="w-[327px]"
+              containerClassName="max-w-[327px]"
               className="h-12 shadow-md"
               type={showPassword ? "text" : "password"}
-              {...register("password")}
+              {...registerForm("password")}
               error={errors.password?.message}
             />
             <Typography variant="small" className="text-gray-300">
-              Forgot password?
+              Must be at least 8 characters long and contain <br /> a capital
+              letter, number, and special character
             </Typography>
 
             <Button type="submit" className="mt-10">
-              Sign in
+              Create account
             </Button>
-            {loginError && (
-              <Typography
-                variant="small"
-                id="login-message"
-                className="text-red-600"
-              >
-                {loginError}
-              </Typography>
-            )}
             <Typography variant="small" className="text-gray-30 mt-3">
-              First time here?{" "}
-              <Link to={ROUTES.register}>
-                <strong>Create account</strong>
+              Already have an account?{" "}
+              <Link to={ROUTES.login}>
+                <strong>Sign in</strong>
               </Link>
             </Typography>
           </form>

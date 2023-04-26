@@ -16,7 +16,7 @@ export interface Session {
 
 export interface UserStoreState {
   profile: Profile | null;
-  setProfile(profile: Profile): void;
+  setProfile(profile: Profile | null): void;
   session: Session | null;
   setSession(session: Session | null): void;
 }
