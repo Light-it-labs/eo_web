@@ -8,7 +8,7 @@ import { ROUTES } from "./routes";
 type ProfileState = "loggedIn" | "loggedOut";
 
 const HOME = {
-  loggedIn: ROUTES.base,
+  loggedIn: ROUTES.home,
   loggedOut: ROUTES.login,
 } as const;
 

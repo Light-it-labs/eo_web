@@ -17,10 +17,10 @@ export const RegisterComplete = () => {
   const { mutate } = useMutation({
     mutationFn: resendEmailVerification,
     onSuccess: ({ data }) => {
-      if (data.success) {
-        toast.success("Email has been resent");
+      if (data) {
+        toast.success("Email has been send.");
       } else {
-        toast.success("Email hasn't been resent");
+        toast.error("Email hasn't been send");
       }
     },
   });

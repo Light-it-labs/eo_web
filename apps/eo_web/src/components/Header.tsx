@@ -19,19 +19,19 @@ export const Header = () => {
     setProfile(null);
     setSession(null);
     navigate(ROUTES.login);
-    toast.success("Logout successful");
+    toast.info("You has been logged out!");
   };
   return (
-    <header className="border-1 flex h-[93px] w-full flex-row items-center justify-between border bg-white px-10 shadow-lg">
+    <header className="border-1 relative flex h-[93px] w-full flex-row items-center justify-center border bg-white shadow-lg">
       <div></div>
       <img
         src="https://assets-global.website-files.com/641990da28209a736d8d7c6a/641990da28209a61b68d7cc2_eo-logo%201.svg"
         alt="Leters EO"
         className="h-11 w-20"
       />
-      <div>
+      <div className="absolute right-12">
         {profile && (
-          <Button variant="outline" onClick={() => logout()}>
+          <Button variant="outline" onClick={() => logout()} className="">
             Log out
           </Button>
         )}

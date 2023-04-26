@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
+import axios from "axios";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { z } from "zod";
 
 import { Button, Input, Typography, icons } from "@eo/ui";
@@ -28,6 +30,13 @@ const newClientSchema = z.object({
 
 export type LoginFormSchema = z.infer<typeof newClientSchema>;
 
+export interface RegisterErrorInterface {
+  errors: {
+    email: Array<{ code: string; message: string }>;
+    password: Array<{ code: string; message: string }>;
+  };
+}
+
 export const Register = () => {
   const navigate = useNavigate();
 
@@ -41,28 +50,23 @@ export const Register = () => {
 
   const { mutate } = useMutation({
     mutationFn: register,
-    onError: (result: {
-      response: {
-        data: {
-          errors: {
-            email: Array<{ code: string; message: string }>;
-            password: Array<{ code: string; message: string }>;
-          };
-        };
-      };
-    }) => {
-      const errors = result.response.data.errors;
+    onError: (result) => {
+      if (axios.isAxiosError(result)) {
+        const data = result.response?.data as RegisterErrorInterface;
 
-      if (errors?.email) {
-        setError("email", {
-          message: errors.email.pop()?.message || "",
-        });
-      }
+        if (data.errors?.email) {
+          setError("email", {
+            message: data.errors.email.pop()?.message || "",
+          });
+        }
 
-      if (errors?.password) {
-        setError("password", {
-          message: errors.password.pop()?.message || "",
-        });
+        if (data.errors?.password) {
+          setError("password", {
+            message: data.errors.password.pop()?.message || "",
+          });
+        }
+      } else {
+        toast.error("Something went wrong. Please try again later.");
       }
     },
     onSuccess: ({ data }) => {

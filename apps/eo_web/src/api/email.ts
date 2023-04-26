@@ -6,7 +6,7 @@ export interface ResendEmailVerificationResponse {
 }
 export const resendEmailVerification = async (email: string) => {
   return await api.post<ResendEmailVerificationResponse>(
-    `${API_URL}/v2/email/verification/resend`,
+    `${API_URL}/v2/profile/resend_confirmation_email`,
     { email },
   );
 };

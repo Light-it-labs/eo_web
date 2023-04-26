@@ -3,6 +3,7 @@ import { persist } from "zustand/middleware";
 
 export interface Profile {
   email: string;
+  zip: null | string;
 }
 export interface Session {
   app_release: null | unknown;
@@ -14,16 +15,17 @@ export interface Session {
   vendor_id: null | unknown;
 }
 
-export interface UserStoreState {
+export interface ProfileStoreState {
   profile: Profile | null;
   setProfile(profile: Profile | null): void;
   session: Session | null;
   setSession(session: Session | null): void;
+  setProfileZip(zip: string | null): void;
 }
 
-export const useProfileStore = create<UserStoreState>()(
+export const useProfileStore = create<ProfileStoreState>()(
   persist(
-    (set) => ({
+    (set, get) => ({
       profile: null,
       setProfile: (profile: Profile | null) => {
         set(() => ({ profile }));
@@ -31,6 +33,10 @@ export const useProfileStore = create<UserStoreState>()(
       session: null,
       setSession: (session) => {
         set(() => ({ session }));
+      },
+      setProfileZip: (zip) => {
+        const profile = get().profile;
+        set(() => ({ profile: profile ? { ...profile, zip } : null }));
       },
     }),
     {

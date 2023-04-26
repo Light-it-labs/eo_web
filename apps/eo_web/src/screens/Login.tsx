@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
+import axios from "axios";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { z } from "zod";
 
 import { Button, Input, Typography, icons } from "@eo/ui";
@@ -26,10 +27,25 @@ const newClientSchema = z.object({
 
 export type LoginFormSchema = z.infer<typeof newClientSchema>;
 
+export interface LoginErrorInterface {
+  errors: {
+    email: Array<{ code: string; message: string }>;
+    password: Array<{ code: string; message: string }>;
+  };
+}
+
 export const Login = () => {
   const setProfile = useProfileStore((state) => state.setProfile);
   const setSession = useProfileStore((state) => state.setSession);
   const [loginError, setLoginError] = useState<string>("");
+  const navigate = useNavigate();
+
+  const {
+    formState: { errors },
+    register,
+    handleSubmit,
+    getValues,
+  } = useForm<LoginFormSchema>({ resolver: zodResolver(newClientSchema) });
 
   const { mutate } = useMutation({
     mutationFn: login,
@@ -37,37 +53,28 @@ export const Login = () => {
       setProfile(data.profile as Profile);
       setSession(data.session as Session);
     },
-    onError: ({
-      response,
-    }: {
-      response: {
-        status: number;
-        data: {
-          errors: Array<{ code: string; message: string }>;
-        };
-      };
-    }) => {
-      if (response.status === 401) {
-        setLoginError("Your email or password is incorrect");
+    onError: (result) => {
+      if (axios.isAxiosError(result)) {
+        if (result.response?.status === 403) {
+          navigate(ROUTES.emailVerification, {
+            state: {
+              email: getValues("email"),
+            },
+          });
+        } else {
+          setLoginError("Your email or password is incorrect");
+        }
       } else {
-        setLoginError(
-          response.data.errors.pop()?.message || "Something went wrong",
-        );
+        setLoginError("Something went wrong");
       }
     },
   });
-
-  const {
-    formState: { errors },
-    register,
-    handleSubmit,
-  } = useForm<LoginFormSchema>({ resolver: zodResolver(newClientSchema) });
 
   const [showPassword, setShowPassword] = useState(false);
 
   return (
     <LayoutDefault>
-      <div className="flex h-full w-full flex-row items-center justify-center gap-20">
+      <div className="mx-4 flex h-full w-full flex-row items-center justify-center gap-20">
         <div>
           <Typography variant="large" className="text-center">
             Welcome
@@ -134,7 +141,7 @@ export const Login = () => {
             </Typography>
           </form>
         </div>
-        <div>
+        <div className="hidden md:block">
           <img
             className="w-[500px]"
             src="https://uploads-ssl.webflow.com/641990da28209a736d8d7c6a/641990da28209a9b288d7e7d_WhatsApp%20Image%202022-11-08%20at%207.46.28%20PM%20(1).jpeg"
