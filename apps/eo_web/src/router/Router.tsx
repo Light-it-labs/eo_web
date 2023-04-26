@@ -7,6 +7,7 @@ import { Register } from "~/screens/Register";
 import { RegisterComplete } from "~/screens/RegisterComplete";
 
 import { ProtectedRoute } from "./ProtectedRoute";
+import { Profiling1 } from "~/screens/profiling/Profiling1";
 
 export const Router = () => {
   return (
@@ -23,6 +24,7 @@ export const Router = () => {
 
       <Route element={<ProtectedRoute expected="loggedIn" />}>
         <Route element={<Home />} path={ROUTES.home} />
+        <Route element={<Profiling1 />} path={ROUTES.profiling1} />
       </Route>
     </Routes>
   );
