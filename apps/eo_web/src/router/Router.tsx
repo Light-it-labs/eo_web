@@ -5,14 +5,10 @@ import { Home } from "~/screens/Home";
 import { Login } from "~/screens/Login";
 import { Register } from "~/screens/Register";
 import { RegisterComplete } from "~/screens/RegisterComplete";
-import { useProfileStore } from "~/stores/useProfileStore";
 
 import { ProtectedRoute } from "./ProtectedRoute";
 
 export const Router = () => {
-  const setProfile = useProfileStore((state) => {
-    return state.setProfile;
-  });
   return (
     <Routes>
       <Route element={<ProtectedRoute expected="loggedOut" />}>

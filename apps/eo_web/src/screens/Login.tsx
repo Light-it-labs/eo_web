@@ -37,11 +37,22 @@ export const Login = () => {
       setProfile(data.profile as Profile);
       setSession(data.session as Session);
     },
-    onError: ({ response }) => {
+    onError: ({
+      response,
+    }: {
+      response: {
+        status: number;
+        data: {
+          errors: Array<{ code: string; message: string }>;
+        };
+      };
+    }) => {
       if (response.status === 401) {
         setLoginError("Your email or password is incorrect");
       } else {
-        setLoginError(response.data.errors.default[0]);
+        setLoginError(
+          response.data.errors.pop()?.message || "Something went wrong",
+        );
       }
     },
   });
