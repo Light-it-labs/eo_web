@@ -25,22 +25,25 @@ export const Router = () => {
         />
       </Route>
 
-      <Route element={<ProtectedRoute expected="loggedIn" />}>
+      <Route element={<ProtectedRoute expected="withZipCode" />}>
         <Route element={<Home />} path={ROUTES.home} />
-        <Route
-          element={<ZipCodeValidation />}
-          path={ROUTES.zipCodeValidation}
-        />
         <Route
           element={<UnavailableZipCode />}
           path={ROUTES.unavailableZipCode}
         />
+        <Route element={<EligibleProfile />} path={ROUTES.eligibleProfile} />
       </Route>
+
       <Route
-        element={<UnavailableZipCode />}
-        path={ROUTES.unavailableZipCode}
-      />
-      <Route element={<EligibleProfile />} path={ROUTES.eligibleProfile} />
+        element={
+          <ProtectedRoute expected={["withoutZipCode", "withZipCode"]} />
+        }
+      >
+        <Route
+          element={<ZipCodeValidation />}
+          path={ROUTES.zipCodeValidation}
+        />
+      </Route>
       <Route
         element={<EmailVerificationLogged />}
         path={ROUTES.emailVerification}
