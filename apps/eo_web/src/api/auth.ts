@@ -1,9 +1,14 @@
 import { api } from "~/api/axios";
 import { API_URL } from "~/api/common";
+import {
+  useProfileStore,
+  type Profile,
+  type Session,
+} from "~/stores/useProfileStore";
 
 interface LoginResponse {
-  profile: unknown;
-  session: unknown;
+  profile: Profile;
+  session: Session;
 }
 
 export const login = async (credential: {
@@ -24,4 +29,9 @@ export const register = async (credential: {
     email: credential.email,
     password: credential.password,
   });
+};
+
+export const GetToken = () => {
+  const session = useProfileStore((state) => state.session);
+  return session?.token;
 };

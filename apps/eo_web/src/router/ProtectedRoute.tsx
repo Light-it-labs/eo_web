@@ -5,10 +5,11 @@ import { useProfileStore } from "~/stores/useProfileStore";
 
 import { ROUTES } from "./routes";
 
-type ProfileState = "loggedIn" | "loggedOut";
+type ProfileState = "loggedOut" | "withZipCode" | "withoutZipCode";
 
 const HOME = {
-  loggedIn: ROUTES.base,
+  withoutZipCode: ROUTES.zipCodeValidation,
+  withZipCode: ROUTES.home,
   loggedOut: ROUTES.login,
 } as const;
 
@@ -20,7 +21,11 @@ export const ProtectedRoute = ({
   expected: ProfileState | ProfileState[];
 }) => {
   const userState = useProfileStore((state) =>
-    state.profile ? "loggedIn" : "loggedOut",
+    state.profile
+      ? state.profile.zip
+        ? "withZipCode"
+        : "withoutZipCode"
+      : "loggedOut",
   );
 
   if (!expected.includes(userState)) {
