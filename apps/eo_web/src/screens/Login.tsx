@@ -11,11 +11,7 @@ import { Button, Input, Typography, icons } from "@eo/ui";
 import { login } from "~/api/auth";
 import { LayoutDefault } from "~/layouts/LayoutDefault";
 import { ROUTES } from "~/router";
-import {
-  useProfileStore,
-  type Profile,
-  type Session,
-} from "~/stores/useProfileStore";
+import { useProfileStore } from "~/stores/useProfileStore";
 
 const newClientSchema = z.object({
   email: z
@@ -50,8 +46,8 @@ export const Login = () => {
   const { mutate } = useMutation({
     mutationFn: login,
     onSuccess: ({ data }) => {
-      setProfile(data.profile as Profile);
-      setSession(data.session as Session);
+      setProfile(data.profile);
+      setSession(data.session);
     },
     onError: (result) => {
       if (axios.isAxiosError(result)) {

@@ -1,10 +1,14 @@
 import { api } from "~/api/axios";
 import { API_URL } from "~/api/common";
-import { useProfileStore } from "~/stores/useProfileStore";
+import {
+  useProfileStore,
+  type Profile,
+  type Session,
+} from "~/stores/useProfileStore";
 
 interface LoginResponse {
-  profile: unknown;
-  session: unknown;
+  profile: Profile;
+  session: Session;
 }
 
 export const login = async (credential: {
