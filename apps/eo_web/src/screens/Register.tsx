@@ -22,7 +22,6 @@ const newClientSchema = z.object({
     .string()
     .min(8, { message: "The password must has 8 characters." })
     .regex(
-      //make regex in javascript that has number, uppercase, and lowercase
       /(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])/,
       "The password must have at least one uppercase letter, one lowercase letter, one number",
     ),

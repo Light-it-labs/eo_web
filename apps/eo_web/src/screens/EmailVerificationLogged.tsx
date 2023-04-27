@@ -1,5 +1,4 @@
 import { useMutation } from "@tanstack/react-query";
-import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
@@ -19,10 +18,8 @@ export const EmailVerificationLogged = () => {
     onSuccess: () => {
       toast.success("Email resent successfully, please check your inbox");
     },
-    onError: (result) => {
-      if (axios.isAxiosError(result)) {
-      } else {
-      }
+    onError: () => {
+      toast.error("An error occurred, please try again later");
     },
   });
 

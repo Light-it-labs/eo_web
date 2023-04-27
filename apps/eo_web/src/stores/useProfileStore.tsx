@@ -6,13 +6,7 @@ export interface Profile {
   zip: null | string;
 }
 export interface Session {
-  app_release: null | unknown;
-  app_version: null | unknown;
-  device: null | unknown;
-  device_type: null | unknown;
-  ios_version: null | unknown;
   token: string;
-  vendor_id: null | unknown;
 }
 
 export interface ProfileStoreState {
