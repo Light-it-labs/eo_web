@@ -8,5 +8,7 @@ export const ROUTES = {
   emailVerification: `${BASE}profile/email-verification`,
   unavailableZipCode: `${BASE}/profile/unavailable-zip-code`,
   eligibleProfile: `${BASE}/profile/eligible-profile`,
-  profiling1: `${BASE}profiling1`,
+  profilingOne: `${BASE}/profiling/one`,
+  profilingOneRedirect: `${BASE}/profiling/one/redirect`,
+  profilingTwo: `${BASE}/profiling/two`,
 } as const;

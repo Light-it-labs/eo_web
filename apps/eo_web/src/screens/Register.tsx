@@ -85,10 +85,11 @@ export const Register = () => {
     <LayoutDefault>
       <div className="flex h-full w-full flex-row items-center justify-center gap-20">
         <div>
-          <Typography variant="large" font="medium" className="text-center">
+          <Typography variant="large" font="medium">
             Start here.
           </Typography>
           <form
+            className="mt-10"
             onSubmit={(e) => {
               void handleSubmit((data) => {
                 mutate(data);

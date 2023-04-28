@@ -5,7 +5,12 @@ import { tw, type TextTags } from "@eo/shared";
 export const typographyVariants = ["base", "detail", "large", "small"] as const;
 export type TypographyVariant = (typeof typographyVariants)[number];
 
-export const typographyFonts = ["medium", "regular", "semiBold"] as const;
+export const typographyFonts = [
+  "medium",
+  "regular",
+  "semiBold",
+  "bold",
+] as const;
 export type TypographyFont = (typeof typographyFonts)[number];
 
 export interface TypographyProps extends ComponentPropsWithoutRef<"p"> {
@@ -25,15 +30,16 @@ export const Typography = ({
   return (
     <Container
       className={tw(
-        "text-gray-900 tracking-normal",
+        "text-nobel tracking-normal text-gray-900",
         variant === "base" && "text-base",
         variant === "detail" && "text-xs",
-        variant === "large" && "text-lg",
+        variant === "large" && "text-grand text-4xl",
         variant === "small" && "text-sm",
 
         font === "medium" && "font-medium",
         font === "regular" && "font-normal",
         font === "semiBold" && "font-semibold",
+        font === "bold" && "font-bold",
 
         className,
       )}

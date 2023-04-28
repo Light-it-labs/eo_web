@@ -9,9 +9,11 @@ import { Register } from "~/screens/Register";
 import { RegisterComplete } from "~/screens/RegisterComplete";
 import { UnavailableZipCode } from "~/screens/UnavailableZipCode";
 import { ZipCodeValidation } from "~/screens/ZipCodeValidation";
+import { ProfilingOne } from "~/screens/profiling/ProfilingOne";
+import { ProfilingOneRedirect } from "~/screens/profiling/ProfilingOneRedirect";
+import { ProfilingTwo } from "~/screens/profiling/ProfilingTwo";
 
 import { ProtectedRoute } from "./ProtectedRoute";
-import { Profiling1 } from "~/screens/profiling/Profiling1";
 
 export const Router = () => {
   return (
@@ -33,8 +35,16 @@ export const Router = () => {
           path={ROUTES.unavailableZipCode}
         />
         <Route element={<EligibleProfile />} path={ROUTES.eligibleProfile} />
-        <Route element={<Profiling1 />} path={ROUTES.profiling1} />
+        <Route element={<ProfilingOne />} path={ROUTES.profilingOne} />
+        <Route
+          element={<ProfilingOneRedirect />}
+          path={ROUTES.profilingOneRedirect}
+        />
       </Route>
+
+      {/*<Route element={<ProtectedRoute expected="withProfilingOne" />}>*/}
+      <Route element={<ProfilingTwo />} path={ROUTES.profilingTwo} />
+      {/*</Route>*/}
 
       <Route
         element={
