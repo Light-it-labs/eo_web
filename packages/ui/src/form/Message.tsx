@@ -12,10 +12,10 @@ export interface MessageProps extends ComponentPropsWithoutRef<"p"> {
 export const Message = ({ message, error, className }: MessageProps) => (
   <p
     className={tw(
-      "block pt-1 pb-1 text-xs opacity-80 text-black-800",
+      "block pb-1 pt-1 text-xs text-black-800 opacity-80",
       className,
       {
-        "text-red": !!error,
+        "text-red-900": !!error,
       },
     )}
   >

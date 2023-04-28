@@ -1,14 +1,15 @@
 import { type ReactNode } from "react";
 import { Navigate, Outlet } from "react-router-dom";
 
-import { useUserStore } from "~/stores/useUserStore";
+import { useProfileStore } from "~/stores/useProfileStore";
 
 import { ROUTES } from "./routes";
 
-type UserState = "loggedIn" | "loggedOut";
+type ProfileState = "loggedOut" | "withZipCode" | "withoutZipCode";
 
 const HOME = {
-  loggedIn: ROUTES.base,
+  withoutZipCode: ROUTES.zipCodeValidation,
+  withZipCode: ROUTES.home,
   loggedOut: ROUTES.login,
 } as const;
 
@@ -17,10 +18,14 @@ export const ProtectedRoute = ({
   expected,
 }: {
   children?: ReactNode;
-  expected: UserState | UserState[];
+  expected: ProfileState | ProfileState[];
 }) => {
-  const userState = useUserStore((state) =>
-    state.user ? "loggedIn" : "loggedOut",
+  const userState = useProfileStore((state) =>
+    state.profile
+      ? state.profile.zip
+        ? "withZipCode"
+        : "withoutZipCode"
+      : "loggedOut",
   );
 
   if (!expected.includes(userState)) {

@@ -4,64 +4,77 @@ import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { z } from "zod";
 
 import { Button, Input, Typography, icons } from "@eo/ui";
 
-import { login } from "~/api/auth";
+import { register } from "~/api/auth";
 import { LayoutDefault } from "~/layouts/LayoutDefault";
 import { ROUTES } from "~/router";
-import { useProfileStore } from "~/stores/useProfileStore";
 
 const newClientSchema = z.object({
   email: z
     .string()
     .min(1, { message: "Email is required" })
     .email({ message: "The email received it is not a valid email" }),
-  password: z.string().min(1, { message: "Password is required" }),
+  password: z
+    .string()
+    .min(8, { message: "The password must has 8 characters." })
+    .regex(
+      /(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])/,
+      "The password must have at least one uppercase letter, one lowercase letter, one number",
+    ),
 });
 
 export type LoginFormSchema = z.infer<typeof newClientSchema>;
 
-export interface LoginErrorInterface {
+export interface RegisterErrorInterface {
   errors: {
     email: Array<{ code: string; message: string }>;
     password: Array<{ code: string; message: string }>;
   };
 }
 
-export const Login = () => {
-  const setProfile = useProfileStore((state) => state.setProfile);
-  const setSession = useProfileStore((state) => state.setSession);
-  const [loginError, setLoginError] = useState<string>("");
+export const Register = () => {
   const navigate = useNavigate();
 
   const {
     formState: { errors },
-    register,
+    register: registerForm,
     handleSubmit,
     getValues,
+    setError,
   } = useForm<LoginFormSchema>({ resolver: zodResolver(newClientSchema) });
 
   const { mutate } = useMutation({
-    mutationFn: login,
-    onSuccess: ({ data }) => {
-      setProfile(data.profile);
-      setSession(data.session);
-    },
+    mutationFn: register,
     onError: (result) => {
       if (axios.isAxiosError(result)) {
-        if (result.response?.status === 403) {
-          navigate(ROUTES.emailVerification, {
-            state: {
-              email: getValues("email"),
-            },
+        const data = result.response?.data as RegisterErrorInterface;
+
+        if (data.errors?.email) {
+          setError("email", {
+            message: data.errors.email.pop()?.message || "",
           });
-        } else {
-          setLoginError("Your email or password is incorrect");
+        }
+
+        if (data.errors?.password) {
+          setError("password", {
+            message: data.errors.password.pop()?.message || "",
+          });
         }
       } else {
-        setLoginError("Something went wrong");
+        toast.error("Something went wrong. Please try again later.");
+      }
+    },
+    onSuccess: ({ data }) => {
+      if (typeof data === "string") {
+        navigate(ROUTES.registrationComplete, {
+          state: {
+            email: getValues("email"),
+          },
+        });
       }
     },
   });
@@ -70,10 +83,10 @@ export const Login = () => {
 
   return (
     <LayoutDefault>
-      <div className="mx-4 flex h-full w-full flex-row items-center justify-center gap-20">
+      <div className="flex h-full w-full flex-row items-center justify-center gap-20">
         <div>
-          <Typography variant="large" className="text-center">
-            Welcome
+          <Typography variant="large" font="medium" className="text-center">
+            Start here.
           </Typography>
           <form
             onSubmit={(e) => {
@@ -88,7 +101,7 @@ export const Login = () => {
               type="email"
               containerClassName="max-w-[327px]"
               className="h-12 shadow-md"
-              {...register("email")}
+              {...registerForm("email")}
               error={errors.email?.message}
             />
             <Input
@@ -107,37 +120,29 @@ export const Login = () => {
                   />
                 )
               }
-              containerClassName="w-[327px]"
+              containerClassName="max-w-[327px]"
               className="h-12 shadow-md"
               type={showPassword ? "text" : "password"}
-              {...register("password")}
+              {...registerForm("password")}
               error={errors.password?.message}
             />
             <Typography variant="small" className="text-gray-300">
-              Forgot password?
+              Must be at least 8 characters long and contain <br /> a capital
+              letter, number, and special character
             </Typography>
 
             <Button type="submit" className="mt-10">
-              Sign in
+              Create account
             </Button>
-            {loginError && (
-              <Typography
-                variant="small"
-                id="login-message"
-                className="text-red-600"
-              >
-                {loginError}
-              </Typography>
-            )}
             <Typography variant="small" className="text-gray-30 mt-3">
-              First time here?{" "}
-              <Link to={ROUTES.register}>
-                <strong>Create account</strong>
+              Already have an account?{" "}
+              <Link to={ROUTES.login}>
+                <strong>Sign in</strong>
               </Link>
             </Typography>
           </form>
         </div>
-        <div className="hidden md:block">
+        <div>
           <img
             className="w-[500px]"
             src="https://uploads-ssl.webflow.com/641990da28209a736d8d7c6a/641990da28209a9b288d7e7d_WhatsApp%20Image%202022-11-08%20at%207.46.28%20PM%20(1).jpeg"
