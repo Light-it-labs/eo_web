@@ -17,7 +17,7 @@ export const ProfilingOne = () => {
           allowTransparency={true}
           allowFullScreen={true}
           allow="geolocation; microphone; camera"
-          src="https://form.jotform.com/231014818128147"
+          src="https://form.jotform.com/231014818128147?isuser=Yes"
           className="h-full w-full"
         ></iframe>
       </div>

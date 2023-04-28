@@ -11,4 +11,5 @@ export const ROUTES = {
   profilingOne: `${BASE}/profiling/one`,
   profilingOneRedirect: `${BASE}/profiling/one/redirect`,
   profilingTwo: `${BASE}/profiling/two`,
+  profilingTwoRedirect: `${BASE}/profiling/two/redirect`,
 } as const;
