@@ -13,6 +13,7 @@ declare global {
       API_URL: string;
       PROFILE_ONE_ID: string;
       PROFILE_TWO_ID: string;
+      ZUKO_SLUG_ID_PROCESS_START: string;
     };
   }
 }

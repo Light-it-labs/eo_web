@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
@@ -21,8 +22,34 @@ const zipCodeValidationSchema = z.object({
 });
 export type ZipCodeValidationSchema = z.infer<typeof zipCodeValidationSchema>;
 
+const ZUKO_SLUG_ID =
+  window.data.ZUKO_SLUG_ID_PROCESS_START || "4e9cc7ceea3e22fb";
+
 export const ZipCodeValidation = () => {
   const { validateZipCode } = useElixirApi();
+
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.type = "text/javascript";
+    script.async = true;
+    script.src = "https://assets.zuko.io/js/v2/client.min.js";
+
+    const implementScript = document.createElement("script");
+    implementScript.type = "text/javascript";
+    implementScript.async = true;
+    script.appendChild(
+      document.createTextNode(
+        `<script>Zuko.trackForm({target:document.body,slug:${ZUKO_SLUG_ID}}).trackEvent(Zuko.FORM_VIEW_EVENT);</script>`,
+      ),
+    );
+    document.body.appendChild(script);
+    document.body.appendChild(implementScript);
+
+    return () => {
+      document.body.removeChild(script);
+      document.body.removeChild(implementScript);
+    };
+  });
 
   const navigate = useNavigate();
   const setProfileZip = useProfileStore((state) => state.setProfileZip);

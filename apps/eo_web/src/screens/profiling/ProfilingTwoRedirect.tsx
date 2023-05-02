@@ -8,6 +8,8 @@ import { useElixirApi } from "~/api/useElixirApi";
 import { LayoutDefault } from "~/layouts";
 import { ROUTES } from "~/router";
 
+const ZUKO_SLUG_ID =
+  window.data.ZUKO_SLUG_ID_PROCESS_START || "4e9cc7ceea3e22fb";
 export const ProfilingTwoRedirect = () => {
   const navigate = useNavigate();
   const [sentProfile, setSentProfile] = useState(false);
@@ -26,6 +28,29 @@ export const ProfilingTwoRedirect = () => {
         navigate(ROUTES.profilingTwo);
       }, 5000);
     },
+  });
+
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.type = "text/javascript";
+    script.async = true;
+    script.src = "https ://assets.zuko.io/js/v2/client.min.js";
+
+    const implementScript = document.createElement("script");
+    implementScript.type = "text/javascript";
+    implementScript.async = true;
+    script.appendChild(
+      document.createTextNode(
+        `<script>Zuko.trackForm({target:document.body,slug:${ZUKO_SLUG_ID}}).trackEvent(Zuko.COMPLETION_EVENT);</script>`,
+      ),
+    );
+    document.body.appendChild(script);
+    document.body.appendChild(implementScript);
+
+    return () => {
+      document.body.removeChild(script);
+      document.body.removeChild(implementScript);
+    };
   });
 
   useEffect(() => {
