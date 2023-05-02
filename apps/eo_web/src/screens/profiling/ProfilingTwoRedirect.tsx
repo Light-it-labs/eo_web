@@ -39,7 +39,7 @@ export const ProfilingTwoRedirect = () => {
 
     const implementScript = document.createElement("script");
     implementScript.type = "text/javascript";
-    implementScript.textContent = `Zuko.trackForm({target:document.body,slug:"${ZUKO_SLUG_ID}"}).trackEvent(Zuko.FORM_VIEW_EVENT);`;
+    implementScript.textContent = `Zuko.trackForm({slug:'${ZUKO_SLUG_ID}'}).trackEvent(Zuko.COMPLETION_EVENT);`;
     setTimeout(() => {
       document.body.appendChild(implementScript);
     }, 2000);
