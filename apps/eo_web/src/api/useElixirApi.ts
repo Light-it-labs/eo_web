@@ -40,7 +40,6 @@ export interface ZipCodeValidationResponseError {
     }>;
   };
 }
-
 export const useElixirApi = () => {
   const token = useProfileStore((state) => state.session?.token);
 
@@ -61,7 +60,29 @@ export const useElixirApi = () => {
     );
   };
 
+  const combineProfileOne = async (submissionId: string) => {
+    return api.post(
+      `${API_URL}/v2/profile/combine_profile_one`,
+      {
+        submission_id: submissionId,
+      },
+      authHeader,
+    );
+  };
+
+  const combineProfileTwo = async (submissionId: string) => {
+    return api.post(
+      `${API_URL}/v2/profile/combine_profile_two`,
+      {
+        submission_id: submissionId,
+      },
+      authHeader,
+    );
+  };
+
   return {
     validateZipCode,
+    combineProfileOne,
+    combineProfileTwo,
   };
 };

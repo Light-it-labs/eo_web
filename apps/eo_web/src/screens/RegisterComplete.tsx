@@ -34,7 +34,7 @@ export const RegisterComplete = () => {
   return (
     <LayoutDefault>
       <div className="flex h-full w-full flex-col items-center justify-center">
-        <Typography variant="large" className="mb-10 text-center">
+        <Typography variant="large" font="bold" className="mb-10 text-center">
           We’ve sent a verification email to {state?.email}.<br /> Please verify
           to continue.
         </Typography>

@@ -3,6 +3,7 @@ import { type ComponentPropsWithoutRef, type ForwardedRef } from "react";
 import { forwardRef, tw } from "@eo/shared";
 
 import { IconWrapper } from "./Icons";
+import { Typography } from "./Typography";
 
 export const buttonVariants = [
   "primary",
@@ -80,7 +81,18 @@ export const Button = forwardRef(
       {...props}
     >
       {left && <IconWrapper size={size}>{left}</IconWrapper>}
-      {children}
+      <Typography
+        variant="base"
+        className={tw(
+          variant === "primary" && "text-black",
+          variant === "outline" && "text-primary",
+          variant === "outline-white" && "text-primary-white-500",
+          variant === "secondary" && "text-primary-400",
+          variant === "tertiary-link" && "text-primary",
+        )}
+      >
+        {children}
+      </Typography>
       {right && <IconWrapper size={size}>{right}</IconWrapper>}
     </button>
   ),

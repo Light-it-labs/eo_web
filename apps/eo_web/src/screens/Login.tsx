@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import { toast } from "react-toastify";
 import { z } from "zod";
 
 import { Button, Input, Typography, icons } from "@eo/ui";
@@ -33,8 +34,22 @@ export interface LoginErrorInterface {
 export const Login = () => {
   const setProfile = useProfileStore((state) => state.setProfile);
   const setSession = useProfileStore((state) => state.setSession);
+  const [accountConfirmed, setAccountConfirmed] = useState<boolean>(false);
   const [loginError, setLoginError] = useState<string>("");
   const navigate = useNavigate();
+
+  const [searchParams] = useSearchParams();
+
+  useEffect(() => {
+    if (searchParams.has("email") && searchParams.has("account_confirmed")) {
+      setAccountConfirmed((confirmed) => {
+        if (!confirmed) {
+          toast.success("Your account has been activated.");
+        }
+        return true;
+      });
+    }
+  }, [accountConfirmed, searchParams]);
 
   const {
     formState: { errors },
@@ -72,10 +87,11 @@ export const Login = () => {
     <LayoutDefault>
       <div className="mx-4 flex h-full w-full flex-row items-center justify-center gap-20">
         <div>
-          <Typography variant="large" className="text-center">
-            Welcome
+          <Typography variant="large" font="bold">
+            Welcome back.
           </Typography>
           <form
+            className="mt-10"
             onSubmit={(e) => {
               void handleSubmit((data) => {
                 mutate(data);

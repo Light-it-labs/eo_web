@@ -5,12 +5,17 @@ import { useProfileStore } from "~/stores/useProfileStore";
 
 import { ROUTES } from "./routes";
 
-type ProfileState = "loggedOut" | "withZipCode" | "withoutZipCode";
+type ProfileState =
+  | "loggedOut"
+  | "withZipCode"
+  | "withoutZipCode"
+  | "withProfilingOne";
 
 const HOME = {
   withoutZipCode: ROUTES.zipCodeValidation,
   withZipCode: ROUTES.home,
   loggedOut: ROUTES.login,
+  withProfilingOne: ROUTES.profilingOne,
 } as const;
 
 export const ProtectedRoute = ({
