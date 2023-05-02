@@ -33,16 +33,12 @@ export const ZipCodeValidation = () => {
     script.type = "text/javascript";
     script.async = true;
     script.src = "https://assets.zuko.io/js/v2/client.min.js";
+    document.body.appendChild(script);
 
     const implementScript = document.createElement("script");
     implementScript.type = "text/javascript";
     implementScript.async = true;
-    script.appendChild(
-      document.createTextNode(
-        `<script>Zuko.trackForm({target:document.body,slug:${ZUKO_SLUG_ID}}).trackEvent(Zuko.FORM_VIEW_EVENT);</script>`,
-      ),
-    );
-    document.body.appendChild(script);
+    implementScript.textContent = `Zuko.trackForm({target:document.body,slug:${ZUKO_SLUG_ID}}).trackEvent(Zuko.FORM_VIEW_EVENT);`;
     document.body.appendChild(implementScript);
 
     return () => {
