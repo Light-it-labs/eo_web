@@ -1,6 +1,6 @@
 // @ts-nocheck
-export const jotformScript = () => {
-  var ifr = document.getElementById("JotFormIFrame-231015554139147");
+export const jotformScript = (profileId) => {
+  var ifr = document.getElementById(`JotFormIFrame-${profileId}`);
   if (ifr) {
     var src = ifr.src;
     var iframeParams = [];

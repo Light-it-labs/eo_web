@@ -37,9 +37,10 @@ export const ProfilingTwoRedirect = () => {
   return (
     <LayoutDefault>
       <div className="flex h-full h-full flex-col items-center justify-center">
-        <Typography variant="large" font="bold">
-          Great! Your we are working with your care plan. <br /> In a few
-          minutes we will send you by email. Also you will be able to view your
+        <Typography variant="large" font="bold" className="text-center">
+          Great! We are working with your care plan. <br />
+          <br /> In a few minutes we will send you by email.{" "}
+          <br className="hidden md:block" /> Also you will be able to view your
           care plan in your dashboard.
         </Typography>
         <Button
