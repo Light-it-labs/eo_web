@@ -37,8 +37,7 @@ export const ZipCodeValidation = () => {
 
     const implementScript = document.createElement("script");
     implementScript.type = "text/javascript";
-    implementScript.async = true;
-    implementScript.textContent = `Zuko.trackForm({target:document.body,slug:${ZUKO_SLUG_ID}}).trackEvent(Zuko.FORM_VIEW_EVENT);`;
+    implementScript.textContent = `Zuko.trackForm({target:document.body,slug:"${ZUKO_SLUG_ID}"}).trackEvent(Zuko.FORM_VIEW_EVENT);`;
     document.body.appendChild(implementScript);
 
     return () => {
