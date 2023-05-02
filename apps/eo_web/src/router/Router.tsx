@@ -12,6 +12,7 @@ import { ZipCodeValidation } from "~/screens/ZipCodeValidation";
 import { ProfilingOne } from "~/screens/profiling/ProfilingOne";
 import { ProfilingOneRedirect } from "~/screens/profiling/ProfilingOneRedirect";
 import { ProfilingTwo } from "~/screens/profiling/ProfilingTwo";
+import { ProfilingTwoRedirect } from "~/screens/profiling/ProfilingTwoRedirect";
 
 import { ProtectedRoute } from "./ProtectedRoute";
 
@@ -41,6 +42,10 @@ export const Router = () => {
           path={ROUTES.profilingOneRedirect}
         />
         <Route element={<ProfilingTwo />} path={ROUTES.profilingTwo} />
+        <Route
+          element={<ProfilingTwoRedirect />}
+          path={ROUTES.profilingTwoRedirect}
+        />
       </Route>
 
       <Route

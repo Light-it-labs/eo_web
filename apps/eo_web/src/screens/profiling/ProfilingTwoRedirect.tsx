@@ -8,7 +8,7 @@ import { useElixirApi } from "~/api/useElixirApi";
 import { LayoutDefault } from "~/layouts";
 import { ROUTES } from "~/router";
 
-export const ProfilingOneRedirect = () => {
+export const ProfilingTwoRedirect = () => {
   const navigate = useNavigate();
   const [sentProfile, setSentProfile] = useState(false);
   const { combineProfileOne } = useElixirApi();
