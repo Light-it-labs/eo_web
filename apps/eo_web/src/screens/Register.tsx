@@ -85,7 +85,7 @@ export const Register = () => {
     <LayoutDefault>
       <div className="flex h-full w-full flex-row items-center justify-center gap-20">
         <div>
-          <Typography variant="large" font="medium">
+          <Typography variant="large" font="bold">
             Start here.
           </Typography>
           <form

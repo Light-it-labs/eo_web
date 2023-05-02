@@ -64,7 +64,7 @@ export const ZipCodeValidation = () => {
   return (
     <LayoutDefault>
       <div className="flex h-full h-full flex-col items-center justify-center">
-        <Typography variant="large">
+        <Typography variant="large" font="bold">
           First, let’s check our availability in your area.
         </Typography>
         <form

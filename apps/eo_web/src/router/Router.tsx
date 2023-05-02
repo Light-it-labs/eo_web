@@ -40,11 +40,8 @@ export const Router = () => {
           element={<ProfilingOneRedirect />}
           path={ROUTES.profilingOneRedirect}
         />
+        <Route element={<ProfilingTwo />} path={ROUTES.profilingTwo} />
       </Route>
-
-      {/*<Route element={<ProtectedRoute expected="withProfilingOne" />}>*/}
-      <Route element={<ProfilingTwo />} path={ROUTES.profilingTwo} />
-      {/*</Route>*/}
 
       <Route
         element={

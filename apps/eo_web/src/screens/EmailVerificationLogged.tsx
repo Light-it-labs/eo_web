@@ -30,7 +30,7 @@ export const EmailVerificationLogged = () => {
   return (
     <LayoutDefault>
       <div className="flex h-full h-full flex-col items-center justify-center">
-        <Typography variant="large">
+        <Typography variant="large" font="bold">
           Your email is not verified yet. Please check your inbox to activate.
         </Typography>
         <Button type="submit" className="mt-10" onClick={() => mutate(email)}>
