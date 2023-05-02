@@ -38,11 +38,15 @@ export const ZipCodeValidation = () => {
     const implementScript = document.createElement("script");
     implementScript.type = "text/javascript";
     implementScript.textContent = `Zuko.trackForm({target:document.body,slug:"${ZUKO_SLUG_ID}"}).trackEvent(Zuko.FORM_VIEW_EVENT);`;
-    document.body.appendChild(implementScript);
+    setTimeout(() => {
+      document.body.appendChild(implementScript);
+    }, 2000);
 
     return () => {
       document.body.removeChild(script);
-      document.body.removeChild(implementScript);
+      setTimeout(() => {
+        document.body.removeChild(implementScript);
+      }, 2000);
     };
   });
 
