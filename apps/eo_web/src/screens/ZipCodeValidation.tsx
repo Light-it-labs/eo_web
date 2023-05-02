@@ -48,7 +48,7 @@ export const ZipCodeValidation = () => {
         document.body.removeChild(implementScript);
       }, 2000);
     };
-  });
+  }, []);
 
   const navigate = useNavigate();
   const setProfileZip = useProfileStore((state) => state.setProfileZip);

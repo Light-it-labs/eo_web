@@ -50,7 +50,7 @@ export const ProfilingTwoRedirect = () => {
         document.body.removeChild(implementScript);
       }, 2000);
     };
-  });
+  }, []);
 
   useEffect(() => {
     if (!sentProfile) {
