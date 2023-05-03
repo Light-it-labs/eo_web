@@ -129,9 +129,14 @@ export const Login = () => {
               {...register("password")}
               error={errors.password?.message}
             />
-            <Typography variant="small" className="text-gray-300">
-              Forgot password?
-            </Typography>
+            <Link to={ROUTES.forgotPassword}>
+              <Typography
+                variant="small"
+                className="text-gray-300 hover:underline"
+              >
+                Forgot password?
+              </Typography>
+            </Link>
 
             <Button type="submit" className="mt-10">
               Sign in
