@@ -29,7 +29,7 @@ export const EmailVerificationUncompletedButLogged = () => {
 
   return (
     <LayoutDefault>
-      <div className="flex h-full h-full flex-col items-center justify-center">
+      <div className="flex h-full h-full flex-col items-center justify-center px-2">
         <Typography variant="large" font="bold">
           It looks like you haven’t verified your email.{" "}
           <br className="hidden md:block" /> Try checking your junk or spam

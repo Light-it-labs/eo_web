@@ -10,7 +10,7 @@ export const EligibleProfile = () => {
 
   return (
     <LayoutDefault>
-      <div className="flex h-full h-full flex-col items-center justify-center">
+      <div className="flex h-full h-full flex-col items-center justify-center px-2">
         <Typography variant="large" font="bold" className="mx-10 text-center">
           Looks like you’re eligible for eo! Next, we’ll get you to fill out
           <br />

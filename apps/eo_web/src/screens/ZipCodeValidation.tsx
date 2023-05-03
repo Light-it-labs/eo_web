@@ -63,8 +63,8 @@ export const ZipCodeValidation = () => {
 
   return (
     <LayoutDefault>
-      <div className="flex h-full h-full flex-col items-center justify-center">
-        <Typography variant="large" font="bold">
+      <div className="flex h-full h-full flex-col items-center justify-center px-2">
+        <Typography variant="large" font="bold" className="text-center">
           First, let’s check our availability in your area.
         </Typography>
         <form
@@ -79,7 +79,7 @@ export const ZipCodeValidation = () => {
             id={"zip_code"}
             label="Zip Code"
             type="number"
-            className="h-12 w-[327px] shadow-md"
+            className="h-12 shadow-md"
             {...registerForm("zip_code")}
             error={errors.zip_code?.message}
           />

@@ -85,7 +85,7 @@ export const Login = () => {
 
   return (
     <LayoutDefault>
-      <div className="mx-4 flex h-full w-full flex-row items-center justify-center gap-20">
+      <div className="flex h-full w-full flex-row items-center justify-center gap-20 px-2">
         <div>
           <Typography variant="large" font="bold">
             Welcome back.
@@ -123,7 +123,7 @@ export const Login = () => {
                   />
                 )
               }
-              containerClassName="w-[327px]"
+              containerClassName="max-w-[327px]"
               className="h-12 shadow-md"
               type={showPassword ? "text" : "password"}
               {...register("password")}

@@ -21,14 +21,14 @@ export const login = async (credential: {
   });
 };
 
-export const register = async (credential: {
+export interface RegisterRequest {
   email: string;
   password: string;
-}) => {
-  return await api.post<string>(`${API_URL}/v2/profile`, {
-    email: credential.email,
-    password: credential.password,
-  });
+  first_name: string;
+  last_name: string;
+}
+export const register = async (registrationForm: RegisterRequest) => {
+  return await api.post<string>(`${API_URL}/v2/profile`, registrationForm);
 };
 
 export const GetToken = () => {

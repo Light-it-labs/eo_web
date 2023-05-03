@@ -22,8 +22,7 @@ export const Header = () => {
     toast.info("You has been logged out!");
   };
   return (
-    <header className="border-1 relative flex h-[93px] w-full flex-row items-center justify-center border bg-white shadow-lg">
-      <div></div>
+    <header className="border-1 relative flex min-h-[93px] w-full flex-row items-center justify-center border bg-white shadow-lg">
       <img
         src="https://assets-global.website-files.com/641990da28209a736d8d7c6a/641990da28209a61b68d7cc2_eo-logo%201.svg"
         alt="Leters EO"
