@@ -81,13 +81,13 @@ export const useElixirApi = () => {
   };
 
   const sendEmailToRecoveryPassword = async (email: string) => {
-    return api.post(`${API_URL}/v2/profile/recovery-password`, {
+    return api.post(`${API_URL}/v2/profile/request_password_reset`, {
       email,
     });
   };
 
   const resetPassword = async (data: { password: string; token: string }) => {
-    return api.post(`${API_URL}/v2/profile/recovery-password`, data);
+    return api.post(`${API_URL}/v2/profile/reset_password`, data);
   };
 
   return {
