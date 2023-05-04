@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { Button, Typography } from "@eo/ui";
 
 import { useElixirApi } from "~/api/useElixirApi";
+import { useZukoAnalytic } from "~/hooks/useZukoAnalytic";
 import { LayoutDefault } from "~/layouts";
 import { ROUTES } from "~/router";
 
@@ -15,6 +16,7 @@ export const ProfilingTwoRedirect = () => {
   const [sentProfile, setSentProfile] = useState(false);
   const { combineProfileOne } = useElixirApi();
   const params = new URLSearchParams(window.location.search);
+  const { triggerCompletionEvent } = useZukoAnalytic(ZUKO_SLUG_ID);
 
   if (!params.get("submission_id")) {
     navigate(ROUTES.login);
@@ -30,27 +32,7 @@ export const ProfilingTwoRedirect = () => {
     },
   });
 
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.type = "text/javascript";
-    script.async = true;
-    script.src = "https://assets.zuko.io/js/v2/client.min.js";
-    document.body.appendChild(script);
-
-    const implementScript = document.createElement("script");
-    implementScript.type = "text/javascript";
-    implementScript.textContent = `Zuko.trackForm({slug:'${ZUKO_SLUG_ID}'}).trackEvent(Zuko.COMPLETION_EVENT);`;
-    setTimeout(() => {
-      document.body.appendChild(implementScript);
-    }, 2000);
-
-    return () => {
-      document.body.removeChild(script);
-      setTimeout(() => {
-        document.body.removeChild(implementScript);
-      }, 2000);
-    };
-  }, []);
+  useEffect(triggerCompletionEvent, []);
 
   useEffect(() => {
     if (!sentProfile) {

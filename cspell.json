@@ -53,6 +53,7 @@
     "WORKDIR",
     "xlink",
     "zustand",
-    "ZUKO"
+    "ZUKO",
+    "Zuko"
   ]
 }

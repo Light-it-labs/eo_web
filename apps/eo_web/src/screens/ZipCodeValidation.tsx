@@ -10,6 +10,7 @@ import { z } from "zod";
 import { Button, Input, Typography } from "@eo/ui";
 
 import { useElixirApi } from "~/api/useElixirApi";
+import { useZukoAnalytic } from "~/hooks/useZukoAnalytic";
 import { LayoutDefault } from "~/layouts";
 import { ROUTES } from "~/router";
 import { useProfileStore } from "~/stores/useProfileStore";
@@ -27,28 +28,8 @@ const ZUKO_SLUG_ID =
 
 export const ZipCodeValidation = () => {
   const { validateZipCode } = useElixirApi();
-
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.type = "text/javascript";
-    script.async = true;
-    script.src = "https://assets.zuko.io/js/v2/client.min.js";
-    document.body.appendChild(script);
-
-    const implementScript = document.createElement("script");
-    implementScript.type = "text/javascript";
-    implementScript.textContent = `Zuko.trackForm({target:document.body,slug:"${ZUKO_SLUG_ID}"}).trackEvent(Zuko.FORM_VIEW_EVENT);`;
-    setTimeout(() => {
-      document.body.appendChild(implementScript);
-    }, 2000);
-
-    return () => {
-      document.body.removeChild(script);
-      setTimeout(() => {
-        document.body.removeChild(implementScript);
-      }, 2000);
-    };
-  }, []);
+  const { triggerViewEvent } = useZukoAnalytic(ZUKO_SLUG_ID);
+  useEffect(triggerViewEvent, []);
 
   const navigate = useNavigate();
   const setProfileZip = useProfileStore((state) => state.setProfileZip);
@@ -65,6 +46,7 @@ export const ZipCodeValidation = () => {
   const { mutate } = useMutation({
     mutationFn: validateZipCode,
     onSuccess: () => {
+      setProfileZip(getValues("zip_code"));
       navigate(ROUTES.eligibleProfile);
     },
     onError: (result) => {
