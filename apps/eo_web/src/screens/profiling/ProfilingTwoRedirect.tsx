@@ -5,14 +5,18 @@ import { useNavigate } from "react-router-dom";
 import { Button, Typography } from "@eo/ui";
 
 import { useElixirApi } from "~/api/useElixirApi";
+import { useZukoAnalytic } from "~/hooks/useZukoAnalytic";
 import { LayoutDefault } from "~/layouts";
 import { ROUTES } from "~/router";
 
+const ZUKO_SLUG_ID =
+  window.data.ZUKO_SLUG_ID_PROCESS_START || "4e9cc7ceea3e22fb";
 export const ProfilingTwoRedirect = () => {
   const navigate = useNavigate();
   const [sentProfile, setSentProfile] = useState(false);
   const { combineProfileOne } = useElixirApi();
   const params = new URLSearchParams(window.location.search);
+  const { triggerCompletionEvent } = useZukoAnalytic(ZUKO_SLUG_ID);
 
   if (!params.get("submission_id")) {
     navigate(ROUTES.login);
@@ -27,6 +31,8 @@ export const ProfilingTwoRedirect = () => {
       }, 5000);
     },
   });
+
+  useEffect(triggerCompletionEvent, []);
 
   useEffect(() => {
     if (!sentProfile) {
