@@ -118,7 +118,7 @@ export const Register = () => {
               <Input
                 id={"firstName"}
                 label="First name"
-                type="string"
+                type="text"
                 className="h-12 shadow-md"
                 {...registerForm("first_name")}
                 error={errors.first_name?.message}
@@ -126,7 +126,7 @@ export const Register = () => {
               <Input
                 id={"lastName"}
                 label="Last name"
-                type="string"
+                type="text"
                 className="h-12 shadow-md"
                 {...registerForm("last_name")}
                 error={errors.last_name?.message}
