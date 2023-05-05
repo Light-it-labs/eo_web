@@ -11,6 +11,7 @@ export const buttonVariants = [
   "outline-white",
   "secondary",
   "tertiary-link",
+  "white",
 ] as const;
 export type ButtonVariant = (typeof buttonVariants)[number];
 
@@ -43,7 +44,7 @@ export const Button = forwardRef(
       ref={ref}
       type={type}
       className={tw(
-        "flex h-12 items-center gap-2 border border-transparent focus:outline-none focus:ring-2 focus:ring-offset-0",
+        "flex h-12 flex-row items-center items-center justify-between gap-2 border border-transparent focus:outline-none focus:ring-2 focus:ring-offset-0",
         variant === "primary" &&
           "bg-primary text-black hover:bg-primary-900 focus:bg-primary focus:ring-primary-100",
         variant === "outline" &&
@@ -54,6 +55,8 @@ export const Button = forwardRef(
           "bg-primary-50 text-primary-400 hover:bg-primary-100 focus:bg-primary-50 focus:ring-primary-100",
         variant === "tertiary-link" &&
           "text-primary hover:text-primary-700 focus:text-primary-700 focus:ring-1 focus:ring-primary-700",
+        variant === "white" &&
+          "bg-white text-black shadow-lg hover:outline focus:outline focus:ring-1 focus:ring-primary-900",
 
         size === "sm" && "px-4 py-2 text-sm leading-[17px]",
         size === "md" && "px-[18px] py-3 text-base leading-5",
@@ -68,6 +71,7 @@ export const Button = forwardRef(
           variant === "secondary" &&
             "bg-primary-dark-50 text-primary-white-600",
           variant === "tertiary-link" && "text-primary-white-600",
+          variant === "white" && "text-primary-white-600",
         ],
 
         !children && [
@@ -80,19 +84,22 @@ export const Button = forwardRef(
       disabled={disabled}
       {...props}
     >
-      {left && <IconWrapper size={size}>{left}</IconWrapper>}
-      <Typography
-        variant="base"
-        className={tw(
-          variant === "primary" && "text-black",
-          variant === "outline" && "text-primary",
-          variant === "outline-white" && "text-primary-white-500",
-          variant === "secondary" && "text-primary-400",
-          variant === "tertiary-link" && "text-primary",
-        )}
-      >
-        {children}
-      </Typography>
+      <div className="flex flex-row gap-2">
+        {left && <IconWrapper size={size}>{left}</IconWrapper>}
+        <Typography
+          variant="base"
+          className={tw(
+            variant === "primary" && "text-black",
+            variant === "outline" && "text-primary",
+            variant === "outline-white" && "text-primary-white-500",
+            variant === "secondary" && "text-primary-400",
+            variant === "tertiary-link" && "text-primary",
+            variant === "white" && "text-black",
+          )}
+        >
+          {children}
+        </Typography>
+      </div>
       {right && <IconWrapper size={size}>{right}</IconWrapper>}
     </button>
   ),

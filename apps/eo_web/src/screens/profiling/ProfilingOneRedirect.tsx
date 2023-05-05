@@ -23,7 +23,7 @@ export const ProfilingOneRedirect = () => {
     onSuccess: () => {
       setSentProfile(true);
       setTimeout(() => {
-        navigate(ROUTES.profilingTwo);
+        navigate(ROUTES.prePlan);
       }, 5000);
     },
   });
@@ -43,7 +43,7 @@ export const ProfilingOneRedirect = () => {
         <Button
           type="button"
           className="mt-10"
-          onClick={() => navigate(ROUTES.profilingTwo)}
+          onClick={() => navigate(ROUTES.prePlan)}
         >
           Continue!
         </Button>

@@ -68,7 +68,7 @@ export const RecoveryPassword = () => {
     } else {
       navigate(ROUTES.login);
     }
-  }, []);
+  }, [navigate, searchParams, setValue]);
 
   return (
     <LayoutDefault>

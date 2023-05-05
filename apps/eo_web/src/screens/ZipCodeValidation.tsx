@@ -29,7 +29,7 @@ const ZUKO_SLUG_ID =
 export const ZipCodeValidation = () => {
   const { validateZipCode } = useElixirApi();
   const { triggerViewEvent } = useZukoAnalytic(ZUKO_SLUG_ID);
-  useEffect(triggerViewEvent, []);
+  useEffect(triggerViewEvent, [triggerViewEvent]);
 
   const navigate = useNavigate();
   const setProfileZip = useProfileStore((state) => state.setProfileZip);
