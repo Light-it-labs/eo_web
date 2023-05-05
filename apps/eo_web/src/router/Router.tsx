@@ -3,8 +3,10 @@ import { Route, Routes } from "react-router-dom";
 import { ROUTES } from "~/router/routes";
 import { EligibleProfile } from "~/screens/EligibleProfile";
 import { EmailVerificationUncompletedButLogged } from "~/screens/EmailVerificationUncompletedButLogged";
+import { ForgotPassword } from "~/screens/ForgotPassword";
 import { Home } from "~/screens/Home";
 import { Login } from "~/screens/Login";
+import { RecoveryPassword } from "~/screens/RecoveryPassword";
 import { Register } from "~/screens/Register";
 import { RegisterComplete } from "~/screens/RegisterComplete";
 import { UnavailableZipCode } from "~/screens/UnavailableZipCode";
@@ -27,6 +29,8 @@ export const Router = () => {
           element={<RegisterComplete />}
           path={ROUTES.registrationComplete}
         />
+        <Route element={<ForgotPassword />} path={ROUTES.forgotPassword} />
+        <Route element={<RecoveryPassword />} path={ROUTES.recoveryPassword} />
       </Route>
 
       <Route element={<ProtectedRoute expected="withZipCode" />}>

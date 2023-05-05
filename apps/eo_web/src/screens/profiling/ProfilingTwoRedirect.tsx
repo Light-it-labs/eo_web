@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useMutation } from "@tanstack/react-query";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 import { Button, Typography } from "@eo/ui";
 
@@ -15,7 +15,7 @@ export const ProfilingTwoRedirect = () => {
   const navigate = useNavigate();
   const [sentProfile, setSentProfile] = useState(false);
   const { combineProfileOne } = useElixirApi();
-  const params = new URLSearchParams(window.location.search);
+  const [params] = useSearchParams();
   const { triggerCompletionEvent } = useZukoAnalytic(ZUKO_SLUG_ID);
 
   if (!params.get("submission_id")) {
@@ -32,13 +32,13 @@ export const ProfilingTwoRedirect = () => {
     },
   });
 
-  useEffect(triggerCompletionEvent, []);
+  useEffect(triggerCompletionEvent, [triggerCompletionEvent]);
 
   useEffect(() => {
     if (!sentProfile) {
       mutate(params.get("submission_id") || "");
     }
-  }, [sentProfile]);
+  }, [mutate, params, sentProfile]);
 
   return (
     <LayoutDefault>

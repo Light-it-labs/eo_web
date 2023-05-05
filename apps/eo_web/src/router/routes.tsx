@@ -12,4 +12,6 @@ export const ROUTES = {
   profilingOneRedirect: `${BASE}/profiling-one-redirect`,
   profilingTwo: `${BASE}/profiling-two`,
   profilingTwoRedirect: `${BASE}/profiling-two-redirect`,
+  forgotPassword: `${BASE}/forgot-password`,
+  recoveryPassword: `${BASE}/reset-password`,
 } as const;

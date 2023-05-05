@@ -22,7 +22,7 @@ export interface TypographyProps extends ComponentPropsWithoutRef<"p"> {
 export const Typography = ({
   as: Container = "p",
   variant = "base",
-  font = "medium",
+  font = "regular",
   children,
   className,
   ...props

@@ -2,6 +2,8 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
 export interface Profile {
+  first_name: string | null;
+  last_name: string | null;
   email: string;
   zip: null | string;
 }

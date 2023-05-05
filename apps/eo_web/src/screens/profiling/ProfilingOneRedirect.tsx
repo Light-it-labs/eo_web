@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useMutation } from "@tanstack/react-query";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 import { Button, Typography } from "@eo/ui";
 
@@ -12,7 +12,7 @@ export const ProfilingOneRedirect = () => {
   const navigate = useNavigate();
   const [sentProfile, setSentProfile] = useState(false);
   const { combineProfileOne } = useElixirApi();
-  const params = new URLSearchParams(window.location.search);
+  const [params] = useSearchParams();
 
   if (!params.get("submission_id")) {
     navigate(ROUTES.login);
@@ -32,7 +32,7 @@ export const ProfilingOneRedirect = () => {
     if (!sentProfile) {
       mutate(params.get("submission_id") || "");
     }
-  }, [sentProfile]);
+  }, [mutate, params, sentProfile]);
 
   return (
     <LayoutDefault>

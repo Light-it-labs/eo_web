@@ -85,7 +85,7 @@ export const Login = () => {
 
   return (
     <LayoutDefault>
-      <div className="mx-4 flex h-full w-full flex-row items-center justify-center gap-20">
+      <div className="flex h-full w-full flex-row items-center justify-center gap-20 px-2">
         <div>
           <Typography variant="large" font="bold">
             Welcome back.
@@ -113,25 +113,30 @@ export const Login = () => {
               right={
                 showPassword ? (
                   <icons.EyeIcon
-                    className="m-auto h-5 w-5 cursor-pointer text-primary-white-600"
+                    className="h-5 w-5 cursor-pointer text-primary-white-600"
                     onClick={() => setShowPassword((current) => !current)}
                   />
                 ) : (
                   <icons.EyeSlashIcon
-                    className="m-auto h-5 w-5 cursor-pointer text-primary-white-600"
+                    className="h-5 w-5 cursor-pointer text-primary-white-600"
                     onClick={() => setShowPassword((current) => !current)}
                   />
                 )
               }
-              containerClassName="w-[327px]"
+              containerClassName="max-w-[327px]"
               className="h-12 shadow-md"
               type={showPassword ? "text" : "password"}
               {...register("password")}
               error={errors.password?.message}
             />
-            <Typography variant="small" className="text-gray-300">
-              Forgot password?
-            </Typography>
+            <Link to={ROUTES.forgotPassword}>
+              <Typography
+                variant="small"
+                className="text-gray-300 hover:underline"
+              >
+                Forgot password?
+              </Typography>
+            </Link>
 
             <Button type="submit" className="mt-10">
               Sign in
