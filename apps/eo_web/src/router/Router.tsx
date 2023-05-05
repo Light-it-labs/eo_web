@@ -6,6 +6,7 @@ import { EmailVerificationUncompletedButLogged } from "~/screens/EmailVerificati
 import { ForgotPassword } from "~/screens/ForgotPassword";
 import { Home } from "~/screens/Home";
 import { Login } from "~/screens/Login";
+import { PrePlan } from "~/screens/PrePlan";
 import { RecoveryPassword } from "~/screens/RecoveryPassword";
 import { Register } from "~/screens/Register";
 import { RegisterComplete } from "~/screens/RegisterComplete";
@@ -51,6 +52,7 @@ export const Router = () => {
           element={<ProfilingTwoRedirect />}
           path={ROUTES.profilingTwoRedirect}
         />
+        <Route element={<PrePlan />} path={ROUTES.prePlan} />
       </Route>
 
       <Route

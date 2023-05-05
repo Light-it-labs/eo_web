@@ -152,7 +152,12 @@ export default {
         transparent: "transparent",
         cream: {
           100: "#F8F6F3",
+          200: "#EBE7E1",
+          300: "#DEDBD7",
         },
+      },
+      strokeWidth: {
+        5: "5px",
       },
     },
   },
