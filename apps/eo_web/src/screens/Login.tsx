@@ -113,12 +113,12 @@ export const Login = () => {
               right={
                 showPassword ? (
                   <icons.EyeIcon
-                    className="m-auto h-5 w-5 cursor-pointer text-primary-white-600"
+                    className="h-5 w-5 cursor-pointer text-primary-white-600"
                     onClick={() => setShowPassword((current) => !current)}
                   />
                 ) : (
                   <icons.EyeSlashIcon
-                    className="m-auto h-5 w-5 cursor-pointer text-primary-white-600"
+                    className="h-5 w-5 cursor-pointer text-primary-white-600"
                     onClick={() => setShowPassword((current) => !current)}
                   />
                 )

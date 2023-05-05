@@ -74,10 +74,10 @@ export const Input = forwardRef(
         {!!right && (
           <IconWrapper
             className={tw(
-              "absolute right-0",
+              "absolute right-0 flex flex-row items-center justify-center",
+              `w-[${rightWidth}px]`,
               preventEventsRightIcon ? "pointer-events-none" : "",
             )}
-            style={{ width: rightWidth }}
           >
             {right}
           </IconWrapper>
