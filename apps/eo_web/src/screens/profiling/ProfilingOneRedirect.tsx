@@ -21,16 +21,23 @@ export const ProfilingOneRedirect = () => {
   const { mutate } = useMutation({
     mutationFn: combineProfileOne,
     onSuccess: () => {
-      setSentProfile(true);
       setTimeout(() => {
         navigate(ROUTES.prePlan);
       }, 5000);
+    },
+    onError: () => {
+      setSentProfile(false);
     },
   });
 
   useEffect(() => {
     if (!sentProfile) {
-      mutate(params.get("submission_id") || "");
+      setSentProfile((sent) => {
+        if (!sent) {
+          mutate(params.get("submission_id") || "");
+        }
+        return true;
+      });
     }
   }, [mutate, params, sentProfile]);
 

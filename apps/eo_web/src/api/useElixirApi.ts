@@ -104,7 +104,10 @@ export const useElixirApi = () => {
     return api.post(`${API_URL}/v2/profile/reset_password`, data);
   };
   const getSubmission = async () => {
-    return await api.get<ProfileOne>(`${API_URL}/v2/profile/profiling_one`);
+    return await api.get<ProfileOne>(
+      `${API_URL}/v2/profile/profiling_one`,
+      authHeader,
+    );
   };
 
   return {

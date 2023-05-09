@@ -126,9 +126,9 @@ export const PrePlan = () => {
   // const { getSubmission } = useElixirApi();
   // const { data } = useQuery({
   //   queryFn: getSubmission,
-  //   queryKey: "getSubmission",
-  //   onSuccess: ({ data }) => {
-  //     data.data.values;
+  //   queryKey: ["getSubmission"],
+  //   onSuccess: (result) => {
+  //     console.log(result.data);
   //   },
   // });
 
