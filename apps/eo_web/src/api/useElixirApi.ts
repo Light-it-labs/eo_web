@@ -76,7 +76,7 @@ export const useElixirApi = () => {
 
   const combineProfileOne = async (submissionId: string) => {
     return api.post(
-      `${API_URL}/v2/profile/combine_profile_one`,
+      `${API_URL}/v2/profile/submit_profiling_one`,
       {
         submission_id: submissionId,
       },
