@@ -4,7 +4,6 @@ import typography from "@tailwindcss/typography";
 import type { Config } from "tailwindcss";
 
 export default {
-  important: true,
   content: [
     "./src/**/*.{js,ts,jsx,tsx}",
     "../../packages/**/*.{js,ts,jsx,tsx}",
@@ -158,6 +157,11 @@ export default {
       },
       strokeWidth: {
         5: "5px",
+      },
+      fontFamily: {
+        nobel: "nobel",
+        grand: "grand",
+        "sf-pro": "SF Mono",
       },
     },
   },

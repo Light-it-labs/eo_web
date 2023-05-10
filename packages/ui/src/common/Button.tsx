@@ -93,7 +93,7 @@ export const Button = forwardRef(
             variant === "outline" && "text-primary",
             variant === "outline-white" && "text-primary-white-500",
             variant === "secondary" && "text-primary-400",
-            variant === "tertiary-link" && "text-primary",
+            variant === "tertiary-link" && "text-black",
             variant === "white" && "text-black",
           )}
         >

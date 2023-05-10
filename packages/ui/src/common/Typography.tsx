@@ -10,6 +10,7 @@ export const typographyFonts = [
   "regular",
   "semiBold",
   "bold",
+  "light",
 ] as const;
 export type TypographyFont = (typeof typographyFonts)[number];
 
@@ -30,16 +31,17 @@ export const Typography = ({
   return (
     <Container
       className={tw(
-        "text-nobel tracking-normal text-gray-900",
+        "font-nobel tracking-normal text-gray-900",
         variant === "base" && "text-base",
         variant === "detail" && "text-xs",
-        variant === "large" && "text-grand text-4xl",
+        variant === "large" && "font-grand text-4xl",
         variant === "small" && "text-sm",
 
         font === "medium" && "font-medium",
         font === "regular" && "font-normal",
         font === "semiBold" && "font-semibold",
         font === "bold" && "font-bold",
+        font === "light" && "font-light",
 
         className,
       )}
