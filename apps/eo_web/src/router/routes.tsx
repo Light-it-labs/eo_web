@@ -1,3 +1,4 @@
+
 export const ROUTES = {
   login: "/app/login",
   register: "/app/register",
@@ -7,4 +8,5 @@ export const ROUTES = {
   emailVerification: "app/profile/email-verification",
   unavailableZipCode: "/app/profile/unavailable-zip-code",
   eligibleProfile: "/app/profile/eligible-profile",
+  payment: "/app/payment",
 } as const;

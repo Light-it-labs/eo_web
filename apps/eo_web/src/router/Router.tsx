@@ -11,6 +11,7 @@ import { UnavailableZipCode } from "~/screens/UnavailableZipCode";
 import { ZipCodeValidation } from "~/screens/ZipCodeValidation";
 
 import { ProtectedRoute } from "./ProtectedRoute";
+import { Payment } from "~/screens/Payment";
 
 export const Router = () => {
   return (
@@ -32,6 +33,7 @@ export const Router = () => {
           path={ROUTES.unavailableZipCode}
         />
         <Route element={<EligibleProfile />} path={ROUTES.eligibleProfile} />
+        <Route element={<Payment />} path={ROUTES.payment} />
       </Route>
 
       <Route
