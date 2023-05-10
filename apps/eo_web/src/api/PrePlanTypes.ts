@@ -31,7 +31,7 @@ export type AvoidPresentation =
   (typeof AvoidPresentationEnum)[keyof typeof AvoidPresentationEnum];
 
 export enum ThcProductPreferencesEnum {
-  open = "I'm open to using products with THC.",
+  open = "I’m open to using products with THC.",
   notPrefer = "I’d prefer to use non-THC (CBD/CBN/CBG) products only.",
   notSure = "I’m not sure.",
 }

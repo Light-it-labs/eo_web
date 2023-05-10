@@ -1,3 +1,10 @@
+import {
+  type AvoidPresentation,
+  type OpenToUseThcProducts,
+  type ReasonsEnum,
+  type ThcProductPreferences,
+  type WorseSymptomsMoment,
+} from "~/api/PrePlanTypes";
 import { api } from "~/api/axios";
 import { API_URL } from "~/api/common";
 import { useProfileStore, type Profile } from "~/stores/useProfileStore";
@@ -19,41 +26,13 @@ export interface ProfileOne {
   complete: boolean;
   step: null;
   values: {
-    MedCard: "No, thanks. I'll continue without the card.";
-    areThere: ["Type option 1"];
-    attentive: null;
-    calm: null;
-    cannbis_care_recommend: null;
-    cheerful: null;
-    email: "";
-    energetic: null;
-    eo_care_recommend: null;
-    isuser: "Yes";
+    areThere: AvoidPresentation[];
     malady: "Pain";
-    med_card_expiration: "";
-    med_card_number: "";
-    name: {
-      first: "Carlos";
-      last: "Garcia";
-    };
-    pageBreak: "";
-    pain_worse_times: ["Morning"];
-    product_successful_list: "<h5>dsadsad</h5>";
-    satisfaction_rating: null;
-    sleep_quality: null;
-    submit: "";
-    symptoms_negatively_impacting: {
-      Impact: "A Little Bit";
-    };
-    symptoms_quality: null;
-    thc_type_preferences: "I'm open to using products with THC.";
-    typeA: "";
-    typeA88: "";
-    typeA93: "";
-    union: "";
-    usingCannabisProducts: "Yes";
-    whatBrings: ["I want to manage pain"];
-    workday_allow_intoxication_nonworkday_allow_intoxi: ["Workday Afternoons"];
+    symptoms_worse_times: WorseSymptomsMoment[];
+    thc_type_preferences: ThcProductPreferences;
+    usingCannabisProducts: "Yes" | "No";
+    whatBrings: (typeof ReasonsEnum)[keyof typeof ReasonsEnum][];
+    workday_allow_intoxication_nonworkday_allow_intoxi: OpenToUseThcProducts[];
   };
 }
 export const useElixirApi = () => {
