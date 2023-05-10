@@ -1,15 +1,11 @@
-import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 
 import { Button, Typography, icons } from "@eo/ui";
 
-import {
-  ReasonsEnum,
-  ThcProductPreferencesEnum,
-  TimeToUse,
-  WorseSymptomsMomentEnum,
-} from "~/api/PrePlanTypes";
-import { usePrePlan, type FormDataPrePlan } from "~/api/usePrePlan";
+import { ThcProductPreferencesEnum } from "~/api/PrePlanTypes";
+import { useElixirApi } from "~/api/useElixirApi";
+import { usePrePlan } from "~/api/usePrePlan";
 import { LayoutDefault } from "~/layouts";
 import { ROUTES } from "~/router";
 
@@ -23,8 +19,8 @@ const Edible = () => {
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M4.92656 147.34C14.8215 158.174 40.4865 163.667 81.1941 163.667C104.713 163.667 123.648 161.654 137.417 157.761C147.949 154.808 155.479 150.575 159.79 145.403C161.05 144.072 162.041 142.495 162.706 140.764C163.371 139.033 163.697 137.183 163.664 135.321C163.191 124.778 162.183 114.268 160.645 103.834C157.243 79.8335 151.787 60.0649 144.511 45.0174C132.488 20.0574 115.772 9.26088 103.876 4.59617C96.4487 1.54077 88.4923 0.100139 80.5029 0.364065C72.5868 0.592629 64.7822 2.35349 57.4935 5.55544C45.816 10.5211 29.864 21.3741 19.478 44.8293C10.0923 65.9898 5.39948 89.5015 3.10764 105.489C1.63849 115.377 0.715404 125.343 0.342871 135.34C0.266507 137.559 0.634231 139.77 1.42299 141.835C2.21174 143.9 3.40453 145.774 4.92656 147.34ZM59.6762 11.8754C66.2296 8.96617 73.2482 7.33985 80.3756 7.079V7.24828H80.9212C88.0885 6.98588 95.2303 8.26693 101.893 11.0101C108.8 13.7827 115.165 17.8226 120.683 22.9353C128.191 30.0319 134.315 38.5491 138.727 48.0269C155.388 82.4104 157.207 135.133 157.207 135.66V135.904C156.993 138.028 156.02 139.994 154.479 141.415C149.24 147.227 132.742 156.952 81.1941 156.952C59.7126 156.952 42.451 155.391 29.8822 152.344C20.0964 149.955 13.2936 146.72 9.65577 142.732C8.73849 141.824 8.01535 140.727 7.5329 139.512C7.05045 138.297 6.8194 136.991 6.85462 135.678V135.547C6.85462 135.058 8.03692 86.8118 25.3349 47.6131C32.9198 30.4778 44.47 18.4586 59.6762 11.8754ZM44.7634 44.1274C45.2627 44.4383 45.8336 44.6048 46.4165 44.6097C46.952 44.6028 47.478 44.4624 47.9498 44.2005C48.4216 43.9385 48.8253 43.5627 49.1267 43.1049C55.2816 34.6476 64.1146 28.6958 74.0824 26.2894C74.4968 26.1893 74.8881 26.0059 75.234 25.7494C75.5798 25.493 75.8735 25.1687 76.0981 24.7949C76.3227 24.4211 76.474 24.0052 76.5432 23.571C76.6124 23.1368 76.5983 22.6927 76.5015 22.2642C76.4048 21.8356 76.2274 21.431 75.9794 21.0733C75.7314 20.7156 75.4177 20.412 75.0563 20.1797C74.6948 19.9474 74.2927 19.791 73.8728 19.7194C73.4529 19.6478 73.0235 19.6625 72.609 19.7625C60.9982 22.4967 50.7337 29.4772 43.7063 39.4183C43.3904 39.9249 43.2118 40.5098 43.1892 41.1121C43.1666 41.7144 43.3007 42.312 43.5776 42.8423C43.8545 43.3727 44.264 43.8165 44.7634 44.1274Z"
         fill="black"
       />
@@ -74,8 +70,8 @@ const getImageForForm = (
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M114.249 57.1081C127.383 72.9966 132.256 93.7575 127.595 114.095C122.935 133.585 110.012 149.473 92.4289 157.735C83.7432 161.76 74.6339 163.667 65.1008 163.667C55.5677 163.667 46.2465 161.548 37.7726 157.735C19.7657 149.473 6.84314 133.585 2.39437 114.095C-2.26624 93.9693 2.60621 72.9966 15.7407 57.1081L60.652 2.23999C62.7705 -0.302164 67.0074 -0.302164 68.914 2.23999L114.249 57.1081ZM64.8889 152.863C72.9391 152.863 80.5655 151.168 87.7683 147.99C102.598 141.211 113.402 127.865 117.215 111.553C121.24 94.6049 117.003 77.0217 105.987 63.6754L64.8889 13.8915L23.7908 63.6754C12.7748 77.0217 8.5379 94.6049 12.563 111.553C16.3762 127.865 27.1804 141.211 42.0096 147.99C49.2123 151.168 56.8388 152.863 64.8889 152.863ZM97.7159 99.9199C97.7159 96.9541 100.046 94.6238 103.012 94.6238C105.978 94.6238 108.308 97.1659 108.308 99.9199C108.308 121.105 91.1487 138.264 69.9641 138.264C66.9982 138.264 64.6679 135.934 64.6679 132.968C64.6679 130.002 66.9982 127.672 69.9641 127.672C85.217 127.672 97.7159 115.173 97.7159 99.9199Z"
             fill="black"
           />
@@ -106,33 +102,36 @@ const getImageForForm = (
 };
 
 export const PrePlan = () => {
-  const [plan] = useState<FormDataPrePlan>({
-    avoidPresentation: [],
-    currentlyUsingCannabisProducts: false,
-    openToUseThcProducts: [
-      TimeToUse.WorkDayMornings,
-      TimeToUse.NonWorkDayMornings,
-      TimeToUse.WorkDayEvenings,
-      TimeToUse.NonWorkDayEvenings,
-      TimeToUse.WorkDayBedtimes,
-      TimeToUse.NonWorkDayBedtimes,
-    ],
-    reasonToUse: [ReasonsEnum.Anxiety],
-    symptomsWorseTimes: [WorseSymptomsMomentEnum.Evening],
-    thcTypePreferences: ThcProductPreferencesEnum.open,
+  // when have time connect to backend
+  const { getSubmission } = useElixirApi();
+  const { data } = useQuery({
+    queryFn: getSubmission,
+    queryKey: ["getSubmission"],
   });
 
-  // when have time connect to backend
-  // const { getSubmission } = useElixirApi();
-  // const { data } = useQuery({
-  //   queryFn: getSubmission,
-  //   queryKey: ["getSubmission"],
-  //   onSuccess: (result) => {
-  //     console.log(result.data);
-  //   },
-  // });
+  const values = data?.data.values;
 
-  const { nonWorkdayPlan, workdayPlan, whyRecommended } = usePrePlan(plan);
+  const { nonWorkdayPlan, workdayPlan, whyRecommended } = usePrePlan(
+    !values
+      ? {
+          avoidPresentation: [],
+          currentlyUsingCannabisProducts: false,
+          openToUseThcProducts: [],
+          reasonToUse: [],
+          symptomsWorseTimes: [],
+          thcTypePreferences: ThcProductPreferencesEnum.notSure,
+        }
+      : {
+          avoidPresentation: values.areThere,
+          currentlyUsingCannabisProducts:
+            values.usingCannabisProducts === "Yes",
+          openToUseThcProducts:
+            values.workday_allow_intoxication_nonworkday_allow_intoxi,
+          reasonToUse: values.whatBrings,
+          symptomsWorseTimes: values.symptoms_worse_times,
+          thcTypePreferences: values.thc_type_preferences,
+        },
+  );
 
   const navigate = useNavigate();
 
@@ -192,7 +191,7 @@ export const PrePlan = () => {
             <Typography
               variant="large"
               font="bold"
-              className="font-nobel my-10"
+              className="my-10 font-nobel"
             >
               Initial Recommendations:
             </Typography>
@@ -238,7 +237,7 @@ export const PrePlan = () => {
                 <Typography
                   variant="large"
                   font="bold"
-                  className="font-nobel whitespace-nowrap"
+                  className="whitespace-nowrap font-nobel"
                 >
                   {/* eslint-disable-next-line react/no-unescaped-entities */}
                   What's not included:
@@ -270,7 +269,7 @@ export const PrePlan = () => {
               <Typography
                 variant="large"
                 font="bold"
-                className="font-nobel mb-8 mt-4"
+                className="mb-8 mt-4 font-nobel"
               >
                 On Workdays
               </Typography>
@@ -309,7 +308,7 @@ export const PrePlan = () => {
             <Typography
               variant="large"
               font="bold"
-              className="font-nobel mb-8 mt-12"
+              className="mb-8 mt-12 font-nobel"
             >
               On Non- Workdays
             </Typography>
@@ -348,7 +347,7 @@ export const PrePlan = () => {
               <Typography
                 variant="large"
                 font="bold"
-                className="font-nobel mb-8 mt-12"
+                className="mb-8 mt-12 font-nobel"
               >
                 Why recommended
               </Typography>

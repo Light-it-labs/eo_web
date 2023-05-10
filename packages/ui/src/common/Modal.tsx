@@ -42,7 +42,7 @@ export const Modal = ({
             >
               <Dialog.Panel
                 className={tw(
-                  "relative flex h-[60vh] w-11/12 flex-row transition-all md:w-9/12",
+                  "min-h-auto relative flex w-11/12 flex-row transition-all md:h-[60vh] md:w-9/12",
                   className,
                 )}
               >
