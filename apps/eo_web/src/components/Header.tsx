@@ -73,14 +73,17 @@ export const Header = () => {
       </div>
       {/* eslint-disable-next-line @typescript-eslint/no-empty-function */}
       <Modal isOpen={openModal} onClose={() => {}} controller={setOpenModal}>
-        <div className="items center flex h-full w-full flex-col justify-center bg-white px-10 py-4 leading-[48px] md:px-12">
-          <Typography variant="large" className="mb-6 font-nobel text-5xl">
+        <div className="flex h-full w-full flex-col justify-center bg-white px-10 py-4 leading-[48px] md:px-12">
+          <Typography
+            variant="large"
+            className="mb-0 font-nobel text-5xl md:mb-6"
+          >
             {/* eslint-disable-next-line react/no-unescaped-entities */}
             We're here.
           </Typography>
           <Typography
             font="light"
-            className="mb-6 mt-4 whitespace-normal text-3xl lg:whitespace-nowrap"
+            className="mb-6 whitespace-normal text-3xl lg:whitespace-nowrap"
           >
             Have questions or prefer to complete these questions and set-up your
             account with an eo rep?
