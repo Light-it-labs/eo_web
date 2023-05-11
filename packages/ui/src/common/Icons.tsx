@@ -44,10 +44,10 @@ export const IconWrapper = ({
 }) => (
   <div
     className={tw(
-      "flex flex-row item-center",
+      "item-center flex flex-row",
       size === "sm" && "h-5 w-5",
       size === "md" && "h-6 w-6",
-      size === "lg" && "h-6 w-6",
+      size === "lg" && "h-10 w-10",
       className,
     )}
     style={style}

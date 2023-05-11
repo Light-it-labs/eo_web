@@ -1,10 +1,14 @@
 import { api } from "~/api/axios";
 import { API_URL } from "~/api/common";
-import { useProfileStore } from "~/stores/useProfileStore";
+import {
+  useProfileStore,
+  type Profile,
+  type Session,
+} from "~/stores/useProfileStore";
 
 interface LoginResponse {
-  profile: unknown;
-  session: unknown;
+  profile: Profile;
+  session: Session;
 }
 
 export const login = async (credential: {
@@ -17,14 +21,14 @@ export const login = async (credential: {
   });
 };
 
-export const register = async (credential: {
+export interface RegisterRequest {
   email: string;
   password: string;
-}) => {
-  return await api.post<string>(`${API_URL}/v2/profile`, {
-    email: credential.email,
-    password: credential.password,
-  });
+  first_name: string;
+  last_name: string;
+}
+export const register = async (registrationForm: RegisterRequest) => {
+  return await api.post<string>(`${API_URL}/v2/profile`, registrationForm);
 };
 
 export const GetToken = () => {

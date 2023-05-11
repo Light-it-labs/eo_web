@@ -7,6 +7,16 @@ import { Router } from "./router";
 import "react-toastify/dist/ReactToastify.css";
 
 const queryClient = new QueryClient();
+declare global {
+  interface Window {
+    data: {
+      API_URL: string;
+      PROFILE_ONE_ID: string;
+      PROFILE_TWO_ID: string;
+      ZUKO_SLUG_ID_PROCESS_START: string;
+    };
+  }
+}
 
 function App() {
   return (

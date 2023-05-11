@@ -43,7 +43,7 @@ export const Input = forwardRef(
     ref: ForwardedRef<HTMLInputElement>,
   ) => (
     <div style={style} className={tw("relative", containerClassName)}>
-      {!!label && <Label htmlFor={id} label={label} />}
+      {!!label && <Label htmlFor={id} className="text-mono" label={label} />}
       <div
         className={tw(
           "flex flex-row items-center rounded-md shadow-sm",
@@ -74,10 +74,10 @@ export const Input = forwardRef(
         {!!right && (
           <IconWrapper
             className={tw(
-              "absolute right-0",
+              "absolute right-0 flex flex-row items-center justify-center",
+              `w-[${rightWidth}px]`,
               preventEventsRightIcon ? "pointer-events-none" : "",
             )}
-            style={{ width: rightWidth }}
           >
             {right}
           </IconWrapper>

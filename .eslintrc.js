@@ -17,6 +17,7 @@ const config = {
       rootDir: ["apps/training"],
     },
   },
+  ignorePatterns: ["apps/eo_web/src/helpers/jotform_script.js"],
 };
 
 module.exports = config;

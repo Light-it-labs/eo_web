@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import { toast } from "react-toastify";
 import { z } from "zod";
 
 import { Button, Input, Typography, icons } from "@eo/ui";
@@ -11,11 +12,7 @@ import { Button, Input, Typography, icons } from "@eo/ui";
 import { login } from "~/api/auth";
 import { LayoutDefault } from "~/layouts/LayoutDefault";
 import { ROUTES } from "~/router";
-import {
-  useProfileStore,
-  type Profile,
-  type Session,
-} from "~/stores/useProfileStore";
+import { useProfileStore } from "~/stores/useProfileStore";
 
 const newClientSchema = z.object({
   email: z
@@ -37,8 +34,22 @@ export interface LoginErrorInterface {
 export const Login = () => {
   const setProfile = useProfileStore((state) => state.setProfile);
   const setSession = useProfileStore((state) => state.setSession);
+  const [accountConfirmed, setAccountConfirmed] = useState<boolean>(false);
   const [loginError, setLoginError] = useState<string>("");
   const navigate = useNavigate();
+
+  const [searchParams] = useSearchParams();
+
+  useEffect(() => {
+    if (searchParams.has("email") && searchParams.has("account_confirmed")) {
+      setAccountConfirmed((confirmed) => {
+        if (!confirmed) {
+          toast.success("Your account has been activated.");
+        }
+        return true;
+      });
+    }
+  }, [accountConfirmed, searchParams]);
 
   const {
     formState: { errors },
@@ -50,8 +61,8 @@ export const Login = () => {
   const { mutate } = useMutation({
     mutationFn: login,
     onSuccess: ({ data }) => {
-      setProfile(data.profile as Profile);
-      setSession(data.session as Session);
+      setProfile(data.profile);
+      setSession(data.session);
     },
     onError: (result) => {
       if (axios.isAxiosError(result)) {
@@ -74,12 +85,13 @@ export const Login = () => {
 
   return (
     <LayoutDefault>
-      <div className="mx-4 flex h-full w-full flex-row items-center justify-center gap-20">
+      <div className="flex h-full w-full flex-row items-center justify-center gap-20 px-2">
         <div>
-          <Typography variant="large" className="text-center">
-            Welcome
+          <Typography variant="large" font="bold">
+            Welcome back.
           </Typography>
           <form
+            className="mt-10"
             onSubmit={(e) => {
               void handleSubmit((data) => {
                 mutate(data);
@@ -101,25 +113,30 @@ export const Login = () => {
               right={
                 showPassword ? (
                   <icons.EyeIcon
-                    className="m-auto h-5 w-5 cursor-pointer text-primary-white-600"
+                    className="h-5 w-5 cursor-pointer text-primary-white-600"
                     onClick={() => setShowPassword((current) => !current)}
                   />
                 ) : (
                   <icons.EyeSlashIcon
-                    className="m-auto h-5 w-5 cursor-pointer text-primary-white-600"
+                    className="h-5 w-5 cursor-pointer text-primary-white-600"
                     onClick={() => setShowPassword((current) => !current)}
                   />
                 )
               }
-              containerClassName="w-[327px]"
+              containerClassName="max-w-[327px]"
               className="h-12 shadow-md"
               type={showPassword ? "text" : "password"}
               {...register("password")}
               error={errors.password?.message}
             />
-            <Typography variant="small" className="text-gray-300">
-              Forgot password?
-            </Typography>
+            <Link to={ROUTES.forgotPassword}>
+              <Typography
+                variant="small"
+                className="text-gray-300 hover:underline"
+              >
+                Forgot password?
+              </Typography>
+            </Link>
 
             <Button type="submit" className="mt-10">
               Sign in

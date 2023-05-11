@@ -10,13 +10,19 @@ export const EligibleProfile = () => {
 
   return (
     <LayoutDefault>
-      <div className="flex h-full h-full flex-col items-center justify-center">
-        <Typography variant="large" className="mx-10 text-center">
+      <div className="flex h-full h-full flex-col items-center justify-center px-2">
+        <Typography variant="large" font="bold" className="mx-10 text-center">
           Looks like you’re eligible for eo! Next, we’ll get you to fill out
-          some information so we can better serve you...
+          <br />
+          <br />
+          Next, we’ll get you to fill out some information{" "}
+          <br className="hidden md:block" /> so we can better serve you...
         </Typography>
         <div className="mt-10 flex flex-row justify-center">
-          <Button className="text-center" onClick={() => navigate(ROUTES.home)}>
+          <Button
+            className="text-center"
+            onClick={() => navigate(ROUTES.profilingOne)}
+          >
             Continue
           </Button>
         </div>

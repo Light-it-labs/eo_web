@@ -2,17 +2,13 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
 export interface Profile {
+  first_name: string | null;
+  last_name: string | null;
   email: string;
   zip: null | string;
 }
 export interface Session {
-  app_release: null | unknown;
-  app_version: null | unknown;
-  device: null | unknown;
-  device_type: null | unknown;
-  ios_version: null | unknown;
   token: string;
-  vendor_id: null | unknown;
 }
 
 export interface ProfileStoreState {

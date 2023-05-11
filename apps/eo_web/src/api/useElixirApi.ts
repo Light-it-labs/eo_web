@@ -1,32 +1,13 @@
+import {
+  type AvoidPresentation,
+  type OpenToUseThcProducts,
+  type ReasonsEnum,
+  type ThcProductPreferences,
+  type WorseSymptomsMoment,
+} from "~/api/PrePlanTypes";
 import { api } from "~/api/axios";
 import { API_URL } from "~/api/common";
-import { useProfileStore } from "~/stores/useProfileStore";
-
-export interface ZipCodeValidationResponseSuccess {
-  app_flags: {
-    can_delete_sessions: boolean;
-    can_edit_sessions: boolean;
-    can_mute_sessions: boolean;
-    malady_selection: Array<{
-      label: string;
-      slug: string;
-    }>;
-  };
-  birth_date: string | null;
-  caregiver: boolean;
-  ced: boolean;
-  email: string;
-  first_name: string | null;
-  gender: string | null;
-  last_name: string | null;
-  malady: string;
-  med_card: boolean;
-  phone: unknown;
-  status: string;
-  timezone: string;
-  uid: string;
-  zip: string;
-}
+import { useProfileStore, type Profile } from "~/stores/useProfileStore";
 
 export interface ZipCodeValidationResponseError {
   errors: {
@@ -61,6 +42,19 @@ export interface SubmitPaymentResponse {
   success: boolean;
 }
 
+export interface ProfileOne {
+  complete: boolean;
+  step: null;
+  values: {
+    areThere: AvoidPresentation[];
+    malady: "Pain";
+    symptoms_worse_times: WorseSymptomsMoment[];
+    thc_type_preferences: ThcProductPreferences;
+    usingCannabisProducts: "Yes" | "No";
+    whatBrings: (typeof ReasonsEnum)[keyof typeof ReasonsEnum][];
+    workday_allow_intoxication_nonworkday_allow_intoxi: OpenToUseThcProducts[];
+  };
+}
 export const useElixirApi = () => {
   const token = useProfileStore((state) => state.session?.token);
 
@@ -70,9 +64,7 @@ export const useElixirApi = () => {
     },
   };
   const validateZipCode = async (zipCode: string) => {
-    return api.post<
-      ZipCodeValidationResponseSuccess | ZipCodeValidationResponseError
-    >(
+    return api.post<Profile | ZipCodeValidationResponseError>(
       `${API_URL}/v2/profile/validate_zip_code`,
       {
         zip: zipCode,
@@ -89,8 +81,49 @@ export const useElixirApi = () => {
     );
   };
 
+  const combineProfileOne = async (submissionId: string) => {
+    return api.post(
+      `${API_URL}/v2/profile/submit_profiling_one`,
+      {
+        submission_id: submissionId,
+      },
+      authHeader,
+    );
+  };
+
+  const combineProfileTwo = async (submissionId: string) => {
+    return api.post(
+      `${API_URL}/v2/profile/combine_profile_two`,
+      {
+        submission_id: submissionId,
+      },
+      authHeader,
+    );
+  };
+
+  const sendEmailToRecoveryPassword = async (email: string) => {
+    return api.post(`${API_URL}/v2/profile/request_password_reset`, {
+      email,
+    });
+  };
+
+  const resetPassword = async (data: { password: string; token: string }) => {
+    return api.post(`${API_URL}/v2/profile/reset_password`, data);
+  };
+  const getSubmission = async () => {
+    return await api.get<ProfileOne>(
+      `${API_URL}/v2/profile/profiling_one`,
+      authHeader,
+    );
+  };
+
   return {
     validateZipCode,
     submitPayment,
+    combineProfileOne,
+    combineProfileTwo,
+    sendEmailToRecoveryPassword,
+    resetPassword,
+    getSubmission,
   };
 };
