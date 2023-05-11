@@ -52,6 +52,8 @@ const isSuccessAuthNetResponse = (response: AuthNetResponse): response is AuthNe
 }
 
 const paymentSchema = z.object({
+  firstName: z.string().min(1, { message: "First name is required" }),
+  lastName: z.string().min(1, { message: "Last name is required" }),
   streetAddress1: z.string().min(1, { message: "Address is required" }),
   streetAddress2: z.string().min(1, { message: "Address is required" }),
   // Phone number should be in the user already.
@@ -119,6 +121,8 @@ export const Payment = () => {
   }, []);
 
   function sendPaymentDataToAnet({
+    firstName,
+    lastName,
     streetAddress1,
     streetAddress2,
     plan,
@@ -154,6 +158,9 @@ export const Payment = () => {
       }
       const opaqueData = response.opaqueData;
 
+      // TODO: Add first name and last name
+      const _firstName = firstName;
+      const _lastName = lastName;
       mutate({
         order: {
           plan_id: plan,
@@ -174,134 +181,137 @@ export const Payment = () => {
 
   return (
     <LayoutDefault>
-      <div className="flex flex-col items px-12">
+      <div className="flex flex-col items px-12 py-8">
         <div>
-          <Typography variant="large" className="text-gray-700">
-            Payment!
+          <Typography variant="large" font="semiBold" className="text-gray-700">
+            Enter your payment information
           </Typography>
         </div>
         <div>
           <form
             onSubmit={(e) => {
-              void handleSubmit(({
-                streetAddress1,
-                streetAddress2,
-                plan,
-                cardNumber,
-                expMonth,
-                expYear,
-                cardCode,
-                zip,
-                city,
-              }) => {
+              void handleSubmit((data) => {
                 // Submit payment to Authorize.net
-                sendPaymentDataToAnet({
-                  streetAddress1,
-                  streetAddress2,
-                  plan,
-                  cardNumber,
-                  expMonth,
-                  expYear,
-                  cardCode,
-                  zip,
-                  city,
-                });
-
-                ;
+                sendPaymentDataToAnet(data);
               })(e);
             }}
           >
-            <input type="hidden" name="dataValue" id="dataValue" />
-            <input type="hidden" name="dataDescriptor" id="dataDescriptor" />
-            <Input
-              id={"streetAddress1"}
-              label="Street Address1"
-              type="text"
-              containerClassName="max-w-[327px]"
-              className="h-12 shadow-md"
-              {...register("streetAddress1")}
-              error={errors.streetAddress1?.message}
-            />
-            <Input
-              id={"streetAddress2"}
-              label="Street Address2"
-              type="text"
-              containerClassName="max-w-[327px]"
-              className="h-12 shadow-md"
-              {...register("streetAddress2")}
-              error={errors.streetAddress2?.message}
-            />
-            <Select
-              id={"plan"}
-              label="Plan"
-              containerClassName="max-w-[327px]"
-              className="h-12 shadow-md"
-              {...register("plan")}
-              error={errors.plan?.message}
-              options={plans.map((plan) => ({
-                label: plan.name + " - " + (plan.price / 100).toLocaleString("en-US", { style: "currency", currency: "USD" }),
-                value: plan.id.toString(),
-              }))}
-            />
-            <Button type="submit" className="mt-10">
-              Proceed to payment
-            </Button>
+            <div className="grid grid-cols-2 gap-4">
+              <Select
+                id={"plan"}
+                label="Plan"
+                containerClassName="col-span-2"
+                className="h-12 shadow-md"
+                {...register("plan")}
+                error={errors.plan?.message}
+                options={plans.map((plan) => ({
+                  label: plan.name + " - " + (plan.price / 100).toLocaleString("en-US", { style: "currency", currency: "USD" }),
+                  value: plan.id.toString(),
+                }))}
+              />
+              <Input
+                id={"firstName"}
+                label="First name"
+                type="text"
+                containerClassName=""
+                className="h-12 shadow-md"
+                {...register("firstName")}
+                error={errors.firstName?.message}
+              />
+              <Input
+                id={"lastName"}
+                label="Last name"
+                type="text"
+                containerClassName=""
+                className="h-12 shadow-md"
+                {...register("lastName")}
+                error={errors.lastName?.message}
+              />
+              <Input
+                id={"cardNumber"}
+                label="Card Number"
+                type="text"
+                containerClassName=""
+                className="h-12 shadow-md"
+                {...register("cardNumber")}
+                error={errors.cardNumber?.message}
+              />
+              <Input
+                id={"cardCode"}
+                label="Card security code"
+                type="text"
+                containerClassName=""
+                className="h-12 shadow-md"
+                {...register("cardCode")}
+                error={errors.cardCode?.message}
+              />
+              <Input
+                id={"expMonth"}
+                label="Card expiration month"
+                type="text"
+                containerClassName=""
+                className="h-12 shadow-md"
+                {...register("expMonth")}
+                error={errors.expMonth?.message}
+              />
+              <Input
+                id={"expYear"}
+                label="Card expiration year"
+                type="text"
+                containerClassName=""
+                className="h-12 shadow-md"
+                {...register("expYear")}
+                error={errors.expYear?.message}
+              />
+              <div className="col-span-2">
+                <Typography variant="large" font="semiBold" className="text-gray-700">
+                  Billing Address
+                </Typography>
+              </div>
 
-            <Input
-              id={"cardNumber"}
-              label="Card Number"
-              type="text"
-              containerClassName="max-w-[327px]"
-              className="h-12 shadow-md"
-              {...register("cardNumber")}
-              error={errors.cardNumber?.message}
-            />
-            <Input
-              id={"expMonth"}
-              label="Card expiration month"
-              type="text"
-              containerClassName="max-w-[327px]"
-              className="h-12 shadow-md"
-              {...register("expMonth")}
-              error={errors.expMonth?.message}
-            />
-            <Input
-              id={"expYear"}
-              label="Card expiration year"
-              type="text"
-              containerClassName="max-w-[327px]"
-              className="h-12 shadow-md"
-              {...register("expYear")}
-              error={errors.expYear?.message}
-            />
-            <Input
-              id={"cardCode"}
-              label="Card security code"
-              type="text"
-              containerClassName="max-w-[327px]"
-              className="h-12 shadow-md"
-              {...register("cardCode")}
-              error={errors.cardCode?.message}
-            />
-            <Input
-              id={"zip"}
-              label="zip"
-              type="text"
-              containerClassName="max-w-[327px]"
-              className="h-12 shadow-md"
-              {...register("zip")}
-              error={errors.zip?.message}
-            />
-            <Input
-              id={"city"}
-              label="City"
-              type="text"
-              containerClassName="max-w-[327px]"
-              className="h-12 shadow-md"
-              {...register("city")}
-              error={errors.city?.message}
-            />
+              <Input
+                id={"streetAddress1"}
+                label="Street Address1"
+                type="text"
+                containerClassName="col-span-2"
+                className="h-12 shadow-md"
+                {...register("streetAddress1")}
+                error={errors.streetAddress1?.message}
+              />
+              <Input
+                id={"streetAddress2"}
+                label="Street Address2"
+                type="text"
+                containerClassName="col-span-2"
+                className="h-12 shadow-md"
+                {...register("streetAddress2")}
+                error={errors.streetAddress2?.message}
+              />
+              <Input
+                id={"city"}
+                label="City"
+                type="text"
+                containerClassName=""
+                className="h-12 shadow-md"
+                {...register("city")}
+                error={errors.city?.message}
+              />
+              <Input
+                id={"zip"}
+                label="zip"
+                type="text"
+                containerClassName=""
+                className="h-12 shadow-md"
+                {...register("zip")}
+                error={errors.zip?.message}
+              />
+              <div className="col-span-2">
+                <Button type="submit" className="mt-10">
+                  Proceed to payment
+                </Button>
+              </div>
 
+            </div>
           </form>
         </div>
       </div>
