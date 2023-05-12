@@ -7,6 +7,8 @@ import { useForm } from "react-hook-form";
 import { useMutation } from "@tanstack/react-query";
 import { Button, Input, Select, Typography } from "@eo/ui";
 import { useElixirApi } from "~/api/useElixirApi";
+import { ROUTES } from "~/router";
+import { useNavigate } from "react-router-dom";
 
 const plans = [
   {
@@ -96,13 +98,15 @@ export const Payment = () => {
   } = useForm<PaymentFormSchema>({ resolver: zodResolver(paymentSchema) });
 
   const { submitPayment } = useElixirApi()
+  const navigate = useNavigate();
 
   const { mutate } = useMutation({
     mutationFn: submitPayment,
-    /*     onSuccess: ({ data }) => {
-          console.log(data);
-        },
-        onError: (result) => {
+    onSuccess: ({ data }) => {
+      console.log(data);
+      navigate(ROUTES.profilingTwo)
+    },
+    /*    onError: (result) => {
           console.log(result);
         }, */
   });
