@@ -18,6 +18,7 @@ import { ProfilingTwo } from "~/screens/profiling/ProfilingTwo";
 import { ProfilingTwoRedirect } from "~/screens/profiling/ProfilingTwoRedirect";
 
 import { ProtectedRoute } from "./ProtectedRoute";
+import { Payment } from "~/screens/Payment";
 
 export const Router = () => {
   return (
@@ -35,13 +36,14 @@ export const Router = () => {
       </Route>
 
       <Route element={<ProtectedRoute expected="withZipCode" />}>
-        {/* PRIVATE ROUTES ONLY WHEN IS LOGGED IN AND HAVE ZIPCODE */}
+        {/* PRIVATE ROUTES ONLY WHEN IS LOGGED IN AND HAVE ZIP CODE */}
         <Route element={<Home />} path={ROUTES.home} />
         <Route
           element={<UnavailableZipCode />}
           path={ROUTES.unavailableZipCode}
         />
         <Route element={<EligibleProfile />} path={ROUTES.eligibleProfile} />
+        <Route element={<Payment />} path={ROUTES.payment} />
         <Route element={<ProfilingOne />} path={ROUTES.profilingOne} />
         <Route
           element={<ProfilingOneRedirect />}
@@ -60,7 +62,7 @@ export const Router = () => {
           <ProtectedRoute expected={["withoutZipCode", "withZipCode"]} />
         }
       >
-        {/* PRIVATE ROUTES ONLY WHEN IS LOGGED IN AND HAVE AND HAVEN'T ZIPCODE */}
+        {/* PRIVATE ROUTES ONLY WHEN IS LOGGED IN AND DOES NOT HAVE ZIP CODE */}
         <Route
           element={<ZipCodeValidation />}
           path={ROUTES.zipCodeValidation}

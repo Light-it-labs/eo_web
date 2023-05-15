@@ -6,11 +6,12 @@ import {
   type ConfigEnv,
   type UserConfigExport,
 } from "vite";
+import mkcert from "vite-plugin-mkcert";
 
 const config = ({ mode }: ConfigEnv): UserConfigExport => {
   process.env = { ...process.env, ...loadEnv(mode, process.cwd()) };
   return defineConfig({
-    plugins: [react()],
+    plugins: [react(), mkcert()],
     build: {
       manifest: true,
       rollupOptions: {
@@ -18,6 +19,7 @@ const config = ({ mode }: ConfigEnv): UserConfigExport => {
       },
     },
     server: {
+      https: true,
       open: true,
       origin:
         process.env.VITE_APP_ENV == "local" ? process.env.VITE_APP_URL : "",

@@ -22,6 +22,26 @@ export interface ZipCodeValidationResponseError {
   };
 }
 
+export interface SubmitPaymentRequest {
+  order: {
+    plan_id: string;
+  };
+  payment_method: {
+    descriptor: string;
+    value: string;
+  };
+  billing_address: {
+    address_line_1: string;
+    address_line_2: string;
+    zip: string;
+    city: string;
+  };
+}
+
+export interface SubmitPaymentResponse {
+  success: boolean;
+}
+
 export interface ProfileOne {
   complete: boolean;
   step: null;
@@ -49,6 +69,14 @@ export const useElixirApi = () => {
       {
         zip: zipCode,
       },
+      authHeader,
+    );
+  };
+
+  const submitPayment = async (data: SubmitPaymentRequest) => {
+    return await api.post<SubmitPaymentResponse>(
+      `${API_URL}/v2/order`,
+      data,
       authHeader,
     );
   };
@@ -91,6 +119,7 @@ export const useElixirApi = () => {
 
   return {
     validateZipCode,
+    submitPayment,
     combineProfileOne,
     combineProfileTwo,
     sendEmailToRecoveryPassword,

@@ -1,3 +1,4 @@
+
 const BASE = "/app";
 export const ROUTES = {
   login: `${BASE}/login`,
@@ -15,4 +16,5 @@ export const ROUTES = {
   forgotPassword: `${BASE}/forgot-password`,
   recoveryPassword: `${BASE}/reset-password`,
   prePlan: `${BASE}/pre-plan`,
+  payment: `${BASE}/payment`,
 } as const;
