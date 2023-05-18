@@ -15,4 +15,5 @@ export const ROUTES = {
   forgotPassword: `${BASE}/forgot-password`,
   recoveryPassword: `${BASE}/reset-password`,
   prePlan: `${BASE}/pre-plan`,
+  prePlanV2: `${BASE}/preplan`,
 } as const;

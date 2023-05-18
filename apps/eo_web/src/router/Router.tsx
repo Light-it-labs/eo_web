@@ -7,6 +7,7 @@ import { ForgotPassword } from "~/screens/ForgotPassword";
 import { Home } from "~/screens/Home";
 import { Login } from "~/screens/Login";
 import { PrePlan } from "~/screens/PrePlan";
+import { PrePlanV2 } from "~/screens/PrePlanV2";
 import { RecoveryPassword } from "~/screens/RecoveryPassword";
 import { Register } from "~/screens/Register";
 import { RegisterComplete } from "~/screens/RegisterComplete";
@@ -32,6 +33,8 @@ export const Router = () => {
         />
         <Route element={<ForgotPassword />} path={ROUTES.forgotPassword} />
         <Route element={<RecoveryPassword />} path={ROUTES.recoveryPassword} />
+
+        <Route element={<PrePlanV2 />} path={ROUTES.prePlanV2} />
       </Route>
 
       <Route element={<ProtectedRoute expected="withZipCode" />}>

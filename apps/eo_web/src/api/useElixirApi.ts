@@ -89,6 +89,13 @@ export const useElixirApi = () => {
     );
   };
 
+  const getSubmissionById = async (submissionId: string) => {
+    return await api.get<ProfileOne>(
+      `${API_URL}/v2/submission/profiling_one?submission_id=${submissionId}`,
+      authHeader,
+    );
+  };
+
   return {
     validateZipCode,
     combineProfileOne,
@@ -96,5 +103,6 @@ export const useElixirApi = () => {
     sendEmailToRecoveryPassword,
     resetPassword,
     getSubmission,
+    getSubmissionById,
   };
 };
