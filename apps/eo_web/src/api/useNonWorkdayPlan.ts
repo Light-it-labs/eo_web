@@ -220,11 +220,11 @@ export const useNonWorkdayPlan = (
   // EndBedtime
 
   // This order is too important for resolve all recurrent dependencies EYE O.O
+  const K11 = eveningForm();
   const K10 = dayTimeForm();
   const J10 = dayTimeCannabinoidType();
   const L10 = dayTimeDose();
 
-  const K11 = eveningForm();
   const J11 = eveningCannabinoidType();
   const L11 = eveningDose();
 

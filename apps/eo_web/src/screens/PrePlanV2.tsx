@@ -49,7 +49,7 @@ const getImageForForm = (
       return (
         <svg
           width="15px"
-          height="20px"
+          height="30px"
           viewBox="0 0 98 196"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -114,9 +114,7 @@ export const PrePlanV2 = () => {
     enabled: !!submissionId,
   });
 
-  const values = data?.data.values;
-
-  console.log(values?.workday_allow_intoxication_nonworkday_allow_intoxi);
+  const values = data?.data;
   const useInWorkdayTime = () => {
     return (
       values?.workday_allow_intoxication_nonworkday_allow_intoxi.includes(
@@ -162,14 +160,14 @@ export const PrePlanV2 = () => {
           thcTypePreferences: ThcProductPreferencesEnum.notSure,
         }
       : {
-          avoidPresentation: values.areThere,
+          avoidPresentation: values.areThere || [],
           currentlyUsingCannabisProducts:
             values.usingCannabisProducts === "Yes",
           openToUseThcProducts:
-            values.workday_allow_intoxication_nonworkday_allow_intoxi,
-          reasonToUse: values.whatBrings,
-          symptomsWorseTimes: values.symptoms_worse_times,
-          thcTypePreferences: values.thc_type_preferences,
+            values.workday_allow_intoxication_nonworkday_allow_intoxi || [],
+          reasonToUse: values.whatBrings || [],
+          symptomsWorseTimes: values.symptoms_worse_times || [],
+          thcTypePreferences: values.thc_type_preferences || [],
         },
   );
 

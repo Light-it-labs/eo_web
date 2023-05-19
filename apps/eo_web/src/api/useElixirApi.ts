@@ -22,6 +22,16 @@ export interface ZipCodeValidationResponseError {
   };
 }
 
+export interface ProfileOneV2 {
+  areThere: AvoidPresentation[];
+  malady: "Pain";
+  symptoms_worse_times: WorseSymptomsMoment[];
+  thc_type_preferences: ThcProductPreferences;
+  usingCannabisProducts: "Yes" | "No";
+  whatBrings: (typeof ReasonsEnum)[keyof typeof ReasonsEnum][];
+  workday_allow_intoxication_nonworkday_allow_intoxi: OpenToUseThcProducts[];
+}
+
 export interface ProfileOne {
   complete: boolean;
   step: null;
@@ -35,6 +45,7 @@ export interface ProfileOne {
     workday_allow_intoxication_nonworkday_allow_intoxi: OpenToUseThcProducts[];
   };
 }
+
 export const useElixirApi = () => {
   const token = useProfileStore((state) => state.session?.token);
 
@@ -90,7 +101,7 @@ export const useElixirApi = () => {
   };
 
   const getSubmissionById = async (submissionId: string) => {
-    return await api.get<ProfileOne>(
+    return await api.get<ProfileOneV2>(
       `${API_URL}/v2/submission/profiling_one?submission_id=${submissionId}`,
       authHeader,
     );
