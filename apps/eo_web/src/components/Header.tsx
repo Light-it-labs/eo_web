@@ -60,7 +60,7 @@ export const Header = () => {
               left={<icons.QuestionMarkCircleIcon />}
               onClick={() => setOpenModal(true)}
             >
-              Need Helps
+              Need Help
             </Button>
           </>
         )}

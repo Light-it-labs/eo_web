@@ -149,6 +149,9 @@ export default {
         },
         white: "#FFFFFF",
         transparent: "transparent",
+        gray: {
+          600: "#7C7B7A",
+        },
         cream: {
           100: "#F8F6F3",
           200: "#EBE7E1",

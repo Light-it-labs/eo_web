@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 
 import { Button, Loading, Typography, icons } from "@eo/ui";
 
@@ -14,12 +14,9 @@ import { useElixirApi } from "~/api/useElixirApi";
 import { usePrePlan } from "~/api/usePrePlan";
 import { getImageForForm } from "~/helpers/PrePlan";
 import { LayoutDefault } from "~/layouts";
-import { ROUTES } from "~/router";
 
 export const PrePlanV2 = () => {
   const [searchParams] = useSearchParams();
-
-  const navigate = useNavigate();
 
   const submissionId = searchParams.get("submission_id");
   const union = searchParams.get("union");
@@ -145,7 +142,7 @@ export const PrePlanV2 = () => {
           <Typography
             variant="large"
             font="bold"
-            className="mb-8 mt-4 font-nobel"
+            className="mb-8 mt-4 font-nobel "
           >
             {title}
           </Typography>
@@ -153,7 +150,7 @@ export const PrePlanV2 = () => {
         <main className="flex flex-col gap-14">
           {schedules.map(({ title, label, description, form }) => (
             <article className="gap-4 divide-y divide-gray-300" key={title}>
-              <Typography className="text-gray-300">{title}</Typography>
+              <Typography className="text-gray-600">{title}</Typography>
               <div className="flex flex-col items-center gap-4 pt-4 md:flex-row">
                 <div className="w-14">
                   <div className="flex h-10 w-10 flex-row items-center justify-center rounded-full bg-cream-300 p-2">
@@ -179,7 +176,7 @@ export const PrePlanV2 = () => {
   return (
     <LayoutDefault>
       <div className="flex  flex-col items-center gap-0 px-2 md:gap-20">
-        <div className="w-full max-w-[1211px] md:w-[90%] lg:w-3/5">
+        <div className="w-full max-w-[1211px] md:w-[90%] lg:w-4/5">
           <header>
             <Typography
               variant="large"
@@ -189,70 +186,74 @@ export const PrePlanV2 = () => {
               Initial Recommendations:
             </Typography>
           </header>
-          <section className="flex flex-col items-center justify-center gap-10 bg-cream-200 px-0 py-7 md:px-10 lg:flex-row">
-            <article className="flex flex-row items-center justify-center gap-4">
-              <div className="h-14 w-14 rounded-full bg-cream-300 p-3">
-                <icons.CheckIcon className="stroke-[5px]" />
+          <section className="grid grid-cols-1 items-center justify-center  divide-x divide-solid bg-cream-200 px-0 py-7 md:px-3 lg:grid-cols-2 lg:divide-gray-400">
+            <article className="md:max-w-1/2 flex flex-col items-center justify-center gap-4 md:flex-row">
+              <div className="ml-4 flex h-10 w-10 flex-row items-center justify-center rounded-full bg-cream-300 p-2 md:h-14 md:w-14 md:p-3">
+                <icons.CheckIcon className="h-20 w-20 stroke-[5px] md:h-14 md:w-14" />
               </div>
-              <div className="flex w-full flex-col md:w-[316px]">
-                <Typography variant="large" font="bold" className="font-nobel">
+              <div className="flex w-[316px] flex-col p-4">
+                <Typography
+                  variant="large"
+                  font="bold"
+                  className="font-nobel text-3xl"
+                >
                   {/* eslint-disable-next-line react/no-unescaped-entities */}
                   What's included:
                 </Typography>
-                <Typography variant="base" className="underline">
+                <Typography variant="base" font="medium">
                   Product types/forms.
                 </Typography>
-                <Typography variant="base" className="underline">
+                <Typography variant="base" font="medium">
                   Starting doses.
                 </Typography>
-                <Typography variant="base" className="underline">
+                <Typography variant="base" font="medium">
                   Times of uses.
                 </Typography>
                 <Button
                   variant="white"
-                  right={<icons.ArrowRightIcon />}
-                  className="mt-6"
+                  right={<icons.ArrowRightIcon className="stroke-[4px]" />}
+                  className="mt-6 h-[30px]"
                   onClick={() => {
                     window.location.href = `/${union}/account?submission_id=${submissionId}&union=${union}`;
                   }}
                 >
-                  Save Recommendations
+                  <Typography font="medium">Save Recommendations</Typography>
                 </Button>
               </div>
             </article>
-            <article className="flex-wor flex items-center justify-center gap-4">
-              <div>
-                <div className="h-14 w-14 rounded-full bg-cream-300 p-2">
-                  <icons.XMarkIcon className="stroke-[3px]" />
-                </div>
+            <article className="md:max-w-1/2 flex flex-col items-center justify-center gap-4 md:flex-row">
+              <div className="ml-4 flex h-10 w-10 flex-row items-center justify-center rounded-full bg-cream-300 p-2 md:h-14 md:w-14 md:p-3">
+                <icons.XMarkIcon className="h-20 w-20 stroke-[5px] md:h-14 md:w-14" />
               </div>
-              <div className="flex w-[316px] flex-col">
+              <div className="flex w-[316px] flex-col p-4">
                 <Typography
                   variant="large"
                   font="bold"
-                  className="whitespace-nowrap font-nobel"
+                  className="whitespace-nowrap font-nobel text-3xl"
                 >
                   {/* eslint-disable-next-line react/no-unescaped-entities */}
                   What's not included:
                 </Typography>
-                <Typography variant="base" className="underline">
+                <Typography variant="base" font="medium">
                   Local dispensary inventory match.
                 </Typography>
-                <Typography variant="base" className="underline">
+                <Typography variant="base" font="medium">
                   Clinician review & approval.
                 </Typography>
-                <Typography variant="base" className="underline">
+                <Typography variant="base" font="medium">
                   Ongoing feedback & optimization.
                 </Typography>
                 <Button
                   variant="white"
-                  right={<icons.ArrowRightIcon />}
-                  className="mt-6"
+                  right={<icons.ArrowRightIcon className="stroke-[4px]" />}
+                  className="mt-6 h-[30px]"
                   onClick={() => {
                     window.location.href = `/${union}/account?submission_id=${submissionId}&union=${union}`;
                   }}
                 >
-                  Continue & Get Care Plan
+                  <Typography font="medium">
+                    Continue & Get Care Plan
+                  </Typography>
                 </Button>
               </div>
             </article>
@@ -292,7 +293,12 @@ export const PrePlanV2 = () => {
                     Please click the link below to return to the form and
                     complete it in its entirety:
                   </Typography>
+
                   <Button
+                    variant="white"
+                    left={
+                      <icons.ArrowRightIcon className="rotate-180 stroke-[4px]" />
+                    }
                     className="mx-auto my-3"
                     onClick={() => {
                       window.location.href = `/${union}/profile-onboarding?malady=${
@@ -300,8 +306,9 @@ export const PrePlanV2 = () => {
                       }&union=${union}`;
                     }}
                   >
-                    Redirect
+                    <Typography font="medium">Redirect</Typography>
                   </Button>
+
                   <Typography>
                     Thank you for your cooperation. We appreciate your effort in
                     providing us with the required information to serve you
@@ -311,7 +318,6 @@ export const PrePlanV2 = () => {
               )}
             </>
           )}
-
           <section>
             <header>
               <Typography
@@ -321,13 +327,13 @@ export const PrePlanV2 = () => {
               >
                 Why recommended
               </Typography>
-              <Typography className="mb-8  mt-12 text-justify ">
+              <Typography className="mb-4 mt-4 p-2 text-justify">
                 {whyRecommended}
               </Typography>
             </header>
           </section>
           <footer>
-            <Typography className="mb-8 mt-12 text-justify">
+            <Typography className="mb-8 mt-4 text-justify">
               These recommendations were created using our proprietary data
               model which leverages the latest cannabis research and the wisdom
               of over 18,000 patient interactions. Note that these
@@ -335,10 +341,12 @@ export const PrePlanV2 = () => {
               understanding of your current symptoms, specific diagnoses,
               medications, or medical history, and have not been reviewed or
               approved by an eo clinician. To most responsibly define and
-              maintain an optimal cannabis regimen,
+              maintain an optimal cannabis regimen,{" "}
               <span
-                onClick={() => navigate(ROUTES.register)}
-                className="underline"
+                onClick={() => {
+                  window.location.href = `/${union}/account?submission_id=${submissionId}&union=${union}`;
+                }}
+                className="poin cursor-pointer font-bold underline"
               >
                 get your eo care plan now.
               </span>
