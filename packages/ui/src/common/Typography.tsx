@@ -38,7 +38,7 @@ export const Typography = ({
         variant === "small" && "text-sm",
 
         font === "medium" && "font-medium",
-        font === "regular" && "font-normal",
+        font === "regular" && "font-light",
         font === "semiBold" && "font-semibold",
         font === "bold" && "font-bold",
         font === "light" && "font-light",
