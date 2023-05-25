@@ -92,7 +92,7 @@ export const Header = () => {
             <li>
               <Typography
                 variant="base"
-                className="mb-5 text-2xl	 font-light tracking-wide"
+                className="mb-5 text-2xl font-light tracking-wide"
               >
                 <a
                   href="https://eo-care-telemed.as.me/schedule.php"

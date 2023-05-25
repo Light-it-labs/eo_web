@@ -1,4 +1,4 @@
-import { ReasonsEnum } from "~/api/PrePlanTypes";
+import { ReasonsEnum, type Schedule } from "~/api/PrePlanTypes";
 import { type FormDataPrePlan } from "~/api/usePrePlan";
 
 interface NonWorkdayPlanProps {
@@ -232,24 +232,30 @@ export const useNonWorkdayPlan = (
   const J12 = bedTimeCannabinoidType();
   const L12 = bedTimeDose();
 
-  return {
-    dayTime: {
-      type: dayTimeCannabinoidType(),
-      form: dayTimeForm(),
-      dose: dayTimeDose(),
-      result: dayTimeResult(),
-    },
-    evening: {
-      type: eveningCannabinoidType(),
-      form: eveningForm(),
-      dose: eveningDose(),
-      result: eveningResult(),
-    },
-    bedTime: {
-      type: bedTimeCannabinoidType(),
-      form: bedTimeForm(),
-      dose: bedTimeDose(),
-      result: bedTimeResult(),
-    },
-  };
+  const schedules: { dayTime: Schedule; evening: Schedule; bedTime: Schedule } =
+    {
+      dayTime: {
+        time: "Morning",
+        type: dayTimeCannabinoidType(),
+        form: dayTimeForm(),
+        dose: dayTimeDose(),
+        result: dayTimeResult(),
+      },
+      evening: {
+        time: "Evening",
+        type: eveningCannabinoidType(),
+        form: eveningForm(),
+        dose: eveningDose(),
+        result: eveningResult(),
+      },
+      bedTime: {
+        time: "Morning",
+        type: bedTimeCannabinoidType(),
+        form: bedTimeForm(),
+        dose: bedTimeDose(),
+        result: bedTimeResult(),
+      },
+    };
+
+  return schedules;
 };
