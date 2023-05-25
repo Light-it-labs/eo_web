@@ -1,5 +1,6 @@
 import {
   type AvoidPresentation,
+  type Maladies,
   type OpenToUseThcProducts,
   type ReasonsEnum,
   type ThcProductPreferences,
@@ -24,7 +25,7 @@ export interface ZipCodeValidationResponseError {
 
 export interface ProfileOneV2 {
   areThere: AvoidPresentation[];
-  malady: "Pain";
+  malady: Maladies;
   symptoms_worse_times: WorseSymptomsMoment[];
   thc_type_preferences: ThcProductPreferences;
   usingCannabisProducts: "Yes" | "No";
@@ -37,7 +38,7 @@ export interface ProfileOne {
   step: null;
   values: {
     areThere: AvoidPresentation[];
-    malady: "Pain";
+    malady: Maladies;
     symptoms_worse_times: WorseSymptomsMoment[];
     thc_type_preferences: ThcProductPreferences;
     usingCannabisProducts: "Yes" | "No";

@@ -1,3 +1,9 @@
+export enum Maladies {
+  Sleep = "Sleep",
+  Pain = "Pain",
+  Anxiety = "Anxiety",
+}
+
 export enum WorseSymptomsMomentEnum {
   Morning = "Morning",
   Afternoon = "Afternoon",
@@ -42,4 +48,12 @@ export enum ReasonsEnum {
   Pain = "I want to manage pain",
   Anxiety = "I want to reduce anxiety",
   Sleep = "I want to sleep better",
+}
+
+export interface Schedule {
+  time: "Morning" | "Evening" | "BedTime";
+  type: string;
+  form: string;
+  dose: string;
+  result: string;
 }
