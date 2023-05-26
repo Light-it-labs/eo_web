@@ -266,8 +266,23 @@ export const PrePlanV2 = () => {
                 </div>
               ) : (
                 <div>
-                  {/*Pending to define what to do, when jotform does respond well */}
-                  <Typography></Typography>
+                  <Typography className="my-4 text-justify">
+                    We apologize for the inconvenience, but we are currently
+                    experiencing difficulties establishing a connection. This
+                    may be due to temporary network issues or ongoing
+                    maintenance. Please try again later. If the problem
+                    persists, kindly check your internet connection or contact
+                    our support team for assistance. Thank you for your
+                    patience, and we apologize for any inconvenience caused.
+                    <br />
+                    <br />
+                    You can reach our customer support team by calling the
+                    following phone number: 877-707-0706. Our representatives
+                    will be delighted to assist you and address any inquiries
+                    you may have. Alternatively, you can also send us an email
+                    at members@eo.care. Our support team regularly checks this
+                    email and will respond to you as soon as possible.
+                  </Typography>
                 </div>
               )}
             </>
