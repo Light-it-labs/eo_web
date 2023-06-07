@@ -8,6 +8,10 @@ import { useIsMobile } from "~/hooks/useIsMobile";
 import { ROUTES } from "~/router";
 import { useProfileStore } from "~/stores/useProfileStore";
 
+
+
+
+
 export const Header = () => {
   const profile = useProfileStore((state) => state.profile);
 
@@ -43,7 +47,7 @@ export const Header = () => {
             ></img>
             <icons.QuestionMarkCircleIcon
               onClick={() => setOpenModal(true)}
-              className="h-6 w-6 rounded-full bg-primary-900"
+              className="h-6 w-6 rounded-full bg-primary-900 stroke-2"
             />
           </>
         ) : (
@@ -54,13 +58,13 @@ export const Header = () => {
                 window.open("https://www.eo.care/web/privacy-policy", "_blank");
               }}
             >
-              Privacy Policy
+              <Typography font="regular">Privacy Policy</Typography>
             </Button>
             <Button
-              left={<icons.QuestionMarkCircleIcon />}
+              left={<icons.QuestionMarkCircleIcon className="stroke-2" />}
               onClick={() => setOpenModal(true)}
             >
-              Need Help
+              <Typography font="regular">Need Help</Typography>
             </Button>
           </>
         )}
@@ -95,7 +99,7 @@ export const Header = () => {
                 className="mb-5 text-2xl font-light tracking-wide"
               >
                 <a
-                  href="https://eo-care-telemed.as.me/schedule.php"
+                  href="https://calendly.com/help-eo/30min"
                   className="underline decoration-1 underline-offset-8"
                 >
                   <strong>Schedule a video chat</strong>
