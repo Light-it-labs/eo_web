@@ -15,6 +15,10 @@ import { usePrePlan } from "~/api/usePrePlan";
 import { getImageForForm } from "~/helpers/PrePlan";
 import { LayoutDefault } from "~/layouts";
 
+
+
+
+
 export const PrePlanV2 = () => {
   const [searchParams] = useSearchParams();
 
@@ -137,7 +141,7 @@ export const PrePlanV2 = () => {
     schedules: ReturnType<typeof parseSchedulesPlan>[],
   ) => {
     return (
-      <section>
+      <section className="mt-8">
         <header>
           <Typography
             variant="large"
@@ -186,7 +190,7 @@ export const PrePlanV2 = () => {
               Initial Recommendations:
             </Typography>
           </header>
-          <section className="grid grid-cols-1 items-center justify-center  divide-x divide-solid bg-cream-200 px-0 py-7 md:px-3 lg:grid-cols-2 lg:divide-gray-400">
+          <section className="grid grid-cols-1 items-center  justify-center divide-x divide-solid bg-cream-200 px-0 py-7 md:px-3 lg:grid-cols-2 lg:divide-gray-400">
             <article className="md:max-w-1/2 flex flex-col items-center justify-center gap-4 md:flex-row">
               <div className="ml-4 flex h-10 w-10 flex-row items-center justify-center rounded-full bg-cream-300 p-2 md:h-14 md:w-14 md:p-3">
                 <icons.CheckIcon className="h-20 w-20 stroke-[5px] md:h-14 md:w-14" />
@@ -293,10 +297,10 @@ export const PrePlanV2 = () => {
                   {hasWorkdayTimeSelected() &&
                     renderPlan("On Workday", scheduleWorkDay)}
                   {hasNonWorkDayTimeSelected() &&
-                    renderPlan("On Non- Workdays", scheduleWorkDay)}
+                    renderPlan("On Non-Workdays", scheduleWorkDay)}
                 </>
               ) : (
-                <div className="mx-4 my-10">
+                <div className="my-10">
                   <Typography className="text-justify">
                     Attention: In order to provide accurate recommendations, we
                     need more information from you. It seems that the previous
@@ -342,7 +346,7 @@ export const PrePlanV2 = () => {
               >
                 Why recommended
               </Typography>
-              <Typography className="mb-4 mt-4 p-2 text-justify">
+              <Typography className="mb-4 mt-4 py-2 text-justify">
                 {whyRecommended}
               </Typography>
             </header>
