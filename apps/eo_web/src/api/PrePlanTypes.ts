@@ -2,6 +2,7 @@ export enum Maladies {
   Sleep = "Sleep",
   Pain = "Pain",
   Anxiety = "Anxiety",
+  Other = "Other",
 }
 
 export enum WorseSymptomsMomentEnum {
@@ -24,6 +25,7 @@ export enum TimeToUse {
   WorkDayBedtimes = "Workday Bedtimes",
   NonWorkDayBedtimes = "Non-Workday Bedtimes",
 }
+
 export type OpenToUseThcProducts = (typeof TimeToUse)[keyof typeof TimeToUse];
 
 export enum AvoidPresentationEnum {
@@ -41,6 +43,7 @@ export enum ThcProductPreferencesEnum {
   notPrefer = "I’d prefer to use non-THC (CBD/CBN/CBG) products only.",
   notSure = "I’m not sure.",
 }
+
 export type ThcProductPreferences =
   (typeof ThcProductPreferencesEnum)[keyof typeof ThcProductPreferencesEnum];
 

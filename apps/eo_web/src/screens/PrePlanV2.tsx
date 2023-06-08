@@ -40,12 +40,13 @@ export const PrePlanV2 = () => {
       if (
         data.malady === Maladies.Pain ||
         data.malady === Maladies.Anxiety ||
-        data.malady == Maladies.Sleep
+        data.malady === Maladies.Sleep ||
+        data.malady === Maladies.Other
       ) {
         // something jotform not return information, but re-fetching it will obtain it
         setJotformReturnedInformation(true);
       }
-      setCountFetching((state) => state++);
+      setCountFetching((state) => state + 1);
     },
     refetchInterval:
       jotformReturnedInformation || countFetching >= maxRetries ? false : 1500,
@@ -132,7 +133,10 @@ export const PrePlanV2 = () => {
     .filter((schedule) => !!schedule.type);
 
   const hasDataToShow =
-    (hasWorkdayTimeSelected() || hasNonWorkDayTimeSelected()) &&
+    (hasWorkdayTimeSelected() ||
+      jotformAnswers?.thc_type_preferences ===
+        ThcProductPreferencesEnum.notPrefer ||
+      hasNonWorkDayTimeSelected()) &&
     scheduleWorkDay.length &&
     scheduleNonWorkdayData.length;
 
@@ -294,10 +298,18 @@ export const PrePlanV2 = () => {
             <>
               {hasDataToShow ? (
                 <>
-                  {hasWorkdayTimeSelected() &&
-                    renderPlan("On Workday", scheduleWorkDay)}
+                  {hasWorkdayTimeSelected() ||
+                    (jotformAnswers?.thc_type_preferences ===
+                      ThcProductPreferencesEnum.notPrefer &&
+                      renderPlan(
+                        jotformAnswers?.thc_type_preferences !==
+                          ThcProductPreferencesEnum.notPrefer
+                          ? "On Workday"
+                          : "Daily Schedule",
+                        scheduleWorkDay,
+                      ))}
                   {hasNonWorkDayTimeSelected() &&
-                    renderPlan("On Non-Workdays", scheduleWorkDay)}
+                    renderPlan("On Non-Workdays", scheduleNonWorkdayData)}
                 </>
               ) : (
                 <div className="my-10">
