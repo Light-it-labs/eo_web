@@ -14,6 +14,7 @@ interface NonWorkdayPlanProps {
   C17: boolean;
   M5: string;
 }
+
 export const useNonWorkdayPlan = (
   data: FormDataPrePlan,
   {
@@ -249,7 +250,7 @@ export const useNonWorkdayPlan = (
         result: eveningResult(),
       },
       bedTime: {
-        time: "Morning",
+        time: "BedTime",
         type: bedTimeCannabinoidType(),
         form: bedTimeForm(),
         dose: bedTimeDose(),
