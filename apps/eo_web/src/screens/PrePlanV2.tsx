@@ -298,16 +298,16 @@ export const PrePlanV2 = () => {
             <>
               {hasDataToShow ? (
                 <>
-                  {hasWorkdayTimeSelected() ||
-                    (jotformAnswers?.thc_type_preferences ===
-                      ThcProductPreferencesEnum.notPrefer &&
-                      renderPlan(
-                        jotformAnswers?.thc_type_preferences !==
-                          ThcProductPreferencesEnum.notPrefer
-                          ? "On Workday"
-                          : "Daily Schedule",
-                        scheduleWorkDay,
-                      ))}
+                  {(hasWorkdayTimeSelected() ||
+                    jotformAnswers?.thc_type_preferences ===
+                      ThcProductPreferencesEnum.notPrefer) &&
+                    renderPlan(
+                      jotformAnswers?.thc_type_preferences !==
+                        ThcProductPreferencesEnum.notPrefer
+                        ? "On Workday"
+                        : "Daily Schedule",
+                      scheduleWorkDay,
+                    )}
                   {hasNonWorkDayTimeSelected() &&
                     renderPlan("On Non-Workdays", scheduleNonWorkdayData)}
                 </>
