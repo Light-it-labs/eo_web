@@ -7,17 +7,12 @@ import { Button, Loading, Typography, icons } from "@eo/ui";
 import {
   Maladies,
   ThcProductPreferencesEnum,
-  TimeToUse,
   type Schedule,
 } from "~/api/PrePlanTypes";
 import { useElixirApi } from "~/api/useElixirApi";
 import { usePrePlan } from "~/api/usePrePlan";
 import { getImageForForm } from "~/helpers/PrePlan";
 import { LayoutDefault } from "~/layouts";
-
-
-
-
 
 export const PrePlanV2 = () => {
   const [searchParams] = useSearchParams();
@@ -53,42 +48,6 @@ export const PrePlanV2 = () => {
   });
 
   const jotformAnswers = data?.data;
-
-  // hasWorkdayTimeSelected y hasNonWorkdayTimeSelected no deberian de estar aqui. Se deberia hacer en cada uno de los
-  // hooks eliminando la franja horaria que la persona no tiene intencion de implementar el care plan
-  const hasWorkdayTimeSelected = () => {
-    return (
-      jotformAnswers?.workday_allow_intoxication_nonworkday_allow_intoxi.includes(
-        TimeToUse.WorkDayEvenings,
-      ) ||
-      jotformAnswers?.workday_allow_intoxication_nonworkday_allow_intoxi.includes(
-        TimeToUse.WorkDayMornings,
-      ) ||
-      jotformAnswers?.workday_allow_intoxication_nonworkday_allow_intoxi.includes(
-        TimeToUse.WorkDayAfternoons,
-      ) ||
-      jotformAnswers?.workday_allow_intoxication_nonworkday_allow_intoxi.includes(
-        TimeToUse.WorkDayBedtimes,
-      )
-    );
-  };
-
-  const hasNonWorkDayTimeSelected = () => {
-    return (
-      jotformAnswers?.workday_allow_intoxication_nonworkday_allow_intoxi.includes(
-        TimeToUse.NonWorkDayEvenings,
-      ) ||
-      jotformAnswers?.workday_allow_intoxication_nonworkday_allow_intoxi.includes(
-        TimeToUse.NonWorkDayMornings,
-      ) ||
-      jotformAnswers?.workday_allow_intoxication_nonworkday_allow_intoxi.includes(
-        TimeToUse.NonWorkDayAfternoons,
-      ) ||
-      jotformAnswers?.workday_allow_intoxication_nonworkday_allow_intoxi.includes(
-        TimeToUse.NonWorkDayBedtimes,
-      )
-    );
-  };
 
   const { nonWorkdayPlan, workdayPlan, whyRecommended } = usePrePlan({
     avoidPresentation: jotformAnswers?.areThere || [],
@@ -132,13 +91,8 @@ export const PrePlanV2 = () => {
     .map(parseSchedulesPlan)
     .filter((schedule) => !!schedule.type);
 
-  const hasDataToShow =
-    (hasWorkdayTimeSelected() ||
-      jotformAnswers?.thc_type_preferences ===
-        ThcProductPreferencesEnum.notPrefer ||
-      hasNonWorkDayTimeSelected()) &&
-    scheduleWorkDay.length &&
-    scheduleNonWorkdayData.length;
+  const showAsDailySchedule = jotformAnswers?.thc_type_preferences === ThcProductPreferencesEnum.notPrefer;
+  const hasDataToShow = scheduleWorkDay.length || scheduleNonWorkdayData.length;
 
   const renderPlan = (
     title: string,
@@ -298,17 +252,18 @@ export const PrePlanV2 = () => {
             <>
               {hasDataToShow ? (
                 <>
-                  {(hasWorkdayTimeSelected() ||
-                    jotformAnswers?.thc_type_preferences ===
-                      ThcProductPreferencesEnum.notPrefer) &&
+                  {scheduleWorkDay.length &&
                     renderPlan(
-                      jotformAnswers?.thc_type_preferences !==
-                        ThcProductPreferencesEnum.notPrefer
-                        ? "On Workday"
-                        : "Daily Schedule",
+                      showAsDailySchedule
+                        ? "Daily Schedule"
+                        : "On Workday",
                       scheduleWorkDay,
                     )}
-                  {hasNonWorkDayTimeSelected() &&
+
+                  {(
+                    scheduleNonWorkdayData.length &&
+                    !showAsDailySchedule
+                  ) &&
                     renderPlan("On Non-Workdays", scheduleNonWorkdayData)}
                 </>
               ) : (
@@ -332,9 +287,8 @@ export const PrePlanV2 = () => {
                     }
                     className="mx-auto my-3"
                     onClick={() => {
-                      window.location.href = `/${union}/profile-onboarding?malady=${
-                        jotformAnswers?.malady || "Pain"
-                      }&union=${union}`;
+                      window.location.href = `/${union}/profile-onboarding?malady=${jotformAnswers?.malady || "Pain"
+                        }&union=${union}`;
                     }}
                   >
                     <Typography font="medium">Redirect</Typography>
