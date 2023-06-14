@@ -256,7 +256,7 @@ export const PrePlanV2 = () => {
                     renderPlan(
                       showAsDailySchedule
                         ? "Daily Schedule"
-                        : "On Workday",
+                        : "On Workdays",
                       scheduleWorkDay,
                     )}
 
