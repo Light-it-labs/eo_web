@@ -220,7 +220,7 @@ export const PrePlanV2 = () => {
               </div>
             </article>
           </section>
-          {!jotformReturnedInformation && !hasDataToShow ? (
+          {!jotformReturnedInformation || !hasDataToShow ? (
             <>
               {countFetching < maxRetries ? (
                 <div className="relative h-[250px]">
