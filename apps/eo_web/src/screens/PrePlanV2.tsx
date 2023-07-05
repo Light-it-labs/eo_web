@@ -14,6 +14,10 @@ import { usePrePlan } from "~/api/usePrePlan";
 import { getImageForForm } from "~/helpers/PrePlan";
 import { LayoutDefault } from "~/layouts";
 
+
+
+
+
 export const PrePlanV2 = () => {
   const [searchParams] = useSearchParams();
 
@@ -91,7 +95,9 @@ export const PrePlanV2 = () => {
     .map(parseSchedulesPlan)
     .filter((schedule) => !!schedule.type);
 
-  const showAsDailySchedule = jotformAnswers?.thc_type_preferences === ThcProductPreferencesEnum.notPrefer;
+  const showAsDailySchedule =
+    jotformAnswers?.thc_type_preferences ===
+    ThcProductPreferencesEnum.notPrefer;
   const hasDataToShow = scheduleWorkDay.length || scheduleNonWorkdayData.length;
 
   const renderPlan = (
@@ -172,6 +178,7 @@ export const PrePlanV2 = () => {
                   Times of uses.
                 </Typography>
                 <Button
+                  id="ga-save-recomendation"
                   variant="white"
                   right={<icons.ArrowRightIcon className="stroke-[4px]" />}
                   className="mt-6 h-[30px]"
@@ -206,6 +213,7 @@ export const PrePlanV2 = () => {
                   Ongoing feedback & optimization.
                 </Typography>
                 <Button
+                  id="ga-continue-recomendation"
                   variant="white"
                   right={<icons.ArrowRightIcon className="stroke-[4px]" />}
                   className="mt-6 h-[30px]"
@@ -254,16 +262,12 @@ export const PrePlanV2 = () => {
                 <>
                   {scheduleWorkDay.length &&
                     renderPlan(
-                      showAsDailySchedule
-                        ? "Daily Schedule"
-                        : "On Workdays",
+                      showAsDailySchedule ? "Daily Schedule" : "On Workdays",
                       scheduleWorkDay,
                     )}
 
-                  {(
-                    scheduleNonWorkdayData.length &&
-                    !showAsDailySchedule
-                  ) &&
+                  {scheduleNonWorkdayData.length &&
+                    !showAsDailySchedule &&
                     renderPlan("On Non-Workdays", scheduleNonWorkdayData)}
                 </>
               ) : (
@@ -287,8 +291,9 @@ export const PrePlanV2 = () => {
                     }
                     className="mx-auto my-3"
                     onClick={() => {
-                      window.location.href = `/${union}/profile-onboarding?malady=${jotformAnswers?.malady || "Pain"
-                        }&union=${union}`;
+                      window.location.href = `/${union}/profile-onboarding?malady=${
+                        jotformAnswers?.malady || "Pain"
+                      }&union=${union}`;
                     }}
                   >
                     <Typography font="medium">Redirect</Typography>
