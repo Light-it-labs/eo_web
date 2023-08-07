@@ -1,6 +1,10 @@
 import { Route, Routes } from "react-router-dom";
 
 import { ROUTES } from "~/router/routes";
+import { CancerForm } from "~/screens/Cancer/CancerForm";
+import { CancerThankYou } from "~/screens/Cancer/CancerThankYou";
+import { UserCancerProfile } from "~/screens/Cancer/UserCancerProfile";
+import { UserCancerVerification } from "~/screens/Cancer/UserCancerVerification";
 import { EligibleProfile } from "~/screens/EligibleProfile";
 import { EmailVerificationUncompletedButLogged } from "~/screens/EmailVerificationUncompletedButLogged";
 import { ForgotPassword } from "~/screens/ForgotPassword";
@@ -19,6 +23,7 @@ import { ProfilingTwo } from "~/screens/profiling/ProfilingTwo";
 import { ProfilingTwoRedirect } from "~/screens/profiling/ProfilingTwoRedirect";
 
 import { ProtectedRoute } from "./ProtectedRoute";
+
 
 export const Router = () => {
   return (
@@ -73,6 +78,16 @@ export const Router = () => {
         element={<EmailVerificationUncompletedButLogged />}
         path={ROUTES.emailVerification}
       />
+
+      {/* CANCER */}
+      <Route element={<UserCancerProfile />} path={ROUTES.cancerProfile} />
+
+      <Route
+        element={<UserCancerVerification />}
+        path={ROUTES.cancerUserVerification}
+      />
+      <Route element={<CancerForm />} path={ROUTES.cancerForm} />
+      <Route element={<CancerThankYou />} path={ROUTES.cancerThankYou} />
     </Routes>
   );
 };

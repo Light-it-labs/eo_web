@@ -6,14 +6,18 @@ import { env } from "./env";
 import { Router } from "./router";
 import "react-toastify/dist/ReactToastify.css";
 
+
 const queryClient = new QueryClient();
 declare global {
   interface Window {
     data: {
       API_URL: string;
+      API_LARAVEL: string;
       PROFILE_ONE_ID: string;
       PROFILE_TWO_ID: string;
       ZUKO_SLUG_ID_PROCESS_START: string;
+      CANCER_PROFILING: string;
+      CANCER_USER_DATA: string;
     };
   }
 }

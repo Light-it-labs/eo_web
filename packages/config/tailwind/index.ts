@@ -3,6 +3,10 @@ import forms from "@tailwindcss/forms";
 import typography from "@tailwindcss/typography";
 import type { Config } from "tailwindcss";
 
+
+
+
+
 export default {
   content: [
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -164,6 +168,7 @@ export default {
       fontFamily: {
         nobel: "nobel",
         grand: "grand",
+        nunito: "nutito",
         "sf-pro": "SF Mono",
       },
     },
