@@ -6,18 +6,21 @@ import { tw } from "@eo/shared";
 import { icons } from "./Icons";
 import { Overlay } from "./Overlay";
 
+
 export const Modal = ({
   isOpen,
   onClose,
   initialFocus,
   className,
   children,
+  onPressX,
   controller,
 }: PropsWithChildren<{
   isOpen: boolean;
-  onClose: () => void;
+  onClose?: () => void;
   initialFocus?: RefObject<HTMLButtonElement>;
   className?: string;
+  onPressX?: () => void;
   controller: (val: boolean) => void;
 }>) => {
   return (
@@ -26,7 +29,7 @@ export const Modal = ({
         as="div"
         className="relative z-10"
         initialFocus={initialFocus}
-        onClose={onClose}
+        onClose={() => (onClose ? onClose() : null)}
       >
         <Overlay />
         <div className="fixed inset-0 z-10 overflow-y-auto">
@@ -48,7 +51,10 @@ export const Modal = ({
               >
                 <icons.XMarkIcon
                   className="strike-20 absolute right-0 m-4 h-10 w-10 stroke-[4px]"
-                  onClick={() => controller(false)}
+                  onClick={() => {
+                    onPressX ? onPressX() : null;
+                    controller(false);
+                  }}
                 />
                 {children}
               </Dialog.Panel>

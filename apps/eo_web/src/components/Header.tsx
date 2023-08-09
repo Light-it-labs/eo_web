@@ -35,6 +35,9 @@ export const Header = () => {
         src="https://assets-global.website-files.com/641990da28209a736d8d7c6a/641990da28209a61b68d7cc2_eo-logo%201.svg"
         alt="Leters EO"
         className="h-11 w-20"
+        onClick={() => {
+          window.location.href = "/";
+        }}
       />
       <div className="right-12 flex flex-row items-center gap-2">
         {isMobile ? (
