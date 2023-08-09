@@ -16,9 +16,7 @@ const CANCER_PROFILE_ID = window.data.CANCER_PROFILING || 232054030821037;
 export const CancerForm = () => {
   const location = useLocation();
 
-  const { submission_id } = location.state
-    ? (location.state as { submission_id: string })
-    : { submission_id: "" };
+  const { submission_id } = location.state as { submission_id: string };
 
   const [jotformReturnedInformation, setJotformReturnedInformation] =
     useState(false);

@@ -28,7 +28,7 @@ export const UserCancerVerification = () => {
   const [closeModal, setCloseModal] = useState(false);
   const { data: response, isLoading } = useQuery({
     queryFn: () => eligibleEmail(email),
-    queryKey: ["eligibleEmail"],
+    queryKey: ["eligibleEmail", email],
     enabled: !!email,
     onSuccess: ({ data }) => {
       if (data.success) {
