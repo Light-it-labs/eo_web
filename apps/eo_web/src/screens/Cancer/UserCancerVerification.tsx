@@ -18,8 +18,11 @@ export const UserCancerVerification = () => {
 
   const { eligibleEmail } = useElixirApi();
 
-  const email = searchParams.get("email") || "";
   const submissionId = searchParams.get("submission_id") || "";
+  const name = searchParams.get("name") || "";
+  const last = searchParams.get("last") || "";
+  const email = searchParams.get("email") || "";
+
   if (!email || !submissionId) {
     navigate(ROUTES.cancerProfile);
   }
@@ -48,7 +51,11 @@ export const UserCancerVerification = () => {
 
   useEffect(() => {
     if (closeModal) {
-      navigate(ROUTES.cancerProfile);
+      const queryString = new URLSearchParams({
+        "whoAre[first]": name,
+        "whoAre[last]": last,
+      }).toString();
+      navigate(`${ROUTES.cancerProfile}?${queryString}`);
     }
   }, [closeModal, navigate]);
 

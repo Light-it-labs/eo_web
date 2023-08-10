@@ -9,7 +9,6 @@ import {
 import { api } from "~/api/axios";
 import { API_LARAVEL, API_URL } from "~/api/common";
 import { useProfileStore, type Profile } from "~/stores/useProfileStore";
-import { type CancerForm } from "~/types/Cancer";
 
 export interface ZipCodeValidationResponseError {
   errors: {
@@ -109,13 +108,6 @@ export const useElixirApi = () => {
     );
   };
 
-  const getSubmissionByIdV2 = async (submissionId: string) => {
-    return await api.get<CancerForm>(
-      `${API_URL}/v2/submission/cancer?submission_id=${submissionId}`,
-      authHeader,
-    );
-  };
-
   const eligibleEmail = async (email: string) => {
     return await api.get<{ success: boolean; message: string }>(
       `${API_URL}/v2/profiles/eligible?email=${email}`,
@@ -138,7 +130,6 @@ export const useElixirApi = () => {
     resetPassword,
     getSubmission,
     getSubmissionById,
-    getSubmissionByIdV2,
     eligibleEmail,
     postCancerFormSubmission,
   };
