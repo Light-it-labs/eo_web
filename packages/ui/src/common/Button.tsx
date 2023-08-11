@@ -5,6 +5,7 @@ import { forwardRef, tw } from "@eo/shared";
 import { IconWrapper } from "./Icons";
 import { Typography } from "./Typography";
 
+
 export const buttonVariants = [
   "primary",
   "outline",
@@ -44,7 +45,7 @@ export const Button = forwardRef(
       ref={ref}
       type={type}
       className={tw(
-        "flex h-12 flex-row items-center items-center justify-between gap-2 border border-transparent focus:outline-none focus:ring-2 focus:ring-offset-0",
+        "flex h-12 flex-row items-center justify-between gap-2 border border-transparent focus:outline-none focus:ring-2 focus:ring-offset-0",
         variant === "primary" &&
           "bg-primary text-black hover:bg-primary-900 focus:bg-primary focus:ring-primary-100",
         variant === "outline" &&

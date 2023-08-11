@@ -7,7 +7,7 @@ import {
   type WorseSymptomsMoment,
 } from "~/api/PrePlanTypes";
 import { api } from "~/api/axios";
-import { API_URL } from "~/api/common";
+import { API_LARAVEL, API_URL } from "~/api/common";
 import { useProfileStore, type Profile } from "~/stores/useProfileStore";
 
 export interface ZipCodeValidationResponseError {
@@ -108,6 +108,20 @@ export const useElixirApi = () => {
     );
   };
 
+  const eligibleEmail = async (email: string) => {
+    return await api.get<{ success: boolean; message: string }>(
+      `${API_URL}/v2/profiles/eligible?email=${email}`,
+      authHeader,
+    );
+  };
+
+  const postCancerFormSubmission = async (data: object) => {
+    return await api.post<{ success: boolean; message: string }>(
+      `${API_LARAVEL}/api/v2/cancer/profile`,
+      data,
+    );
+  };
+
   return {
     validateZipCode,
     combineProfileOne,
@@ -116,5 +130,7 @@ export const useElixirApi = () => {
     resetPassword,
     getSubmission,
     getSubmissionById,
+    eligibleEmail,
+    postCancerFormSubmission,
   };
 };

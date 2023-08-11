@@ -16,4 +16,12 @@ export const ROUTES = {
   recoveryPassword: `${BASE}/reset-password`,
   prePlan: `${BASE}/pre-plan`,
   prePlanV2: `${BASE}/preplan`,
+
+  // Cancer PATH
+  cancerProfile: "/cancer/personal-information",
+  cancerUserVerification: "/cancer/user-validate",
+  cancerForm: "/cancer/profiling",
+  cancerThankYou: "/cancer/thank-you",
+  cancerUnion: "/cancer/union-survey",
+  cancerSurveyThankYou: "/cancer/survey-thank-you",
 } as const;
