@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import { useNavigate, useSearchParams } from "react-router-dom";
@@ -7,6 +6,7 @@ import { toast } from "react-toastify";
 import { Typography } from "@eo/ui";
 
 import { useElixirApi } from "~/api/useElixirApi";
+import { useMount } from "~/hooks/useMount";
 import { LayoutDefault } from "~/layouts";
 import { ROUTES } from "~/router";
 
@@ -28,7 +28,8 @@ export const CancerThankYou = () => {
   const { postCancerFormSubmission } = useElixirApi();
 
   const { mutate } = useMutation({
-    mutationFn: () => postCancerFormSubmission({ submission_id }),
+    mutationFn: postCancerFormSubmission,
+    mutationKey: ["postCancerFormSubmission", submission_id],
     onError: (result) => {
       if (axios.isAxiosError(result)) {
         if (result.response?.status !== 200) {
@@ -40,9 +41,7 @@ export const CancerThankYou = () => {
     },
   });
 
-  useEffect(() => {
-    mutate();
-  }, []);
+  useMount(() => mutate({ submission_id }));
 
   return (
     <LayoutDefault>
