@@ -22,8 +22,10 @@ export const UserCancerVerification = () => {
   const name = searchParams.get("name") || "";
   const last = searchParams.get("last") || "";
   const email = searchParams.get("email") || "";
+  const dob = searchParams.get("dob") || "";
+  const caregiver = searchParams.get("caregiver") || "";
 
-  if (!email || !submissionId) {
+  if (!email || !submissionId || !name || !last || !email || !dob) {
     navigate(ROUTES.cancerProfile);
   }
 
@@ -35,11 +37,15 @@ export const UserCancerVerification = () => {
     enabled: !!email,
     onSuccess: ({ data }) => {
       if (data.success) {
-        navigate(ROUTES.cancerForm, {
-          state: {
-            submission_id: searchParams.get("submission_id"),
-          },
+        const queryStr = new URLSearchParams({
+          name: name,
+          last: last,
+          dob: dob,
+          email: email,
+          caregiver: caregiver,
+          submission_id: submissionId,
         });
+        navigate(ROUTES.cancerForm + `?${queryStr}`);
       } else {
         setOpenModal(true);
       }
@@ -57,7 +63,7 @@ export const UserCancerVerification = () => {
       }).toString();
       navigate(`${ROUTES.cancerProfile}?${queryString}`);
     }
-  }, [closeModal, navigate]);
+  }, [closeModal, last, name, navigate]);
 
   return (
     <LayoutDefault>
