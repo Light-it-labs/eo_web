@@ -25,7 +25,6 @@ export const CancerForm = () => {
 
   const navigate = useNavigate();
 
-  console.log(name, last, dob, email, caregiver, submission_id, gender);
   if (!submission_id) {
     navigate(ROUTES.cancerProfile);
   }
