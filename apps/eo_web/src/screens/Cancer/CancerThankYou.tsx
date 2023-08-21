@@ -76,8 +76,9 @@ export const CancerThankYou = () => {
           delivery of your products, we’ll communicate your next steps in
           separate email(s) you’ll receive shortly. <br />
           <br />
-          Have questions? We’re here. Email members@eo.care, call 877.707.0706,
-          or schedule a free consultation.
+          Have questions? We’re here. Email members@eo.care, call{" "}
+          <a href="tel:+1-877-707-0706">877-707-0706</a>, or schedule a free
+          consultation.
         </Typography>
       </div>
     </LayoutDefault>

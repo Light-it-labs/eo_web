@@ -24,8 +24,9 @@ export const UserCancerVerification = () => {
   const email = searchParams.get("email") || "";
   const dob = searchParams.get("dob") || "";
   const caregiver = searchParams.get("caregiver") || "";
+  const gender = searchParams.get("gender") || "";
 
-  if (!email || !submissionId || !name || !last || !email || !dob) {
+  if (!email || !submissionId || !name || !last || !email || !dob || !gender) {
     navigate(ROUTES.cancerProfile);
   }
 
@@ -42,6 +43,7 @@ export const UserCancerVerification = () => {
           last: last,
           dob: dob,
           email: email,
+          gender: gender,
           caregiver: caregiver,
           submission_id: submissionId,
         });

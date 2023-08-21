@@ -9,7 +9,7 @@ import { ROUTES } from "~/router";
 
 
 
-const CANCER_PROFILE_ID = window.data.CANCER_PROFILING || 232054030821037;
+const CANCER_PROFILE_ID = window.data.CANCER_PROFILING || 232256466069664;
 
 export const CancerForm = () => {
   const [searchParams] = useSearchParams();
@@ -20,6 +20,7 @@ export const CancerForm = () => {
   const email = searchParams.get("email");
   const caregiver = searchParams.get("caregiver");
   const submission_id = searchParams.get("submission_id");
+  const gender = searchParams.get("gender");
   const [day, month, year] = dob?.split("-") || [];
 
   const navigate = useNavigate();
@@ -41,7 +42,7 @@ export const CancerForm = () => {
           allow="geolocation; microphone; camera"
           allowTransparency={true}
           allowFullScreen={true}
-          src={`https://form.jotform.com/${CANCER_PROFILE_ID}?name[0]=${name}&name[1]=${last}&email=${email}&dob[month]=${month}&dob[day]=${day}&dob[year]=${year}&caregiver=${caregiver}`}
+          src={`https://form.jotform.com/${CANCER_PROFILE_ID}?name[0]=${name}&name[1]=${last}&email=${email}&dob[month]=${month}&dob[day]=${day}&dob[year]=${year}&caregiver=${caregiver}&gender=${gender}`}
           className="h-full w-full"
           style={{
             minWidth: "100%",
