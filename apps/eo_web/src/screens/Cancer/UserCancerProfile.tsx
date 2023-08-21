@@ -7,7 +7,7 @@ import { LayoutDefault } from "~/layouts";
 
 
 
-const CANCER_USER_PROFILE = window.data.CANCER_USER_DATA || 232054673876060;
+const CANCER_USER_PROFILE = window.data.CANCER_USER_DATA || 232256418562659;
 export const UserCancerProfile = () => {
   useEffect(() => {
     jotformScript(CANCER_USER_PROFILE);
