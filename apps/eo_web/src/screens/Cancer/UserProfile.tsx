@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 
+import { CANCER_USER_PROFILE } from "~/configs/env";
 import { jotformScript } from "~/helpers/jotform_script";
 import { LayoutDefault } from "~/layouts";
 
@@ -7,7 +8,6 @@ import { LayoutDefault } from "~/layouts";
 
 
 
-const CANCER_USER_PROFILE = window.data.CANCER_USER_DATA || 232256418562659;
 export const UserProfile = () => {
   useEffect(() => {
     jotformScript(CANCER_USER_PROFILE);

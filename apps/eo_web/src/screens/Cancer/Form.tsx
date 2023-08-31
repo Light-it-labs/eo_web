@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 
+import { CANCER_PROFILE_ID } from "~/configs/env";
 import { jotformScript } from "~/helpers/jotform_script";
 import { LayoutDefault } from "~/layouts";
 import { ROUTES } from "~/router";
@@ -8,8 +9,6 @@ import { ROUTES } from "~/router";
 
 
 
-
-const CANCER_PROFILE_ID = window.data.CANCER_PROFILING || 232256466069664;
 
 export const Form = () => {
   const [searchParams] = useSearchParams();

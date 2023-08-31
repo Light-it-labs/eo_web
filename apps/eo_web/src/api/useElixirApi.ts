@@ -7,7 +7,7 @@ import {
   type WorseSymptomsMoment,
 } from "~/api/PrePlanTypes";
 import { api } from "~/api/axios";
-import { API_LARAVEL, API_URL } from "~/api/common";
+import { API_LARAVEL, API_URL } from "~/configs/env";
 import { useProfileStore, type Profile } from "~/stores/useProfileStore";
 
 export interface ZipCodeValidationResponseError {

@@ -10,10 +10,15 @@ import { z } from "zod";
 import { Button, Input, Typography } from "@eo/ui";
 
 import { useElixirApi } from "~/api/useElixirApi";
+import { ZUKO_SLUG_ID } from "~/configs/env";
 import { useZukoAnalytic } from "~/hooks/useZukoAnalytic";
 import { LayoutDefault } from "~/layouts";
 import { ROUTES } from "~/router";
 import { useProfileStore } from "~/stores/useProfileStore";
+
+
+
+
 
 const zipCodeValidationSchema = z.object({
   zip_code: z
@@ -22,9 +27,6 @@ const zipCodeValidationSchema = z.object({
     .max(5, { message: "Zip code is invalid" }),
 });
 export type ZipCodeValidationSchema = z.infer<typeof zipCodeValidationSchema>;
-
-const ZUKO_SLUG_ID =
-  window.data.ZUKO_SLUG_ID_PROCESS_START || "4e9cc7ceea3e22fb";
 
 export const ZipCodeValidation = () => {
   const { validateZipCode } = useElixirApi();

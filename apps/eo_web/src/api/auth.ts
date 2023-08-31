@@ -1,5 +1,5 @@
 import { api } from "~/api/axios";
-import { API_URL } from "~/api/common";
+import { API_URL } from "~/configs/env";
 import {
   useProfileStore,
   type Profile,
@@ -27,6 +27,7 @@ export interface RegisterRequest {
   first_name: string;
   last_name: string;
 }
+
 export const register = async (registrationForm: RegisterRequest) => {
   return await api.post<string>(`${API_URL}/v2/profile`, registrationForm);
 };
