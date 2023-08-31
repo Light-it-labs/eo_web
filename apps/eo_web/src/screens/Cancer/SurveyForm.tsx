@@ -10,7 +10,7 @@ import { LayoutDefault } from "~/layouts";
 
 const CANCER_PROFILE_ID = window.data.CANCER_SURVEY_FORM || 232395615249664;
 
-export const Form = () => {
+export const SurveyForm = () => {
   const [searchParams] = useSearchParams();
 
   const email = searchParams.get("email");

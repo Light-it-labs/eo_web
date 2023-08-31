@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import { ROUTES } from "~/router/routes";
 import { Form } from "~/screens/Cancer/Form";
 import { FormThankYou } from "~/screens/Cancer/FormThankYou";
+import { SurveyForm } from "~/screens/Cancer/SurveyForm";
 import { SurveyThankYou } from "~/screens/Cancer/SurveyThankYou";
 import { UserProfile } from "~/screens/Cancer/UserProfile";
 import { UserVerification } from "~/screens/Cancer/UserVerification";
@@ -89,6 +90,8 @@ export const Router = () => {
       />
       <Route element={<Form />} path={ROUTES.cancerForm} />
       <Route element={<FormThankYou />} path={ROUTES.cancerThankYou} />
+
+      <Route element={<SurveyForm />} path={ROUTES.cancerSurvey} />
       <Route element={<SurveyThankYou />} path={ROUTES.cancerSurveyThankYou} />
     </Routes>
   );

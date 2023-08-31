@@ -22,6 +22,6 @@ export const ROUTES = {
   cancerUserVerification: "/cancer/user-validate",
   cancerForm: "/cancer/profiling",
   cancerThankYou: "/cancer/thank-you",
-  cancerUnion: "/cancer/union-survey",
+  cancerSurvey: "/cancer/survey",
   cancerSurveyThankYou: "/cancer/survey-thank-you",
 } as const;
