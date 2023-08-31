@@ -18,6 +18,7 @@ declare global {
       ZUKO_SLUG_ID_PROCESS_START: string;
       CANCER_PROFILING: string;
       CANCER_USER_DATA: string;
+      CANCER_SURVEY_FORM: string;
     };
   }
 }

@@ -1,10 +1,11 @@
 import { Route, Routes } from "react-router-dom";
 
 import { ROUTES } from "~/router/routes";
-import { CancerForm } from "~/screens/Cancer/CancerForm";
-import { CancerThankYou } from "~/screens/Cancer/CancerThankYou";
-import { UserCancerProfile } from "~/screens/Cancer/UserCancerProfile";
-import { UserCancerVerification } from "~/screens/Cancer/UserCancerVerification";
+import { Form } from "~/screens/Cancer/Form";
+import { FormThankYou } from "~/screens/Cancer/FormThankYou";
+import { SurveyThankYou } from "~/screens/Cancer/SurveyThankYou";
+import { UserProfile } from "~/screens/Cancer/UserProfile";
+import { UserVerification } from "~/screens/Cancer/UserVerification";
 import { EligibleProfile } from "~/screens/EligibleProfile";
 import { EmailVerificationUncompletedButLogged } from "~/screens/EmailVerificationUncompletedButLogged";
 import { ForgotPassword } from "~/screens/ForgotPassword";
@@ -80,14 +81,15 @@ export const Router = () => {
       />
 
       {/* CANCER */}
-      <Route element={<UserCancerProfile />} path={ROUTES.cancerProfile} />
+      <Route element={<UserProfile />} path={ROUTES.cancerProfile} />
 
       <Route
-        element={<UserCancerVerification />}
+        element={<UserVerification />}
         path={ROUTES.cancerUserVerification}
       />
-      <Route element={<CancerForm />} path={ROUTES.cancerForm} />
-      <Route element={<CancerThankYou />} path={ROUTES.cancerThankYou} />
+      <Route element={<Form />} path={ROUTES.cancerForm} />
+      <Route element={<FormThankYou />} path={ROUTES.cancerThankYou} />
+      <Route element={<SurveyThankYou />} path={ROUTES.cancerSurveyThankYou} />
     </Routes>
   );
 };

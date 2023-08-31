@@ -12,7 +12,7 @@ import { ROUTES } from "~/router";
 
 
 
-export const UserCancerVerification = () => {
+export const UserVerification = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
 
