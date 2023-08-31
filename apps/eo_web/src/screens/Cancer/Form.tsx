@@ -11,7 +11,7 @@ import { ROUTES } from "~/router";
 
 const CANCER_PROFILE_ID = window.data.CANCER_PROFILING || 232256466069664;
 
-export const CancerForm = () => {
+export const Form = () => {
   const [searchParams] = useSearchParams();
 
   const name = searchParams.get("name");

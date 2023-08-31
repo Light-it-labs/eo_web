@@ -122,6 +122,13 @@ export const useElixirApi = () => {
     );
   };
 
+  const postCancerSurveyFormSubmission = async (data: object) => {
+    return await api.post<{ success: boolean; message: string }>(
+      `${API_LARAVEL}/api/cancer/survey`,
+      data,
+    );
+  };
+
   return {
     validateZipCode,
     combineProfileOne,
@@ -132,5 +139,6 @@ export const useElixirApi = () => {
     getSubmissionById,
     eligibleEmail,
     postCancerFormSubmission,
+    postCancerSurveyFormSubmission,
   };
 };
