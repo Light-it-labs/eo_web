@@ -1,14 +1,13 @@
 import { useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 
+import { CANCER_PROFILE_ID } from "~/configs/env";
 import { jotformScript } from "~/helpers/jotform_script";
 import { LayoutDefault } from "~/layouts";
 
 
 
 
-
-const CANCER_PROFILE_ID = window.data.CANCER_SURVEY_FORM || 232395615249664;
 
 export const SurveyForm = () => {
   const [searchParams] = useSearchParams();

@@ -1,9 +1,13 @@
 import { useEffect } from "react";
 
+import { PROFILE_TWO_ID } from "~/configs/env";
 import { jotformScript } from "~/helpers/jotform_script";
 import { LayoutDefault } from "~/layouts";
 
-const PROFILE_TWO_ID = window.data.PROFILE_TWO_ID || 231015554139147;
+
+
+
+
 export const ProfilingTwo = () => {
   useEffect(() => {
     jotformScript(PROFILE_TWO_ID);

@@ -5,12 +5,15 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import { Button, Typography } from "@eo/ui";
 
 import { useElixirApi } from "~/api/useElixirApi";
+import { ZUKO_SLUG_ID } from "~/configs/env";
 import { useZukoAnalytic } from "~/hooks/useZukoAnalytic";
 import { LayoutDefault } from "~/layouts";
 import { ROUTES } from "~/router";
 
-const ZUKO_SLUG_ID =
-  window.data.ZUKO_SLUG_ID_PROCESS_START || "4e9cc7ceea3e22fb";
+
+
+
+
 export const ProfilingTwoRedirect = () => {
   const navigate = useNavigate();
   const [sentProfile, setSentProfile] = useState(false);
