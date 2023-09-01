@@ -7,6 +7,8 @@ export const CANCER_USER_PROFILE =
   window.data.CANCER_USER_DATA || 232256418562659;
 export const CANCER_PROFILE_ID =
   window.data.CANCER_PROFILING || 232256466069664;
+export const CANCER_SURVEY_ID =
+  window.data.CANCER_SURVEY_FORM || 232395615249664;
 
 export const API_URL = window.data.API_URL || "http://localhost:4200";
 export const API_LARAVEL = window.data.API_LARAVEL || "http://localhost";
