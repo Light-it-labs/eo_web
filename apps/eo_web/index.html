@@ -11,11 +11,23 @@
 <body>
 <div id="root"></div>
 <script type="text/javascript">
+  const hosts = ['www.eo.care', 'partner.eo.care', 'eo-marketing-06cbaf66a5b1fbfeecb0ca9525.webflow.io', 'eo-marketing.webflow.io']
+
   window.data = {
-    API_URL: null,
-    API_URL_LARAVEL: null,
-    PROFILE_TWO_ID: null,
-    PROFILE_ONE_ID: null
+    hosts: hosts,
+    isProduction: hosts.includes('www.eo.care', 'partner.eo.care'),
+    environments: {
+      'www.eo.care': {},
+      'partner.eo.care': {},
+      'eo-marketing-06cbaf66a5b1fbfeecb0ca9525.webflow.io': {},
+      'eo-marketing.webflow.io': {}
+    },
+    getEnv: function (key) {
+      if (this.hosts.includes(window.location.host)) {
+        return this.environments[window.location.host][key]
+      }
+      return null
+    }
   }
 </script>
 <script type="module" src="/src/main.tsx"></script>
