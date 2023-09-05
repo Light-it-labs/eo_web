@@ -45,7 +45,7 @@ export const SurveyThankYou = () => {
 
   return (
     <LayoutDefault>
-      <div className="flex flex-col items-center justify-center px-[20%]">
+      <div className="flex h-full flex-col items-center justify-center px-[20%]">
         <Typography
           variant="large"
           className="font-nunito font-bold"
