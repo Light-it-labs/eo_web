@@ -8,7 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 
 const queryClient = new QueryClient();
-type envs =
+type Envs =
   | "www.eo.care"
   | "partner.eo.care"
   | "eo-marketing-06cbaf66a5b1fbfeecb0ca9525.webflow.io"
@@ -28,9 +28,9 @@ interface EnvironmentsConfigs {
 declare global {
   interface Window {
     data: {
-      hosts: envs[];
+      hosts: Envs[];
       isProduction: boolean;
-      environments: Record<envs, EnvironmentsConfigs>;
+      environments: Record<Envs, EnvironmentsConfigs>;
       getEnv: (key: keyof EnvironmentsConfigs) => string | null;
     };
   }
