@@ -1,11 +1,14 @@
+import React from "react";
 import { Route, Routes } from "react-router-dom";
 
 import { ROUTES } from "~/router/routes";
 import { Form } from "~/screens/Cancer/Form";
+import { FormDemo } from "~/screens/Cancer/FormDemo";
 import { FormThankYou } from "~/screens/Cancer/FormThankYou";
 import { SurveyForm } from "~/screens/Cancer/SurveyForm";
 import { SurveyThankYou } from "~/screens/Cancer/SurveyThankYou";
 import { UserProfile } from "~/screens/Cancer/UserProfile";
+import { UserTypeSelectorDemo } from "~/screens/Cancer/UserTypeSelectorDemo";
 import { UserVerification } from "~/screens/Cancer/UserVerification";
 import { EligibleProfile } from "~/screens/EligibleProfile";
 import { EmailVerificationUncompletedButLogged } from "~/screens/EmailVerificationUncompletedButLogged";
@@ -83,7 +86,11 @@ export const Router = () => {
 
       {/* CANCER */}
       <Route element={<UserProfile />} path={ROUTES.cancerProfile} />
-
+      <Route
+        element={<UserTypeSelectorDemo />}
+        path={ROUTES.cancerUserTypeSelectDemo}
+      />
+      <Route element={<FormDemo />} path={ROUTES.cancerFormDemo} />
       <Route
         element={<UserVerification />}
         path={ROUTES.cancerUserVerification}
