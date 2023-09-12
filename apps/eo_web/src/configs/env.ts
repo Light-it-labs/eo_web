@@ -7,8 +7,10 @@ export const ZUKO_SLUG_ID =
 
 export const CANCER_USER_PROFILE =
   window.data.getEnv("CANCER_USER_DATA") || 232256418562659;
-export const CANCER_PROFILE_ID =
-  window.data.getEnv("CANCER_PROFILING") || 232434941796667;
+export const CANCER_PROFILE_PATIENT_ID =
+  window.data.getEnv("CANCER_PROFILE_PATIENT_ID") || 232545133592657;
+export const CANCER_PROFILE_CAREGIVER_ID =
+  window.data.getEnv("CANCER_PROFILE_CAREGIVER_ID") || 232545861869672;
 export const CANCER_SURVEY_ID =
   window.data.getEnv("CANCER_SURVEY_FORM") || 232395615249664;
 

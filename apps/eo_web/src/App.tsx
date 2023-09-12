@@ -8,7 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 
 const queryClient = new QueryClient();
-type Envs =
+type Hosts =
   | "www.eo.care"
   | "partner.eo.care"
   | "eo-marketing-06cbaf66a5b1fbfeecb0ca9525.webflow.io"
@@ -20,7 +20,8 @@ interface EnvironmentsConfigs {
   PROFILE_ONE_ID: string;
   PROFILE_TWO_ID: string;
   ZUKO_SLUG_ID_PROCESS_START: string;
-  CANCER_PROFILING: string;
+  CANCER_PROFILE_PATIENT_ID: string;
+  CANCER_PROFILE_CAREGIVER_ID: string;
   CANCER_USER_DATA: string;
   CANCER_SURVEY_FORM: string;
 }
@@ -28,9 +29,9 @@ interface EnvironmentsConfigs {
 declare global {
   interface Window {
     data: {
-      hosts: Envs[];
+      hosts: Hosts[];
       isProduction: boolean;
-      environments: Record<Envs, EnvironmentsConfigs>;
+      environments: Record<Hosts, EnvironmentsConfigs>;
       getEnv: (key: keyof EnvironmentsConfigs) => string | null;
     };
   }

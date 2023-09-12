@@ -18,6 +18,8 @@ export const ROUTES = {
   prePlanV2: `${BASE}/preplan`,
 
   // Cancer PATH
+  cancerUserTypeSelectDemo: "/cancer/start",
+  cancerFormDemo: "/cancer/profiling-start",
   cancerProfile: "/cancer/personal-information",
   cancerUserVerification: "/cancer/user-validate",
   cancerForm: "/cancer/profiling",
