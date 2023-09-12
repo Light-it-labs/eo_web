@@ -25,13 +25,13 @@ export const UserTypeSelectorDemo = () => {
           </Typography>
           <div className="mt-6 flex flex-row gap-5">
             <button
-              className="h-[41px] w-1/2 border border-solid border-[#a5c4ff] bg-[#a5c4ff] bg-opacity-10 px-[15px] py-[9px]	"
+              className="text-nunito h-[41px] w-1/2 border border-solid border-[#a5c4ff] bg-[#a5c4ff] bg-opacity-10 px-[15px] py-[9px]	"
               onClick={() => redirectForm("Patient")}
             >
               Patient
             </button>
             <button
-              className="h-[41px] w-1/2 border border-solid border-[#a5c4ff] bg-[#a5c4ff] bg-opacity-10 px-[15px] py-[9px]	"
+              className="text-nunito h-[41px] w-1/2 border border-solid border-[#a5c4ff] bg-[#a5c4ff] bg-opacity-10 px-[15px] py-[9px]	"
               onClick={() => redirectForm("Caregiver")}
             >
               Caretaker
