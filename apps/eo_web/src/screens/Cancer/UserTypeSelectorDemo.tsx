@@ -13,7 +13,7 @@ export const UserTypeSelectorDemo = () => {
   const navigate = useNavigate();
 
   const redirectForm = (type: string) => {
-    navigate(`${ROUTES.cancerFormDemo}?caregiver=${type}`);
+    navigate(`${ROUTES.cancerFormDemo}?type=${type}`);
   };
 
   return (
@@ -26,13 +26,13 @@ export const UserTypeSelectorDemo = () => {
           <div className="mt-6 flex flex-row gap-5">
             <button
               className="h-[41px] w-1/2 border border-solid border-[#a5c4ff] bg-[#a5c4ff] bg-opacity-10 px-[15px] py-[9px]	"
-              onClick={() => redirectForm("I’m a patient")}
+              onClick={() => redirectForm("Patient")}
             >
               Patient
             </button>
             <button
               className="h-[41px] w-1/2 border border-solid border-[#a5c4ff] bg-[#a5c4ff] bg-opacity-10 px-[15px] py-[9px]	"
-              onClick={() => redirectForm("I’m a caregiver")}
+              onClick={() => redirectForm("Caregiver")}
             >
               Caretaker
             </button>

@@ -16,13 +16,13 @@ import { ROUTES } from "~/router";
 export const FormDemo = () => {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
-  const caregiver = searchParams.get("caregiver");
+  const type = searchParams.get("type");
   const cancerProfileId =
-    caregiver === "I’m a patient"
+    type === "Patient"
       ? CANCER_PROFILE_PATIENT_ID
       : CANCER_PROFILE_CAREGIVER_ID;
 
-  if (!caregiver) {
+  if (!type) {
     navigate(ROUTES.cancerUserTypeSelectDemo);
   }
 
@@ -43,7 +43,7 @@ export const FormDemo = () => {
           allow="geolocation; microphone; camera"
           allowTransparency={true}
           allowFullScreen={true}
-          src={`https://form.jotform.com/${cancerProfileId}?caregiver=${caregiver}`}
+          src={`https://form.jotform.com/${cancerProfileId}`}
           className="h-full w-full"
           style={{
             minWidth: "100%",
