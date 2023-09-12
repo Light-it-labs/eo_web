@@ -18,7 +18,7 @@ export const UserTypeSelectorDemo = () => {
 
   return (
     <LayoutDefault>
-      <div className="fixed flex h-screen w-screen items-center justify-center bg-[#f8f6f3] bg-opacity-50">
+      <div className="flex h-full w-full items-center justify-center bg-[#f8f6f3] bg-opacity-50">
         <div className="relative w-3/4 bg-white px-[43px] py-[52px] md:w-[742px]">
           <Typography className="text-nunito text-lg font-normal">
             Which best describes yous? <span className="text-red-600">*</span>
