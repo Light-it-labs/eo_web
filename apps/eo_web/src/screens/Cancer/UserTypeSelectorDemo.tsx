@@ -28,7 +28,7 @@ export const UserTypeSelectorDemo = () => {
             stroke="currentColor"
             className="absolute left-4 top-4 h-6 w-6"
             onClick={() =>
-              (window.location.href = "cancer/pilot#how-eo-care-plans-works")
+              (window.location.href = "/cancer/pilot#how-eo-care-plans-works")
             }
           >
             <path
