@@ -168,7 +168,7 @@ export default {
       fontFamily: {
         nobel: "nobel",
         grand: "grand",
-        nunito: "nutito",
+        nunito: "'Nunito'",
         "sf-pro": "SF Mono",
       },
     },
