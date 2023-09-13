@@ -20,8 +20,25 @@ export const UserTypeSelectorDemo = () => {
     <LayoutDefault>
       <div className="flex h-full w-full items-center justify-center bg-[#f8f6f3] bg-opacity-50">
         <div className="relative w-3/4 bg-white px-[43px] py-[52px] md:w-[742px]">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth="2"
+            stroke="currentColor"
+            className="absolute left-4 top-4 h-6 w-6"
+            onClick={() =>
+              (window.location.href = "/cancer/pilot#how-eo-care-plans-works")
+            }
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
+            />
+          </svg>
           <Typography className="text-nunito text-lg font-normal">
-            Which best describes yous? <span className="text-red-600">*</span>
+            Which best describes you? <span className="text-red-600">*</span>
           </Typography>
           <div className="mt-6 flex flex-row gap-5">
             <button
