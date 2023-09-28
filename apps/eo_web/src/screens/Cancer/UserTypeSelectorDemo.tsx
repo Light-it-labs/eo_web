@@ -37,12 +37,12 @@ export const UserTypeSelectorDemo = () => {
               d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
             />
           </svg>
-          <Typography className="text-nunito text-lg font-normal">
+          <Typography className="font-nunito text-lg font-normal">
             Which best describes you? <span className="text-red-600">*</span>
           </Typography>
           <div className="mt-6 flex flex-row gap-5">
             <button
-              className="text-nunito h-[41px] w-1/2 border border-solid border-[#a5c4ff] bg-[#a5c4ff] bg-opacity-10 px-[15px] py-[9px]	"
+              className="h-[41px] w-1/2 border border-solid border-[#a5c4ff] bg-[#a5c4ff] bg-opacity-10 px-[15px] py-[9px] font-nunito	"
               onClick={() => redirectForm("Patient")}
             >
               Patient

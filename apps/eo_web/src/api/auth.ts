@@ -1,5 +1,5 @@
 import { api } from "~/api/axios";
-import { API_URL } from "~/configs/env";
+import { API_ELIXIR } from "~/configs/env";
 import {
   useProfileStore,
   type Profile,
@@ -15,7 +15,7 @@ export const login = async (credential: {
   email: string;
   password: string;
 }) => {
-  return await api.post<LoginResponse>(`${API_URL}/v2/profile/login`, {
+  return await api.post<LoginResponse>(`${API_ELIXIR}/v2/profile/login`, {
     email: credential.email,
     password: credential.password,
   });
@@ -29,7 +29,7 @@ export interface RegisterRequest {
 }
 
 export const register = async (registrationForm: RegisterRequest) => {
-  return await api.post<string>(`${API_URL}/v2/profile`, registrationForm);
+  return await api.post<string>(`${API_ELIXIR}/v2/profile`, registrationForm);
 };
 
 export const GetToken = () => {
