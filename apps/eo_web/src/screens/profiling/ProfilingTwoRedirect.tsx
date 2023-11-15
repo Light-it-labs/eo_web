@@ -4,7 +4,7 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 
 import { Button, Typography } from "@eo/ui";
 
-import { useElixirApi } from "~/api/useElixirApi";
+import { useApi } from "~/api/useApi";
 import { ZUKO_SLUG_ID } from "~/configs/env";
 import { useZukoAnalytic } from "~/hooks/useZukoAnalytic";
 import { LayoutDefault } from "~/layouts";
@@ -17,7 +17,7 @@ import { ROUTES } from "~/router";
 export const ProfilingTwoRedirect = () => {
   const navigate = useNavigate();
   const [sentProfile, setSentProfile] = useState(false);
-  const { combineProfileOne } = useElixirApi();
+  const { combineProfileOne } = useApi();
   const [params] = useSearchParams();
   const { triggerCompletionEvent } = useZukoAnalytic(ZUKO_SLUG_ID);
 

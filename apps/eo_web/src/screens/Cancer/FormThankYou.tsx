@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 
 import { Typography } from "@eo/ui";
 
-import { useElixirApi } from "~/api/useElixirApi";
+import { useApi } from "~/api/useApi";
 import { useMount } from "~/hooks/useMount";
 import { LayoutDefault } from "~/layouts";
 import { ROUTES } from "~/router";
@@ -25,7 +25,7 @@ export const FormThankYou = () => {
     navigate(ROUTES.cancerProfile);
   }
 
-  const { postCancerFormSubmission } = useElixirApi();
+  const { postCancerFormSubmission } = useApi();
 
   const { mutate } = useMutation({
     mutationFn: postCancerFormSubmission,

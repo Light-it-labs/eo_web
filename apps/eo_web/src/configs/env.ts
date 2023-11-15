@@ -12,7 +12,12 @@ export const CANCER_PROFILE_PATIENT_ID =
 export const CANCER_PROFILE_CAREGIVER_ID =
   window.data.getEnv("CANCER_PROFILE_CAREGIVER_ID") || 232564208467662;
 export const CANCER_SURVEY_ID =
-  window.data.getEnv("CANCER_SURVEY_FORM") || 232395615249664;
+  window.data.getEnv("CANCER_SURVEY_FORM") || 232885421299668;
+
+export const ATHLETE_PROFILE_FORM =
+  window.data.getEnv("ATHLETE_PROFILE_FORM") || 233115151709146;
+export const ATHLETE_SURVEY_FORM =
+  window.data.getEnv("ATHLETE_SURVEY_FORM") || 233164188186664;
 
 export const API_ELIXIR =
   window.data.getEnv("API_URL") || "http://localhost:4200";

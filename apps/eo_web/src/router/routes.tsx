@@ -26,4 +26,8 @@ export const ROUTES = {
   cancerThankYou: "/cancer/thank-you",
   cancerSurvey: "/cancer/survey",
   cancerSurveyThankYou: "/cancer/survey-thank-you",
+
+  // Athletes PATH
+  athleteSurvey: "/athletes/survey",
+  athleteSurveyThankYou: "athletes/survey-thank-you",
 } as const;
