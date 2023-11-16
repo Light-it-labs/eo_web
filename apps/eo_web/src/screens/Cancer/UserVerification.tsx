@@ -4,7 +4,7 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 
 import { Loading, Modal, Typography } from "@eo/ui";
 
-import { useElixirApi } from "~/api/useElixirApi";
+import { useApi } from "~/api/useApi";
 import { LayoutDefault } from "~/layouts";
 import { ROUTES } from "~/router";
 
@@ -16,7 +16,7 @@ export const UserVerification = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
 
-  const { eligibleEmail } = useElixirApi();
+  const { eligibleEmail } = useApi();
 
   const submissionId = searchParams.get("submission_id") || "";
   const name = searchParams.get("name") || "";

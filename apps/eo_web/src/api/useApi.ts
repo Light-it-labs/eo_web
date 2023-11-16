@@ -47,7 +47,7 @@ export interface ProfileOne {
   };
 }
 
-export const useElixirApi = () => {
+export const useApi = () => {
   const token = useProfileStore((state) => state.session?.token);
 
   const authHeader = {
@@ -129,6 +129,13 @@ export const useElixirApi = () => {
     );
   };
 
+  const postAthleteSurveyFormSubmission = async (data: object) => {
+    return await api.post<{ success: boolean; message: string }>(
+      `${API_LARAVEL}/api/athletes/survey`,
+      data,
+    );
+  };
+
   return {
     validateZipCode,
     combineProfileOne,
@@ -140,5 +147,6 @@ export const useElixirApi = () => {
     eligibleEmail,
     postCancerFormSubmission,
     postCancerSurveyFormSubmission,
+    postAthleteSurveyFormSubmission,
   };
 };

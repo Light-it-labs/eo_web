@@ -14,7 +14,7 @@ import { ROUTES } from "~/router";
 
 
 
-export const SurveyThankYou = () => {
+export const AthleteSurveyThankYou = () => {
   const [searchParams] = useSearchParams();
 
   const submission_id = searchParams.get("submission_id") || "";
@@ -25,11 +25,11 @@ export const SurveyThankYou = () => {
     navigate(ROUTES.cancerProfile);
   }
 
-  const { postCancerSurveyFormSubmission } = useApi();
+  const { postAthleteSurveyFormSubmission } = useApi();
 
   const { mutate } = useMutation({
-    mutationFn: postCancerSurveyFormSubmission,
-    mutationKey: ["postCancerSurveyFormSubmission", submission_id],
+    mutationFn: postAthleteSurveyFormSubmission,
+    mutationKey: ["postAthleteSurveyFormSubmission", submission_id],
     onError: (result) => {
       if (axios.isAxiosError(result)) {
         if (result.response?.status !== 200) {

@@ -24,6 +24,8 @@ interface EnvironmentsConfigs {
   CANCER_PROFILE_CAREGIVER_ID: string;
   CANCER_USER_DATA: string;
   CANCER_SURVEY_FORM: string;
+  ATHLETE_PROFILE_FORM: string;
+  ATHLETE_SURVEY_FORM: string;
 }
 
 declare global {

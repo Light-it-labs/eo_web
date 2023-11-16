@@ -9,7 +9,7 @@ import {
   ThcProductPreferencesEnum,
   type Schedule,
 } from "~/api/PrePlanTypes";
-import { useElixirApi } from "~/api/useElixirApi";
+import { useApi } from "~/api/useApi";
 import { usePrePlan } from "~/api/usePrePlan";
 import { getImageForForm } from "~/helpers/PrePlan";
 import { LayoutDefault } from "~/layouts";
@@ -30,7 +30,7 @@ export const PrePlanV2 = () => {
   const maxRetries = 10;
   const [countFetching, setCountFetching] = useState(0);
 
-  const { getSubmissionById } = useElixirApi();
+  const { getSubmissionById } = useApi();
   const { data } = useQuery({
     queryFn: () => getSubmissionById(submissionId as string),
     queryKey: ["getSubmission", submissionId],

@@ -4,15 +4,19 @@ import { useNavigate } from "react-router-dom";
 import { Button, Typography, icons } from "@eo/ui";
 
 import { ThcProductPreferencesEnum } from "~/api/PrePlanTypes";
-import { useElixirApi } from "~/api/useElixirApi";
+import { useApi } from "~/api/useApi";
 import { usePrePlan } from "~/api/usePrePlan";
 import { getImageForForm } from "~/helpers/PrePlan";
 import { LayoutDefault } from "~/layouts";
 import { ROUTES } from "~/router";
 
+
+
+
+
 export const PrePlan = () => {
   // when have time connect to backend
-  const { getSubmission } = useElixirApi();
+  const { getSubmission } = useApi();
   const { data } = useQuery({
     queryFn: getSubmission,
     queryKey: ["getSubmission"],

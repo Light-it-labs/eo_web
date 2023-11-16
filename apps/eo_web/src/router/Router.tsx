@@ -2,6 +2,8 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 
 import { ROUTES } from "~/router/routes";
+import { AthleteSurveyForm } from "~/screens/Athlete/AthleteSurveyForm";
+import { AthleteSurveyThankYou } from "~/screens/Athlete/AthleteSurveyThankYou";
 import { Form } from "~/screens/Cancer/Form";
 import { FormDemo } from "~/screens/Cancer/FormDemo";
 import { FormThankYou } from "~/screens/Cancer/FormThankYou";
@@ -100,6 +102,13 @@ export const Router = () => {
 
       <Route element={<SurveyForm />} path={ROUTES.cancerSurvey} />
       <Route element={<SurveyThankYou />} path={ROUTES.cancerSurveyThankYou} />
+
+      {/* ATHLETES */}
+      <Route element={<AthleteSurveyForm />} path={ROUTES.athleteSurvey} />
+      <Route
+        element={<AthleteSurveyThankYou />}
+        path={ROUTES.athleteSurveyThankYou}
+      />
     </Routes>
   );
 };
