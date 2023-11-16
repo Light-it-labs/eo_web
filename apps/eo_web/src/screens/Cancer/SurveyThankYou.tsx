@@ -48,12 +48,7 @@ export const SurveyThankYou = () => {
       <div className="flex h-full flex-col items-center justify-center px-[20%]">
         <Typography
           variant="large"
-          className="font-nunito font-bold"
-          style={{
-            fontFamily: "nunito",
-            lineHeight: "55px",
-            fontSize: "45px",
-          }}
+          className="font-nunito text-[45px] font-bold leading-[55px]"
         >
           All done!
         </Typography>
@@ -61,13 +56,7 @@ export const SurveyThankYou = () => {
         <Typography
           variant="base"
           font="regular"
-          className="text-center font-nunito"
-          style={{
-            fontWeight: "300px",
-            fontFamily: "nunito",
-            lineHeight: "40px",
-            fontSize: "28px",
-          }}
+          className="text-center font-nunito text-[28px] font-light leading-[40px]"
         >
           We receive your feedback! <br />
           <br />
