@@ -149,7 +149,7 @@ export default {
           700: "#646E79",
           800: "#4E5865",
           900: "#374351",
-          DEFAULT: "#202E3D",
+          DEFAULT: "#1b1d21",
         },
         white: "#FFFFFF",
         transparent: "transparent",
@@ -161,15 +161,18 @@ export default {
           200: "#EBE7E1",
           300: "#DEDBD7",
         },
+        "cloud-silver": {
+          DEFAULT: "#c6ccd4",
+        },
       },
       strokeWidth: {
         5: "5px",
       },
       fontFamily: {
-        nobel: "nobel",
-        grand: "grand",
-        nunito: "'Nunito'",
-        "sf-pro": "SF Mono",
+        "new-hero": [
+          "New Hero",
+          "system-ui, -apple-system, BlinkMacSystemFont",
+        ],
       },
     },
   },

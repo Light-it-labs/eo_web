@@ -14,7 +14,7 @@ import { ROUTES } from "~/router";
 
 
 
-export const FormThankYou = () => {
+export const ProfilingThankYou = () => {
   const [searchParams] = useSearchParams();
 
   const submission_id = searchParams.get("submission_id") || "";
@@ -22,7 +22,7 @@ export const FormThankYou = () => {
   const navigate = useNavigate();
 
   if (!submission_id) {
-    navigate(ROUTES.cancerProfile);
+    navigate(ROUTES.userRolSelector);
   }
 
   const { postCancerFormSubmission } = useApi();

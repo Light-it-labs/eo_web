@@ -1,19 +1,28 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 import { Typography } from "@eo/ui";
 
 import { LayoutDefault } from "~/layouts";
 import { ROUTES } from "~/router";
+import {
+  useProfilingStore,
+  type Channel,
+  type Type,
+} from "~/stores/useProfilingStore";
 
 
 
 
 
-export const UserTypeSelectorDemo = () => {
+export const UserRolSelector = () => {
   const navigate = useNavigate();
-
-  const redirectForm = (type: string) => {
-    navigate(`${ROUTES.cancerFormDemo}?type=${type}`);
+  const [searchParams] = useSearchParams();
+  const { setChannel, setType } = useProfilingStore((state) => state);
+  const redirectForm = (type: Type) => {
+    const channel = searchParams.get("channel") as Channel;
+    setChannel(channel);
+    setType(type);
+    navigate(ROUTES.introQuestions);
   };
 
   return (
@@ -51,7 +60,7 @@ export const UserTypeSelectorDemo = () => {
               className="h-[41px] w-1/2 border border-solid border-[#a5c4ff] bg-[#a5c4ff] bg-opacity-10 px-[15px] py-[9px] font-nunito	"
               onClick={() => redirectForm("Caregiver")}
             >
-              Caretaker
+              Caregiver
             </button>
           </div>
         </div>

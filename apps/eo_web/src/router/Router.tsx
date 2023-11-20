@@ -2,16 +2,12 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 
 import { ROUTES } from "~/router/routes";
+import { AccountCreation } from "~/screens/AccountCreation";
 import { AthleteSurveyForm } from "~/screens/Athlete/AthleteSurveyForm";
 import { AthleteSurveyThankYou } from "~/screens/Athlete/AthleteSurveyThankYou";
-import { Form } from "~/screens/Cancer/Form";
-import { FormDemo } from "~/screens/Cancer/FormDemo";
-import { FormThankYou } from "~/screens/Cancer/FormThankYou";
+import { Profiling } from "~/screens/Cancer/Profiling";
 import { SurveyForm } from "~/screens/Cancer/SurveyForm";
 import { SurveyThankYou } from "~/screens/Cancer/SurveyThankYou";
-import { UserProfile } from "~/screens/Cancer/UserProfile";
-import { UserTypeSelectorDemo } from "~/screens/Cancer/UserTypeSelectorDemo";
-import { UserVerification } from "~/screens/Cancer/UserVerification";
 import { EligibleProfile } from "~/screens/EligibleProfile";
 import { EmailVerificationUncompletedButLogged } from "~/screens/EmailVerificationUncompletedButLogged";
 import { ForgotPassword } from "~/screens/ForgotPassword";
@@ -19,10 +15,13 @@ import { Home } from "~/screens/Home";
 import { Login } from "~/screens/Login";
 import { PrePlan } from "~/screens/PrePlan";
 import { PrePlanV2 } from "~/screens/PrePlanV2";
+import { ProfilingIntroQuestions } from "~/screens/ProfilingIntroQuestions";
+import { ProfilingThankYou } from "~/screens/ProfilingThankYou";
 import { RecoveryPassword } from "~/screens/RecoveryPassword";
 import { Register } from "~/screens/Register";
 import { RegisterComplete } from "~/screens/RegisterComplete";
 import { UnavailableZipCode } from "~/screens/UnavailableZipCode";
+import { UserRolSelector } from "~/screens/UserRolSelector";
 import { ZipCodeValidation } from "~/screens/ZipCodeValidation";
 import { ProfilingOne } from "~/screens/profiling/ProfilingOne";
 import { ProfilingOneRedirect } from "~/screens/profiling/ProfilingOneRedirect";
@@ -86,19 +85,17 @@ export const Router = () => {
         path={ROUTES.emailVerification}
       />
 
+      <Route element={<UserRolSelector />} path={ROUTES.userRolSelector} />
+      <Route
+        element={<ProfilingIntroQuestions />}
+        path={ROUTES.introQuestions}
+      />
+      <Route element={<AccountCreation />} path={ROUTES.accountSetup} />
+      <Route element={<ProfilingThankYou />} path={ROUTES.profilingThankYou} />
+
       {/* CANCER */}
-      <Route element={<UserProfile />} path={ROUTES.cancerProfile} />
-      <Route
-        element={<UserTypeSelectorDemo />}
-        path={ROUTES.cancerUserTypeSelectDemo}
-      />
-      <Route element={<FormDemo />} path={ROUTES.cancerFormDemo} />
-      <Route
-        element={<UserVerification />}
-        path={ROUTES.cancerUserVerification}
-      />
-      <Route element={<Form />} path={ROUTES.cancerForm} />
-      <Route element={<FormThankYou />} path={ROUTES.cancerThankYou} />
+
+      <Route element={<Profiling />} path={ROUTES.cancerForm} />
 
       <Route element={<SurveyForm />} path={ROUTES.cancerSurvey} />
       <Route element={<SurveyThankYou />} path={ROUTES.cancerSurveyThankYou} />
@@ -109,6 +106,8 @@ export const Router = () => {
         element={<AthleteSurveyThankYou />}
         path={ROUTES.athleteSurveyThankYou}
       />
+
+      {/* SENIOR */}
     </Routes>
   );
 };

@@ -13,7 +13,7 @@ import { ROUTES } from "~/router";
 
 
 
-export const FormDemo = () => {
+export const Profiling = () => {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const type = searchParams.get("type");
@@ -23,7 +23,7 @@ export const FormDemo = () => {
       : CANCER_PROFILE_CAREGIVER_ID;
 
   if (!type) {
-    navigate(ROUTES.cancerUserTypeSelectDemo);
+    navigate(ROUTES.userRolSelector);
   }
 
   useMount(() => {

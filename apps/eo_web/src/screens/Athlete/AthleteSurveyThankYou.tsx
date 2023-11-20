@@ -8,7 +8,6 @@ import { Typography } from "@eo/ui";
 import { useApi } from "~/api/useApi";
 import { useMount } from "~/hooks/useMount";
 import { LayoutDefault } from "~/layouts";
-import { ROUTES } from "~/router";
 
 
 
@@ -22,7 +21,7 @@ export const AthleteSurveyThankYou = () => {
   const navigate = useNavigate();
 
   if (!submission_id) {
-    navigate(ROUTES.cancerProfile);
+    navigate("/");
   }
 
   const { postAthleteSurveyFormSubmission } = useApi();
@@ -56,7 +55,7 @@ export const AthleteSurveyThankYou = () => {
         <Typography
           variant="base"
           font="regular"
-          className="text-center font-nunito text-[28px] font-light leading-[40px]"
+          className="font-nunito text-center text-[28px] font-light leading-[40px]"
         >
           We receive your feedback! <br />
           <br />
