@@ -20,6 +20,7 @@ export interface Account {
 export type Type = "Patient" | "Caregiver" | null;
 
 export interface ProfilingStore {
+  symptoms: string[];
   channel?: Channel;
   type?: Type;
   introQuestionSubmissionId?: string | null;
@@ -28,6 +29,7 @@ export interface ProfilingStore {
   setChannel: (channel: Channel) => void;
   setType: (type: Type) => void;
   setIntroQuestionSubmissionId: (id: string | null) => void;
+  setSymptoms: (symptoms: string[]) => void;
 }
 
 export const useProfilingStore = create<ProfilingStore>()(
@@ -36,6 +38,7 @@ export const useProfilingStore = create<ProfilingStore>()(
       channel: null,
       type: null,
       introQuestionSubmissionId: null,
+      symptoms: [],
       setChannel(channel: Channel) {
         set({ channel });
       },
@@ -56,6 +59,9 @@ export const useProfilingStore = create<ProfilingStore>()(
       },
       setAccountData: (account: Account) => {
         set({ account });
+      },
+      setSymptoms: (symptoms: string[]) => {
+        set({ symptoms });
       },
     }),
     {

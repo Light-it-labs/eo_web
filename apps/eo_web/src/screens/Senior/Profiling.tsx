@@ -12,6 +12,7 @@ import { useProfilingStore } from "~/stores/useProfilingStore";
 
 
 export const Profiling = () => {
+  const { symptoms } = useProfilingStore((state) => state);
   const { type } = useProfilingStore((state) => state);
   const navigate = useNavigate();
 
@@ -39,7 +40,9 @@ export const Profiling = () => {
           allow="geolocation; microphone; camera"
           allowTransparency={true}
           allowFullScreen={true}
-          src={`https://form.jotform.com/${seniorFormId}`}
+          src={`https://form.jotform.com/${seniorFormId}?symptoms=${symptoms.join(
+            ",",
+          )}`}
           className="h-full w-full"
           style={{
             minWidth: "100%",
