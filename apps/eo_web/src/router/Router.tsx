@@ -20,6 +20,7 @@ import { ProfilingThankYou } from "~/screens/ProfilingThankYou";
 import { RecoveryPassword } from "~/screens/RecoveryPassword";
 import { Register } from "~/screens/Register";
 import { RegisterComplete } from "~/screens/RegisterComplete";
+import { Profiling as SeniorProfiling } from "~/screens/Senior/Profiling";
 import { UnavailableZipCode } from "~/screens/UnavailableZipCode";
 import { UserRolSelector } from "~/screens/UserRolSelector";
 import { ZipCodeValidation } from "~/screens/ZipCodeValidation";
@@ -108,6 +109,7 @@ export const Router = () => {
       />
 
       {/* SENIOR */}
+      <Route element={<SeniorProfiling />} path={ROUTES.seniorForm} />
     </Routes>
   );
 };
