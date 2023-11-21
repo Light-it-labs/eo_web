@@ -86,11 +86,12 @@ export const AccountCreation = () => {
   };
 
   useMount(() => {
-    const submissionId = useParams.get("submissionId");
+    const submissionId = useParams.get("submission_id");
     if (!submissionId) {
       toast.error("Impossible to continue without a submission id");
+    } else {
+      setIntroQuestionSubmissionId(submissionId);
     }
-    setIntroQuestionSubmissionId(submissionId);
   });
 
   return (
