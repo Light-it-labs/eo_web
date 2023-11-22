@@ -13,7 +13,7 @@ import { useApi } from "~/api/useApi";
 import { useMount } from "~/hooks/useMount";
 import { LayoutDefault } from "~/layouts";
 import { ROUTES } from "~/router";
-import { useProfilingStore } from "~/stores/useProfilingStore";
+import { ChannelEnum, useProfilingStore } from "~/stores/useProfilingStore";
 
 
 
@@ -96,10 +96,10 @@ export const AccountCreation = () => {
       setAccountData(data);
 
       switch (channel) {
-        case "cancer":
+        case ChannelEnum.cancer:
           navigate(ROUTES.cancerForm);
           break;
-        case "senior":
+        case ChannelEnum.senior:
           navigate(ROUTES.seniorForm);
           break;
         default:

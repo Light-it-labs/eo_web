@@ -5,9 +5,19 @@ import { persist } from "zustand/middleware";
 
 
 
-export type YesNo = "Yes" | "No";
+export enum YesNoEnum {
+  "yes" = "yes",
+  "no" = "no",
+}
 
-export type Channel = "cancer" | "senior" | null;
+export enum ChannelEnum {
+  "senior" = "senior",
+  "cancer" = "cancer",
+}
+
+export type YesNo = keyof typeof YesNoEnum;
+
+export type Channel = keyof typeof ChannelEnum | null;
 
 export interface Account {
   email: string;
@@ -54,7 +64,7 @@ const defaultState = {
     agreeReceiveNotifications: false,
     agreeTermsAndConditions: false,
   },
-  usePayment: "Yes" as YesNo,
+  usePayment: YesNoEnum.yes,
 };
 
 export const useProfilingStore = create<ProfilingStore>()(

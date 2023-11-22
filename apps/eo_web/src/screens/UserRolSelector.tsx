@@ -6,6 +6,7 @@ import { useMount } from "~/hooks/useMount";
 import { LayoutDefault } from "~/layouts";
 import { ROUTES } from "~/router";
 import {
+  YesNoEnum,
   useProfilingStore,
   type Channel,
   type Type,
@@ -37,13 +38,13 @@ export const UserRolSelector = () => {
 
   useMount(() => {
     resetProfilingStore();
-    const payment = searchParams.get("payment") || "yes";
+    const payment = searchParams.get("payment") || YesNoEnum.yes;
     switch (payment) {
-      case "no":
-        setUsePayment("Yes");
+      case YesNoEnum.no:
+        setUsePayment(YesNoEnum.no);
         break;
       default:
-        setUsePayment("No");
+        setUsePayment(YesNoEnum.yes);
     }
     searchParams.delete("payment");
     setSearchParams(searchParams);
