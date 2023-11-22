@@ -155,6 +155,8 @@ export default {
         transparent: "transparent",
         gray: {
           600: "#7C7B7A",
+          700: "#697079",
+          800: "#535A63",
         },
         cream: {
           100: "#F8F6F3",
@@ -164,11 +166,22 @@ export default {
         "cloud-silver": {
           DEFAULT: "#c6ccd4",
         },
+        "ice-silver": {
+          DEFAULT: "#EDF1F5",
+        },
+        red: {
+          300: "#FCA5A5",
+          500: "#EF4444",
+          DEFAULT: "#FC0B0B",
+        },
       },
       strokeWidth: {
         5: "5px",
       },
       fontFamily: {
+        nobel: "nobel",
+        grand: "grand",
+        nunito: "'Nunito'",
         "new-hero": [
           "New Hero",
           "system-ui, -apple-system, BlinkMacSystemFont",
