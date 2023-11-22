@@ -15,7 +15,9 @@ import { useProfilingStore } from "~/stores/useProfilingStore";
 
 
 export const Profiling = () => {
-  const { type, symptoms, state } = useProfilingStore((state) => state);
+  const { type, symptoms, state, usePayment } = useProfilingStore(
+    (state) => state,
+  );
   const navigate = useNavigate();
   const cancerProfileId =
     type === "Patient"
@@ -45,7 +47,7 @@ export const Profiling = () => {
           allowFullScreen={true}
           src={`https://form.jotform.com/${cancerProfileId}?symptoms=${symptoms.join(
             ",",
-          )}&states=${state}`}
+          )}&states=${state}&payment=${usePayment}`}
           className="h-full w-full"
           style={{
             minWidth: "100%",

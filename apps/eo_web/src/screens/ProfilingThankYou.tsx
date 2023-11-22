@@ -9,6 +9,7 @@ import { useApi } from "~/api/useApi";
 import { useMount } from "~/hooks/useMount";
 import { LayoutDefault } from "~/layouts";
 import { ROUTES } from "~/router";
+import { useProfilingStore } from "~/stores/useProfilingStore";
 
 
 
@@ -17,19 +18,24 @@ import { ROUTES } from "~/router";
 export const ProfilingThankYou = () => {
   const [searchParams] = useSearchParams();
 
-  const submission_id = searchParams.get("submission_id") || "";
+  const { account, introQuestionSubmissionId, channel, resetProfilingStore } =
+    useProfilingStore((state) => state);
+  const submissionId = searchParams.get("submission_id") || "";
 
   const navigate = useNavigate();
 
-  if (!submission_id) {
+  if (!submissionId) {
     navigate(ROUTES.userRolSelector);
   }
 
-  const { postCancerFormSubmission } = useApi();
+  const { postCancerSeniorFormSubmission } = useApi();
 
   const { mutate } = useMutation({
-    mutationFn: postCancerFormSubmission,
-    mutationKey: ["postCancerFormSubmission", submission_id],
+    mutationFn: postCancerSeniorFormSubmission,
+    mutationKey: ["postCancerSeniorFormSubmission", submissionId],
+    onSuccess: () => {
+      resetProfilingStore();
+    },
     onError: (result) => {
       if (axios.isAxiosError(result)) {
         if (result.response?.status !== 200) {
@@ -41,7 +47,20 @@ export const ProfilingThankYou = () => {
     },
   });
 
-  useMount(() => mutate({ submission_id }));
+  useMount(() =>
+    mutate({
+      name: account.firstName,
+      last_name: account.lastName,
+      email: account.email,
+      password: account.password,
+      phone_number: account.phoneNumber,
+      profiling_submission_id: submissionId,
+      intro_submission_id: introQuestionSubmissionId,
+      agree_receive_notifications: account.agreeReceiveNotifications,
+      agree_terms_and_conditions: account.agreeTermsAndConditions,
+      channel,
+    }),
+  );
 
   return (
     <LayoutDefault>

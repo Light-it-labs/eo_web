@@ -5,6 +5,8 @@ import { persist } from "zustand/middleware";
 
 
 
+export type YesNo = "Yes" | "No";
+
 export type Channel = "cancer" | "senior" | null;
 
 export interface Account {
@@ -25,7 +27,7 @@ export interface ProfilingStore {
   type?: Type;
   state?: string | null;
   introQuestionSubmissionId?: string | null;
-  usePayment: boolean;
+  usePayment: YesNo;
   account: Account;
   setAccountData: (account: Account) => void;
   setChannel: (channel: Channel) => void;
@@ -33,27 +35,31 @@ export interface ProfilingStore {
   setIntroQuestionSubmissionId: (id: string | null) => void;
   setSymptoms: (symptoms: string[]) => void;
   setState: (state: string | null) => void;
-  setUsePayment: (usePayment: boolean) => void;
+  setUsePayment: (usePayment: YesNo) => void;
+  resetProfilingStore: () => void;
 }
+
+const defaultState = {
+  channel: null,
+  type: null,
+  introQuestionSubmissionId: null,
+  symptoms: [],
+  state: null,
+  account: {
+    email: "",
+    password: "",
+    firstName: "",
+    lastName: "",
+    phoneNumber: "",
+    agreeReceiveNotifications: false,
+    agreeTermsAndConditions: false,
+  },
+  usePayment: "Yes" as YesNo,
+};
 
 export const useProfilingStore = create<ProfilingStore>()(
   persist(
-    (set) => ({
-      channel: null,
-      type: null,
-      introQuestionSubmissionId: null,
-      symptoms: [],
-      state: null,
-      account: {
-        email: "",
-        password: "",
-        firstName: "",
-        lastName: "",
-        phoneNumber: "",
-        agreeReceiveNotifications: false,
-        agreeTermsAndConditions: false,
-      },
-      usePayment: true,
+    (set, get) => ({
       setChannel(channel: Channel) {
         set({ channel });
       },
@@ -72,9 +78,13 @@ export const useProfilingStore = create<ProfilingStore>()(
       setState: (state: string | null) => {
         set({ state });
       },
-      setUsePayment: (usePayment: boolean) => {
+      setUsePayment: (usePayment: YesNo) => {
         set({ usePayment });
       },
+      resetProfilingStore: () => {
+        set({ ...get(), ...defaultState });
+      },
+      ...defaultState,
     }),
     {
       name: "useProfilingStore",

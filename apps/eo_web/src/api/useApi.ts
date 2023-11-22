@@ -33,6 +33,33 @@ export interface ProfileOneV2 {
   workday_allow_intoxication_nonworkday_allow_intoxi: OpenToUseThcProducts[];
 }
 
+export interface LaravelErrorValidation {
+  status: number;
+  success: false;
+  error?: {
+    code: string;
+    fields?: {
+      [k: string]: string[];
+    };
+  };
+}
+
+export interface LaravelSuccessBase<T> {
+  status: number;
+  success: true;
+  data: T;
+}
+
+export interface ProfileCreationResult {
+  id: number;
+  first_name: string;
+  last_name: string;
+  email: string;
+  inserted_at: string;
+  updated_at: string;
+  cancer_flow: boolean;
+}
+
 export interface ProfileOne {
   complete: boolean;
   step: null;
@@ -109,31 +136,32 @@ export const useApi = () => {
   };
 
   const eligibleEmail = async (email: string) => {
-    return await api.post<{
-      success: boolean;
-      message: string;
-    }>(`${API_ELIXIR}/v2/profiles/eligible`, { email }, authHeader);
+    return await api.post<LaravelSuccessBase<unknown> | LaravelErrorValidation>(
+      `${API_ELIXIR}/v2/profiles/eligible`,
+      { email },
+      authHeader,
+    );
   };
 
-  const postCancerFormSubmission = async (data: object) => {
-    return await api.post<{
-      success: boolean;
-      message: string;
-    }>(`${API_LARAVEL}/api/v2/cancer/profile`, data);
+  const postCancerSeniorFormSubmission = async (data: object) => {
+    return await api.post<LaravelSuccessBase<ProfileCreationResult>>(
+      `${API_LARAVEL}/api/v2/cancer/profile`,
+      data,
+    );
   };
 
   const postCancerSurveyFormSubmission = async (data: object) => {
-    return await api.post<{
-      success: boolean;
-      message: string;
-    }>(`${API_LARAVEL}/api/cancer/survey`, data);
+    return await api.post<LaravelSuccessBase<unknown> | LaravelErrorValidation>(
+      `${API_LARAVEL}/api/cancer/survey`,
+      data,
+    );
   };
 
   const postAthleteSurveyFormSubmission = async (data: object) => {
-    return await api.post<{
-      success: boolean;
-      message: string;
-    }>(`${API_LARAVEL}/api/athletes/survey`, data);
+    return await api.post<LaravelSuccessBase<unknown> | LaravelErrorValidation>(
+      `${API_LARAVEL}/api/athletes/survey`,
+      data,
+    );
   };
 
   return {
@@ -145,7 +173,7 @@ export const useApi = () => {
     getSubmission,
     getSubmissionById,
     eligibleEmail,
-    postCancerFormSubmission,
+    postCancerSeniorFormSubmission,
     postCancerSurveyFormSubmission,
     postAthleteSurveyFormSubmission,
   };

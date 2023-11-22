@@ -18,9 +18,13 @@ import {
 export const UserRolSelector = () => {
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
-  const { setChannel, setType, setSymptoms, setUsePayment } = useProfilingStore(
-    (state) => state,
-  );
+  const {
+    setChannel,
+    setType,
+    setSymptoms,
+    setUsePayment,
+    resetProfilingStore,
+  } = useProfilingStore((state) => state);
   const redirectForm = (type: Type) => {
     const channel = searchParams.get("channel") as Channel;
     const symptoms = searchParams.get("symptoms") ?? "";
@@ -32,13 +36,14 @@ export const UserRolSelector = () => {
   };
 
   useMount(() => {
+    resetProfilingStore();
     const payment = searchParams.get("payment") || "yes";
     switch (payment) {
       case "no":
-        setUsePayment(false);
+        setUsePayment("Yes");
         break;
       default:
-        setUsePayment(true);
+        setUsePayment("No");
     }
     searchParams.delete("payment");
     setSearchParams(searchParams);
