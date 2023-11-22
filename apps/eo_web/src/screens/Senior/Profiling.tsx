@@ -12,8 +12,7 @@ import { useProfilingStore } from "~/stores/useProfilingStore";
 
 
 export const Profiling = () => {
-  const { symptoms } = useProfilingStore((state) => state);
-  const { type } = useProfilingStore((state) => state);
+  const { type, symptoms, state } = useProfilingStore((state) => state);
   const navigate = useNavigate();
 
   const seniorFormId =
@@ -42,7 +41,7 @@ export const Profiling = () => {
           allowFullScreen={true}
           src={`https://form.jotform.com/${seniorFormId}?symptoms=${symptoms.join(
             ",",
-          )}`}
+          )}&states=${state}`}
           className="h-full w-full"
           style={{
             minWidth: "100%",

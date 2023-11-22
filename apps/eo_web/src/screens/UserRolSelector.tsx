@@ -2,6 +2,7 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 
 import { Typography } from "@eo/ui";
 
+import { useMount } from "~/hooks/useMount";
 import { LayoutDefault } from "~/layouts";
 import { ROUTES } from "~/router";
 import {
@@ -16,8 +17,8 @@ import {
 
 export const UserRolSelector = () => {
   const navigate = useNavigate();
-  const [searchParams] = useSearchParams();
-  const { setChannel, setType, setSymptoms } = useProfilingStore(
+  const [searchParams, setSearchParams] = useSearchParams();
+  const { setChannel, setType, setSymptoms, setUsePayment } = useProfilingStore(
     (state) => state,
   );
   const redirectForm = (type: Type) => {
@@ -29,6 +30,19 @@ export const UserRolSelector = () => {
     setType(type);
     navigate(ROUTES.introQuestions);
   };
+
+  useMount(() => {
+    const payment = searchParams.get("payment") || "yes";
+    switch (payment) {
+      case "no":
+        setUsePayment(false);
+        break;
+      default:
+        setUsePayment(true);
+    }
+    searchParams.delete("payment");
+    setSearchParams(searchParams);
+  });
 
   return (
     <LayoutDefault>

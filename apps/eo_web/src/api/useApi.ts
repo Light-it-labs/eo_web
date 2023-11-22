@@ -109,10 +109,10 @@ export const useApi = () => {
   };
 
   const eligibleEmail = async (email: string) => {
-    return await api.get<{
+    return await api.post<{
       success: boolean;
       message: string;
-    }>(`${API_ELIXIR}/v2/profiles/eligible?email=${email}`, authHeader);
+    }>(`${API_ELIXIR}/v2/profiles/eligible`, { email }, authHeader);
   };
 
   const postCancerFormSubmission = async (data: object) => {
@@ -136,16 +136,6 @@ export const useApi = () => {
     }>(`${API_LARAVEL}/api/athletes/survey`, data);
   };
 
-  const validateEmail = async (email: string) => {
-    return await api.get<{
-      success: boolean;
-    }>(`${API_LARAVEL}/api/user/email/availability`, {
-      params: {
-        email,
-      },
-    });
-  };
-
   return {
     validateZipCode,
     combineProfileOne,
@@ -158,6 +148,5 @@ export const useApi = () => {
     postCancerFormSubmission,
     postCancerSurveyFormSubmission,
     postAthleteSurveyFormSubmission,
-    validateEmail,
   };
 };

@@ -1,4 +1,4 @@
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import {
   CANCER_PROFILE_CAREGIVER_ID,
@@ -15,10 +15,8 @@ import { useProfilingStore } from "~/stores/useProfilingStore";
 
 
 export const Profiling = () => {
-  const { symptoms } = useProfilingStore((state) => state);
-  const [searchParams] = useSearchParams();
+  const { type, symptoms, state } = useProfilingStore((state) => state);
   const navigate = useNavigate();
-  const type = searchParams.get("type");
   const cancerProfileId =
     type === "Patient"
       ? CANCER_PROFILE_PATIENT_ID
@@ -45,9 +43,9 @@ export const Profiling = () => {
           allow="geolocation; microphone; camera"
           allowTransparency={true}
           allowFullScreen={true}
-          src={`https://form.jotform.com/${cancerProfileId}&symptoms=${symptoms.join(
+          src={`https://form.jotform.com/${cancerProfileId}?symptoms=${symptoms.join(
             ",",
-          )}`}
+          )}&states=${state}`}
           className="h-full w-full"
           style={{
             minWidth: "100%",

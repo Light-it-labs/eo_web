@@ -106,7 +106,7 @@ export const Input = forwardRef(
                 (showPassword ? (
                   <icons.ClosedEye
                     className={tw(
-                      "h-5 w-5 cursor-pointer stroke-[.2px] text-gray-800",
+                      "h-5 w-5 cursor-pointer fill-red-500 stroke-[.2px] text-gray-800",
                       !!error && "fill-red-500 stroke-red-500",
                     )}
                     onClick={() => setShowPassword((current) => !current)}
@@ -114,7 +114,7 @@ export const Input = forwardRef(
                 ) : (
                   <icons.EyeIcon
                     className={tw(
-                      "h-5 w-5 cursor-pointer text-gray-800",
+                      "h-5 w-5 cursor-pointer stroke-1 text-gray-800",
                       !!error && "stroke-red-500",
                     )}
                     onClick={() => setShowPassword((current) => !current)}

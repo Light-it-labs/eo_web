@@ -23,13 +23,17 @@ export interface ProfilingStore {
   symptoms: string[];
   channel?: Channel;
   type?: Type;
+  state?: string | null;
   introQuestionSubmissionId?: string | null;
+  usePayment: boolean;
   account: Account;
   setAccountData: (account: Account) => void;
   setChannel: (channel: Channel) => void;
   setType: (type: Type) => void;
   setIntroQuestionSubmissionId: (id: string | null) => void;
   setSymptoms: (symptoms: string[]) => void;
+  setState: (state: string | null) => void;
+  setUsePayment: (usePayment: boolean) => void;
 }
 
 export const useProfilingStore = create<ProfilingStore>()(
@@ -39,15 +43,7 @@ export const useProfilingStore = create<ProfilingStore>()(
       type: null,
       introQuestionSubmissionId: null,
       symptoms: [],
-      setChannel(channel: Channel) {
-        set({ channel });
-      },
-      setType(type: Type) {
-        set({ type });
-      },
-      setIntroQuestionSubmissionId(id: string | null) {
-        set({ introQuestionSubmissionId: id });
-      },
+      state: null,
       account: {
         email: "",
         password: "",
@@ -57,11 +53,27 @@ export const useProfilingStore = create<ProfilingStore>()(
         agreeReceiveNotifications: false,
         agreeTermsAndConditions: false,
       },
+      usePayment: true,
+      setChannel(channel: Channel) {
+        set({ channel });
+      },
+      setType(type: Type) {
+        set({ type });
+      },
+      setIntroQuestionSubmissionId(id: string | null) {
+        set({ introQuestionSubmissionId: id });
+      },
       setAccountData: (account: Account) => {
         set({ account });
       },
       setSymptoms: (symptoms: string[]) => {
         set({ symptoms });
+      },
+      setState: (state: string | null) => {
+        set({ state });
+      },
+      setUsePayment: (usePayment: boolean) => {
+        set({ usePayment });
       },
     }),
     {

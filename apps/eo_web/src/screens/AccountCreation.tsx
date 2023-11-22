@@ -60,10 +60,15 @@ export type SignUpFormSchema = z.infer<typeof signUpSchema>;
 export const AccountCreation = () => {
   const navigate = useNavigate();
   const [useParams] = useSearchParams();
-  const { setAccountData, setIntroQuestionSubmissionId, channel } =
-    useProfilingStore((state) => state);
+  const {
+    account,
+    setAccountData,
+    setIntroQuestionSubmissionId,
+    channel,
+    setState,
+  } = useProfilingStore((state) => state);
   // const navigate = useNavigate();
-  const { validateEmail } = useApi();
+  const { eligibleEmail } = useApi();
 
   const [validatingForm, setValidatingForm] = useState(false);
 
@@ -74,6 +79,7 @@ export const AccountCreation = () => {
     setError,
   } = useForm<SignUpFormSchema>({
     resolver: zodResolver(signUpSchema),
+    defaultValues: account,
   });
 
   const errorMessage =
@@ -81,28 +87,30 @@ export const AccountCreation = () => {
 
   const onFormSubmission = async (data: SignUpFormSchema) => {
     setValidatingForm(true);
-    if (!(await validateEmail(data.email))) {
+    const result = await eligibleEmail(data.email);
+    if (!result.data.success) {
       setError("email", { message: "Email was already taken" });
       setValidatingForm(false);
       return;
-    }
+    } else {
+      setAccountData(data);
 
-    setAccountData(data);
-
-    switch (channel) {
-      case "cancer":
-        navigate(ROUTES.cancerForm);
-        break;
-      case "senior":
-        navigate(ROUTES.seniorForm);
-        break;
-      default:
-        navigate("/");
+      switch (channel) {
+        case "cancer":
+          navigate(ROUTES.cancerForm);
+          break;
+        case "senior":
+          navigate(ROUTES.seniorForm);
+          break;
+        default:
+          navigate("/");
+      }
     }
   };
 
   useMount(() => {
     const submissionId = useParams.get("submission_id");
+    const state = useParams.get("state");
     if (!submissionId) {
       toast.error(
         <p>
@@ -111,6 +119,7 @@ export const AccountCreation = () => {
         </p>,
       );
     } else {
+      setState(state);
       setIntroQuestionSubmissionId(submissionId);
     }
   });
@@ -259,7 +268,7 @@ export const AccountCreation = () => {
             </Typography>
             <Button
               id="ga-sign-up-button"
-              className="click:border-0 w-[150px] border-none hover:outline-0 focus:ring-0"
+              className="click:border-0 focus:rign-outline-0 w-[150px] border-none hover:outline-0 focus:ring-0"
               variant="black"
               size="lg"
               onClick={() => void handleSubmit(onFormSubmission)()}
