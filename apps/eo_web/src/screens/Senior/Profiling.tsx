@@ -8,13 +8,15 @@ import { ROUTES } from "~/router";
 import { useProfilingStore } from "~/stores/useProfilingStore";
 
 
-
-
-
 export const Profiling = () => {
   const { type, symptoms, state, usePayment } = useProfilingStore(
     (state) => state,
   );
+  const searchParam = new URLSearchParams({
+    states: state ?? "",
+    symptoms: symptoms.join(","),
+    payment: usePayment ? "yes" : "no",
+  });
   const navigate = useNavigate();
 
   const seniorFormId =
@@ -41,9 +43,7 @@ export const Profiling = () => {
           allow="geolocation; microphone; camera"
           allowTransparency={true}
           allowFullScreen={true}
-          src={`https://form.jotform.com/${seniorFormId}?symptoms=${symptoms.join(
-            ",",
-          )}&states=${state}&payment=${usePayment}`}
+          src={`https://form.jotform.com/${seniorFormId}?${searchParam.toString()}`}
           className="h-full w-full"
           style={{
             minWidth: "100%",

@@ -5,19 +5,7 @@ import { persist } from "zustand/middleware";
 
 
 
-export enum YesNoEnum {
-  "yes" = "yes",
-  "no" = "no",
-}
-
-export enum ChannelEnum {
-  "senior" = "senior",
-  "cancer" = "cancer",
-}
-
-export type YesNo = keyof typeof YesNoEnum;
-
-export type Channel = keyof typeof ChannelEnum | null;
+export type Channel = "Senior" | "Cancer";
 
 export interface Account {
   email: string;
@@ -33,11 +21,11 @@ export type Type = "Patient" | "Caregiver" | null;
 
 export interface ProfilingStore {
   symptoms: string[];
-  channel?: Channel;
-  type?: Type;
-  state?: string | null;
+  channel: Channel | null;
+  type: Type | null;
+  state: string | null;
   introQuestionSubmissionId?: string | null;
-  usePayment: YesNo;
+  usePayment: boolean;
   account: Account;
   setAccountData: (account: Account) => void;
   setChannel: (channel: Channel) => void;
@@ -45,7 +33,7 @@ export interface ProfilingStore {
   setIntroQuestionSubmissionId: (id: string | null) => void;
   setSymptoms: (symptoms: string[]) => void;
   setState: (state: string | null) => void;
-  setUsePayment: (usePayment: YesNo) => void;
+  setUsePayment: (usePayment: boolean) => void;
   resetProfilingStore: () => void;
 }
 
@@ -64,7 +52,7 @@ const defaultState = {
     agreeReceiveNotifications: false,
     agreeTermsAndConditions: false,
   },
-  usePayment: YesNoEnum.yes,
+  usePayment: true,
 };
 
 export const useProfilingStore = create<ProfilingStore>()(
@@ -88,7 +76,7 @@ export const useProfilingStore = create<ProfilingStore>()(
       setState: (state: string | null) => {
         set({ state });
       },
-      setUsePayment: (usePayment: YesNo) => {
+      setUsePayment: (usePayment: boolean) => {
         set({ usePayment });
       },
       resetProfilingStore: () => {

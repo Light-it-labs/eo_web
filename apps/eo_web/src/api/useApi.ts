@@ -6,8 +6,7 @@ import {
   type ThcProductPreferences,
   type WorseSymptomsMoment,
 } from "~/api/PrePlanTypes";
-import { api } from "~/api/axios";
-import { API_ELIXIR, API_LARAVEL } from "~/configs/env";
+import { apiElixir, apiLaravel } from "~/api/axios";
 import { useProfileStore, type Profile } from "~/stores/useProfileStore";
 
 export interface ZipCodeValidationResponseError {
@@ -82,87 +81,74 @@ export const useApi = () => {
       Authorization: `Bearer ${token}`,
     },
   };
-  const validateZipCode = async (zipCode: string) => {
-    return api.post<Profile | ZipCodeValidationResponseError>(
-      `${API_ELIXIR}/v2/profile/validate_zip_code`,
+  const validateZipCode = async (zipCode: string) =>
+    apiElixir.post<Profile | ZipCodeValidationResponseError>(
+      "/v2/profile/validate_zip_code",
       {
         zip: zipCode,
       },
       authHeader,
     );
-  };
 
-  const combineProfileOne = async (submissionId: string) => {
-    return api.post(
-      `${API_ELIXIR}/v2/profile/submit_profiling_one`,
+  const combineProfileOne = async (submissionId: string) =>
+    apiElixir.post(
+      "/v2/profile/submit_profiling_one",
       {
         submission_id: submissionId,
       },
       authHeader,
     );
-  };
 
-  const combineProfileTwo = async (submissionId: string) => {
-    return api.post(
-      `${API_ELIXIR}/v2/profile/combine_profile_two`,
+  const combineProfileTwo = async (submissionId: string) =>
+    apiElixir.post(
+      "/v2/profile/combine_profile_two",
       {
         submission_id: submissionId,
       },
       authHeader,
     );
-  };
 
-  const sendEmailToRecoveryPassword = async (email: string) => {
-    return api.post(`${API_ELIXIR}/v2/profile/request_password_reset`, {
+  const sendEmailToRecoveryPassword = async (email: string) =>
+    apiElixir.post("/v2/profile/request_password_reset", {
       email,
     });
-  };
 
-  const resetPassword = async (data: { password: string; token: string }) => {
-    return api.post(`${API_ELIXIR}/v2/profile/reset_password`, data);
-  };
-  const getSubmission = async () => {
-    return await api.get<ProfileOne>(
-      `${API_ELIXIR}/v2/profile/profiling_one`,
+  const resetPassword = async (data: { password: string; token: string }) =>
+    apiElixir.post("/v2/profile/reset_password", data);
+
+  const getSubmission = async () =>
+    await apiElixir.get<ProfileOne>("/v2/profile/profiling_one", authHeader);
+
+  const getSubmissionById = async (submissionId: string) =>
+    await apiElixir.get<ProfileOneV2>(
+      `/v2/submission/profiling_one?submission_id=${submissionId}`,
       authHeader,
     );
-  };
 
-  const getSubmissionById = async (submissionId: string) => {
-    return await api.get<ProfileOneV2>(
-      `${API_ELIXIR}/v2/submission/profiling_one?submission_id=${submissionId}`,
-      authHeader,
-    );
-  };
-
-  const eligibleEmail = async (email: string) => {
-    return await api.post<LaravelSuccessBase<unknown> | LaravelErrorValidation>(
-      `${API_ELIXIR}/v2/profiles/eligible`,
+  const eligibleEmail = async (email: string) =>
+    await apiElixir.post<LaravelSuccessBase<unknown> | LaravelErrorValidation>(
+      "/v2/profiles/eligible",
       { email },
       authHeader,
     );
-  };
 
-  const postCancerSeniorFormSubmission = async (data: object) => {
-    return await api.post<LaravelSuccessBase<ProfileCreationResult>>(
-      `${API_LARAVEL}/api/v2/cancer/profile`,
+  const postCancerSeniorFormSubmission = async (data: object) =>
+    await apiLaravel.post<LaravelSuccessBase<ProfileCreationResult>>(
+      "/api/v2/cancer/profile",
       data,
     );
-  };
 
-  const postCancerSurveyFormSubmission = async (data: object) => {
-    return await api.post<LaravelSuccessBase<unknown> | LaravelErrorValidation>(
-      `${API_LARAVEL}/api/cancer/survey`,
+  const postCancerSurveyFormSubmission = async (data: object) =>
+    await apiLaravel.post<LaravelSuccessBase<unknown> | LaravelErrorValidation>(
+      "/api/cancer/survey",
       data,
     );
-  };
 
-  const postAthleteSurveyFormSubmission = async (data: object) => {
-    return await api.post<LaravelSuccessBase<unknown> | LaravelErrorValidation>(
-      `${API_LARAVEL}/api/athletes/survey`,
+  const postAthleteSurveyFormSubmission = async (data: object) =>
+    await apiLaravel.post<LaravelSuccessBase<unknown> | LaravelErrorValidation>(
+      "/api/athletes/survey",
       data,
     );
-  };
 
   return {
     validateZipCode,
