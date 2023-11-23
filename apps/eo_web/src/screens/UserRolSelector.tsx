@@ -39,12 +39,10 @@ export const UserRolSelector = () => {
   useMount(() => {
     resetProfilingStore();
     const payment = searchParams.get("payment") || YesNoEnum.yes;
-    switch (payment) {
-      case YesNoEnum.no:
-        setUsePayment(YesNoEnum.no);
-        break;
-      default:
-        setUsePayment(YesNoEnum.yes);
+    if (payment === YesNoEnum.no) {
+      setUsePayment(YesNoEnum.no);
+    } else {
+      setUsePayment(YesNoEnum.yes);
     }
     searchParams.delete("payment");
     setSearchParams(searchParams);

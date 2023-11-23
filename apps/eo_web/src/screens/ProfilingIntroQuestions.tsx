@@ -40,7 +40,6 @@ export const ProfilingIntroQuestions = () => {
     }, 400);
   });
 
-  console.log(introQuestionsId);
   if (introQuestionsId === null) navigate("/");
 
   return (
