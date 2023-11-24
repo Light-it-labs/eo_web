@@ -5,7 +5,7 @@ import { persist } from "zustand/middleware";
 
 
 
-export type Channel = "Senior" | "Cancer";
+export type Channel = "senior" | "cancer";
 
 export interface Account {
   email: string;

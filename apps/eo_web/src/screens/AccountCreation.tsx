@@ -13,10 +13,7 @@ import { useApi } from "~/api/useApi";
 import { useMount } from "~/hooks/useMount";
 import { LayoutDefault } from "~/layouts";
 import { ROUTES } from "~/router";
-import { ChannelEnum, useProfilingStore } from "~/stores/useProfilingStore";
-
-
-
+import { useProfilingStore } from "~/stores/useProfilingStore";
 
 
 export const signUpSchema = z.object({
@@ -96,10 +93,10 @@ export const AccountCreation = () => {
       setAccountData(data);
 
       switch (channel) {
-        case ChannelEnum.cancer:
+        case "cancer":
           navigate(ROUTES.cancerForm);
           break;
-        case ChannelEnum.senior:
+        case "senior":
           navigate(ROUTES.seniorForm);
           break;
         default:
