@@ -17,17 +17,20 @@ export const ROUTES = {
   prePlan: `${BASE}/pre-plan`,
   prePlanV2: `${BASE}/preplan`,
 
+  userRolSelector: "/start",
+  introQuestions: "/profiling-intro-questions",
+  profilingThankYou: "/profiling-thank-you",
+  accountSetup: "/account-setup",
   // Cancer PATH
-  cancerUserTypeSelectDemo: "/cancer/start",
-  cancerFormDemo: "/cancer/profiling-start",
-  cancerProfile: "/cancer/personal-information",
-  cancerUserVerification: "/cancer/user-validate",
   cancerForm: "/cancer/profiling",
-  cancerThankYou: "/cancer/thank-you",
   cancerSurvey: "/cancer/survey",
   cancerSurveyThankYou: "/cancer/survey-thank-you",
 
   // Athletes PATH
   athleteSurvey: "/athletes/survey",
   athleteSurveyThankYou: "athletes/survey-thank-you",
+
+  // Senior PATH
+  seniorAccountSetup: "/senior/account-setup",
+  seniorForm: "/senior/profiling",
 } as const;

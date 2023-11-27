@@ -14,7 +14,7 @@ import { ROUTES } from "~/router";
 
 
 
-export const SurveyThankYou = () => {
+export const ProfilingThankYou = () => {
   const [searchParams] = useSearchParams();
 
   const submission_id = searchParams.get("submission_id") || "";
@@ -22,14 +22,14 @@ export const SurveyThankYou = () => {
   const navigate = useNavigate();
 
   if (!submission_id) {
-    navigate(ROUTES.cancerProfile);
+    navigate(ROUTES.userRolSelector);
   }
 
-  const { postCancerSurveyFormSubmission } = useApi();
+  const { postCancerFormSubmission } = useApi();
 
   const { mutate } = useMutation({
-    mutationFn: postCancerSurveyFormSubmission,
-    mutationKey: ["postCancerSurveyFormSubmission", submission_id],
+    mutationFn: postCancerFormSubmission,
+    mutationKey: ["postCancerFormSubmission", submission_id],
     onError: (result) => {
       if (axios.isAxiosError(result)) {
         if (result.response?.status !== 200) {
@@ -58,9 +58,12 @@ export const SurveyThankYou = () => {
           font="regular"
           className="text-center font-nunito text-[28px] font-light leading-[40px]"
         >
-          We receive your feedback! <br />
+          You’ll receive your initial, personalized, clinician-approved care
+          care plan via email within 24 hours. <br />
           <br />
-          Thank you! <br />
+          If you’ve opted to receive a medical card through eo and/or take home
+          delivery of your products, we’ll communicate your next steps in
+          separate email(s) you’ll receive shortly. <br />
           <br />
           Have questions? We’re here. Email members@eo.care, call{" "}
           <a href="tel:+1-877-707-0706">877-707-0706</a>, or schedule a free

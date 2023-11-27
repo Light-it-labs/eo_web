@@ -109,31 +109,41 @@ export const useApi = () => {
   };
 
   const eligibleEmail = async (email: string) => {
-    return await api.get<{ success: boolean; message: string }>(
-      `${API_ELIXIR}/v2/profiles/eligible?email=${email}`,
-      authHeader,
-    );
+    return await api.get<{
+      success: boolean;
+      message: string;
+    }>(`${API_ELIXIR}/v2/profiles/eligible?email=${email}`, authHeader);
   };
 
   const postCancerFormSubmission = async (data: object) => {
-    return await api.post<{ success: boolean; message: string }>(
-      `${API_LARAVEL}/api/v2/cancer/profile`,
-      data,
-    );
+    return await api.post<{
+      success: boolean;
+      message: string;
+    }>(`${API_LARAVEL}/api/v2/cancer/profile`, data);
   };
 
   const postCancerSurveyFormSubmission = async (data: object) => {
-    return await api.post<{ success: boolean; message: string }>(
-      `${API_LARAVEL}/api/cancer/survey`,
-      data,
-    );
+    return await api.post<{
+      success: boolean;
+      message: string;
+    }>(`${API_LARAVEL}/api/cancer/survey`, data);
   };
 
   const postAthleteSurveyFormSubmission = async (data: object) => {
-    return await api.post<{ success: boolean; message: string }>(
-      `${API_LARAVEL}/api/athletes/survey`,
-      data,
-    );
+    return await api.post<{
+      success: boolean;
+      message: string;
+    }>(`${API_LARAVEL}/api/athletes/survey`, data);
+  };
+
+  const validateEmail = async (email: string) => {
+    return await api.get<{
+      success: boolean;
+    }>(`${API_LARAVEL}/api/user/email/availability`, {
+      params: {
+        email,
+      },
+    });
   };
 
   return {
@@ -148,5 +158,6 @@ export const useApi = () => {
     postCancerFormSubmission,
     postCancerSurveyFormSubmission,
     postAthleteSurveyFormSubmission,
+    validateEmail,
   };
 };

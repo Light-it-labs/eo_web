@@ -8,12 +8,14 @@ import { jotformScript } from "~/helpers/jotform_script";
 import { useMount } from "~/hooks/useMount";
 import { LayoutDefault } from "~/layouts";
 import { ROUTES } from "~/router";
+import { useProfilingStore } from "~/stores/useProfilingStore";
 
 
 
 
 
-export const FormDemo = () => {
+export const Profiling = () => {
+  const { symptoms } = useProfilingStore((state) => state);
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const type = searchParams.get("type");
@@ -23,7 +25,7 @@ export const FormDemo = () => {
       : CANCER_PROFILE_CAREGIVER_ID;
 
   if (!type) {
-    navigate(ROUTES.cancerUserTypeSelectDemo);
+    navigate(ROUTES.userRolSelector);
   }
 
   useMount(() => {
@@ -43,7 +45,9 @@ export const FormDemo = () => {
           allow="geolocation; microphone; camera"
           allowTransparency={true}
           allowFullScreen={true}
-          src={`https://form.jotform.com/${cancerProfileId}`}
+          src={`https://form.jotform.com/${cancerProfileId}&symptoms=${symptoms.join(
+            ",",
+          )}`}
           className="h-full w-full"
           style={{
             minWidth: "100%",

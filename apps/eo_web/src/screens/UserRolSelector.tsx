@@ -1,19 +1,33 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 import { Typography } from "@eo/ui";
 
 import { LayoutDefault } from "~/layouts";
 import { ROUTES } from "~/router";
+import {
+  useProfilingStore,
+  type Channel,
+  type Type,
+} from "~/stores/useProfilingStore";
 
 
 
 
 
-export const UserTypeSelectorDemo = () => {
+export const UserRolSelector = () => {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const { setChannel, setType, setSymptoms } = useProfilingStore(
+    (state) => state,
+  );
+  const redirectForm = (type: Type) => {
+    const channel = searchParams.get("channel") as Channel;
+    const symptoms = searchParams.get("symptoms") ?? "";
 
-  const redirectForm = (type: string) => {
-    navigate(`${ROUTES.cancerFormDemo}?type=${type}`);
+    setSymptoms(symptoms.split(","));
+    setChannel(channel);
+    setType(type);
+    navigate(ROUTES.introQuestions);
   };
 
   return (
@@ -42,16 +56,16 @@ export const UserTypeSelectorDemo = () => {
           </Typography>
           <div className="mt-6 flex flex-row gap-5">
             <button
-              className="h-[41px] w-1/2 border border-solid border-[#a5c4ff] bg-[#a5c4ff] bg-opacity-10 px-[15px] py-[9px] font-nunito	"
+              className="font-nunito h-[41px] w-1/2 border border-solid border-[#a5c4ff] bg-[#a5c4ff] bg-opacity-10 px-[15px] py-[9px]	"
               onClick={() => redirectForm("Patient")}
             >
               Patient
             </button>
             <button
-              className="h-[41px] w-1/2 border border-solid border-[#a5c4ff] bg-[#a5c4ff] bg-opacity-10 px-[15px] py-[9px] font-nunito	"
+              className="font-nunito h-[41px] w-1/2 border border-solid border-[#a5c4ff] bg-[#a5c4ff] bg-opacity-10 px-[15px] py-[9px]	"
               onClick={() => redirectForm("Caregiver")}
             >
-              Caretaker
+              Caregiver
             </button>
           </div>
         </div>

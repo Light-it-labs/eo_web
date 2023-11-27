@@ -2,6 +2,10 @@ import { type ComponentPropsWithoutRef } from "react";
 
 import { tw, type TextTags } from "@eo/shared";
 
+
+
+
+
 export const typographyVariants = ["base", "detail", "large", "small"] as const;
 export type TypographyVariant = (typeof typographyVariants)[number];
 
@@ -23,7 +27,7 @@ export interface TypographyProps extends ComponentPropsWithoutRef<"p"> {
 export const Typography = ({
   as: Container = "p",
   variant = "base",
-  font = "light",
+  font = "regular",
   children,
   className,
   ...props
@@ -31,10 +35,11 @@ export const Typography = ({
   return (
     <Container
       className={tw(
-        "font-nobel tracking-normal text-gray-900",
+        "font-new-hero tracking-normal text-gray-900",
         variant === "base" && "text-base",
         variant === "detail" && "text-xs",
-        variant === "large" && "font-grand text-4xl",
+        variant === "large" &&
+          "text-2xl text-[20px] leading-[28px] md:text-4xl md:text-[32px] md:leading-[40px]",
         variant === "small" && "text-sm",
 
         font === "medium" && "font-medium",
