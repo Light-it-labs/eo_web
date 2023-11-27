@@ -48,7 +48,8 @@ export const Button = forwardRef(
       ref={ref}
       type={type}
       className={tw(
-        "flex h-12 flex-row items-center justify-between gap-2 border border-transparent text-center focus:outline-none focus:ring-2 focus:ring-offset-0",
+        "flex h-12 flex-row items-center justify-between gap-2 border border-transparent text-center focus:outline-none",
+        "rounded-[37.3px] focus:ring-2 focus:ring-offset-0",
         !left && !right && "justify-center",
         variant === "primary" &&
           "bg-primary text-black hover:bg-primary-900 focus:bg-primary focus:ring-primary-100",
