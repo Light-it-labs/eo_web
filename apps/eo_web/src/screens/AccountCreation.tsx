@@ -63,6 +63,7 @@ export const AccountCreation = () => {
     setIntroQuestionSubmissionId,
     channel,
     setState,
+    setExperience,
   } = useProfilingStore((state) => state);
   // const navigate = useNavigate();
   const { eligibleEmail } = useApi();
@@ -108,6 +109,8 @@ export const AccountCreation = () => {
   useMount(() => {
     const submissionId = useParams.get("submission_id");
     const state = useParams.get("state");
+    const experience = useParams.get("experience") ?? "";
+
     if (!submissionId) {
       toast.error(
         <p>
@@ -118,6 +121,7 @@ export const AccountCreation = () => {
     } else {
       setState(state);
       setIntroQuestionSubmissionId(submissionId);
+      setExperience(experience);
     }
   });
 
