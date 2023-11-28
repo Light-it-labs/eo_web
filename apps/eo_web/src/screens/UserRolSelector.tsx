@@ -21,11 +21,14 @@ export const UserRolSelector = () => {
     setSymptoms,
     setUsePayment,
     resetProfilingStore,
+    setOrigin,
   } = useProfilingStore((state) => state);
   const redirectForm = (type: Type) => {
     const channel = searchParams.get("channel") as Channel;
     const symptoms = searchParams.get("symptoms") ?? "";
+    const origin = searchParams.get("origin") ?? "http://localhost:5173";
 
+    setOrigin(origin);
     setSymptoms(symptoms.split(","));
     setChannel(channel);
     setType(type);

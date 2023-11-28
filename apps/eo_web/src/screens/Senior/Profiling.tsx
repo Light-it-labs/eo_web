@@ -9,13 +9,14 @@ import { useProfilingStore } from "~/stores/useProfilingStore";
 
 
 export const Profiling = () => {
-  const { type, symptoms, state, usePayment } = useProfilingStore(
+  const { type, symptoms, state, usePayment, origin } = useProfilingStore(
     (state) => state,
   );
   const searchParam = new URLSearchParams({
     states: state ?? "",
     symptoms: symptoms.join(","),
     payment: usePayment ? "yes" : "no",
+    origin,
   });
   const navigate = useNavigate();
 

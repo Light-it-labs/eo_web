@@ -28,7 +28,6 @@ import { ProfilingOne } from "~/screens/profiling/ProfilingOne";
 import { ProfilingOneRedirect } from "~/screens/profiling/ProfilingOneRedirect";
 import { ProfilingTwo } from "~/screens/profiling/ProfilingTwo";
 import { ProfilingTwoRedirect } from "~/screens/profiling/ProfilingTwoRedirect";
-
 import { ProtectedRoute } from "./ProtectedRoute";
 
 

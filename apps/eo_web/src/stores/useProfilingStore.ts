@@ -26,6 +26,7 @@ export interface ProfilingStore {
   state: string | null;
   introQuestionSubmissionId?: string | null;
   usePayment: boolean;
+  origin: string;
   account: Account;
   setAccountData: (account: Account) => void;
   setChannel: (channel: Channel) => void;
@@ -35,6 +36,7 @@ export interface ProfilingStore {
   setState: (state: string | null) => void;
   setUsePayment: (usePayment: boolean) => void;
   resetProfilingStore: () => void;
+  setOrigin: (origin: string) => void;
 }
 
 const defaultState = {
@@ -43,6 +45,7 @@ const defaultState = {
   introQuestionSubmissionId: null,
   symptoms: [],
   state: null,
+  origin: "",
   account: {
     email: "",
     password: "",
@@ -81,6 +84,9 @@ export const useProfilingStore = create<ProfilingStore>()(
       },
       resetProfilingStore: () => {
         set({ ...get(), ...defaultState });
+      },
+      setOrigin: (origin: string) => {
+        set({ origin });
       },
       ...defaultState,
     }),
