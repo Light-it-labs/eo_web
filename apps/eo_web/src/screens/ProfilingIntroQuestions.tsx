@@ -13,7 +13,10 @@ import { useProfilingStore } from "~/stores/useProfilingStore";
 
 export const ProfilingIntroQuestions = () => {
   const navigate = useNavigate();
-  const { channel, type } = useProfilingStore((state) => state);
+  const { channel, type, origin } = useProfilingStore((state) => state);
+  const searchParams = new URLSearchParams({
+    origin,
+  });
 
   let introQuestionsId: string | number | null = null;
 
@@ -53,7 +56,7 @@ export const ProfilingIntroQuestions = () => {
             allow="geolocation; microphone; camera"
             allowTransparency
             allowFullScreen={true}
-            src={`https://form.jotform.com/${introQuestionsId}`}
+            src={`https://form.jotform.com/${introQuestionsId}?${searchParams.toString()}`}
             className="h-full w-full"
             style={{
               minWidth: "100%",
