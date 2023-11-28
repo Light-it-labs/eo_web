@@ -49,7 +49,7 @@ export const Input = forwardRef(
     const [showPassword, setShowPassword] = useState(false);
 
     return (
-      <div style={style} className={tw("relative ", containerClassName)}>
+      <div style={style} className={tw("relative", containerClassName)}>
         {!!label && <Label htmlFor={id} className="" label={label} />}
         <div
           className={tw(
@@ -58,7 +58,12 @@ export const Input = forwardRef(
           )}
         >
           {(!!left || type === "password") && (
-            <div className="pointer-events-none absolute pl-3">
+            <div
+              className="pointer-events-none pl-3"
+              style={{
+                position: "absolute",
+              }}
+            >
               <IconWrapper size="sm">
                 {left || (
                   <icons.LockIcon
@@ -97,10 +102,13 @@ export const Input = forwardRef(
             <IconWrapper
               size="sm"
               className={tw(
-                "absolute right-0 flex flex-row items-center justify-center",
+                "right-0 flex flex-row items-center justify-center",
                 `w-[${rightWidth}px]`,
                 preventEventsRightIcon ? "pointer-events-none" : "",
               )}
+              style={{
+                position: "absolute",
+              }}
             >
               {right ||
                 (showPassword ? (

@@ -138,7 +138,12 @@ export const AccountCreation = () => {
               Create an Account
             </Typography>
 
-            <div className="grid grid-cols-2 gap-0 md:gap-4">
+            <div
+              className="grid grid-cols-2 gap-0 md:gap-4"
+              style={{
+                padding: "0 !important",
+              }}
+            >
               <Input
                 id={"firstName"}
                 type="text"
@@ -158,7 +163,12 @@ export const AccountCreation = () => {
                 placeholder="Last Name*"
               />
             </div>
-            <div className="grid grid-cols-2 gap-0 md:gap-4">
+            <div
+              className="grid grid-cols-2 gap-0 md:gap-4"
+              style={{
+                padding: "0 !important",
+              }}
+            >
               <Input
                 id={"email"}
                 placeholder="Email*"
@@ -180,7 +190,12 @@ export const AccountCreation = () => {
                 error={errors.password?.message}
               />
             </div>
-            <div className="grid grid-cols-2 gap-0 md:gap-4">
+            <div
+              className="grid grid-cols-2 gap-0 md:gap-4"
+              style={{
+                padding: "0 !important",
+              }}
+            >
               <Input
                 id={"phoneNumber"}
                 placeholder="Phone number*"
@@ -233,7 +248,7 @@ export const AccountCreation = () => {
                       <a
                         href="https://www.eo.care/web/terms-of-use"
                         target="_blank"
-                        className="underline"
+                        className="!font-nunito !text-[11px] !font-light underline"
                         rel="noreferrer"
                       >
                         Terms of Service
@@ -242,7 +257,7 @@ export const AccountCreation = () => {
                       <a
                         href="https://www.eo.care/web/privacy-policy"
                         target="_blank"
-                        className="underline"
+                        className="!font-nunito !text-[11px] !font-light underline"
                         rel="noreferrer"
                       >
                         Privacy Policy{" "}
