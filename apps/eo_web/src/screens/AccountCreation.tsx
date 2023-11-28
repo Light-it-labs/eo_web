@@ -63,6 +63,7 @@ export const AccountCreation = () => {
     setIntroQuestionSubmissionId,
     channel,
     setState,
+    setExperience,
   } = useProfilingStore((state) => state);
   // const navigate = useNavigate();
   const { eligibleEmail } = useApi();
@@ -108,6 +109,8 @@ export const AccountCreation = () => {
   useMount(() => {
     const submissionId = useParams.get("submission_id");
     const state = useParams.get("state");
+    const experience = useParams.get("experience") ?? "";
+
     if (!submissionId) {
       toast.error(
         <p>
@@ -118,6 +121,7 @@ export const AccountCreation = () => {
     } else {
       setState(state);
       setIntroQuestionSubmissionId(submissionId);
+      setExperience(experience);
     }
   });
 
@@ -133,7 +137,6 @@ export const AccountCreation = () => {
             >
               Create an Account
             </Typography>
-
             <div className="grid grid-cols-2 gap-0 md:gap-4">
               <Input
                 id={"firstName"}
@@ -220,7 +223,7 @@ export const AccountCreation = () => {
                       variant="small"
                       font="regular"
                       className={tw(
-                        "font-nunito text-[11px] font-light ",
+                        "font-nunito text-[11px] font-light !leading-4",
                         errors.agreeTermsAndConditions?.message &&
                           "text-red-500",
                       )}
@@ -229,7 +232,7 @@ export const AccountCreation = () => {
                       <a
                         href="https://www.eo.care/web/terms-of-use"
                         target="_blank"
-                        className="underline"
+                        className="!font-nunito !text-[11px] !font-light !leading-4 underline"
                         rel="noreferrer"
                       >
                         Terms of Service
@@ -238,7 +241,7 @@ export const AccountCreation = () => {
                       <a
                         href="https://www.eo.care/web/privacy-policy"
                         target="_blank"
-                        className="underline"
+                        className="!font-nunito !text-[11px] !font-light !leading-4 underline"
                         rel="noreferrer"
                       >
                         Privacy Policy{" "}
