@@ -32,6 +32,7 @@ interface EnvironmentsConfigs {
   SENIOR_PROFILE_PATIENT_ID: string;
   SENIOR_PROFILE_CAREGIVER_ID: string;
   SENIOR_SURVEY_FORM: string;
+  WEB_APP_URL: string;
 }
 
 declare global {
@@ -41,6 +42,8 @@ declare global {
       isProduction: boolean;
       environments: Record<Hosts, EnvironmentsConfigs>;
       getEnv: (key: keyof EnvironmentsConfigs) => string | null;
+      isMarketingSite: (host: string) => boolean;
+      isPartnerSite: (host: string) => boolean;
     };
   }
 }

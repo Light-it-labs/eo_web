@@ -9,9 +9,6 @@ import { ROUTES } from "~/router";
 import { useProfileStore } from "~/stores/useProfileStore";
 
 
-
-
-
 export const Header = () => {
   const profile = useProfileStore((state) => state.profile);
 
@@ -39,7 +36,7 @@ export const Header = () => {
         viewBox="0 0 42 20"
         fill="none"
         onClick={() => {
-          window.open("https://www.eo.care/web/privacy-policy", "_blank");
+          window.open("https://www.eo.care/you/privacy-policy", "_blank");
         }}
       >
         <path
@@ -54,16 +51,15 @@ export const Header = () => {
       <div className="right-12 flex flex-row items-center gap-2">
         {isMobile ? (
           <>
-            <img
-              alt="Privacy and policy"
-              src="https://assets-global.website-files.com/6087423fbc61c1bded1c5d8e/63da9be7c173debd1e84e3c4_image%206.png"
+            <icons.PrivacyPolicyIcon
               onClick={() => {
-                window.open("https://www.eo.care/web/privacy-policy", "_blank");
+                window.open("https://www.eo.care/you/privacy-policy", "_blank");
               }}
-            ></img>
-            <icons.QuestionMarkCircleIcon
+              className="h-8 w-8 rounded-full stroke-2"
+            />
+            <icons.MarkCircleIcon
               onClick={() => setOpenModal(true)}
-              className="h-6 w-6 rounded-full bg-primary-900 stroke-2"
+              className="h-8 w-8 rounded-full"
             />
           </>
         ) : (
@@ -71,7 +67,7 @@ export const Header = () => {
             <Button
               variant="tertiary-link"
               onClick={() => {
-                window.open("https://www.eo.care/web/privacy-policy", "_blank");
+                window.open("https://www.eo.care/you/privacy-policy", "_blank");
               }}
               font="regular"
             >
@@ -79,11 +75,10 @@ export const Header = () => {
             </Button>
             <Button
               variant="black"
-              left={<icons.QuestionMarkCircleIcon className="stroke-2" />}
               onClick={() => setOpenModal(true)}
               font="regular"
             >
-              Need Help
+              Need Help?
             </Button>
           </>
         )}
@@ -96,30 +91,35 @@ export const Header = () => {
       </div>
       {/* eslint-disable-next-line @typescript-eslint/no-empty-function */}
       <Modal isOpen={openModal} onClose={() => {}} controller={setOpenModal}>
-        <div className="flex h-full w-full flex-col justify-center bg-white px-10 py-8 leading-[48px] md:px-12">
-          <Typography variant="large" className="font-nobel mb-6 ">
-            {/* eslint-disable-next-line react/no-unescaped-entities */}
-            We're here.
+        <div
+          className="flex h-full w-full flex-col justify-center rounded-3xl bg-white px-10 py-[50px] leading-[48px]
+                    shadow-lg md:px-[60px] md:py-20"
+        >
+          <Typography
+            variant="large"
+            className="mb-4 text-[32px] font-bold leading-7 md:mb-6"
+          >
+            {}
+            We’re here.
           </Typography>
           <Typography
             font="light"
             variant="large"
-            className="mb-6 whitespace-normal text-[14px] leading-[18px] md:text-[22px]"
+            className="mb-4 whitespace-normal text-[18px] font-semibold leading-normal text-gray-800 md:mb-6 md:text-[22px]"
           >
-            Have questions or prefer to complete these questions and set-up your
-            account with an eo rep?
+            Have questions or prefer to talk with an eo rep?
           </Typography>
           <ul className="list-disc pl-4">
             <li>
               <Typography
                 variant="base"
-                className="mb-5 text-base font-light tracking-wide md:text-2xl"
+                className="text-sm font-normal leading-[26px] md:text-lg"
               >
                 <a
                   href="https://calendly.com/help-eo/30min"
                   className="underline decoration-1 underline-offset-8"
                 >
-                  <strong>Schedule a video chat</strong>
+                  Schedule a video chat
                 </a>{" "}
                 with a member of our team.
               </Typography>
@@ -127,27 +127,28 @@ export const Header = () => {
             <li>
               <Typography
                 variant="base"
-                className="mb-5 text-base font-light tracking-wide md:text-2xl"
+                className="text-sm font-normal leading-[26px] md:text-lg"
               >
                 Call{" "}
-                <a href="tel:877-707-0706">
-                  <strong className="underline decoration-1 underline-offset-8">
-                    877-707-0706
-                  </strong>
+                <a
+                  href="tel:877-707-0706"
+                  className="underline decoration-1 underline-offset-8"
+                >
+                  877-707-0706
                 </a>
               </Typography>
             </li>
             <li>
               <Typography
                 variant="base"
-                className="mb-5 text-base font-light tracking-wide md:text-2xl"
+                className="text-sm font-normal leading-[26px] md:text-lg"
               >
                 Email{" "}
                 <a
                   href="mailto:members@eo.care"
                   className="underline decoration-1 underline-offset-8"
                 >
-                  <strong>members@eo.care</strong>
+                  members@eo.care
                 </a>
               </Typography>
             </li>
