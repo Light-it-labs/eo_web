@@ -6,20 +6,19 @@ import { toast } from "react-toastify";
 import { Typography } from "@eo/ui";
 
 import { useApi } from "~/api/useApi";
+import { WEB_APP_URL } from "~/configs/env";
 import { useMount } from "~/hooks/useMount";
 import { LayoutDefault } from "~/layouts";
 import { ROUTES } from "~/router";
 import { useProfilingStore } from "~/stores/useProfilingStore";
 
 
-
-
-
 export const ProfilingThankYou = () => {
   const [searchParams] = useSearchParams();
 
-  const { account, introQuestionSubmissionId, channel, resetProfilingStore } =
-    useProfilingStore((state) => state);
+  const { account, introQuestionSubmissionId, channel } = useProfilingStore(
+    (state) => state,
+  );
   const submissionId = searchParams.get("submission_id") || "";
 
   const navigate = useNavigate();
@@ -33,9 +32,6 @@ export const ProfilingThankYou = () => {
   const { mutate } = useMutation({
     mutationFn: postCancerSeniorFormSubmission,
     mutationKey: ["postCancerSeniorFormSubmission", submissionId],
-    onSuccess: () => {
-      resetProfilingStore();
-    },
     onError: (result) => {
       if (axios.isAxiosError(result)) {
         if (result.response?.status !== 200) {
@@ -62,29 +58,38 @@ export const ProfilingThankYou = () => {
     }),
   );
 
+  const goToWebApp = () => {
+    window.location.href = WEB_APP_URL;
+  };
+
   return (
     <LayoutDefault>
       <div className="flex h-full flex-col items-center justify-center px-[20%]">
         <Typography
           variant="large"
-          className="font-nunito text-[45px] font-bold leading-[55px]"
+          className="text-[45px] font-bold leading-[55px]"
         >
           All done!
         </Typography>
+
         <br />
         <Typography
           variant="base"
           font="regular"
-          className="text-center font-nunito text-[28px] font-light leading-[40px]"
+          className="text-center text-[22px] font-normal leading-[36px]"
         >
-          You’ll receive your initial, personalized, clinician-approved care
-          care plan via email within 24 hours. <br />
+          You’ll be able to review your your initial, personalized,
+          clinician-approved
+          <br /> care plan within 24 hours. When you’re care plan is ready, we
+          will send you an email
+          <br /> with a link to{" "}
+          <span className="cursor-pointer underline" onClick={goToWebApp}>
+            log into your account.
+          </span>
           <br />
-          If you’ve opted to receive a medical card through eo and/or take home
-          delivery of your products, we’ll communicate your next steps in
-          separate email(s) you’ll receive shortly. <br />
           <br />
-          Have questions? We’re here. Email members@eo.care, call{" "}
+          Have questions? We’re here. Email members@eo.care, call
+          <br />
           <a href="tel:+1-877-707-0706">877-707-0706</a>, or schedule a free
           consultation.
         </Typography>

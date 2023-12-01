@@ -34,3 +34,6 @@ export const API_ELIXIR =
   window.data.getEnv("API_URL") || "http://localhost:4200";
 export const API_LARAVEL =
   window.data.getEnv("API_LARAVEL") || "http://localhost";
+
+export const WEB_APP_URL =
+  window.data.getEnv("WEB_APP_URL") ?? "http://localhost:3000";

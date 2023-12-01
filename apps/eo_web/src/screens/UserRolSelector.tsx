@@ -54,9 +54,15 @@ export const UserRolSelector = () => {
             strokeWidth="2"
             stroke="currentColor"
             className="absolute left-4 top-4 h-6 w-6"
-            onClick={() =>
-              (window.location.href = `https://${window.location.host}/pilot#how-eo-care-plans-works`)
-            }
+            onClick={() => {
+              if (window.data.isMarketingSite(origin)) {
+                window.location.href = `https://${window.location.host}/pilot#how-eo-care-plans-works`;
+              } else if (window.data.isPartnerSite(origin)) {
+                window.location.href = `https://${window.location.host}/cancer-pilot#how-eo-care-plans-works`;
+              } else {
+                history.back();
+              }
+            }}
           >
             <path
               strokeLinecap="round"
