@@ -4,7 +4,7 @@ import axios from "axios";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
-import { Typography } from "@eo/ui";
+import { Button, Typography } from "@eo/ui";
 
 import { useApi } from "~/api/useApi";
 import { EoCarousel } from "~/components/Carousel";
@@ -13,6 +13,7 @@ import { WEB_APP_URL } from "~/configs/env";
 import { CarrouselItems, faqs } from "~/copy/copy";
 import { useMount } from "~/hooks/useMount";
 import { LayoutDefault } from "~/layouts";
+import { FooterFull } from "~/layouts/FooterFull";
 import { ROUTES } from "~/router";
 import { useProfilingStore } from "~/stores/useProfilingStore";
 
@@ -98,7 +99,7 @@ export const ProfilingThankYou = () => {
           consultation.
         </Typography>
       </section>
-      <section className="bg-white px-6 py-12 md:px-[50px] md:py-[100px]">
+      <section className="bg-white px-6 py-12 md:px-[50px] md:py-[100px] ">
         <EoCarousel>
           {CarrouselItems.map(({ title, content, step, icon, alt }) => (
             <article
@@ -121,13 +122,17 @@ export const ProfilingThankYou = () => {
       </section>
       <section className="mx-6 my-12 md:mx-0 md:my-[100px]">
         <div className="mx-auto my-0 flex max-w-[900px] flex-col">
-          <Typography font="bold" variant="large" className="text-center">
+          <Typography
+            font="bold"
+            variant="large"
+            className="mb-[50px] text-center"
+          >
             FAQs
           </Typography>
           <div className="flex flex-col gap-6">
             {faqs.map(({ title, content }) => (
-              <Collapsible key={title} title={title} active={true}>
-                <Typography className="text-[21px] leading-[38px] text-gray-800">
+              <Collapsible key={title} title={title} active={false}>
+                <Typography className="text-[18px] leading-[26px] text-gray-800">
                   {content}
                 </Typography>
               </Collapsible>
@@ -135,6 +140,30 @@ export const ProfilingThankYou = () => {
           </div>
         </div>
       </section>
+      <section className="w-full bg-white px-6 py-12 md:px-[50px] md:py-[100px]">
+        <div className="flex flex-col items-center">
+          <Typography
+            font="bold"
+            className="mb-4 text-center text-[32px] leading-[40px] text-skun"
+          >
+            eo in your inbox
+          </Typography>
+          <Typography className="text-center text-skun-mid">
+            Rollouts in new markets, new partnerships, research initiatives and
+            special offers are all coming soon.
+          </Typography>
+          <div className="mt-[30px] flex flex-row gap-4">
+            <input
+              className="h-[49px] w-full rounded-[40px] border border-solid border-black bg-white px-2 py-3 text-black placeholder:text-gray-300 md:w-[327px]"
+              placeholder="Enter your email..."
+            />
+            <Button variant="black" font="semiBold">
+              Subscribe
+            </Button>
+          </div>
+        </div>
+      </section>
+      <FooterFull />
     </LayoutDefault>
   );
 };

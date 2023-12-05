@@ -8,7 +8,7 @@ import { Typography, icons } from "@eo/ui";
 
 export function Footer() {
   return (
-    <footer className="mt-[60px] flex flex-col justify-center gap-4 bg-black px-4 py-[100px] pl-0 md:flex-row md:pl-[10px] lg:pl-5">
+    <footer className="flex flex-col justify-center gap-4 bg-black px-4 py-[100px] md:flex-row md:pl-0 md:pl-[10px] lg:pl-5">
       <section>
         <icons.EoWhiteIcon
           onClick={() => {
@@ -18,7 +18,7 @@ export function Footer() {
         <Typography
           variant="large"
           font="bold"
-          className="font-grand mb-6 text-5xl font-extrabold text-white"
+          className="mb-6  text-5xl font-extrabold text-white"
         >
           Wise use for all.
         </Typography>

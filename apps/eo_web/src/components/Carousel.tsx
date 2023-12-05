@@ -27,7 +27,7 @@ export const EoCarousel = ({ children }: EoCarouselProps) => {
   const swiperRef = useRef<SwiperType>();
 
   return (
-    <div className="relative flex flex-row items-center justify-center">
+    <div className="relative mx-auto my-0 flex flex-row items-center justify-center md:max-w-[1440px]">
       <button
         className={tw(
           "left-0 z-10 flex h-14 w-14 flex-row items-center justify-center rounded-full bg-black",

@@ -23,12 +23,12 @@ export const Collapsible = ({
   return (
     <div>
       <div
-        className="flex cursor-pointer flex-row items-center justify-between"
+        className="flex cursor-pointer flex-row items-center justify-between gap-4 md:items-start"
         onClick={() => setOpen((state) => !state)}
       >
         {typeof title === "string" ? (
           <Typography
-            className="text-[20px] leading-[26px] md:text-[24px] md:leading-[36px]"
+            className="text-[20px] leading-[28px]  md:leading-[36px]"
             font="bold"
           >
             {title}
@@ -45,15 +45,17 @@ export const Collapsible = ({
         </div>
       </div>
       <div
-        className={tw("mt-4 w-full overflow-hidden", open ? "h-auto" : "h-0")}
+        className={tw(
+          "mt-4 flex w-full flex-row overflow-hidden",
+          open ? "h-auto" : "h-0",
+        )}
         style={{
           transition: "0,4s ease-out",
           willChange: "width height",
         }}
       >
-        <div className="mr-4 w-0.5 border-l-8 border-l-electric-blue bg-electric-blue">
-          {children}
-        </div>
+        <div className="mr-4 rounded-full border-4 border-solid border-electric-blue" />
+        {children}
       </div>
     </div>
   );
