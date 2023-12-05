@@ -30,8 +30,7 @@ export const EoCarousel = ({ children }: EoCarouselProps) => {
     <div className="relative mx-auto my-0 flex flex-row items-center justify-center md:max-w-[1440px]">
       <button
         className={tw(
-          "left-0 z-10 flex h-14 w-14 flex-row items-center justify-center rounded-full bg-black",
-          isMobile && "hidden",
+          "left-0 z-10 hidden h-14 w-14 flex-row items-center justify-center rounded-full bg-black md:flex",
         )}
         style={{
           position: "absolute",
@@ -43,7 +42,7 @@ export const EoCarousel = ({ children }: EoCarouselProps) => {
       <div className="max-w-auto w-full md:max-w-[1211px]">
         <Swiper
           slidesPerGroup={isDesktop ? 3 : 1}
-          loop={true}
+          loop
           modules={[Navigation, Pagination, A11y]}
           slidesPerView={isDesktop ? 3 : 1}
           onBeforeInit={(swiper) => {

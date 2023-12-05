@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import { MinusIcon, PlusIcon } from "@heroicons/react/24/solid";
 
 import { tw } from "@eo/shared";
@@ -9,8 +9,8 @@ import { Typography } from "@eo/ui";
 
 
 interface CollapsibleProps {
-  title: string | JSX.Element;
-  children: JSX.Element;
+  title: string | ReactNode;
+  children: ReactNode;
   active?: boolean;
 }
 
@@ -28,7 +28,7 @@ export const Collapsible = ({
       >
         {typeof title === "string" ? (
           <Typography
-            className="text-[20px] leading-[28px]  md:leading-[36px]"
+            className="text-[20px] leading-7 md:leading-9"
             font="bold"
           >
             {title}

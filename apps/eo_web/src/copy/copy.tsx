@@ -1,6 +1,8 @@
+import { type ReactNode } from "react";
+
 export type Copy = {
   title: string;
-  content: string | JSX.Element;
+  content: string | ReactNode;
 };
 
 export const CarrouselItems = [
