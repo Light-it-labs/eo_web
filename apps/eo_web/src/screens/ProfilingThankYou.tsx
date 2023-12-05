@@ -1,3 +1,4 @@
+import React from "react";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import { useNavigate, useSearchParams } from "react-router-dom";
@@ -6,7 +7,10 @@ import { toast } from "react-toastify";
 import { Typography } from "@eo/ui";
 
 import { useApi } from "~/api/useApi";
+import { EoCarousel } from "~/components/Carousel";
+import { Collapsible } from "~/components/Collapsible";
 import { WEB_APP_URL } from "~/configs/env";
+import { CarrouselItems, faqs } from "~/copy/copy";
 import { useMount } from "~/hooks/useMount";
 import { LayoutDefault } from "~/layouts";
 import { ROUTES } from "~/router";
@@ -64,10 +68,10 @@ export const ProfilingThankYou = () => {
 
   return (
     <LayoutDefault>
-      <div className="flex h-full flex-col items-center justify-center px-[20%]">
+      <section className="flex h-auto flex-col items-center justify-center px-[20%] md:min-h-[479px]">
         <Typography
           variant="large"
-          className="text-[45px] font-bold leading-[55px]"
+          className="text-[42px] font-bold leading-[55px]"
         >
           All done!
         </Typography>
@@ -93,7 +97,44 @@ export const ProfilingThankYou = () => {
           <a href="tel:+1-877-707-0706">877-707-0706</a>, or schedule a free
           consultation.
         </Typography>
-      </div>
+      </section>
+      <section className="bg-white px-6 py-12 md:px-[50px] md:py-[100px]">
+        <EoCarousel>
+          {CarrouselItems.map(({ title, content, step, icon, alt }) => (
+            <article
+              key={step}
+              className="mx-auto my-0 flex h-auto w-auto max-w-[361px] flex-col items-center justify-center gap-2 md:flex-none md:items-start"
+            >
+              <img src={`/img/${icon}`} className="h-14 w-14" alt={alt} />
+              <Typography className="text-[16px] uppercase leading-4 tracking-[.8px]">
+                STEP {step}
+              </Typography>
+              <Typography font="bold" className="text-xl">
+                {title}
+              </Typography>
+              <Typography className="text-center text-lg md:text-left">
+                {content}
+              </Typography>
+            </article>
+          ))}
+        </EoCarousel>
+      </section>
+      <section className="mx-6 my-12 md:mx-0 md:my-[100px]">
+        <div className="mx-auto my-0 flex max-w-[900px] flex-col">
+          <Typography font="bold" variant="large" className="text-center">
+            FAQs
+          </Typography>
+          <div className="flex flex-col gap-6">
+            {faqs.map(({ title, content }) => (
+              <Collapsible key={title} title={title} active={true}>
+                <Typography className="text-[21px] leading-[38px] text-gray-800">
+                  {content}
+                </Typography>
+              </Collapsible>
+            ))}
+          </div>
+        </div>
+      </section>
     </LayoutDefault>
   );
 };

@@ -174,6 +174,9 @@ export default {
           500: "#EF4444",
           DEFAULT: "#FC0B0B",
         },
+        "electric-blue": {
+          DEFAULT: "#1DBBFF",
+        },
       },
       strokeWidth: {
         5: "5px",

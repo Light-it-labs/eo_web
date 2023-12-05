@@ -39,7 +39,7 @@ export const Typography = ({
         variant === "base" && "text-base",
         variant === "detail" && "text-xs",
         variant === "large" &&
-          "text-2xl text-[20px] leading-[28px] md:text-4xl md:text-[32px] md:leading-[40px]",
+          "text-[20px] leading-[28px] md:text-4xl md:text-[32px] md:leading-[40px]",
         variant === "small" && "text-sm",
 
         font === "medium" && "font-medium",
