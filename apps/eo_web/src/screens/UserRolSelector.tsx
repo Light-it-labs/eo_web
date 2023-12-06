@@ -52,9 +52,9 @@ export const UserRolSelector = () => {
               Which best describes you? <span className="text-red-600">*</span>
             </Typography>
 
-            <div className="mt-6 flex flex-row gap-5">
+            <div className="mt-6 flex flex-col lg:flex-row gap-5">
               <button
-                className={tw("flex items-center justify-start gap-2 h-[48px] w-1/2 border border-solid border-gray-800 text-gray-800 rounded px-[15px] py-[9px] font-nunito",
+                className={tw("flex items-center justify-start gap-2 h-[48px] lg:w-1/2 border border-solid border-gray-800 text-gray-800 rounded px-[15px] py-[9px] font-nunito",
                   selectedValue === 'Patient' && 'border-[#5AADFD] bg-[#5AADFD] bg-opacity-20')}
                 onClick={() => setSelectedValue('Patient')}
               >
@@ -65,7 +65,7 @@ export const UserRolSelector = () => {
                 Patient
               </button>
               <button
-                className={tw("flex items-center justify-start gap-2 h-[48px] w-1/2 border border-solid border-gray-800 text-gray-800 rounded px-[15px] py-[9px] font-nunito",
+                className={tw("flex items-center justify-start gap-2 h-[48px] lg:w-1/2 border border-solid border-gray-800 text-gray-800 rounded px-[15px] py-[9px] font-nunito",
                   selectedValue === 'Caregiver' && 'border-[#5AADFD] bg-[#5AADFD] bg-opacity-20')}
                 onClick={() => setSelectedValue("Caregiver")}
               >
@@ -79,7 +79,7 @@ export const UserRolSelector = () => {
           </div>
           <section className="flex h-[53px] items-center justify-between rounded-b-md bg-black pb-[19px] pt-4 md:w-full ">
             <Button
-              className="click:border-0 focus:ring-outline-0 hover:outline-0 focus:ring-0"
+              className="click:border-0 focus:ring-outline-0 hover:outline-0 focus:ring-0 rounded-none"
               variant="black"
               size="lg"
               onClick={() => {
@@ -94,17 +94,25 @@ export const UserRolSelector = () => {
               }
               left={<icons.RightArrow className="rotate-180 h-6 w-6 text-gray-300" />}
             >
-              <span className="text-gray-300">PREVIOUS</span>
+              <span className="text-gray-300 hidden lg:flex">PREVIOUS</span>
             </Button>
 
             <Button
-              className="click:border-0 focus:ring-outline-0 hover:outline-0 focus:ring-0"
+              className="click:border-0 focus:ring-outline-0 hover:outline-0 focus:ring-0 rounded-none hidden lg:flex"
               variant="black"
               size="lg"
               right={<icons.RightArrow className="h-6 w-6" />}
               onClick={() => redirectForm(selectedValue)}
             >
               NEXT
+            </Button>
+            <Button
+              className="click:border-0 focus:ring-outline-0 hover:outline-0 focus:ring-0 rounded-none lg:hidden flex"
+              variant="black"
+              size="lg"
+              right={<icons.RightArrow className="h-6 w-6" />}
+              onClick={() => redirectForm(selectedValue)}
+            >
             </Button>
           </section>
         </div>
