@@ -1,5 +1,5 @@
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { Button, Radio, Typography, icons } from "@eo/ui";
+import { Button, Typography, icons } from "@eo/ui";
 import { useMount } from "~/hooks/useMount";
 import { LayoutDefault } from "~/layouts";
 import { ROUTES } from "~/router";
