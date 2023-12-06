@@ -52,19 +52,19 @@ export const Button = forwardRef(
         "rounded-[37.3px] focus:ring-2 focus:ring-offset-0",
         !left && !right && "justify-center",
         variant === "primary" &&
-          "bg-primary text-black hover:bg-primary-900 focus:bg-primary focus:ring-primary-100",
+        "bg-primary text-black hover:bg-primary-900 focus:bg-primary focus:ring-primary-100",
         variant === "outline" &&
-          "border-primary text-primary hover:border-primary-800 hover:text-primary-800 focus:ring-primary-100",
+        "border-primary text-primary hover:border-primary-800 hover:text-primary-800 focus:ring-primary-100",
         variant === "outline-white" &&
-          "border-primary-white-500 text-primary-white-500 focus:ring-0",
+        "border-primary-white-500 text-primary-white-500 focus:ring-0",
         variant === "secondary" &&
-          "bg-primary-50 text-primary-400 hover:bg-primary-100 focus:bg-primary-50 focus:ring-primary-100",
+        "bg-primary-50 text-primary-400 hover:bg-primary-100 focus:bg-primary-50 focus:ring-primary-100",
         variant === "tertiary-link" &&
-          "text-primary hover:text-primary-700 focus:text-primary-700 focus:ring-1 focus:ring-primary-700",
+        "text-primary hover:text-primary-700 focus:text-primary-700 focus:ring-1 focus:ring-primary-700",
         variant === "white" &&
-          "bg-white text-black shadow-lg hover:outline focus:outline focus:ring-1 focus:ring-primary-900",
+        "bg-white text-black shadow-lg hover:outline focus:outline focus:ring-1 focus:ring-primary-900",
         variant === "black" &&
-          "bg-black text-white shadow-lg hover:outline focus:outline focus:ring-1 focus:ring-primary-900",
+        "bg-black text-white shadow-lg hover:outline focus:outline focus:ring-1 focus:ring-primary-900",
 
         size === "sm" && "px-4 py-2 text-sm leading-[17px]",
         size === "md" && "px-[18px] py-3 text-base leading-5",
@@ -73,11 +73,11 @@ export const Button = forwardRef(
         disabled && [
           variant === "primary" && "text-black",
           variant === "outline" &&
-            "border-primary-dark-200 text-primary-white-600",
+          "border-primary-dark-200 text-primary-white-600",
           variant === "outline-white" &&
-            "border-primary-white-700 text-primary-white-700",
+          "border-primary-white-700 text-primary-white-700",
           variant === "secondary" &&
-            "bg-primary-dark-50 text-primary-white-600",
+          "bg-primary-dark-50 text-primary-white-600",
           variant === "tertiary-link" && "text-primary-white-600",
           variant === "white" && "text-primary-white-600",
           variant === "black" && "text-primary-white-600",
@@ -93,7 +93,7 @@ export const Button = forwardRef(
       disabled={disabled}
       {...props}
     >
-      <div className="flex flex-row gap-2">
+      <div className="flex flex-row items-center gap-2">
         {left && <IconWrapper size={size}>{left}</IconWrapper>}
         <Typography
           variant="base"

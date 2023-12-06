@@ -12,12 +12,8 @@
     "src": "src/main.css"
   },
   "src/main.tsx": {
-    "assets": [
-      "assets/UploadFile-694e44b5.svg"
-    ],
-    "css": [
-      "assets/main-efb2b034.css"
-    ],
+    "assets": ["assets/UploadFile-694e44b5.svg"],
+    "css": ["assets/main-efb2b034.css"],
     "file": "assets/main-b31d824d.js",
     "isEntry": true,
     "src": "src/main.tsx"

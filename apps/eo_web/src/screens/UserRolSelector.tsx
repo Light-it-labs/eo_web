@@ -1,7 +1,5 @@
 import { useNavigate, useSearchParams } from "react-router-dom";
-
-import { Typography } from "@eo/ui";
-
+import { Button, Radio, Typography, icons } from "@eo/ui";
 import { useMount } from "~/hooks/useMount";
 import { LayoutDefault } from "~/layouts";
 import { ROUTES } from "~/router";
@@ -10,11 +8,13 @@ import {
   type Channel,
   type Type,
 } from "~/stores/useProfilingStore";
-
+import { useState } from "react";
+import { tw } from "@eo/shared";
 
 export const UserRolSelector = () => {
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
+  const [selectedValue, setSelectedValue] = useState<Type>(null);
   const {
     setChannel,
     setType,
@@ -46,47 +46,67 @@ export const UserRolSelector = () => {
   return (
     <LayoutDefault>
       <div className="flex h-full w-full items-center justify-center bg-opacity-50">
-        <div className="relative w-3/4 bg-white px-[43px] py-[52px] md:w-[742px]">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth="2"
-            stroke="currentColor"
-            className="absolute left-4 top-4 h-6 w-6"
-            onClick={() => {
-              if (window.data.isMarketingSite(origin)) {
-                window.location.href = `https://${window.location.host}/pilot#how-eo-care-plans-works`;
-              } else if (window.data.isPartnerSite(origin)) {
-                window.location.href = `https://${window.location.host}/cancer-pilot#how-eo-care-plans-works`;
-              } else {
-                history.back();
-              }
-            }}
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
-            />
-          </svg>
-          <Typography className="font-nunito text-lg font-normal">
-            Which best describes you? <span className="text-red-600">*</span>
-          </Typography>
-          <div className="mt-6 flex flex-row gap-5">
-            <button
-              className="h-[41px] w-1/2 border border-solid border-[#a5c4ff] bg-[#a5c4ff] bg-opacity-10 px-[15px] py-[9px] font-nunito	"
-              onClick={() => redirectForm("Patient")}
-            >
-              Patient
-            </button>
-            <button
-              className="h-[41px] w-1/2 border border-solid border-[#a5c4ff] bg-[#a5c4ff] bg-opacity-10 px-[15px] py-[9px] font-nunito	"
-              onClick={() => redirectForm("Caregiver")}
-            >
-              Caregiver
-            </button>
+        <div className="relative w-3/4 bg-white md:w-[742px]">
+          <div className="px-[28px] py-[28px]">
+            <Typography className="font-nunito text-lg font-normal">
+              Which best describes you? <span className="text-red-600">*</span>
+            </Typography>
+
+            <div className="mt-6 flex flex-row gap-5">
+              <button
+                className={tw("flex items-center justify-start gap-2 h-[48px] w-1/2 border border-solid border-gray-800 text-gray-800 rounded px-[15px] py-[9px] font-nunito",
+                  selectedValue === 'Patient' && 'border-[#5AADFD] bg-[#5AADFD] bg-opacity-20')}
+                onClick={() => setSelectedValue('Patient')}
+              >
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="w-6 h-6">
+                  <circle cx="12" cy="12" r="10" fill='none' stroke={selectedValue === 'Patient' ? '#5AADFD' : '#535A63'} strokeWidth={selectedValue === 'Patient' ? 3 : 1.5} />
+                  <circle cx="12" cy="12" r="9" fill={selectedValue === 'Patient' ? '#5AADFD' : 'none'} stroke={selectedValue === 'Patient' ? 'white' : 'none'} strokeWidth={1.5} />
+                </svg>
+                Patient
+              </button>
+              <button
+                className={tw("flex items-center justify-start gap-2 h-[48px] w-1/2 border border-solid border-gray-800 text-gray-800 rounded px-[15px] py-[9px] font-nunito",
+                  selectedValue === 'Caregiver' && 'border-[#5AADFD] bg-[#5AADFD] bg-opacity-20')}
+                onClick={() => setSelectedValue("Caregiver")}
+              >
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="w-6 h-6">
+                  <circle cx="12" cy="12" r="10" fill='none' stroke={selectedValue === 'Caregiver' ? '#5AADFD' : '#535A63'} strokeWidth={selectedValue === 'Caregiver' ? 3 : 1.5} />
+                  <circle cx="12" cy="12" r="9" fill={selectedValue === 'Caregiver' ? '#5AADFD' : 'none'} stroke={selectedValue === 'Caregiver' ? 'white' : 'none'} strokeWidth={1.5} />
+                </svg>
+                Caregiver
+              </button>
+            </div>
           </div>
+          <section className="flex h-[53px] items-center justify-between rounded-b-md bg-black pb-[19px] pt-4 md:w-full ">
+            <Button
+              className="click:border-0 focus:ring-outline-0 hover:outline-0 focus:ring-0"
+              variant="black"
+              size="lg"
+              onClick={() => {
+                if (window.data.isMarketingSite(origin)) {
+                  window.location.href = `https://${window.location.host}/pilot#how-eo-care-plans-works`;
+                } else if (window.data.isPartnerSite(origin)) {
+                  window.location.href = `https://${window.location.host}/cancer-pilot#how-eo-care-plans-works`;
+                } else {
+                  history.back();
+                }
+              }
+              }
+              left={<icons.RightArrow className="rotate-180 h-6 w-6 text-gray-300" />}
+            >
+              <span className="text-gray-300">PREVIOUS</span>
+            </Button>
+
+            <Button
+              className="click:border-0 focus:ring-outline-0 hover:outline-0 focus:ring-0"
+              variant="black"
+              size="lg"
+              right={<icons.RightArrow className="h-6 w-6" />}
+              onClick={() => redirectForm(selectedValue)}
+            >
+              NEXT
+            </Button>
+          </section>
         </div>
       </div>
     </LayoutDefault>
