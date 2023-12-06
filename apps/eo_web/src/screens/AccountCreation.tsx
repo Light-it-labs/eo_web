@@ -204,7 +204,7 @@ export const AccountCreation = () => {
                       className={tw(
                         "font-nunito text-[11px] font-light ",
                         errors.agreeReceiveNotifications?.message &&
-                          "text-red-500",
+                        "text-red-500",
                       )}
                     >
                       I agree to receive emails and text messages.
@@ -225,7 +225,7 @@ export const AccountCreation = () => {
                       className={tw(
                         "font-nunito text-[11px] font-light !leading-4",
                         errors.agreeTermsAndConditions?.message &&
-                          "text-red-500",
+                        "text-red-500",
                       )}
                     >
                       I have read and agree to the{" "}
@@ -268,7 +268,7 @@ export const AccountCreation = () => {
             </Typography>
             <Button
               id="ga-sign-up-button"
-              className="click:border-0 focus:rign-outline-0 w-[150px] border-none hover:outline-0 focus:ring-0"
+              className="click:border-0 focus:ring-outline-0 w-[150px] border-none hover:outline-0 focus:ring-0"
               variant="black"
               size="lg"
               onClick={() => void handleSubmit(onFormSubmission)()}
