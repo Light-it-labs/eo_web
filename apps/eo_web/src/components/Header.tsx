@@ -27,7 +27,7 @@ export const Header = () => {
 
   const isMobile = useIsMobile();
   return (
-    <header className="border-1 relative flex min-h-[93px] w-full flex-row items-center justify-between border bg-white px-2 shadow-lg md:px-12">
+    <header className="border-1 relative mb-10 flex min-h-[93px] w-full flex-row items-center justify-between border bg-white px-2 shadow-lg md:px-12">
       <svg
         className="h-11 w-20"
         xmlns="http://www.w3.org/2000/svg"

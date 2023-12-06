@@ -174,6 +174,15 @@ export default {
           500: "#EF4444",
           DEFAULT: "#FC0B0B",
         },
+        "electric-blue": {
+          DEFAULT: "#1DBBFF",
+        },
+        skun: {
+          DEFAULT: "#252525",
+        },
+        "skun-mid": {
+          DEFAULT: "#535659",
+        },
       },
       strokeWidth: {
         5: "5px",

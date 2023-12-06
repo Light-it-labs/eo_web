@@ -6,6 +6,7 @@ export const useIsMobile = () => {
   function handleWindowSizeChange() {
     setWidth(window.innerWidth);
   }
+
   useEffect(() => {
     window.addEventListener("resize", handleWindowSizeChange);
     return () => {
@@ -14,4 +15,21 @@ export const useIsMobile = () => {
   }, []);
 
   return width <= 768;
+};
+
+export const useIsDesktop = () => {
+  const [width, setWidth] = useState<number>(window.innerWidth);
+
+  function handleWindowSizeChange() {
+    setWidth(window.innerWidth);
+  }
+
+  useEffect(() => {
+    window.addEventListener("resize", handleWindowSizeChange);
+    return () => {
+      window.removeEventListener("resize", handleWindowSizeChange);
+    };
+  }, []);
+
+  return width >= 1024;
 };
