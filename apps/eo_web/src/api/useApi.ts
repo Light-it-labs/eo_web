@@ -145,16 +145,14 @@ export const useApi = () => {
     );
 
   const postAthleteSurveyFormSubmission = async (data: object) =>
-    await apiLaravel.post<LaravelSuccessBase<unknown> | LaravelErrorValidation>(
-      "/api/athletes/survey",
-      data,
-    );
+    await apiLaravel.post<
+      LaravelSuccessBase<ProfileCreationResult> | LaravelErrorValidation
+    >("/api/athletes/survey", data);
 
   const postSeniorFormSubmission = async (data: object) =>
-    await apiLaravel.post<LaravelSuccessBase<unknown> | LaravelErrorValidation>(
-      "/api/senior/profile",
-      data,
-    );
+    await apiLaravel.post<
+      LaravelSuccessBase<ProfileCreationResult> | LaravelErrorValidation
+    >("/api/senior/profile", data);
 
   return {
     validateZipCode,
