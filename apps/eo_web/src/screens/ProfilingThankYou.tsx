@@ -32,10 +32,13 @@ export const ProfilingThankYou = () => {
     navigate(ROUTES.userRolSelector);
   }
 
-  const { postCancerSeniorFormSubmission } = useApi();
+  const { postCancerFormSubmission, postSeniorFormSubmission } = useApi();
 
   const { mutate } = useMutation({
-    mutationFn: postCancerSeniorFormSubmission,
+    mutationFn:
+      channel === "cancer"
+        ? postCancerFormSubmission
+        : postSeniorFormSubmission,
     mutationKey: ["postCancerSeniorFormSubmission", submissionId],
     onError: (result) => {
       if (axios.isAxiosError(result)) {
