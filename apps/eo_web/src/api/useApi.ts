@@ -132,7 +132,7 @@ export const useApi = () => {
       authHeader,
     );
 
-  const postCancerSeniorFormSubmission = async (data: object) =>
+  const postCancerFormSubmission = async (data: object) =>
     await apiLaravel.post<LaravelSuccessBase<ProfileCreationResult>>(
       "/api/v2/cancer/profile",
       data,
@@ -145,10 +145,14 @@ export const useApi = () => {
     );
 
   const postAthleteSurveyFormSubmission = async (data: object) =>
-    await apiLaravel.post<LaravelSuccessBase<unknown> | LaravelErrorValidation>(
-      "/api/athletes/survey",
-      data,
-    );
+    await apiLaravel.post<
+      LaravelSuccessBase<ProfileCreationResult> | LaravelErrorValidation
+    >("/api/athletes/survey", data);
+
+  const postSeniorFormSubmission = async (data: object) =>
+    await apiLaravel.post<
+      LaravelSuccessBase<ProfileCreationResult> | LaravelErrorValidation
+    >("/api/senior/profile", data);
 
   return {
     validateZipCode,
@@ -159,8 +163,9 @@ export const useApi = () => {
     getSubmission,
     getSubmissionById,
     eligibleEmail,
-    postCancerSeniorFormSubmission,
+    postCancerFormSubmission,
     postCancerSurveyFormSubmission,
     postAthleteSurveyFormSubmission,
+    postSeniorFormSubmission,
   };
 };

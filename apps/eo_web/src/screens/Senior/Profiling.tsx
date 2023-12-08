@@ -9,9 +9,11 @@ import { useProfilingStore } from "~/stores/useProfilingStore";
 
 
 export const Profiling = () => {
-  const { type, symptoms, state, usePayment, origin, experience } =
+  const { type, symptoms, state, usePayment, origin, experience, account } =
     useProfilingStore((state) => state);
+
   const searchParam = new URLSearchParams({
+    email: account.email,
     states: state ?? "",
     symptoms: symptoms.join(","),
     payment: usePayment ? "yes" : "no",
