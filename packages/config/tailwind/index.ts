@@ -154,6 +154,7 @@ export default {
         white: "#FFFFFF",
         transparent: "transparent",
         gray: {
+          50: "#FEFEFF",
           600: "#7C7B7A",
           700: "#697079",
           800: "#535A63",

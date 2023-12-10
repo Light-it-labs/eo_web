@@ -31,6 +31,5 @@ export const ROUTES = {
   athleteSurveyThankYou: "athletes/survey-thank-you",
 
   // Senior PATH
-  seniorAccountSetup: "/senior/account-setup",
   seniorForm: "/senior/profiling",
 } as const;
