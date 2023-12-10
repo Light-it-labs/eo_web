@@ -158,9 +158,9 @@ export const ProfilingThankYou = () => {
             Rollouts in new markets, new partnerships, research initiatives and
             special offers are all coming soon.
           </Typography>
-          <div className="mt-[30px] flex flex-row gap-4">
+          <div className="mt-[30px] flex w-full flex-col justify-items-end gap-4 md:w-auto md:flex-row">
             <input
-              className="h-[49px] w-full rounded-[40px] border border-solid border-black bg-white px-2 py-3 text-black placeholder:text-gray-300 md:w-[327px]"
+              className="h-[49px] w-full rounded-[40px] border border-solid border-black bg-white py-3 pl-4 pr-2 text-black placeholder:text-gray-300 md:w-[327px]"
               placeholder="Enter your email..."
             />
             <Button variant="black" font="semiBold">
