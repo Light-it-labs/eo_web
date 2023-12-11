@@ -33,4 +33,6 @@ export const ROUTES = {
   // Senior PATH
   seniorAccountSetup: "/senior/account-setup",
   seniorForm: "/senior/profiling",
+  seniorSurvey: "/senior/survey",
+  seniorSurveyThankYou: "/senior/survey-thank-you",
 } as const;

@@ -30,6 +30,9 @@ export const SENIOR_PROFILE_PATIENT_ID =
 export const SENIOR_PROFILE_CAREGIVER_ID =
   window.data.getEnv("SENIOR_PROFILE_CAREGIVER_ID") || 233244799896174;
 
+export const SENIOR_SURVEY_ID =
+  window.data.getEnv("SENIOR_SURVEY_FORM") || 233441843921657;
+
 export const API_ELIXIR =
   window.data.getEnv("API_URL") || "http://localhost:4200";
 export const API_LARAVEL =
