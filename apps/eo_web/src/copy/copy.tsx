@@ -38,21 +38,21 @@ export const CarrouselItems = [
     title: "Provide feedback",
     content:
       "As you sample your recommended products, doses, and times of use, we’ll check in via text and brief, periodic online surveys.",
-    icon: "ThumbUp.png",
+    icon: icons.FeedBackWhite,
   },
   {
     step: 5,
     title: "Get refined plans",
     content:
       "Early on, we'll more frequently update your plan to help you feel your best. Over time, we'll tune your plan for efficacy, safety and affordability.",
-    icon: "CalendarChecked.png",
+    icon: icons.CalendarChecked,
   },
   {
     step: 6,
     title: "Be supported",
     content:
-      "You can text our clinical team anytime as needs or questions arise - as often as you like. We'll respond in under 24 hours and usually within minutes. ",
-    icon: "Feedback.png",
+      "You can text our clinical team anytime as needs or questions arise - as often as you like. We'll respond in under 24 hours and usually within minutes.",
+    icon: icons.SupportIconWhite,
   },
 ];
 
