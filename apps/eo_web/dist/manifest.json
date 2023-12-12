@@ -8,7 +8,7 @@
     "src": "../../packages/ui/src/assets/avatar.svg"
   },
   "src/main.css": {
-    "file": "assets/main-6ce7fccd.css",
+    "file": "assets/main-bc283130.css",
     "src": "src/main.css"
   },
   "src/main.tsx": {
@@ -16,9 +16,9 @@
       "assets/UploadFile-694e44b5.svg"
     ],
     "css": [
-      "assets/main-6ce7fccd.css"
+      "assets/main-bc283130.css"
     ],
-    "file": "assets/main-6f49dfac.js",
+    "file": "assets/main-268a5c01.js",
     "isEntry": true,
     "src": "src/main.tsx"
   }

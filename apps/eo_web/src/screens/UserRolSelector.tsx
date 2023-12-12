@@ -50,7 +50,7 @@ export const UserRolSelector = () => {
     <LayoutDefault>
       <div className="flex h-full w-full items-center justify-center bg-opacity-50">
         <div className="relative w-3/4 bg-white md:w-[742px]">
-          <div className="px-[28px] py-[28px]">
+          <div className="px-7 py-7">
             <Typography className="font-nunito text-lg font-normal">
               We’ll start with some basics. Which best describes you?{" "}
               <span className="text-red-600">*</span>
@@ -59,7 +59,7 @@ export const UserRolSelector = () => {
             <div className="mt-6 flex flex-col gap-5 lg:flex-row">
               <button
                 className={tw(
-                  "flex h-[48px] items-center justify-start gap-2 rounded border border-solid border-gray-800 px-[15px] py-[9px] font-nunito text-gray-800 lg:w-1/2",
+                  "flex h-12 items-center justify-start gap-2 rounded border border-solid border-gray-800 px-[15px] py-[9px] font-nunito text-gray-800 lg:w-1/2",
                   selectedValue === "Patient" &&
                     "border-[#5AADFD] bg-[#5AADFD] bg-opacity-20",
                 )}
@@ -91,7 +91,7 @@ export const UserRolSelector = () => {
               </button>
               <button
                 className={tw(
-                  "flex h-[48px] items-center justify-start gap-2 rounded border border-solid border-gray-800 px-[15px] py-[9px] font-nunito text-gray-800 lg:w-1/2",
+                  "flex h-12 items-center justify-start gap-2 rounded border border-solid border-gray-800 px-[15px] py-[9px] font-nunito text-gray-800 lg:w-1/2",
                   selectedValue === "Caregiver" &&
                     "border-[#5AADFD] bg-[#5AADFD] bg-opacity-20",
                 )}
