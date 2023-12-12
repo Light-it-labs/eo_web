@@ -1,5 +1,11 @@
 import { type ReactNode } from "react";
 
+import { icons } from "@eo/ui";
+
+
+
+
+
 export type Copy = {
   title: string;
   content: string | ReactNode;
@@ -11,24 +17,21 @@ export const CarrouselItems = [
     title: "Profile & subscribe",
     content:
       "In 5-10 minutes, you can share the key information our clinical team needs to create your initial plan. Want to apply for a med card? We'll handle it.",
-    icon: "Brain.png",
-    alt: "Brain image",
+    icon: icons.ProfileIconWhite,
   },
   {
     step: 2,
     title: "Get your care plan",
     content:
       "In under 24 hours, you’ll receive your personalized, clinician-approved care plan via email. Questions? Just text, call or schedule a free video chat.",
-    icon: "Calendar.png",
-    alt: "Calendar image",
+    icon: icons.HandHeartWhite,
   },
   {
     step: 3,
     title: "Get your products",
     content:
       "You can pick them up or take home delivery if you live in a qualified area. If you have any issues, our team is here to ensure you get what you need.",
-    icon: "BagWhite.png",
-    alt: "Bag color white image",
+    icon: icons.PillsWhite,
   },
   {
     step: 4,
@@ -36,7 +39,6 @@ export const CarrouselItems = [
     content:
       "As you sample your recommended products, doses, and times of use, we’ll check in via text and brief, periodic online surveys.",
     icon: "ThumbUp.png",
-    alt: "Thumb up image",
   },
   {
     step: 5,
@@ -44,7 +46,6 @@ export const CarrouselItems = [
     content:
       "Early on, we'll more frequently update your plan to help you feel your best. Over time, we'll tune your plan for efficacy, safety and affordability.",
     icon: "CalendarChecked.png",
-    alt: "Calendar checked image",
   },
   {
     step: 6,
@@ -52,7 +53,6 @@ export const CarrouselItems = [
     content:
       "You can text our clinical team anytime as needs or questions arise - as often as you like. We'll respond in under 24 hours and usually within minutes. ",
     icon: "Feedback.png",
-    alt: "Comment image",
   },
 ];
 

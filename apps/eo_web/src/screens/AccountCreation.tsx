@@ -162,7 +162,7 @@ export const AccountCreation = () => {
                 id={"email"}
                 placeholder="Email*"
                 type="email"
-                left={<icons.ProfileIcon />}
+                left={<icons.ProfileIconGray />}
                 containerClassName="col-span-2 md:col-span-1"
                 className="h-12"
                 {...register("email")}
