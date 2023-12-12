@@ -154,6 +154,12 @@ export const useApi = () => {
       LaravelSuccessBase<ProfileCreationResult> | LaravelErrorValidation
     >("/api/senior/profile", data);
 
+  const postSeniorSurveyFormSubmission = async (data: object) =>
+    await apiLaravel.post<LaravelSuccessBase<never> | LaravelErrorValidation>(
+      "/api/senior/survey",
+      data,
+    );
+
   return {
     validateZipCode,
     combineProfileOne,
@@ -167,5 +173,6 @@ export const useApi = () => {
     postCancerSurveyFormSubmission,
     postAthleteSurveyFormSubmission,
     postSeniorFormSubmission,
+    postSeniorSurveyFormSubmission,
   };
 };

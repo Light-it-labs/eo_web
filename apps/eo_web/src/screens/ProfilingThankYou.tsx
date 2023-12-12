@@ -104,12 +104,15 @@ export const ProfilingThankYou = () => {
       </section>
       <section className="bg-white px-6 py-12 md:px-[50px] md:py-[100px] ">
         <EoCarousel>
-          {CarrouselItems.map(({ title, content, step, icon, alt }) => (
+          {CarrouselItems.map(({ title, content, step, icon: Icon }) => (
             <article
               key={step}
               className="mx-auto my-0 flex h-auto w-auto max-w-[361px] flex-col items-center justify-center gap-2 md:flex-none md:items-start"
             >
-              <img src={`/img/${icon}`} className="h-14 w-14" alt={alt} />
+              <div className="flex h-[70.13px] w-[70.13px] flex-row items-center justify-center rounded-full bg-electric-blue fill-gray-50">
+                <Icon className="h-9 w-[37px]" />
+              </div>
+
               <Typography className="text-[16px] uppercase leading-4 tracking-[.8px]">
                 STEP {step}
               </Typography>
@@ -123,7 +126,7 @@ export const ProfilingThankYou = () => {
           ))}
         </EoCarousel>
       </section>
-      <section className="mx-6 my-12 md:mx-0 md:my-[100px]">
+      <section className="px-6 py-12 md:mx-0 md:my-[100px]">
         <div className="mx-auto my-0 flex max-w-[900px] flex-col">
           <Typography
             font="bold"
@@ -155,9 +158,9 @@ export const ProfilingThankYou = () => {
             Rollouts in new markets, new partnerships, research initiatives and
             special offers are all coming soon.
           </Typography>
-          <div className="mt-[30px] flex flex-row gap-4">
+          <div className="mt-[30px] flex w-full flex-col justify-items-end gap-4 md:w-auto md:flex-row">
             <input
-              className="h-[49px] w-full rounded-[40px] border border-solid border-black bg-white px-2 py-3 text-black placeholder:text-gray-300 md:w-[327px]"
+              className="h-[49px] w-full rounded-[40px] border border-solid border-black bg-white py-3 pl-4 pr-2 text-black placeholder:text-gray-300 md:w-[327px]"
               placeholder="Enter your email..."
             />
             <Button variant="black" font="semiBold">

@@ -135,7 +135,7 @@ export const AccountCreation = () => {
               font="semiBold"
               className={tw("mb-4 font-nunito", !!errorMessage && "text-red")}
             >
-              Create an Account
+              Great! Now let&apos;s create your account.
             </Typography>
             <div className="grid grid-cols-2 gap-0 md:gap-4">
               <Input
@@ -162,7 +162,7 @@ export const AccountCreation = () => {
                 id={"email"}
                 placeholder="Email*"
                 type="email"
-                left={<icons.ProfileIcon />}
+                left={<icons.ProfileIconGray />}
                 containerClassName="col-span-2 md:col-span-1"
                 className="h-12"
                 {...register("email")}
@@ -204,7 +204,7 @@ export const AccountCreation = () => {
                       className={tw(
                         "font-nunito text-[11px] font-light ",
                         errors.agreeReceiveNotifications?.message &&
-                        "text-red-500",
+                          "text-red-500",
                       )}
                     >
                       I agree to receive emails and text messages.
@@ -225,7 +225,7 @@ export const AccountCreation = () => {
                       className={tw(
                         "font-nunito text-[11px] font-light !leading-4",
                         errors.agreeTermsAndConditions?.message &&
-                        "text-red-500",
+                          "text-red-500",
                       )}
                     >
                       I have read and agree to the{" "}
