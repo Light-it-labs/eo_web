@@ -1,5 +1,9 @@
+import { useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
+
+import { tw } from "@eo/shared";
 import { Button, Typography, icons } from "@eo/ui";
+
 import { useMount } from "~/hooks/useMount";
 import { LayoutDefault } from "~/layouts";
 import { ROUTES } from "~/router";
@@ -8,8 +12,7 @@ import {
   type Channel,
   type Type,
 } from "~/stores/useProfilingStore";
-import { useState } from "react";
-import { tw } from "@eo/shared";
+
 
 export const UserRolSelector = () => {
   const navigate = useNavigate();
@@ -49,37 +52,82 @@ export const UserRolSelector = () => {
         <div className="relative w-3/4 bg-white md:w-[742px]">
           <div className="px-[28px] py-[28px]">
             <Typography className="font-nunito text-lg font-normal">
-              Which best describes you? <span className="text-red-600">*</span>
+              We’ll start with some basics. Which best describes you?{" "}
+              <span className="text-red-600">*</span>
             </Typography>
 
-            <div className="mt-6 flex flex-col lg:flex-row gap-5">
+            <div className="mt-6 flex flex-col gap-5 lg:flex-row">
               <button
-                className={tw("flex items-center justify-start gap-2 h-[48px] lg:w-1/2 border border-solid border-gray-800 text-gray-800 rounded px-[15px] py-[9px] font-nunito",
-                  selectedValue === 'Patient' && 'border-[#5AADFD] bg-[#5AADFD] bg-opacity-20')}
-                onClick={() => setSelectedValue('Patient')}
+                className={tw(
+                  "flex h-[48px] items-center justify-start gap-2 rounded border border-solid border-gray-800 px-[15px] py-[9px] font-nunito text-gray-800 lg:w-1/2",
+                  selectedValue === "Patient" &&
+                    "border-[#5AADFD] bg-[#5AADFD] bg-opacity-20",
+                )}
+                onClick={() => setSelectedValue("Patient")}
               >
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="w-6 h-6">
-                  <circle cx="12" cy="12" r="10" fill='none' stroke={selectedValue === 'Patient' ? '#5AADFD' : '#535A63'} strokeWidth={selectedValue === 'Patient' ? 3 : 1.5} />
-                  <circle cx="12" cy="12" r="9" fill={selectedValue === 'Patient' ? '#5AADFD' : 'none'} stroke={selectedValue === 'Patient' ? 'white' : 'none'} strokeWidth={1.5} />
+                <svg
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                >
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    fill="none"
+                    stroke={selectedValue === "Patient" ? "#5AADFD" : "#535A63"}
+                    strokeWidth={selectedValue === "Patient" ? 3 : 1.5}
+                  />
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="9"
+                    fill={selectedValue === "Patient" ? "#5AADFD" : "none"}
+                    stroke={selectedValue === "Patient" ? "white" : "none"}
+                    strokeWidth={1.5}
+                  />
                 </svg>
-                Patient
+                I’m a patient
               </button>
               <button
-                className={tw("flex items-center justify-start gap-2 h-[48px] lg:w-1/2 border border-solid border-gray-800 text-gray-800 rounded px-[15px] py-[9px] font-nunito",
-                  selectedValue === 'Caregiver' && 'border-[#5AADFD] bg-[#5AADFD] bg-opacity-20')}
+                className={tw(
+                  "flex h-[48px] items-center justify-start gap-2 rounded border border-solid border-gray-800 px-[15px] py-[9px] font-nunito text-gray-800 lg:w-1/2",
+                  selectedValue === "Caregiver" &&
+                    "border-[#5AADFD] bg-[#5AADFD] bg-opacity-20",
+                )}
                 onClick={() => setSelectedValue("Caregiver")}
               >
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="w-6 h-6">
-                  <circle cx="12" cy="12" r="10" fill='none' stroke={selectedValue === 'Caregiver' ? '#5AADFD' : '#535A63'} strokeWidth={selectedValue === 'Caregiver' ? 3 : 1.5} />
-                  <circle cx="12" cy="12" r="9" fill={selectedValue === 'Caregiver' ? '#5AADFD' : 'none'} stroke={selectedValue === 'Caregiver' ? 'white' : 'none'} strokeWidth={1.5} />
+                <svg
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                >
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    fill="none"
+                    stroke={
+                      selectedValue === "Caregiver" ? "#5AADFD" : "#535A63"
+                    }
+                    strokeWidth={selectedValue === "Caregiver" ? 3 : 1.5}
+                  />
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="9"
+                    fill={selectedValue === "Caregiver" ? "#5AADFD" : "none"}
+                    stroke={selectedValue === "Caregiver" ? "white" : "none"}
+                    strokeWidth={1.5}
+                  />
                 </svg>
-                Caregiver
+                I’m a caregiver
               </button>
             </div>
           </div>
           <section className="flex h-[53px] items-center justify-between rounded-b-md bg-black pb-[19px] pt-4 md:w-full ">
             <Button
-              className="click:border-0 focus:ring-outline-0 hover:outline-0 focus:ring-0 rounded-none"
+              className="click:border-0 focus:ring-outline-0 rounded-none hover:outline-0 focus:ring-0"
               variant="black"
               size="lg"
               onClick={() => {
@@ -90,15 +138,16 @@ export const UserRolSelector = () => {
                 } else {
                   history.back();
                 }
+              }}
+              left={
+                <icons.RightArrow className="h-6 w-6 rotate-180 text-gray-300" />
               }
-              }
-              left={<icons.RightArrow className="rotate-180 h-6 w-6 text-gray-300" />}
             >
-              <span className="text-gray-300 hidden lg:flex">PREVIOUS</span>
+              <span className="hidden text-gray-300 lg:flex">PREVIOUS</span>
             </Button>
 
             <Button
-              className="click:border-0 focus:ring-outline-0 hover:outline-0 focus:ring-0 rounded-none hidden lg:flex"
+              className="click:border-0 focus:ring-outline-0 hidden rounded-none hover:outline-0 focus:ring-0 lg:flex"
               variant="black"
               size="lg"
               right={<icons.RightArrow className="h-6 w-6" />}
@@ -107,13 +156,12 @@ export const UserRolSelector = () => {
               NEXT
             </Button>
             <Button
-              className="click:border-0 focus:ring-outline-0 hover:outline-0 focus:ring-0 rounded-none lg:hidden flex"
+              className="click:border-0 focus:ring-outline-0 flex rounded-none hover:outline-0 focus:ring-0 lg:hidden"
               variant="black"
               size="lg"
               right={<icons.RightArrow className="h-6 w-6" />}
               onClick={() => redirectForm(selectedValue)}
-            >
-            </Button>
+            ></Button>
           </section>
         </div>
       </div>
