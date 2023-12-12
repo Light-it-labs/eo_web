@@ -20,6 +20,8 @@ import { RecoveryPassword } from "~/screens/RecoveryPassword";
 import { Register } from "~/screens/Register";
 import { RegisterComplete } from "~/screens/RegisterComplete";
 import { Profiling as SeniorProfiling } from "~/screens/Senior/Profiling";
+import { SeniorSurveyForm } from "~/screens/Senior/SeniorSurveyForm";
+import { SeniorSurveyThankYou } from "~/screens/Senior/SeniorSurveyThankYou";
 import { SurveyThankYou } from "~/screens/SurveyThankYou";
 import { UnavailableZipCode } from "~/screens/UnavailableZipCode";
 import { UserRolSelector } from "~/screens/UserRolSelector";
@@ -109,6 +111,11 @@ export const Router = () => {
 
       {/* SENIOR */}
       <Route element={<SeniorProfiling />} path={ROUTES.seniorForm} />
+      <Route element={<SeniorSurveyForm />} path={ROUTES.seniorSurvey} />
+      <Route
+        element={<SeniorSurveyThankYou />}
+        path={ROUTES.seniorSurveyThankYou}
+      />
     </Routes>
   );
 };
