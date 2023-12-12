@@ -155,7 +155,7 @@ export const useApi = () => {
     >("/api/senior/profile", data);
 
   const postSeniorSurveyFormSubmission = async (data: object) =>
-    await apiLaravel.post<LaravelSuccessBase<unknown> | LaravelErrorValidation>(
+    await apiLaravel.post<LaravelSuccessBase<never> | LaravelErrorValidation>(
       "/api/senior/survey",
       data,
     );
