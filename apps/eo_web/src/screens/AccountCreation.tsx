@@ -135,7 +135,7 @@ export const AccountCreation = () => {
               font="semiBold"
               className={tw("mb-4 font-nunito", !!errorMessage && "text-red")}
             >
-              Create an Account
+              Great! Now let&apos;s create your account.
             </Typography>
             <div className="grid grid-cols-2 gap-0 md:gap-4">
               <Input
