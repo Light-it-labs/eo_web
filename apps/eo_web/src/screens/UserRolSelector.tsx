@@ -48,8 +48,8 @@ export const UserRolSelector = () => {
 
   return (
     <LayoutDefault>
-      <div className="flex h-full w-full items-center justify-center bg-opacity-50">
-        <div className="relative w-3/4 rounded-md bg-white md:w-[742px]">
+      <div className="flex h-full w-full items-center justify-center bg-opacity-50 ">
+        <div className="relative w-3/4 rounded-md bg-white shadow-2xl md:w-[742px]">
           <div className="px-7 py-7">
             <Typography className="font-nunito text-lg font-normal">
               We’ll start with some basics. Which best describes you?{" "}
