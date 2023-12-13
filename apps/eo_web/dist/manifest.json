@@ -8,13 +8,17 @@
     "src": "../../packages/ui/src/assets/avatar.svg"
   },
   "src/main.css": {
-    "file": "assets/main-f8165bac.css",
+    "file": "assets/main-9d42e013.css",
     "src": "src/main.css"
   },
   "src/main.tsx": {
-    "assets": ["assets/UploadFile-694e44b5.svg"],
-    "css": ["assets/main-f8165bac.css"],
-    "file": "assets/main-889cbb7a.js",
+    "assets": [
+      "assets/UploadFile-694e44b5.svg"
+    ],
+    "css": [
+      "assets/main-9d42e013.css"
+    ],
+    "file": "assets/main-fa69065e.js",
     "isEntry": true,
     "src": "src/main.tsx"
   }
