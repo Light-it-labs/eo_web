@@ -5,16 +5,12 @@ import { toast } from "react-toastify";
 
 import { Typography } from "@eo/ui";
 
-import { useElixirApi } from "~/api/useElixirApi";
+import { useApi } from "~/api/useApi";
 import { useMount } from "~/hooks/useMount";
 import { LayoutDefault } from "~/layouts";
-import { ROUTES } from "~/router";
 
 
-
-
-
-export const SurveyThankYou = () => {
+export const SeniorSurveyThankYou = () => {
   const [searchParams] = useSearchParams();
 
   const submission_id = searchParams.get("submission_id") || "";
@@ -22,14 +18,14 @@ export const SurveyThankYou = () => {
   const navigate = useNavigate();
 
   if (!submission_id) {
-    navigate(ROUTES.cancerProfile);
+    navigate("/");
   }
 
-  const { postCancerSurveyFormSubmission } = useElixirApi();
+  const { postSeniorSurveyFormSubmission } = useApi();
 
   const { mutate } = useMutation({
-    mutationFn: postCancerSurveyFormSubmission,
-    mutationKey: ["postCancerSurveyFormSubmission", submission_id],
+    mutationFn: postSeniorSurveyFormSubmission,
+    mutationKey: ["postSeniorSurveyFormSubmission", submission_id],
     onError: (result) => {
       if (axios.isAxiosError(result)) {
         if (result.response?.status !== 200) {
@@ -48,12 +44,7 @@ export const SurveyThankYou = () => {
       <div className="flex h-full flex-col items-center justify-center px-[20%]">
         <Typography
           variant="large"
-          className="font-nunito font-bold"
-          style={{
-            fontFamily: "nunito",
-            lineHeight: "55px",
-            fontSize: "45px",
-          }}
+          className="font-nunito text-[45px] font-bold leading-[55px]"
         >
           All done!
         </Typography>
@@ -61,13 +52,7 @@ export const SurveyThankYou = () => {
         <Typography
           variant="base"
           font="regular"
-          className="text-center font-nunito"
-          style={{
-            fontWeight: "300px",
-            fontFamily: "nunito",
-            lineHeight: "40px",
-            fontSize: "28px",
-          }}
+          className="text-center font-nunito text-[28px] font-light leading-[40px]"
         >
           We receive your feedback! <br />
           <br />

@@ -9,7 +9,7 @@ import { z } from "zod";
 
 import { Button, Input, Typography } from "@eo/ui";
 
-import { useElixirApi } from "~/api/useElixirApi";
+import { useApi } from "~/api/useApi";
 import { ZUKO_SLUG_ID } from "~/configs/env";
 import { useZukoAnalytic } from "~/hooks/useZukoAnalytic";
 import { LayoutDefault } from "~/layouts";
@@ -29,7 +29,7 @@ const zipCodeValidationSchema = z.object({
 export type ZipCodeValidationSchema = z.infer<typeof zipCodeValidationSchema>;
 
 export const ZipCodeValidation = () => {
-  const { validateZipCode } = useElixirApi();
+  const { validateZipCode } = useApi();
   const { triggerViewEvent } = useZukoAnalytic(ZUKO_SLUG_ID);
   useEffect(triggerViewEvent, [triggerViewEvent]);
 

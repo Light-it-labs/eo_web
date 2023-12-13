@@ -149,17 +149,40 @@ export default {
           700: "#646E79",
           800: "#4E5865",
           900: "#374351",
-          DEFAULT: "#202E3D",
+          DEFAULT: "#1b1d21",
         },
         white: "#FFFFFF",
         transparent: "transparent",
         gray: {
+          50: "#FEFEFF",
           600: "#7C7B7A",
+          700: "#697079",
+          800: "#535A63",
         },
         cream: {
           100: "#F8F6F3",
           200: "#EBE7E1",
           300: "#DEDBD7",
+        },
+        "cloud-silver": {
+          DEFAULT: "#c6ccd4",
+        },
+        "ice-silver": {
+          DEFAULT: "#EDF1F5",
+        },
+        red: {
+          300: "#FCA5A5",
+          500: "#EF4444",
+          DEFAULT: "#FC0B0B",
+        },
+        "electric-blue": {
+          DEFAULT: "#1DBBFF",
+        },
+        skun: {
+          DEFAULT: "#252525",
+        },
+        "skun-mid": {
+          DEFAULT: "#535659",
         },
       },
       strokeWidth: {
@@ -169,7 +192,10 @@ export default {
         nobel: "nobel",
         grand: "grand",
         nunito: "'Nunito'",
-        "sf-pro": "SF Mono",
+        "new-hero": [
+          "New Hero",
+          "system-ui, -apple-system, BlinkMacSystemFont",
+        ],
       },
     },
   },

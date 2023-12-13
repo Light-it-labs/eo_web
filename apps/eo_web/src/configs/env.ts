@@ -5,16 +5,38 @@ export const PROFILE_TWO_ID =
 export const ZUKO_SLUG_ID =
   window.data.getEnv("ZUKO_SLUG_ID_PROCESS_START") || "4e9cc7ceea3e22fb";
 
-export const CANCER_USER_PROFILE =
-  window.data.getEnv("CANCER_USER_DATA") || 232256418562659;
+export const CANCER_INTRO_QUESTION_PATIENT_ID =
+  window.data.getEnv("CANCER_INTRO_QUESTION_PATIENT_ID") || 233233204641040;
+export const CANCER_INTRO_QUESTION_CAREGIVER_ID =
+  window.data.getEnv("CANCER_INTRO_QUESTION_CAREGIVER_ID") || 233244799896174;
 export const CANCER_PROFILE_PATIENT_ID =
   window.data.getEnv("CANCER_PROFILE_PATIENT_ID") || 232564063321650;
 export const CANCER_PROFILE_CAREGIVER_ID =
   window.data.getEnv("CANCER_PROFILE_CAREGIVER_ID") || 232564208467662;
 export const CANCER_SURVEY_ID =
-  window.data.getEnv("CANCER_SURVEY_FORM") || 232395615249664;
+  window.data.getEnv("CANCER_SURVEY_FORM") || 232885421299668;
+
+export const ATHLETE_PROFILE_FORM =
+  window.data.getEnv("ATHLETE_PROFILE_FORM") || 233115151709146;
+export const ATHLETE_SURVEY_FORM =
+  window.data.getEnv("ATHLETE_SURVEY_FORM") || 233164188186664;
+
+export const SENIOR_INTRO_QUESTION_PATIENT_ID =
+  window.data.getEnv("SENIOR_INTRO_QUESTION_PATIENT_ID") || 233233204641040;
+export const SENIOR_INTRO_QUESTION_CAREGIVER_ID =
+  window.data.getEnv("SENIOR_INTRO_QUESTION_CAREGIVER_ID") || 233244799896174;
+export const SENIOR_PROFILE_PATIENT_ID =
+  window.data.getEnv("SENIOR_PROFILE_PATIENT_ID") || 233245009995159;
+export const SENIOR_PROFILE_CAREGIVER_ID =
+  window.data.getEnv("SENIOR_PROFILE_CAREGIVER_ID") || 233244799896174;
+
+export const SENIOR_SURVEY_ID =
+  window.data.getEnv("SENIOR_SURVEY_FORM") || 233441843921657;
 
 export const API_ELIXIR =
   window.data.getEnv("API_URL") || "http://localhost:4200";
 export const API_LARAVEL =
   window.data.getEnv("API_LARAVEL") || "http://localhost";
+
+export const WEB_APP_URL =
+  window.data.getEnv("WEB_APP_URL") ?? "http://localhost:3000";

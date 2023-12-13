@@ -8,9 +8,13 @@ import { z } from "zod";
 
 import { Button, Input, Typography, icons } from "@eo/ui";
 
-import { useElixirApi } from "~/api/useElixirApi";
+import { useApi } from "~/api/useApi";
 import { LayoutDefault } from "~/layouts";
 import { ROUTES } from "~/router";
+
+
+
+
 
 const forgotPasswordSchema = z.object({
   email: z
@@ -21,7 +25,7 @@ const forgotPasswordSchema = z.object({
 export type TypeForgotPasswordShema = z.infer<typeof forgotPasswordSchema>;
 
 export const ForgotPassword = () => {
-  const { sendEmailToRecoveryPassword } = useElixirApi();
+  const { sendEmailToRecoveryPassword } = useApi();
 
   const {
     formState: { errors },

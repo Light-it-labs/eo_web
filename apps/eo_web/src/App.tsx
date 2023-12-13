@@ -20,10 +20,19 @@ interface EnvironmentsConfigs {
   PROFILE_ONE_ID: string;
   PROFILE_TWO_ID: string;
   ZUKO_SLUG_ID_PROCESS_START: string;
+  CANCER_INTRO_QUESTION_PATIENT_ID: string;
+  CANCER_INTRO_QUESTION_CAREGIVER_ID: string;
   CANCER_PROFILE_PATIENT_ID: string;
   CANCER_PROFILE_CAREGIVER_ID: string;
-  CANCER_USER_DATA: string;
   CANCER_SURVEY_FORM: string;
+  ATHLETE_PROFILE_FORM: string;
+  ATHLETE_SURVEY_FORM: string;
+  SENIOR_INTRO_QUESTION_PATIENT_ID: string;
+  SENIOR_INTRO_QUESTION_CAREGIVER_ID: string;
+  SENIOR_PROFILE_PATIENT_ID: string;
+  SENIOR_PROFILE_CAREGIVER_ID: string;
+  SENIOR_SURVEY_FORM: string;
+  WEB_APP_URL: string;
 }
 
 declare global {
@@ -33,6 +42,8 @@ declare global {
       isProduction: boolean;
       environments: Record<Hosts, EnvironmentsConfigs>;
       getEnv: (key: keyof EnvironmentsConfigs) => string | null;
+      isMarketingSite: (host: string) => boolean;
+      isPartnerSite: (host: string) => boolean;
     };
   }
 }

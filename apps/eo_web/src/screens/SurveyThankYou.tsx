@@ -5,16 +5,15 @@ import { toast } from "react-toastify";
 
 import { Typography } from "@eo/ui";
 
-import { useElixirApi } from "~/api/useElixirApi";
+import { useApi } from "~/api/useApi";
 import { useMount } from "~/hooks/useMount";
 import { LayoutDefault } from "~/layouts";
-import { ROUTES } from "~/router";
 
 
 
 
 
-export const FormThankYou = () => {
+export const SurveyThankYou = () => {
   const [searchParams] = useSearchParams();
 
   const submission_id = searchParams.get("submission_id") || "";
@@ -22,14 +21,14 @@ export const FormThankYou = () => {
   const navigate = useNavigate();
 
   if (!submission_id) {
-    navigate(ROUTES.cancerProfile);
+    navigate("/");
   }
 
-  const { postCancerFormSubmission } = useElixirApi();
+  const { postCancerSurveyFormSubmission } = useApi();
 
   const { mutate } = useMutation({
-    mutationFn: postCancerFormSubmission,
-    mutationKey: ["postCancerFormSubmission", submission_id],
+    mutationFn: postCancerSurveyFormSubmission,
+    mutationKey: ["postCancerSurveyFormSubmission", submission_id],
     onError: (result) => {
       if (axios.isAxiosError(result)) {
         if (result.response?.status !== 200) {
@@ -45,15 +44,10 @@ export const FormThankYou = () => {
 
   return (
     <LayoutDefault>
-      <div className="flex flex-col items-center justify-center px-[20%]">
+      <div className="flex h-full flex-col items-center justify-center px-[20%]">
         <Typography
           variant="large"
-          className="font-nunito font-bold"
-          style={{
-            fontFamily: "nunito",
-            lineHeight: "55px",
-            fontSize: "45px",
-          }}
+          className="font-nunito text-[45px] font-bold leading-[55px]"
         >
           All done!
         </Typography>
@@ -61,18 +55,11 @@ export const FormThankYou = () => {
         <Typography
           variant="base"
           font="regular"
-          className="text-center font-nunito"
-          style={{
-            fontWeight: "300px",
-            fontFamily: "nunito",
-            lineHeight: "40px",
-            fontSize: "28px",
-          }}
+          className="font-nunito text-center text-[28px] font-light leading-[40px]"
         >
-          You’ll be able to review your initial, personalized,
-          clinician-approved care plan within 24 hours.
+          We receive your feedback! <br />
           <br />
-          When you’re care plan is ready, we will send you an email with a link to log into your account.
+          Thank you! <br />
           <br />
           Have a question? We’re here to help.
           Email members@eo.care, call 877.707.0706, or schedule a free consultation.

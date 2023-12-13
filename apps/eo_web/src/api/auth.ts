@@ -1,5 +1,4 @@
-import { api } from "~/api/axios";
-import { API_ELIXIR } from "~/configs/env";
+import { apiElixir } from "~/api/axios";
 import {
   useProfileStore,
   type Profile,
@@ -11,15 +10,11 @@ interface LoginResponse {
   session: Session;
 }
 
-export const login = async (credential: {
-  email: string;
-  password: string;
-}) => {
-  return await api.post<LoginResponse>(`${API_ELIXIR}/v2/profile/login`, {
+export const login = async (credential: { email: string; password: string }) =>
+  await apiElixir.post<LoginResponse>("/v2/profile/login", {
     email: credential.email,
     password: credential.password,
   });
-};
 
 export interface RegisterRequest {
   email: string;
@@ -28,9 +23,8 @@ export interface RegisterRequest {
   last_name: string;
 }
 
-export const register = async (registrationForm: RegisterRequest) => {
-  return await api.post<string>(`${API_ELIXIR}/v2/profile`, registrationForm);
-};
+export const register = async (registrationForm: RegisterRequest) =>
+  await apiElixir.post<string>("/v2/profile", registrationForm);
 
 export const GetToken = () => {
   const session = useProfileStore((state) => state.session);

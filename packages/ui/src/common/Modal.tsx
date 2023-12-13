@@ -45,12 +45,12 @@ export const Modal = ({
             >
               <Dialog.Panel
                 className={tw(
-                  "min-h-auto relative flex w-11/12 flex-row transition-all md:h-[60vh] md:w-9/12",
+                  "relative flex h-auto w-auto flex-row transition-all md:min-h-[176px] md:max-w-[780px]",
                   className,
                 )}
               >
                 <icons.XMarkIcon
-                  className="strike-20 absolute right-0 m-4 h-10 w-10 stroke-[4px]"
+                  className="strike-20 absolute right-0 m-4 h-10 w-10"
                   onClick={() => {
                     onPressX ? onPressX() : null;
                     controller(false);
