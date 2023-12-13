@@ -16,42 +16,42 @@ export const CarrouselItems = [
     step: 1,
     title: "Profile & subscribe",
     content:
-      "In 5-10 minutes, you can share the key information our clinical team needs to create your initial plan. Want to apply for a med card? We'll handle it.",
+      "In 5-10 minutes, you can share the key information our clinical team needs to create your initial plan.",
     icon: icons.ProfileIconWhite,
   },
   {
     step: 2,
     title: "Get your care plan",
     content:
-      "In under 24 hours, you’ll receive your personalized, clinician-approved care plan via email. Questions? Just text, call or schedule a free video chat.",
+      "In under 24 hours, you’ll receive an email with a link to your personalized, clinician-approved care plan.",
     icon: icons.HandHeartWhite,
   },
   {
     step: 3,
     title: "Get your products",
     content:
-      "You can pick them up or take home delivery if you live in a qualified area. If you have any issues, our team is here to ensure you get what you need.",
+      "You can purchase your products at a local dispensary. Our team will provide details on how to be reimbursed for all purchases.",
     icon: icons.PillsWhite,
   },
   {
     step: 4,
     title: "Provide feedback",
     content:
-      "As you sample your recommended products, doses, and times of use, we’ll check in via text and brief, periodic online surveys.",
+      "As you sample your recommended products, doses and times of use, we’ll check in via text/email and ask you to complete brief, periodic surveys.",
     icon: icons.FeedBackWhite,
   },
   {
     step: 5,
     title: "Get refined plans",
     content:
-      "Early on, we'll more frequently update your plan to help you feel your best. Over time, we'll tune your plan for efficacy, safety and affordability.",
+      "Early on, we’ll provide updated plans every 3-7 days based on your inputs. We’ll then regularly tune your plan for efficacy, safety and affordability.",
     icon: icons.CalendarChecked,
   },
   {
     step: 6,
     title: "Be supported",
     content:
-      "You can text our clinical team anytime as needs or questions arise - as often as you like. We'll respond in under 24 hours and usually within minutes.",
+      "You can text our clinical team anytime as needs or questions arise - as often as you like. We’ll respond in under 24 hours and usually within minutes.",
     icon: icons.SupportIconWhite,
   },
 ];
