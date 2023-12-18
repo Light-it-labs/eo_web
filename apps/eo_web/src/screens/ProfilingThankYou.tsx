@@ -146,7 +146,7 @@ export const ProfilingThankYou = () => {
           </div>
         </div>
       </section>
-      <section className="w-full bg-white px-6 py-12 md:px-[50px] md:py-[100px]">
+      <section className="hidden w-full bg-white px-6 py-12 md:px-[50px] md:py-[100px]">
         <div className="flex flex-col items-center">
           <Typography
             font="bold"
