@@ -103,6 +103,9 @@ export const ProfilingThankYou = () => {
         </Typography>
       </section>
       <section className="bg-white px-6 py-12 md:px-[50px] md:py-[100px] ">
+        <Typography font="bold" variant="large" className="mb-20 text-center">
+          How eo care plans work
+        </Typography>
         <EoCarousel>
           {CarrouselItems.map(({ title, content, step, icon: Icon }) => (
             <article
