@@ -5,10 +5,9 @@ import { toast } from "react-toastify";
 
 import { Typography } from "@eo/ui";
 
-import { useElixirApi } from "~/api/useElixirApi";
+import { useApi } from "~/api/useApi";
 import { useMount } from "~/hooks/useMount";
 import { LayoutDefault } from "~/layouts";
-import { ROUTES } from "~/router";
 
 
 
@@ -22,10 +21,10 @@ export const SurveyThankYou = () => {
   const navigate = useNavigate();
 
   if (!submission_id) {
-    navigate(ROUTES.cancerProfile);
+    navigate("/");
   }
 
-  const { postCancerSurveyFormSubmission } = useElixirApi();
+  const { postCancerSurveyFormSubmission } = useApi();
 
   const { mutate } = useMutation({
     mutationFn: postCancerSurveyFormSubmission,
@@ -48,12 +47,7 @@ export const SurveyThankYou = () => {
       <div className="flex h-full flex-col items-center justify-center px-[20%]">
         <Typography
           variant="large"
-          className="font-nunito font-bold"
-          style={{
-            fontFamily: "nunito",
-            lineHeight: "55px",
-            fontSize: "45px",
-          }}
+          className="font-nunito text-[45px] font-bold leading-[55px]"
         >
           All done!
         </Typography>
@@ -61,21 +55,18 @@ export const SurveyThankYou = () => {
         <Typography
           variant="base"
           font="regular"
-          className="text-center font-nunito"
-          style={{
-            fontWeight: "300px",
-            fontFamily: "nunito",
-            lineHeight: "40px",
-            fontSize: "28px",
-          }}
+          className="font-nunito text-center text-[28px] font-light leading-[40px]"
         >
           We receive your feedback! <br />
           <br />
           Thank you! <br />
           <br />
-          Have questions? We’re here. Email members@eo.care, call{" "}
-          <a href="tel:+1-877-707-0706">877-707-0706</a>, or schedule a free
-          consultation.
+          Have a question? We’re here to help.
+          Email members@eo.care, call 877.707.0706, or schedule a free consultation.
+          <br />
+          Have questions? We’re here to help. Email <a href="mailto:members@eo.care">members@eo.care</a>, call&nbsp;
+          <a href="tel:+1-877-707-0706">877.707.0706</a>, or&nbsp;
+          <span className="underline">schedule a free consultation</span>.
         </Typography>
       </div>
     </LayoutDefault>

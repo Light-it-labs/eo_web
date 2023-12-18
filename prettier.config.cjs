@@ -1,40 +1,39 @@
-/** @typedef  {import("@ianvs/prettier-plugin-sort-imports").PluginConfig} SortImportsConfig*/
-/** @typedef  {import("prettier").Config} PrettierConfig*/
+/** @typedef  {import('@ianvs/prettier-plugin-sort-imports').PluginConfig} SortImportsConfig*/
+/** @typedef  {import('prettier').Config} PrettierConfig*/
 /** @typedef  {{ tailwindConfig: string }} TailwindConfig*/
 
 /** @type { PrettierConfig | SortImportsConfig | TailwindConfig } */
 const config = {
-  arrowParens: "always",
+  arrowParens: 'always',
   printWidth: 80,
   singleQuote: false,
   jsxSingleQuote: false,
   semi: true,
-  trailingComma: "all",
+  trailingComma: 'all',
   tabWidth: 2,
   // pluginSearchDirs: false,
   plugins: [
-    "@ianvs/prettier-plugin-sort-imports",
-    "prettier-plugin-tailwindcss",
+    '@ianvs/prettier-plugin-sort-imports',
+    'prettier-plugin-tailwindcss'
   ],
-  tailwindConfig: "./packages/config/tailwind",
+  tailwindConfig: './packages/config/tailwind',
   importOrder: [
-    "^(react/(.*)$)|^(react$)|^(react-native(.*)$)",
-    "^(next/(.*)$)|^(next$)",
-    "^(expo(.*)$)|^(expo$)",
-    "<THIRD_PARTY_MODULES>",
-    "",
-    "^@eo/(.*)$",
-    "",
-    "^~/(.*)$",
-    "",
-    "^[./]",
+    '^(react/(.*)$)|^(react$)|^(react-native(.*)$)',
+    '^(next/(.*)$)|^(next$)',
+    '^(expo(.*)$)|^(expo$)',
+    '<THIRD_PARTY_MODULES>',
+    '',
+    '^@eo/(.*)$',
+    '',
+    '^~/(.*)$',
+    '^[./]'
   ],
   importOrderSeparation: false,
   importOrderSortSpecifiers: true,
   importOrderBuiltinModulesToTop: true,
-  importOrderParserPlugins: ["typescript", "jsx", "decorators-legacy"],
+  importOrderParserPlugins: ['typescript', 'jsx', 'decorators-legacy'],
   importOrderMergeDuplicateImports: true,
-  importOrderCombineTypeAndValueImports: true,
-};
+  importOrderCombineTypeAndValueImports: true
+}
 
-module.exports = config;
+module.exports = config

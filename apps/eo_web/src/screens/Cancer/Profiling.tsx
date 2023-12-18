@@ -1,4 +1,4 @@
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import {
   CANCER_PROFILE_CAREGIVER_ID,
@@ -8,22 +8,30 @@ import { jotformScript } from "~/helpers/jotform_script";
 import { useMount } from "~/hooks/useMount";
 import { LayoutDefault } from "~/layouts";
 import { ROUTES } from "~/router";
+import { useProfilingStore } from "~/stores/useProfilingStore";
 
 
+export const Profiling = () => {
+  const { type, symptoms, state, usePayment, origin, experience, account } =
+    useProfilingStore((state) => state);
 
+  const searchParam = new URLSearchParams({
+    email: account.email,
+    states: state ?? "",
+    symptoms: symptoms.join(","),
+    payment: usePayment ? "yes" : "no",
+    origin,
+    experience,
+  });
 
-
-export const FormDemo = () => {
-  const [searchParams] = useSearchParams();
   const navigate = useNavigate();
-  const type = searchParams.get("type");
   const cancerProfileId =
     type === "Patient"
       ? CANCER_PROFILE_PATIENT_ID
       : CANCER_PROFILE_CAREGIVER_ID;
 
   if (!type) {
-    navigate(ROUTES.cancerUserTypeSelectDemo);
+    navigate(ROUTES.userRolSelector);
   }
 
   useMount(() => {
@@ -43,7 +51,7 @@ export const FormDemo = () => {
           allow="geolocation; microphone; camera"
           allowTransparency={true}
           allowFullScreen={true}
-          src={`https://form.jotform.com/${cancerProfileId}`}
+          src={`https://form.jotform.com/${cancerProfileId}?${searchParam.toString()}`}
           className="h-full w-full"
           style={{
             minWidth: "100%",

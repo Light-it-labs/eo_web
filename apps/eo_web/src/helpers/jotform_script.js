@@ -1,5 +1,7 @@
 // @ts-nocheck
 export const jotformScript = (profileId) => {
+  if (!profileId) return;
+
   var ifr = document.getElementById(`JotFormIFrame-${profileId}`);
   if (ifr) {
     var src = ifr.src;

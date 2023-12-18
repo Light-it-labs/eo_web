@@ -9,9 +9,13 @@ import { z } from "zod";
 
 import { Button, Input, Typography, icons } from "@eo/ui";
 
-import { useElixirApi } from "~/api/useElixirApi";
+import { useApi } from "~/api/useApi";
 import { LayoutDefault } from "~/layouts";
 import { ROUTES } from "~/router";
+
+
+
+
 
 const recoveryPasswordSchema = z.object({
   password: z
@@ -29,7 +33,7 @@ const recoveryPasswordSchema = z.object({
 export type TypeRecoveryPasswordSchema = z.infer<typeof recoveryPasswordSchema>;
 
 export const RecoveryPassword = () => {
-  const { resetPassword } = useElixirApi();
+  const { resetPassword } = useApi();
 
   const [showPassword, setShowPassword] = useState(false);
   const {
