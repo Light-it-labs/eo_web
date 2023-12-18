@@ -11,9 +11,9 @@ import { LayoutDefault } from "~/layouts";
 
 export const SurveyForm = () => {
   const [searchParams] = useSearchParams();
-  const email = searchParams.get("email") || "";
-  const profiled = searchParams.get("profiled") || "patient";
-  const symptoms = searchParams.get("symptoms") || "";
+  const email = searchParams.get("email") ?? "";
+  const profiled = searchParams.get("profiled") ?? "patient";
+  const symptoms = searchParams.get("symptoms") ?? "";
 
   const formId =
     profiled === "patient"
