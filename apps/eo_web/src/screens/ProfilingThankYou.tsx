@@ -88,7 +88,7 @@ export const ProfilingThankYou = () => {
         >
           You’ll be able to review your your initial, personalized,
           clinician-approved
-          <br /> care plan within 24 hours. When you’re care plan is ready, we
+          <br /> care plan within 24 hours. When your care plan is ready, we
           will send you an email
           <br /> with a link to{" "}
           <span className="cursor-pointer underline" onClick={goToWebApp}>
