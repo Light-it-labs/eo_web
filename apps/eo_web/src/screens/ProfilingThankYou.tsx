@@ -86,7 +86,7 @@ export const ProfilingThankYou = () => {
           font="regular"
           className="text-center text-[22px] font-normal leading-[36px]"
         >
-          You’ll be able to review your your initial, personalized,
+          You’ll be able to review your initial, personalized,
           clinician-approved
           <br /> care plan within 24 hours. When your care plan is ready, we
           will send you an email
