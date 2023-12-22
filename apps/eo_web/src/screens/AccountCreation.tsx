@@ -25,9 +25,16 @@ export const signUpSchema = z.object({
     .min(1, { message: "Email is required" })
     .email({ message: "Enter a valid email." }),
   phoneNumber: z
-    .string()
-    .length(10, { message: "Contact number must be 10 digits" })
-    .regex(/^[0-9]+$/, { message: "Enter a valid phone number." }),
+    .string().superRefine((phoneNumber, ctx) => {
+      const phoneWithOnlyNumbers = phoneNumber.replace(/\D/g, "");
+      const numberOfDigits = phoneWithOnlyNumbers.length;
+      if (numberOfDigits !== 10) {
+        ctx.addIssue({
+          code: "custom",
+          message: "Contact number must be 10 digits"
+        });
+      }
+    }),
   password: z
     .string()
     .regex(
@@ -91,7 +98,7 @@ export const AccountCreation = () => {
       setValidatingForm(false);
       return;
     } else {
-      setAccountData(data);
+      setAccountData({ ...data, phoneNumber: data.phoneNumber.replace(/\D/g, "") });
 
       switch (channel) {
         case "cancer":
@@ -204,7 +211,7 @@ export const AccountCreation = () => {
                       className={tw(
                         "font-nunito text-[11px] font-light ",
                         errors.agreeReceiveNotifications?.message &&
-                          "text-red-500",
+                        "text-red-500",
                       )}
                     >
                       I agree to receive emails and text messages.
@@ -225,7 +232,7 @@ export const AccountCreation = () => {
                       className={tw(
                         "font-nunito text-[11px] font-light !leading-4",
                         errors.agreeTermsAndConditions?.message &&
-                          "text-red-500",
+                        "text-red-500",
                       )}
                     >
                       I have read and agree to the{" "}
