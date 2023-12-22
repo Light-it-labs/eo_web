@@ -16,8 +16,10 @@ import {
 
 export const UserRolSelector = () => {
   const navigate = useNavigate();
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const [selectedValue, setSelectedValue] = useState<Type>(null);
+  const origin = searchParams.get("origin") ?? "localhost:5173";
+
   const {
     setChannel,
     setType,
@@ -29,7 +31,6 @@ export const UserRolSelector = () => {
   const redirectForm = (type: Type) => {
     const channel = searchParams.get("channel") as Channel;
     const symptoms = searchParams.get("symptoms") ?? "";
-    const origin = searchParams.get("origin") ?? "localhost:5173";
 
     setOrigin(origin);
     setSymptoms(symptoms.split(","));
@@ -40,10 +41,10 @@ export const UserRolSelector = () => {
 
   useMount(() => {
     resetProfilingStore();
-    const payment = searchParams.get("payment") || "yes";
-    setUsePayment(payment !== "no");
-    searchParams.delete("payment");
-    setSearchParams(searchParams);
+    const payment = searchParams.get("p") ?? "yes";
+    window.data.isPartnerSite(origin) || payment === "no"
+      ? setUsePayment(false)
+      : setUsePayment(true);
   });
 
   return (
