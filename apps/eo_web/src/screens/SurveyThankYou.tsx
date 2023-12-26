@@ -62,9 +62,9 @@ export const SurveyThankYou = () => {
           Thank you! <br />
           <br />
           Have a question? We’re here to help.
-          Email members@eo.care, call 877.707.0706, or schedule a free consultation.
+          Email support@eo.care, call 877.707.0706, or schedule a free consultation.
           <br />
-          Have questions? We’re here to help. Email <a href="mailto:members@eo.care">members@eo.care</a>, call&nbsp;
+          Have questions? We’re here to help. Email <a href="mailto:support@eo.care">support@eo.care</a>, call&nbsp;
           <a href="tel:+1-877-707-0706">877.707.0706</a>, or&nbsp;
           <span className="underline">schedule a free consultation</span>.
         </Typography>
