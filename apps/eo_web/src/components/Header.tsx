@@ -90,7 +90,7 @@ export const Header = () => {
         )}
       </div>
       {/* eslint-disable-next-line @typescript-eslint/no-empty-function */}
-      <Modal isOpen={openModal} onClose={() => {}} controller={setOpenModal}>
+      <Modal isOpen={openModal} onClose={() => { }} controller={setOpenModal}>
         <div
           className="flex h-full w-full flex-col justify-center rounded-3xl bg-white px-10 py-[50px] leading-[48px]
                     shadow-lg md:px-[60px] md:py-20"
@@ -99,7 +99,6 @@ export const Header = () => {
             variant="large"
             className="mb-4 text-[32px] font-bold leading-7 md:mb-6"
           >
-            {}
             We’re here.
           </Typography>
           <Typography
@@ -145,10 +144,10 @@ export const Header = () => {
               >
                 Email{" "}
                 <a
-                  href="mailto:members@eo.care"
+                  href="mailto:support@eo.care"
                   className="underline decoration-1 underline-offset-8"
                 >
-                  members@eo.care
+                  support@eo.care
                 </a>
               </Typography>
             </li>

@@ -250,7 +250,7 @@ export const PrePlanV2 = () => {
                     following phone number: 877-707-0706. Our representatives
                     will be delighted to assist you and address any inquiries
                     you may have. Alternatively, you can also send us an email
-                    at members@eo.care. Our support team regularly checks this
+                    at support@eo.care. Our support team regularly checks this
                     email and will respond to you as soon as possible.
                   </Typography>
                 </div>
@@ -291,9 +291,8 @@ export const PrePlanV2 = () => {
                     }
                     className="mx-auto my-3"
                     onClick={() => {
-                      window.location.href = `/${union}/profile-onboarding?malady=${
-                        jotformAnswers?.malady || "Pain"
-                      }&union=${union}`;
+                      window.location.href = `/${union}/profile-onboarding?malady=${jotformAnswers?.malady || "Pain"
+                        }&union=${union}`;
                     }}
                   >
                     <Typography font="medium">Redirect</Typography>

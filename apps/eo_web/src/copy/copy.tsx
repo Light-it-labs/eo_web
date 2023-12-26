@@ -60,7 +60,7 @@ export const faqs: Copy[] = [
   {
     title: "How much does eo cost?",
     content:
-      "Your care is completely free. And we’ll reimburse you for the cost of your products. Just send a picture of your receipt to members@eo.care each time you make a purchase and we’ll provide you with an Amazon gift card in an equal amount.",
+      "Your care is completely free. And we’ll reimburse you for the cost of your products. Just send a picture of your receipt to support@eo.care each time you make a purchase and we’ll provide you with an Amazon gift card in an equal amount.",
   },
   {
     title:
@@ -145,11 +145,11 @@ export const faqs: Copy[] = [
     title:
       "Can I use a different dispensary or delivery provider than the one you’ve recommended?",
     content:
-      "The answer is an honest “maybe”. If you’d like to make a change just email us at members@eo.care or call 877-707-0706. We’ll do everything we can to accommodate your request.",
+      "The answer is an honest “maybe”. If you’d like to make a change just email us at support@eo.care or call 877-707-0706. We’ll do everything we can to accommodate your request.",
   },
   {
     title: "What happens if I run out of a particular product?",
     content:
-      "No problem. Just email us at members@eo.care or call 877-707-0706. We’ll update your care plan in the very near term to accommodate the absence of that product if/as appropriate and coordinate the ordering of the needed product or a responsible replacement.",
+      "No problem. Just email us at support@eo.care or call 877-707-0706. We’ll update your care plan in the very near term to accommodate the absence of that product if/as appropriate and coordinate the ordering of the needed product or a responsible replacement.",
   },
 ];
