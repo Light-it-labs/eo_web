@@ -22,7 +22,6 @@ import { RegisterComplete } from "~/screens/RegisterComplete";
 import { Profiling as SeniorProfiling } from "~/screens/Senior/Profiling";
 import { SeniorSurveyForm } from "~/screens/Senior/SeniorSurveyForm";
 import { SeniorSurveyThankYou } from "~/screens/Senior/SeniorSurveyThankYou";
-import { SurveyThankYou } from "~/screens/SurveyThankYou";
 import { UnavailableZipCode } from "~/screens/UnavailableZipCode";
 import { UserRolSelector } from "~/screens/UserRolSelector";
 import { ZipCodeValidation } from "~/screens/ZipCodeValidation";
@@ -100,7 +99,7 @@ export const Router = () => {
       <Route element={<Profiling />} path={ROUTES.cancerForm} />
 
       <Route element={<SurveyForm />} path={ROUTES.cancerSurvey} />
-      <Route element={<SurveyThankYou />} path={ROUTES.cancerSurveyThankYou} />
+      <Route element={<SeniorSurveyThankYou />} path={ROUTES.cancerSurveyThankYou} />
 
       {/* ATHLETES */}
       <Route element={<AthleteSurveyForm />} path={ROUTES.athleteSurvey} />

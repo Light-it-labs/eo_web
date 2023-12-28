@@ -86,9 +86,9 @@ export const ProfilingThankYou = () => {
           font="regular"
           className="text-center text-[22px] font-normal leading-[36px]"
         >
-          You’ll be able to review your your initial, personalized,
+          You’ll be able to review your initial, personalized,
           clinician-approved
-          <br /> care plan within 24 hours. When you’re care plan is ready, we
+          <br /> care plan within 24 hours. When your care plan is ready, we
           will send you an email
           <br /> with a link to{" "}
           <span className="cursor-pointer underline" onClick={goToWebApp}>
@@ -96,13 +96,16 @@ export const ProfilingThankYou = () => {
           </span>
           <br />
           <br />
-          Have questions? We’re here. Email members@eo.care, call
+          Have questions? We’re here. Email support@eo.care, call
           <br />
           <a href="tel:+1-877-707-0706">877-707-0706</a>, or schedule a free
           consultation.
         </Typography>
       </section>
       <section className="bg-white px-6 py-12 md:px-[50px] md:py-[100px] ">
+        <Typography font="bold" variant="large" className="mb-20 text-center">
+          How eo care plans work
+        </Typography>
         <EoCarousel>
           {CarrouselItems.map(({ title, content, step, icon: Icon }) => (
             <article
@@ -146,7 +149,7 @@ export const ProfilingThankYou = () => {
           </div>
         </div>
       </section>
-      <section className="w-full bg-white px-6 py-12 md:px-[50px] md:py-[100px]">
+      <section className="hidden w-full bg-white px-6 py-12 md:px-[50px] md:py-[100px]">
         <div className="flex flex-col items-center">
           <Typography
             font="bold"

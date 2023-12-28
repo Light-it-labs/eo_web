@@ -58,7 +58,7 @@ export const SeniorSurveyThankYou = () => {
           <br />
           Thank you! <br />
           <br />
-          Have questions? We’re here. Email members@eo.care, call{" "}
+          Have questions? We’re here. Email support@eo.care, call{" "}
           <a href="tel:+1-877-707-0706">877-707-0706</a>, or schedule a free
           consultation.
         </Typography>
