@@ -99,7 +99,7 @@ export const Router = () => {
       <Route element={<Profiling />} path={ROUTES.cancerForm} />
 
       <Route element={<SurveyForm />} path={ROUTES.cancerSurvey} />
-      <Route element={<SurveyThankYou />} path={ROUTES.cancerSurveyThankYou} />
+      <Route element={<SeniorSurveyThankYou />} path={ROUTES.cancerSurveyThankYou} />
 
       {/* ATHLETES */}
       <Route element={<AthleteSurveyForm />} path={ROUTES.athleteSurvey} />

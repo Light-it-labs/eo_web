@@ -27,7 +27,7 @@ export const SurveyForm = () => {
 
   useEffect(() => {
     jotformScript(formId);
-  }, []);
+  }, [formId]);
   return (
     <LayoutDefault>
       <div className="mb-10 flex h-screen flex-col">
