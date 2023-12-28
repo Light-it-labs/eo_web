@@ -10,10 +10,7 @@ import { useMount } from "~/hooks/useMount";
 import { LayoutDefault } from "~/layouts";
 
 
-
-
-
-export const SurveyThankYou = () => {
+export const SeniorSurveyThankYou = () => {
   const [searchParams] = useSearchParams();
 
   const submission_id = searchParams.get("submission_id") || "";
@@ -24,11 +21,15 @@ export const SurveyThankYou = () => {
     navigate("/");
   }
 
+<<<<<<<< HEAD:apps/eo_web/src/screens/SurveyThankYou.tsx
   const { postCancerSurveyFormSubmission } = useApi();
+========
+  const { postSeniorSurveyFormSubmission } = useApi();
+>>>>>>>> main:apps/eo_web/src/screens/Senior/SeniorSurveyThankYou.tsx
 
   const { mutate } = useMutation({
-    mutationFn: postCancerSurveyFormSubmission,
-    mutationKey: ["postCancerSurveyFormSubmission", submission_id],
+    mutationFn: postSeniorSurveyFormSubmission,
+    mutationKey: ["postSeniorSurveyFormSubmission", submission_id],
     onError: (result) => {
       if (axios.isAxiosError(result)) {
         if (result.response?.status !== 200) {
@@ -55,7 +56,11 @@ export const SurveyThankYou = () => {
         <Typography
           variant="base"
           font="regular"
+<<<<<<<< HEAD:apps/eo_web/src/screens/SurveyThankYou.tsx
           className="font-nunito text-center text-[28px] font-light leading-[40px]"
+========
+          className="text-center font-nunito text-[28px] font-light leading-[40px]"
+>>>>>>>> main:apps/eo_web/src/screens/Senior/SeniorSurveyThankYou.tsx
         >
           We receive your feedback! <br />
           <br />
