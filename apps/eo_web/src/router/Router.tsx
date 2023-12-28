@@ -22,7 +22,6 @@ import { RegisterComplete } from "~/screens/RegisterComplete";
 import { Profiling as SeniorProfiling } from "~/screens/Senior/Profiling";
 import { SeniorSurveyForm } from "~/screens/Senior/SeniorSurveyForm";
 import { SeniorSurveyThankYou } from "~/screens/Senior/SeniorSurveyThankYou";
-import { SurveyThankYou } from "~/screens/SurveyThankYou";
 import { UnavailableZipCode } from "~/screens/UnavailableZipCode";
 import { UserRolSelector } from "~/screens/UserRolSelector";
 import { ZipCodeValidation } from "~/screens/ZipCodeValidation";

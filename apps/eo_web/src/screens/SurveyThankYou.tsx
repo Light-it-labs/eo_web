@@ -21,11 +21,7 @@ export const SeniorSurveyThankYou = () => {
     navigate("/");
   }
 
-<<<<<<<< HEAD:apps/eo_web/src/screens/SurveyThankYou.tsx
-  const { postCancerSurveyFormSubmission } = useApi();
-========
   const { postSeniorSurveyFormSubmission } = useApi();
->>>>>>>> main:apps/eo_web/src/screens/Senior/SeniorSurveyThankYou.tsx
 
   const { mutate } = useMutation({
     mutationFn: postSeniorSurveyFormSubmission,
@@ -56,11 +52,7 @@ export const SeniorSurveyThankYou = () => {
         <Typography
           variant="base"
           font="regular"
-<<<<<<<< HEAD:apps/eo_web/src/screens/SurveyThankYou.tsx
-          className="font-nunito text-center text-[28px] font-light leading-[40px]"
-========
           className="text-center font-nunito text-[28px] font-light leading-[40px]"
->>>>>>>> main:apps/eo_web/src/screens/Senior/SeniorSurveyThankYou.tsx
         >
           We receive your feedback! <br />
           <br />
