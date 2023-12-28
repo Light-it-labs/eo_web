@@ -36,7 +36,7 @@ export const Header = () => {
         viewBox="0 0 42 20"
         fill="none"
         onClick={() => {
-          window.open("https://www.eo.care/you/privacy-policy", "_blank");
+          window.open("https://www.eo.care/web/privacy-policy", "_blank");
         }}
       >
         <path
@@ -53,7 +53,7 @@ export const Header = () => {
           <>
             <icons.PrivacyPolicyIcon
               onClick={() => {
-                window.open("https://www.eo.care/you/privacy-policy", "_blank");
+                window.open("https://www.eo.care/web/privacy-policy", "_blank");
               }}
               className="h-8 w-8 rounded-full stroke-2"
             />
@@ -67,7 +67,7 @@ export const Header = () => {
             <Button
               variant="tertiary-link"
               onClick={() => {
-                window.open("https://www.eo.care/you/privacy-policy", "_blank");
+                window.open("https://www.eo.care/web/privacy-policy", "_blank");
               }}
               font="regular"
             >
