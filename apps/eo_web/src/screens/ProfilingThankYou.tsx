@@ -116,7 +116,7 @@ export const ProfilingThankYou = () => {
                 <Icon className="h-9 w-[37px]" />
               </div>
 
-              <Typography className="text-[16px] uppercase leading-4 tracking-[.8px]">
+              <Typography className="mt-6 text-[16px] uppercase leading-4 tracking-[.8px]">
                 {typeof step === "string" ? step : `STEP ${step}`}
               </Typography>
               <Typography font="bold" className="text-xl">
