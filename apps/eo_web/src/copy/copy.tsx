@@ -30,7 +30,7 @@ export const CarrouselItems = [
     step: 3,
     title: "Get your products",
     content:
-      "You can purchase your products at a local dispensary. Our team will provide details on how to be reimbursed for all purchases.",
+      "You can purchase your products at a local dispensary. Our team will provide details on how to get reimbursed.",
     icon: icons.PillsWhite,
   },
   {
@@ -48,7 +48,7 @@ export const CarrouselItems = [
     icon: icons.CalendarChecked,
   },
   {
-    step: 6,
+    step: "ALWAYS",
     title: "Be supported",
     content:
       "You can text our clinical team anytime as needs or questions arise - as often as you like. We’ll respond in under 24 hours and usually within minutes.",
