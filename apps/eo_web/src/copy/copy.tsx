@@ -13,35 +13,35 @@ export type Copy = {
 
 export const CarrouselItems = [
   {
-    step: 1,
+    step: "STEP 1",
     title: "Profile & subscribe",
     content:
       "In 5-10 minutes, you can share the key information our clinical team needs to create your initial plan.",
     icon: icons.ProfileIconWhite,
   },
   {
-    step: 2,
+    step: "STEP 2",
     title: "Get your care plan",
     content:
       "In under 24 hours, you’ll receive an email with a link to your personalized, clinician-approved care plan.",
     icon: icons.HandHeartWhite,
   },
   {
-    step: 3,
+    step: "STEP 3",
     title: "Get your products",
     content:
       "You can purchase your products at a local dispensary. Our team will provide details on how to get reimbursed.",
     icon: icons.PillsWhite,
   },
   {
-    step: 4,
+    step: "STEP 4",
     title: "Provide feedback",
     content:
       "As you sample your recommended products, doses and times of use, we’ll check in via text/email and ask you to complete brief, periodic surveys.",
     icon: icons.FeedBackWhite,
   },
   {
-    step: 5,
+    step: "STEP 5",
     title: "Get refined plans",
     content:
       "Early on, we’ll provide updated plans every 3-7 days based on your inputs. We’ll then regularly tune your plan for efficacy, safety and affordability.",
