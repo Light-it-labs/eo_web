@@ -214,7 +214,7 @@ export const AccountCreation = () => {
                         "text-red-500",
                       )}
                     >
-                      I agree to receive emails and text messages.
+                      I agree to receive emails and text messages related to my care.
                     </Typography>
                   }
                 />
