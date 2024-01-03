@@ -8,6 +8,10 @@ import { Typography } from "@eo/ui";
 import { useApi } from "~/api/useApi";
 import { useMount } from "~/hooks/useMount";
 import { LayoutDefault } from "~/layouts";
+import { AllDonePanel } from "~/components/AllDonePanel";
+import { HowEOWorks } from "~/components/HowEOWorks";
+import { FAQs } from "~/components/FAQs";
+import { FooterFull } from "~/layouts/FooterFull";
 
 
 export const SeniorSurveyThankYou = () => {
@@ -41,28 +45,25 @@ export const SeniorSurveyThankYou = () => {
 
   return (
     <LayoutDefault>
-      <div className="flex h-full flex-col items-center justify-center px-[20%]">
-        <Typography
-          variant="large"
-          className="font-nunito text-[45px] font-bold leading-[55px]"
-        >
-          All done!
-        </Typography>
-        <br />
+      <AllDonePanel>
         <Typography
           variant="base"
           font="regular"
-          className="text-center font-nunito text-[28px] font-light leading-[40px]"
+          className="text-center text-[22px] font-normal leading-[36px]"
         >
-          We receive your feedback! <br />
+          We received your feedback! <br />
           <br />
           Thank you! <br />
           <br />
-          Have questions? We’re here. Email support@eo.care, call{" "}
+          Have questions? We’re here. Email support@eo.care, call
+          <br />
           <a href="tel:+1-877-707-0706">877-707-0706</a>, or schedule a free
           consultation.
         </Typography>
-      </div>
+      </AllDonePanel>
+      <HowEOWorks />
+      <FAQs />
+      <FooterFull />
     </LayoutDefault>
   );
 };
