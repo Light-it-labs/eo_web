@@ -1,7 +1,10 @@
-import { Typography } from '@eo/ui'
-import React from 'react'
-import { EoCarousel } from './Carousel'
-import { CarrouselItems } from '~/copy/copy'
+import React from "react";
+
+import { Typography } from "@eo/ui";
+
+import { CarrouselItems } from "~/copy/copy";
+import { EoCarousel } from "./Carousel";
+
 
 export const HowEOWorks = () => {
   return (
@@ -20,7 +23,7 @@ export const HowEOWorks = () => {
             </div>
 
             <Typography className="text-[16px] uppercase leading-4 tracking-[.8px]">
-              STEP {step}
+              {step}
             </Typography>
             <Typography font="bold" className="text-xl">
               {title}
@@ -32,5 +35,5 @@ export const HowEOWorks = () => {
         ))}
       </EoCarousel>
     </section>
-  )
-}
+  );
+};

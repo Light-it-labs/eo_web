@@ -1,6 +1,9 @@
 import { useNavigate } from "react-router-dom";
 
-import { SENIOR_PROFILE_PATIENT_ID } from "~/configs/env";
+import {
+  SENIOR_PROFILE_CAREGIVER_ID,
+  SENIOR_PROFILE_PATIENT_ID,
+} from "~/configs/env";
 import { jotformScript } from "~/helpers/jotform_script";
 import { useMount } from "~/hooks/useMount";
 import { LayoutDefault } from "~/layouts";
@@ -23,7 +26,9 @@ export const Profiling = () => {
   const navigate = useNavigate();
 
   const seniorFormId =
-    type === "Patient" ? SENIOR_PROFILE_PATIENT_ID : SENIOR_PROFILE_PATIENT_ID;
+    type === "Patient"
+      ? SENIOR_PROFILE_PATIENT_ID
+      : SENIOR_PROFILE_CAREGIVER_ID;
 
   if (!type) {
     navigate(ROUTES.userRolSelector);
