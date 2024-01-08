@@ -50,7 +50,10 @@ export const Modal = ({
                 )}
               >
                 <icons.XMarkIcon
-                  className="strike-20 absolute right-0 m-4 h-10 w-10"
+                  className="strike-20 right-0 m-4 h-10 w-10"
+                  style={{
+                    position: "absolute",
+                  }}
                   onClick={() => {
                     onPressX ? onPressX() : null;
                     controller(false);
