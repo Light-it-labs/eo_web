@@ -2,7 +2,7 @@ import React from "react";
 
 import { Typography } from "@eo/ui";
 
-import { CarrouselItems } from "~/copy/copy";
+import { CancerPilotCarrouselItems, CarrouselItems } from "~/copy/copy";
 import { EoCarousel } from "./Carousel";
 
 
@@ -11,13 +11,14 @@ interface HowEOWorksProps {
 }
 
 export const HowEOWorks = ({ pilot = false }: HowEOWorksProps) => {
+  const carouselItems = pilot ? CancerPilotCarrouselItems : CarrouselItems;
   return (
     <section className="bg-white px-6 py-12 md:px-[50px] md:py-[100px] ">
       <Typography font="bold" variant="large" className="mb-20 text-center">
         {pilot ? "How the eo pilot works" : "How eo care plans work"}
       </Typography>
       <EoCarousel>
-        {CarrouselItems.map(({ title, content, step, icon: Icon }) => (
+        {carouselItems.map(({ title, content, step, icon: Icon }) => (
           <article
             key={step}
             className="mx-auto my-0 flex h-auto w-auto max-w-[361px] flex-col items-center justify-center gap-2 md:flex-none md:items-start"

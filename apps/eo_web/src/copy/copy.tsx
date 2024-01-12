@@ -11,6 +11,51 @@ export type Copy = {
   content: string | ReactNode;
 };
 
+export const CancerPilotCarrouselItems = [
+  {
+    step: "STEP 1",
+    title: "Profile & subscribe",
+    content:
+      "In 5-10 minutes, you can share the key information our clinical team needs to create your initial plan.",
+    icon: icons.ProfileIconWhite,
+  },
+  {
+    step: "STEP 2",
+    title: "Get your care plan",
+    content:
+      "In under 24 hours, you’ll receive an email with a link to your personalized, clinician-approved care plan.",
+    icon: icons.HandHeartWhite,
+  },
+  {
+    step: "STEP 3",
+    title: "Get your products",
+    content:
+      "You can purchase your products at a local dispensary. Our team will provide details on how to be reimbursed for all purchases.",
+    icon: icons.PillsWhite,
+  },
+  {
+    step: "STEP 4",
+    title: "Provide feedback",
+    content:
+      "As you sample your recommended products, doses and times of use, we’ll check in via text/email and ask you to complete brief, periodic surveys.",
+    icon: icons.FeedBackWhite,
+  },
+  {
+    step: "STEP 5",
+    title: "Get refined plans",
+    content:
+      "Early on, we’ll provide updated plans every 3-7 days based on your inputs. We’ll then regularly tune your plan for efficacy, safety and affordability.",
+    icon: icons.CalendarChecked,
+  },
+  {
+    step: "ALWAYS",
+    title: "Be supported",
+    content:
+      "You can message our clinical team anytime as needs or questions arise - as often as you like. We’ll respond in under 24 hours and usually within minutes.",
+    icon: icons.SupportIconWhite,
+  },
+];
+
 export const CarrouselItems = [
   {
     step: "STEP 1",
