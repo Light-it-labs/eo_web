@@ -7,13 +7,19 @@ import {
 } from "~/configs/env";
 import { jotformScript } from "~/helpers/jotform_script";
 import { LayoutDefault } from "~/layouts";
+import { useProfilingStore } from "~/stores/useProfilingStore";
 
 
 export const SurveyForm = () => {
   const [searchParams] = useSearchParams();
+  const setUsePayment = useProfilingStore((s) => s.setUsePayment)
+
+  const isPilot = (searchParams.get("pilot") ?? "") === "true";
   const email = searchParams.get("email") ?? "";
   const profiled = searchParams.get("profiled") ?? "patient";
   const symptoms = searchParams.get("symptoms") ?? "";
+
+  setUsePayment(!isPilot)
 
   const formId =
     profiled === "patient"
