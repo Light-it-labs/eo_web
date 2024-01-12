@@ -21,7 +21,7 @@ import { WEB_APP_URL } from "~/configs/env";
 export const ProfilingThankYou = () => {
   const [searchParams] = useSearchParams();
 
-  const { account, introQuestionSubmissionId, channel } = useProfilingStore(
+  const { account, introQuestionSubmissionId, channel, usePayment } = useProfilingStore(
     (state) => state,
   );
   const submissionId = searchParams.get("submission_id") || "";
@@ -94,8 +94,8 @@ export const ProfilingThankYou = () => {
           consultation.
         </Typography>
       </AllDonePanel>
-      <HowEOWorks />
-      <FAQs />
+      <HowEOWorks pilot={channel === "cancer" && !usePayment} />
+      <FAQs pilot={channel === "cancer" && !usePayment} />
       <FooterFull />
     </LayoutDefault>
   );

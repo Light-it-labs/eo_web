@@ -30,6 +30,7 @@ import { ProfilingOneRedirect } from "~/screens/profiling/ProfilingOneRedirect";
 import { ProfilingTwo } from "~/screens/profiling/ProfilingTwo";
 import { ProfilingTwoRedirect } from "~/screens/profiling/ProfilingTwoRedirect";
 import { ProtectedRoute } from "./ProtectedRoute";
+import { CancerSurveyThankYou } from "~/screens/Cancer/CancerSurveyThankYou";
 
 
 export const Router = () => {
@@ -95,26 +96,18 @@ export const Router = () => {
       <Route element={<ProfilingThankYou />} path={ROUTES.profilingThankYou} />
 
       {/* CANCER */}
-
       <Route element={<Profiling />} path={ROUTES.cancerForm} />
-
       <Route element={<SurveyForm />} path={ROUTES.cancerSurvey} />
-      <Route element={<SeniorSurveyThankYou />} path={ROUTES.cancerSurveyThankYou} />
+      <Route element={<CancerSurveyThankYou />} path={ROUTES.cancerSurveyThankYou} />
 
       {/* ATHLETES */}
       <Route element={<AthleteSurveyForm />} path={ROUTES.athleteSurvey} />
-      <Route
-        element={<AthleteSurveyThankYou />}
-        path={ROUTES.athleteSurveyThankYou}
-      />
+      <Route element={<AthleteSurveyThankYou />} path={ROUTES.athleteSurveyThankYou} />
 
       {/* SENIOR */}
       <Route element={<SeniorProfiling />} path={ROUTES.seniorForm} />
       <Route element={<SeniorSurveyForm />} path={ROUTES.seniorSurvey} />
-      <Route
-        element={<SeniorSurveyThankYou />}
-        path={ROUTES.seniorSurveyThankYou}
-      />
+      <Route element={<SeniorSurveyThankYou />} path={ROUTES.seniorSurveyThankYou} />
     </Routes>
   );
 };
