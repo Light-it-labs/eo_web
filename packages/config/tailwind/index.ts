@@ -155,9 +155,11 @@ export default {
         transparent: "transparent",
         gray: {
           50: "#FEFEFF",
+          200: "#DFE4EB",
           600: "#7C7B7A",
           700: "#697079",
           800: "#535A63",
+          1000: "#1B1D21",
         },
         cream: {
           100: "#F8F6F3",
