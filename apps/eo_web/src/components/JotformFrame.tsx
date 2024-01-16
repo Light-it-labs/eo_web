@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
 import { jotformScript } from "~/helpers/jotform_script";
-// import { forwardRef } from "@eo/shared";
 import { useMount } from "~/hooks/useMount";
 
 interface JotformFrameProps {
@@ -33,13 +32,7 @@ const Iframe = ({ formId, searchParam }: JotformFrameProps) => {
       }}
       allow="geolocation; microphone; camera"
       allowFullScreen={true}
-      className="h-full w-full"
-      style={{
-        minWidth: "100%",
-        height: "539px",
-        border: "none",
-        opacity: 0,
-      }}
+      className="h-full w-full min-w-full border-none opacity-0"
     ></iframe>
   );
 };
@@ -56,11 +49,9 @@ const Loading = () => {
     <>
       {showLoading && (
         <div
-          className="h-12 w-12 animate-spin rounded-full border-4 border-gray-200 border-t-gray-1000"
+          className="right-[calc(50%-20px)] top-1/2 h-12 w-12 animate-spin rounded-full border-4 border-gray-200 border-t-gray-1000"
           style={{
             position: "absolute",
-            top: "50%",
-            right: "calc(50% - 20px)",
           }}
         />
       )}
