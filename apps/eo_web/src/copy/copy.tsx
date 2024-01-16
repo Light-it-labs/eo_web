@@ -23,7 +23,7 @@ export const CancerPilotCarrouselItems = [
     step: "STEP 2",
     title: "Get your care plan",
     content:
-      "In under 24 hours, you’ll receive an email with a link to your personalized, clinician-approved care plan.",
+      "In under 24 hours, you’ll receive an email with a link to your personalized, clinician-approved care plan and your recommended products.",
     icon: icons.HandHeartWhite,
   },
   {
@@ -51,7 +51,7 @@ export const CancerPilotCarrouselItems = [
     step: "ALWAYS",
     title: "Be supported",
     content:
-      "You can message our clinical team anytime as needs or questions arise - as often as you like. We’ll respond in under 24 hours and usually within minutes.",
+      "You can text our clinical team anytime as needs or questions arise - as often as you like. We’ll respond in under 24 hours and usually within minutes.",
     icon: icons.SupportIconWhite,
   },
 ];
@@ -61,21 +61,21 @@ export const CarrouselItems = [
     step: "STEP 1",
     title: "Profile & subscribe",
     content:
-      "In 5-10 minutes, you can share the key information our clinical team needs to create your initial plan.",
+      "In 5-10 minutes, you can create your eo account and provide the information our clinical team needs to create your initial plan and subscribe.",
     icon: icons.ProfileIconWhite,
   },
   {
     step: "STEP 2",
     title: "Get your care plan",
     content:
-      "In under 24 hours, you’ll receive an email with a link to your personalized, clinician-approved care plan.",
+      "In under 24 hours, you’ll receive an email with a link to your personalized, clinician-approved care plan and your recommended products.",
     icon: icons.HandHeartWhite,
   },
   {
     step: "STEP 3",
     title: "Get your products",
     content:
-      "You can purchase your products at a local dispensary. Our team will provide details on how to get reimbursed.",
+      "Review your plan and schedule a time to pick-up your products at dispensary near you. We’ll order your products for you. You just pick-up and pay.",
     icon: icons.PillsWhite,
   },
   {
@@ -96,7 +96,7 @@ export const CarrouselItems = [
     step: "ALWAYS",
     title: "Be supported",
     content:
-      "You can text our clinical team anytime as needs or questions arise - as often as you like. We’ll respond in under 24 hours and usually within minutes.",
+      "You can message our clinical team anytime as needs or questions arise - as often as you like. We’ll respond in under 24 hours and usually within minutes.",
     icon: icons.SupportIconWhite,
   },
 ];
