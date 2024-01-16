@@ -14,7 +14,9 @@ const Iframe = ({ formId, searchParam }: JotformFrameProps) => {
   useMount(() => {
     jotformScript(formId);
     setTimeout(() => {
-      if (ref?.current?.hidden) ref.current.hidden = false;
+      if (ref?.current) {
+        ref.current.style.opacity = "100";
+      }
     }, 1700);
   }, [formId, searchParam]);
 
@@ -36,8 +38,8 @@ const Iframe = ({ formId, searchParam }: JotformFrameProps) => {
         minWidth: "100%",
         height: "539px",
         border: "none",
+        opacity: 0,
       }}
-      hidden
     ></iframe>
   );
 };
