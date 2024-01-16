@@ -15,7 +15,7 @@ export const HowEOWorks = ({ pilot = false }: HowEOWorksProps) => {
   return (
     <section className="bg-white px-6 py-12 md:px-[50px] md:py-[100px] ">
       <Typography font="bold" variant="large" className="mb-20 text-center">
-        {pilot ? "How the eo pilot works" : "How eo care plans work"}
+        {pilot ? "How the eo pilot works" : "How eo Care Plans Work"}
       </Typography>
       <EoCarousel>
         {carouselItems.map(({ title, content, step, icon: Icon }) => (
