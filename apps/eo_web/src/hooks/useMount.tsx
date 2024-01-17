@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-export const useMount = (fn: () => void) => {
+export const useMount = (fn: () => void, deps: unknown[] = []) => {
   const onceFlag = useRef(true);
 
   useEffect(() => {
@@ -9,5 +9,5 @@ export const useMount = (fn: () => void) => {
       fn();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, deps);
 };

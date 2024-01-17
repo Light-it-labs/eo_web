@@ -27,6 +27,7 @@ export const jotformScript = (profileId) => {
       return;
     }
     var args = e.data.split(":");
+    let iframe;
     if (args.length > 2) {
       iframe = document.getElementById(
         "JotFormIFrame-" + args[args.length - 1],
