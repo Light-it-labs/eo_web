@@ -189,13 +189,13 @@ export const faqs: Copy[] = [
   {
     title: "How much does eo cost?",
     content:
-      "Your care is completely free. And we’ll reimburse you for the cost of your products. Just send a picture of your receipt to support@eo.care each time you make a purchase and we’ll provide you with an Amazon gift card in an equal amount.",
+      "eo costs $14 per month for your clinician-reviewed plan, ongoing plan optimization based on your feedback and unlimited phone calls and in-app messaging with our care team. You can cancel your subscription any time. Note that the cost of your recommended products is NOT included in your plan unless you’re participating in an eo clinical pilot.",
   },
   {
     title:
       "Do I order the products that are included in my care plan or do you do it for me?",
     content:
-      "After you’ve approved them, we’ll order your products for you and let you know when they’re ready for pick-up - and how much they cost.",
+      "After you’ve approved your recommended products, we’ll order your THC products for you and let you know when they’re ready for pick-up. You can order any non-THC products (e.g. CBD, CBN or CBG products) direct from our recommended retail partners for home delivery.",
   },
   {
     title: "What should I bring with me when I pick-up my products?",
