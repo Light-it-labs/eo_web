@@ -76,22 +76,25 @@ export const ProfilingThankYou = () => {
         <Typography
           variant="base"
           font="regular"
-          className="text-center text-[22px] font-normal leading-[36px]"
+          className="text-center text-[22px] font-normal leading-[36px] max-w-3xl"
         >
           You’ll be able to review your initial, personalized,
-          clinician-approved
-          <br /> care plan within 24 hours. When your care plan is ready, we
-          will send you an email
-          <br /> with a link to{" "}
+          clinician-approved care plan within 24 hours. When your care plan is ready, we
+          will send you an email with a link to{" "}
           <span className="cursor-pointer underline" onClick={goToWebApp}>
             log into your account.
           </span>
           <br />
           <br />
-          Have questions? We’re here. Email support@eo.care, call
-          <br />
-          <a href="tel:+1-877-707-0706">877-707-0706</a>, or schedule a free
-          consultation.
+          Have questions? We’re here. Email support@eo.care, call <a href="tel:+1-877-707-0706">877-707-0706</a>, or {" "}
+          <a
+            className="cursor-pointer underline"
+            href="https://eo-care-telemed.as.me/schedule.php"
+            target="_blank"
+          >
+            schedule a free consultation
+          </a>
+          .
         </Typography>
       </AllDonePanel>
       <HowEOWorks pilot={channel === "cancer" && !usePayment} />
