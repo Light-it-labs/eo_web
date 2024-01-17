@@ -19,6 +19,8 @@ export const UserRolSelector = () => {
   const [searchParams] = useSearchParams();
   const [selectedValue, setSelectedValue] = useState<Type>(null);
   const origin = searchParams.get("origin") ?? "localhost:5173";
+  const channel = searchParams.get("channel") as Channel;
+  const symptoms = searchParams.get("symptoms") ?? "";
 
   const {
     setChannel,
@@ -28,10 +30,8 @@ export const UserRolSelector = () => {
     resetProfilingStore,
     setOrigin,
   } = useProfilingStore((state) => state);
-  const redirectForm = (type: Type) => {
-    const channel = searchParams.get("channel") as Channel;
-    const symptoms = searchParams.get("symptoms") ?? "";
 
+  const redirectForm = (type: Type) => {
     setOrigin(origin);
     setSymptoms(symptoms.split(","));
     setChannel(channel);
@@ -62,7 +62,7 @@ export const UserRolSelector = () => {
                 className={tw(
                   "flex h-12 items-center justify-start gap-2 rounded border border-solid border-gray-800 px-[15px] py-[9px] font-nunito text-gray-800 lg:w-1/2",
                   selectedValue === "Patient" &&
-                    "border-[#5AADFD] bg-[#5AADFD] bg-opacity-20",
+                  "border-[#5AADFD] bg-[#5AADFD] bg-opacity-20",
                 )}
                 onClick={() => setSelectedValue("Patient")}
               >
@@ -94,7 +94,7 @@ export const UserRolSelector = () => {
                 className={tw(
                   "flex h-12 items-center justify-start gap-2 rounded border border-solid border-gray-800 px-[15px] py-[9px] font-nunito text-gray-800 lg:w-1/2",
                   selectedValue === "Caregiver" &&
-                    "border-[#5AADFD] bg-[#5AADFD] bg-opacity-20",
+                  "border-[#5AADFD] bg-[#5AADFD] bg-opacity-20",
                 )}
                 onClick={() => setSelectedValue("Caregiver")}
               >
@@ -133,9 +133,15 @@ export const UserRolSelector = () => {
               size="lg"
               onClick={() => {
                 if (window.data.isMarketingSite(origin)) {
-                  window.location.href = `https://${window.location.host}/pilot#how-eo-care-plans-works`;
+                  if (channel === "senior") {
+                    window.location.href = `https://${window.location.host}/you/seniors-careplan#seniors-panel`;
+                  } else if (channel === "cancer") {
+                    window.location.href = `https://${window.location.host}/you/cancer-careplan#cancer-panel`;
+                  } else {
+                    history.back();
+                  }
                 } else if (window.data.isPartnerSite(origin)) {
-                  window.location.href = `https://${window.location.host}/cancer-pilot#how-eo-care-plans-works`;
+                  window.location.href = `https://${window.location.host}/pilot#how-eo-care-plans-works`;
                 } else {
                   history.back();
                 }
