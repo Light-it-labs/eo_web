@@ -88,7 +88,7 @@ export const ProfilingThankYou = () => {
           <br />
           Have questions? We’re here. Email support@eo.care, call <a href="tel:+1-877-707-0706">877-707-0706</a>, or {" "}
           <a
-            className="cursor-pointer underline"
+            className="cursor-pointer underline font-new-hero text-[22px]"
             href="https://eo-care-telemed.as.me/schedule.php"
             target="_blank"
           >
