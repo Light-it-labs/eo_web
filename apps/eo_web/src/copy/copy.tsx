@@ -30,7 +30,7 @@ export const CancerPilotCarrouselItems = [
     step: "STEP 3",
     title: "Get your products",
     content:
-      "You can purchase your products at a local dispensary. Our team will provide details on how to be reimbursed for all purchases.",
+      "You can purchase your products at a local dispensary. Our team will provide details on how to get reimbursed.",
     icon: icons.PillsWhite,
   },
   {
