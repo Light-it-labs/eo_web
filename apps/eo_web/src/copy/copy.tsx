@@ -23,14 +23,14 @@ export const CancerPilotCarrouselItems = [
     step: "STEP 2",
     title: "Get your care plan",
     content:
-      "In under 24 hours, you’ll receive an email with a link to your personalized, clinician-approved care plan.",
+      "In under 24 hours, you’ll receive an email with a link to your personalized, clinician-approved care plan and your recommended products.",
     icon: icons.HandHeartWhite,
   },
   {
     step: "STEP 3",
     title: "Get your products",
     content:
-      "You can purchase your products at a local dispensary. Our team will provide details on how to get reimbursed.",
+      "You can purchase your products at a local dispensary. Our team will provide details on how to be reimbursed for all purchases.",
     icon: icons.PillsWhite,
   },
   {
@@ -112,7 +112,7 @@ export const pilotFaqs: Copy[] = [
   },
   {
     title: "What should I bring with me when I pick-up my products?",
-    content: "Bring your valid medical card, a state I.D. or driver’s license and a debit card or enough cash to pay for products.",
+    content: "Bring your valid medical card (if you have one), a state I.D. or driver’s license and a debit card or enough cash to pay for products.",
   },
   {
     title: "What if I don’t yet have a physical medical card?",
@@ -130,7 +130,7 @@ export const pilotFaqs: Copy[] = [
     title: "How do you decide which products, doses and times of use are most right for me?",
     content: (
       <>
-        The eo data model and your clinical team base all recommendations on
+        The eo data model and your clinical team bases all recommendations on
         relevant aspects of your medical history, cannabis use history, your
         daily schedule and the feedback you provide as you use your care plan.
         <br />
@@ -144,12 +144,12 @@ export const pilotFaqs: Copy[] = [
     ),
   },
   {
-    title: "What happens if I miss a use session entirely?",
-    content: "Just begin the next session as scheduled!",
+    title: "What happens if I miss a dose?",
+    content: "Just take your next dose as scheduled!",
   },
   {
-    title: "What happens if I’m late starting a use session?",
-    content: "If you’re less than 30 minutes late, go ahead and begin the session (also be sure to begin the next session at the originally scheduled time). If you’re more than 30 minutes late just wait for the next session to begin.",
+    title: "What happens if I’m late taking a dose?",
+    content: "If you’re less than 30 minutes late, go ahead and take your scheduled dose (also be sure to take the next dose at the originally scheduled time). If you’re more than 30 minutes late just wait for your next scheduled dose.",
   },
   {
     title: "What happens if I miss an opportunity to provide feedback?",
@@ -223,7 +223,7 @@ export const faqs: Copy[] = [
       "How do you decide which products, doses and times of use are most right for me?",
     content: (
       <>
-        The eo data model and your clinical team base all recommendations on
+        The eo data model and your clinical team bases all recommendations on
         relevant aspects of your medical history, cannabis use history, your
         daily schedule and the feedback you provide as you use your care plan.
         <br />
