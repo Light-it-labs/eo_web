@@ -30,10 +30,12 @@ export const SENIOR_INTRO_QUESTION_CAREGIVER_ID =
 export const SENIOR_PROFILE_PATIENT_ID =
   window.data.getEnv("SENIOR_PROFILE_PATIENT_ID") || 233245009995159;
 export const SENIOR_PROFILE_CAREGIVER_ID =
-  window.data.getEnv("SENIOR_PROFILE_CAREGIVER_ID") || 233244799896174;
+  window.data.getEnv("SENIOR_PROFILE_CAREGIVER_ID") || 240105148124645;
 
-export const SENIOR_SURVEY_ID =
-  window.data.getEnv("SENIOR_SURVEY_FORM") || 233441843921657;
+export const SENIOR_PATIENT_SURVEY_ID =
+  window.data.getEnv("SENIOR_PATIENT_SURVEY_ID") || 233441843921657;
+export const SENIOR_CAREGIVER_SURVEY_ID =
+  window.data.getEnv("SENIOR_CAREGIVER_SURVEY_ID") || 240026821042139;
 
 export const API_ELIXIR =
   window.data.getEnv("API_URL") || "http://localhost:4200";

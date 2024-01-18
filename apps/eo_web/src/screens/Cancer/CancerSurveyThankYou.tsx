@@ -12,15 +12,15 @@ import { AllDonePanel } from "~/components/AllDonePanel";
 import { HowEOWorks } from "~/components/HowEOWorks";
 import { FAQs } from "~/components/FAQs";
 import { FooterFull } from "~/layouts/FooterFull";
+import { useProfilingStore } from "~/stores/useProfilingStore";
 
 
-
-
-
-export const AthleteSurveyThankYou = () => {
+export const CancerSurveyThankYou = () => {
   const [searchParams] = useSearchParams();
 
-  const submission_id = searchParams.get("submission_id") || "";
+  const usePayment = useProfilingStore((s) => s.usePayment);
+
+  const submission_id = searchParams.get("submission_id") ?? "";
 
   const navigate = useNavigate();
 
@@ -28,11 +28,11 @@ export const AthleteSurveyThankYou = () => {
     navigate("/");
   }
 
-  const { postAthleteSurveyFormSubmission } = useApi();
+  const { postCancerSurveyFormSubmission } = useApi();
 
   const { mutate } = useMutation({
-    mutationFn: postAthleteSurveyFormSubmission,
-    mutationKey: ["postAthleteSurveyFormSubmission", submission_id],
+    mutationFn: postCancerSurveyFormSubmission,
+    mutationKey: ["postCancerSurveyFormSubmission", submission_id],
     onError: (result) => {
       if (axios.isAxiosError(result)) {
         if (result.response?.status !== 200) {
@@ -69,8 +69,8 @@ export const AthleteSurveyThankYou = () => {
           .
         </Typography>
       </AllDonePanel>
-      <HowEOWorks />
-      <FAQs />
+      <HowEOWorks pilot={!usePayment} />
+      <FAQs pilot={!usePayment} />
       <FooterFull />
     </LayoutDefault>
   );

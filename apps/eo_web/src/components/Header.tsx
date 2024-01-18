@@ -76,7 +76,7 @@ export const Header = () => {
             <Button
               variant="black"
               onClick={() => setOpenModal(true)}
-              font="regular"
+              font="semiBold"
             >
               Need Help?
             </Button>

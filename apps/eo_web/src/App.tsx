@@ -32,7 +32,8 @@ interface EnvironmentsConfigs {
   SENIOR_INTRO_QUESTION_CAREGIVER_ID: string;
   SENIOR_PROFILE_PATIENT_ID: string;
   SENIOR_PROFILE_CAREGIVER_ID: string;
-  SENIOR_SURVEY_FORM: string;
+  SENIOR_PATIENT_SURVEY_ID: string;
+  SENIOR_CAREGIVER_SURVEY_ID: string;
   WEB_APP_URL: string;
 }
 
