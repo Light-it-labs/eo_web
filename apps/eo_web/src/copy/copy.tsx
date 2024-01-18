@@ -61,21 +61,21 @@ export const CarrouselItems = [
     step: "STEP 1",
     title: "Profile & subscribe",
     content:
-      "In 5-10 minutes, you can share the key information our clinical team needs to create your initial plan.",
+      "In about 5 minutes, you can create your eo account and provide the information our clinical team needs to create your initial plan.",
     icon: icons.ProfileIconWhite,
   },
   {
     step: "STEP 2",
     title: "Get your care plan",
     content:
-      "In under 24 hours, you’ll receive an email with a link to your personalized, clinician-approved care plan.",
+      "In under 24 hours, you’ll receive an email with a link to your personalized, clinician-approved care plan and your recommended products.",
     icon: icons.HandHeartWhite,
   },
   {
     step: "STEP 3",
     title: "Get your products",
     content:
-      "Review your plan and schedule a time to pick-up your products at dispensary near you. We’ll order your products for you. You just pick-up and pay.",
+      "Review your plan and schedule a time to pick-up your products at a dispensary near you. We’ll order your products for you. You just pick-up and pay.",
     icon: icons.PillsWhite,
   },
   {
@@ -195,17 +195,17 @@ export const faqs: Copy[] = [
     title:
       "Do I order the products that are included in my care plan or do you do it for me?",
     content:
-      "After you’ve approved your recommended products, we’ll order your THC products for you and let you know when they’re ready for pick-up. You can order any non-THC products (e.g. CBD, CBN or CBG products) direct from our recommended retail partners for home delivery.",
+      "After you’ve approved your recommended products, we’ll order your THC products for you and let you know when they’re ready for pick-up. You can order any non-THC products (e.g. CBD, CBN or CBG products) directly from our recommended retail partners for home delivery.",
+  },
+  {
+    title: "Do I need a medical card to use eo?",
+    content:
+      "No. You can use eo without a medical card. We’ll ask you about your medical card status when you’re sharing your profile information.",
   },
   {
     title: "What should I bring with me when I pick-up my products?",
     content:
-      "Bring your valid medical card, a state I.D. or driver’s license and a debit card or enough cash to pay for products.",
-  },
-  {
-    title: "What if I don’t yet have a physical medical card?",
-    content:
-      "Your care team can provide you with a valid state patient ID number to provide when you purchase and pick-up your products.",
+      "Bring your valid medical card (if you have one), a state I.D. or driver’s license and a debit card or enough cash to pay for products.",
   },
   {
     title:
@@ -237,13 +237,13 @@ export const faqs: Copy[] = [
     ),
   },
   {
-    title: "What happens if I miss a use session entirely?",
-    content: "Just begin the next session as scheduled!",
+    title: "What happens if I miss a dose?",
+    content: "Just take your next dose as scheduled!",
   },
   {
-    title: "What happens if I’m late starting a use session?",
+    title: "What happens if I’m late taking a dose?",
     content:
-      "If you’re less than 30 minutes late, go ahead and begin the session (also be sure to begin the next session at the originally scheduled time). If you’re more than 30 minutes late just wait for the next session to begin.",
+      "If you’re less than 30 minutes late, go ahead and take your scheduled dose (also be sure to take the next dose at the originally scheduled time). If you’re more than 30 minutes late just wait for your next scheduled dose.",
   },
   {
     title: "What happens if I miss an opportunity to provide feedback?",
