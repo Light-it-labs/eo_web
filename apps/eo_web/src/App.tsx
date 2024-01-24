@@ -34,6 +34,7 @@ interface EnvironmentsConfigs {
   SENIOR_PROFILE_CAREGIVER_ID: string;
   SENIOR_PATIENT_SURVEY_ID: string;
   SENIOR_CAREGIVER_SURVEY_ID: string;
+  ROI_CALCULATOR_FORM: string;
   WEB_APP_URL: string;
 }
 
