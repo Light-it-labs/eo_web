@@ -10,6 +10,7 @@ import { ROUTES } from "~/router";
 import {
   useProfilingStore,
   type Channel,
+  type Flows,
   type Type,
 } from "~/stores/useProfilingStore";
 
@@ -21,6 +22,7 @@ export const UserRolSelector = () => {
   const origin = searchParams.get("origin") ?? "localhost:5173";
   const channel = searchParams.get("channel") as Channel;
   const symptoms = searchParams.get("symptoms") ?? "";
+  const flow: Flows = (searchParams.get("flow") as Flows) ?? "marketing_site";
 
   const {
     setChannel,
@@ -29,10 +31,12 @@ export const UserRolSelector = () => {
     setUsePayment,
     resetProfilingStore,
     setOrigin,
+    setFlow,
   } = useProfilingStore((state) => state);
 
   const redirectForm = (type: Type) => {
     setOrigin(origin);
+    setFlow(flow);
     setSymptoms(symptoms.split(","));
     setChannel(channel);
     setType(type);
@@ -62,7 +66,7 @@ export const UserRolSelector = () => {
                 className={tw(
                   "flex h-12 items-center justify-start gap-2 rounded border border-solid border-gray-800 px-[15px] py-[9px] font-nunito text-gray-800 lg:w-1/2",
                   selectedValue === "Patient" &&
-                  "border-[#5AADFD] bg-[#5AADFD] bg-opacity-20",
+                    "border-[#5AADFD] bg-[#5AADFD] bg-opacity-20",
                 )}
                 onClick={() => setSelectedValue("Patient")}
               >
@@ -94,7 +98,7 @@ export const UserRolSelector = () => {
                 className={tw(
                   "flex h-12 items-center justify-start gap-2 rounded border border-solid border-gray-800 px-[15px] py-[9px] font-nunito text-gray-800 lg:w-1/2",
                   selectedValue === "Caregiver" &&
-                  "border-[#5AADFD] bg-[#5AADFD] bg-opacity-20",
+                    "border-[#5AADFD] bg-[#5AADFD] bg-opacity-20",
                 )}
                 onClick={() => setSelectedValue("Caregiver")}
               >

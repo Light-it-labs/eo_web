@@ -129,7 +129,6 @@ export const useApi = () => {
     await apiElixir.post<LaravelSuccessBase<unknown> | LaravelErrorValidation>(
       "/v2/profiles/eligible",
       { email },
-      authHeader,
     );
 
   const postCancerFormSubmission = async (data: object) =>
