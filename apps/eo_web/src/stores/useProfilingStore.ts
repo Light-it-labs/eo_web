@@ -19,7 +19,11 @@ export interface Account {
 
 export type Type = "Patient" | "Caregiver" | null;
 
-export type Flows = "c_org" | "marketing_site" | "cancer_pilot";
+export type Flows =
+  | "c_org"
+  | "marketing_site"
+  | "cancer_pilot"
+  | "employer_center";
 
 export interface ProfilingStore {
   symptoms: string[];
