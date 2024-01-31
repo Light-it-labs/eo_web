@@ -7,23 +7,22 @@ import { toast } from "react-toastify";
 import { Typography } from "@eo/ui";
 
 import { useApi } from "~/api/useApi";
+import { AllDonePanel } from "~/components/AllDonePanel";
+import { FAQs } from "~/components/FAQs";
+import { HowEOWorks } from "~/components/HowEOWorks";
+import { WEB_APP_URL } from "~/configs/env";
 import { useMount } from "~/hooks/useMount";
 import { LayoutDefault } from "~/layouts";
 import { FooterFull } from "~/layouts/FooterFull";
 import { ROUTES } from "~/router";
 import { useProfilingStore } from "~/stores/useProfilingStore";
-import { FAQs } from "~/components/FAQs";
-import { HowEOWorks } from "~/components/HowEOWorks";
-import { AllDonePanel } from "~/components/AllDonePanel";
-import { WEB_APP_URL } from "~/configs/env";
 
 
 export const ProfilingThankYou = () => {
   const [searchParams] = useSearchParams();
 
-  const { account, introQuestionSubmissionId, channel, usePayment } = useProfilingStore(
-    (state) => state,
-  );
+  const { account, introQuestionSubmissionId, channel, usePayment, flow } =
+    useProfilingStore((state) => state);
   const submissionId = searchParams.get("submission_id") || "";
 
   const navigate = useNavigate();
@@ -63,6 +62,7 @@ export const ProfilingThankYou = () => {
       agree_receive_notifications: account.agreeReceiveNotifications,
       agree_terms_and_conditions: account.agreeTermsAndConditions,
       channel,
+      flow,
     }),
   );
 
@@ -76,19 +76,20 @@ export const ProfilingThankYou = () => {
         <Typography
           variant="base"
           font="regular"
-          className="text-center text-[22px] font-normal leading-[36px] max-w-3xl"
+          className="max-w-3xl text-center text-[22px] font-normal leading-[36px]"
         >
           You’ll be able to review your initial, personalized,
-          clinician-approved care plan within 24 hours. When your care plan is ready, we
-          will send you an email with a link to{" "}
+          clinician-approved care plan within 24 hours. When your care plan is
+          ready, we will send you an email with a link to{" "}
           <span className="cursor-pointer underline" onClick={goToWebApp}>
             log into your account.
           </span>
           <br />
           <br />
-          Have questions? We’re here. Email support@eo.care, call <a href="tel:+1-877-707-0706">877-707-0706</a>, or {" "}
+          Have questions? We’re here. Email support@eo.care, call{" "}
+          <a href="tel:+1-877-707-0706">877-707-0706</a>, or{" "}
           <a
-            className="cursor-pointer underline font-new-hero text-[22px]"
+            className="cursor-pointer font-new-hero text-[22px] underline"
             href="https://eo-care-telemed.as.me/schedule.php"
             target="_blank"
           >

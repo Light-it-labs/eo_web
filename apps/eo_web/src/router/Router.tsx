@@ -31,6 +31,7 @@ import { ProfilingTwo } from "~/screens/profiling/ProfilingTwo";
 import { ProfilingTwoRedirect } from "~/screens/profiling/ProfilingTwoRedirect";
 import { ProtectedRoute } from "./ProtectedRoute";
 import { CancerSurveyThankYou } from "~/screens/Cancer/CancerSurveyThankYou";
+import { ROICalculator } from "~/screens/ROICalculator";
 
 
 export const Router = () => {
@@ -88,6 +89,7 @@ export const Router = () => {
       />
 
       <Route element={<UserRolSelector />} path={ROUTES.userRolSelector} />
+      <Route element={<ROICalculator />} path={ROUTES.roiCalculator} />
       <Route
         element={<ProfilingIntroQuestions />}
         path={ROUTES.introQuestions}
