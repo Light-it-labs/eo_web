@@ -1,10 +1,6 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-
-
-
-
 export type Channel = "senior" | "cancer";
 
 export interface Account {
@@ -23,7 +19,9 @@ export type Flows =
   | "c_org"
   | "marketing_site"
   | "cancer_pilot"
-  | "employer_center";
+  | "employer_center"
+  | "cancer_support_community"
+  | "twist_out_cancer";
 
 export interface ProfilingStore {
   symptoms: string[];
