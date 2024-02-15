@@ -49,10 +49,10 @@ export const SeniorSurveyForm = () => {
       : SENIOR_CAREGIVER_SURVEY_ID;
 
   return (
-    <LayoutDefault className="bg-gradient">
+    <LayoutDefault className="bg-gradient lg:bg-ice-silver lg:bg-none">
       <div className="mb-10 flex h-screen flex-col">
         {isLoading && <Loading />}
-        {!isLoading && isSuccess ? (
+        {!isLoading && isSuccess && data?.data.active ? (
           <JotformFrame formId={formId} searchParam={params} />
         ) : (
           !isSuccess && data?.data && !data?.data?.active && <SurveyResponded />
