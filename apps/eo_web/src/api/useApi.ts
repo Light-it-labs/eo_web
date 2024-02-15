@@ -131,6 +131,12 @@ export const useApi = () => {
       { email },
     );
 
+  const surveyStatus = async (email: string, phase: string) =>
+    await apiElixir.post<{ active: boolean }>("/v2/survey/availability", {
+      email,
+      phase,
+    });
+
   const postCancerFormSubmission = async (data: object) =>
     await apiLaravel.post<LaravelSuccessBase<ProfileCreationResult>>(
       "/api/v2/cancer/profile",
@@ -173,5 +179,6 @@ export const useApi = () => {
     postAthleteSurveyFormSubmission,
     postSeniorFormSubmission,
     postSeniorSurveyFormSubmission,
+    surveyStatus,
   };
 };

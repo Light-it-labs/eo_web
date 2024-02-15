@@ -199,6 +199,12 @@ export default {
           "system-ui, -apple-system, BlinkMacSystemFont",
         ],
       },
+      backgroundImage: {
+        gradient:
+          "linear-gradient(120deg, rgba(225,221,229,1) 20%, rgba(244,246,248,1) 35%, rgba(244,246,248,1) 45%, rgba(224,228,233,1) 60%)",
+        "careplan-gradient":
+          "linear-gradient(120deg, rgba(229,232,237,1) 15%, rgba(254,254,255,1) 50%, rgba(229,232,237,1) 85%)",
+      },
     },
   },
   plugins: [typography, forms, tailwindcss],
