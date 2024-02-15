@@ -38,7 +38,7 @@ export const SurveyForm = () => {
     setUsePayment(!isPilot);
   });
 
-  const { data, isSuccess } = useQuery({
+  const { data, isLoading, isSuccess } = useQuery({
     queryFn: () => (email && phase ? surveyStatus(email, phase) : null),
     queryKey: ["surveyStatus"],
   });
@@ -56,11 +56,11 @@ export const SurveyForm = () => {
   return (
     <LayoutDefault className="bg-gradient">
       <div className="mb-10 flex h-screen flex-col">
-        {!isSuccess && <Loading />}
-        {isSuccess ? (
+        {isLoading && <Loading />}
+        {!isLoading && isSuccess ? (
           <JotformFrame formId={formId} searchParam={params} />
         ) : (
-          data?.data && !data?.data?.active && <SurveyResponded />
+          !isSuccess && data?.data && !data?.data?.active && <SurveyResponded />
         )}
       </div>
     </LayoutDefault>
