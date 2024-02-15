@@ -35,14 +35,13 @@ export const SurveyForm = () => {
   useMount(() => {
     setPhase(phase);
     setEmail(email as string);
+    setUsePayment(!isPilot);
   });
 
   const { data, isSuccess } = useQuery({
     queryFn: () => (email && phase ? surveyStatus(email, phase) : null),
     queryKey: ["surveyStatus"],
   });
-
-  setUsePayment(!isPilot);
 
   const formId =
     profiled === "patient"
