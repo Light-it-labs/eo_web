@@ -20,8 +20,8 @@ export const useSurveyStore = create<SurveyStorageState>()(
     (set, get) => ({
       phase: "",
       email: "",
-      setEmail: (email: string) => ({ email }),
-      setPhase: (phase: string) => ({ phase }),
+      setEmail: (email: string) => set({ email }),
+      setPhase: (phase: string) => set({ phase }),
     }),
     {
       name: "useSurveyStore",
