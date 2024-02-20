@@ -6,19 +6,21 @@ import { toast } from "react-toastify";
 import { Typography } from "@eo/ui";
 
 import { useApi } from "~/api/useApi";
+import { AllDonePanel } from "~/components/AllDonePanel";
+import { FAQs } from "~/components/FAQs";
+import { HowEOWorks } from "~/components/HowEOWorks";
 import { useMount } from "~/hooks/useMount";
 import { LayoutDefault } from "~/layouts";
-import { AllDonePanel } from "~/components/AllDonePanel";
-import { HowEOWorks } from "~/components/HowEOWorks";
-import { FAQs } from "~/components/FAQs";
 import { FooterFull } from "~/layouts/FooterFull";
 import { useProfilingStore } from "~/stores/useProfilingStore";
+import { useSurveyStore } from "~/stores/useSurveyStore";
 
 
 export const CancerSurveyThankYou = () => {
   const [searchParams] = useSearchParams();
 
-  const usePayment = useProfilingStore((s) => s.usePayment);
+  const { email, phase } = useSurveyStore();
+  const { usePayment } = useProfilingStore();
 
   const submission_id = searchParams.get("submission_id") ?? "";
 
@@ -44,7 +46,7 @@ export const CancerSurveyThankYou = () => {
     },
   });
 
-  useMount(() => mutate({ submission_id }));
+  useMount(() => mutate({ email, phase, submission_id }));
 
   return (
     <LayoutDefault>
@@ -52,15 +54,16 @@ export const CancerSurveyThankYou = () => {
         <Typography
           variant="base"
           font="regular"
-          className="text-center text-[22px] font-normal leading-[36px] max-w-xl"
+          className="max-w-xl text-center text-[22px] font-normal leading-[36px]"
         >
           We received your feedback! <br />
           <br />
           Thank you! <br />
           <br />
-          Have questions? We’re here. Email support@eo.care, call <a href="tel:+1-877-707-0706">877-707-0706</a>, or {" "}
+          Have questions? We’re here. Email support@eo.care, call{" "}
+          <a href="tel:+1-877-707-0706">877-707-0706</a>, or{" "}
           <a
-            className="cursor-pointer underline font-new-hero text-[22px]"
+            className="cursor-pointer font-new-hero text-[22px] underline"
             href="https://eo-care-telemed.as.me/schedule.php"
             target="_blank"
           >
