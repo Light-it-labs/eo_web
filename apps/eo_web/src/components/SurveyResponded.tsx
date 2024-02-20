@@ -17,7 +17,7 @@ export const SurveyResponded = () => (
         Your insights are greatly appreciated and will help us improve.
       </Typography>
       <div>
-        <a href={WEB_APP_URL}>
+        <a href={WEB_APP_URL} className="float-left block">
           <Button variant="black">
             <span className="hidden lg:block">Go Back Home</span>
             <span className="lg:hidden">Go Back</span>

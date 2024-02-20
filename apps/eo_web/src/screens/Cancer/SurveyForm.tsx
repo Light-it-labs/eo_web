@@ -60,7 +60,7 @@ export const SurveyForm = () => {
         {!isLoading && isSuccess && data?.data.active ? (
           <JotformFrame formId={formId} searchParam={params} />
         ) : (
-          !isSuccess && data?.data && !data?.data?.active && <SurveyResponded />
+          isSuccess && data?.data && !data?.data?.active && <SurveyResponded />
         )}
       </div>
     </LayoutDefault>
