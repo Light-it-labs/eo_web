@@ -61,21 +61,21 @@ export const CarrouselItems = [
     step: "STEP 1",
     title: "Profile & subscribe",
     content:
-      "In about 5 minutes, you can create your eo account and provide the information our clinical team needs to create your initial plan.",
+      "In 5-10 minutes, you can share the key information our clinical team needs to create your initial plan.",
     icon: icons.ProfileIconWhite,
   },
   {
     step: "STEP 2",
     title: "Get your care plan",
     content:
-      "In under 24 hours, you’ll receive an email with a link to your personalized, clinician-approved care plan and your recommended products.",
+      "In under 24 hours, you’ll receive an email with a link to your personalized, clinician-approved care plan.",
     icon: icons.HandHeartWhite,
   },
   {
     step: "STEP 3",
     title: "Get your products",
     content:
-      "Review your plan and schedule a time to pick-up your products at a dispensary near you. We’ll order your products for you. You just pick-up and pay.",
+      "Review your plan and schedule a time to pick-up your products at dispensary near you. We’ll order your products for you. You just pick-up and pay.",
     icon: icons.PillsWhite,
   },
   {
@@ -195,12 +195,7 @@ export const faqs: Copy[] = [
     title:
       "Do I order the products that are included in my care plan or do you do it for me?",
     content:
-      "After you’ve approved your recommended products, we’ll order your THC products for you and let you know when they’re ready for pick-up. You can order any non-THC products (e.g. CBD, CBN or CBG products) directly from our recommended retail partners for home delivery.",
-  },
-  {
-    title: "Do I need a medical card to use eo?",
-    content:
-      "No. You can use eo without a medical card. We’ll ask you about your medical card status when you’re sharing your profile information.",
+      "After you’ve approved your recommended products, we’ll order your THC products for you and let you know when they’re ready for pick-up. You can order any non-THC products (e.g. CBD, CBN or CBG products) direct from our recommended retail partners for home delivery.",
   },
   {
     title: "What should I bring with me when I pick-up my products?",

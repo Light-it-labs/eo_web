@@ -1,21 +1,45 @@
+import { useQuery } from "@tanstack/react-query";
 import { useSearchParams } from "react-router-dom";
 
+import { useApi } from "~/api/useApi";
 import { JotformFrame } from "~/components/JotformFrame";
+import { Loading } from "~/components/Loading";
+import { SurveyResponded } from "~/components/SurveyResponded";
 import {
   SENIOR_CAREGIVER_SURVEY_ID,
   SENIOR_PATIENT_SURVEY_ID,
 } from "~/configs/env";
+import { scapeParamFromQuery } from "~/helpers";
+import { useMount } from "~/hooks/useMount";
 import { LayoutDefault } from "~/layouts";
+import { useSurveyStore } from "~/stores/useSurveyStore";
 
 
 export const SeniorSurveyForm = () => {
-  const [params] = useSearchParams();
-  const email = params.get("email") || "";
-  const symptoms = params.get("symptoms") || "";
-  const profiled = params.get("profiled") ?? "patient";
+  const { surveyStatus } = useApi();
+  const { setPhase, setEmail } = useSurveyStore();
+  const [searchParams] = useSearchParams();
+  const email = scapeParamFromQuery("email", searchParams);
+  const symptoms = searchParams.get("symptoms") || "";
+  const profiled = searchParams.get("profiled") ?? "patient";
+  const phase = searchParams.get("phase") ?? "";
 
-  const searchParam = new URLSearchParams({
-    email,
+  if (!email) {
+    window.location.href = "https://eo.care";
+  }
+
+  useMount(() => {
+    setPhase(phase);
+    setEmail(email as string);
+  });
+
+  const { data, isLoading, isSuccess } = useQuery({
+    queryFn: () => (email && phase ? surveyStatus(email, phase) : null),
+    queryKey: ["surveyStatus"],
+  });
+
+  const params = new URLSearchParams({
+    email: email as string,
     symptoms,
   });
 
@@ -25,9 +49,14 @@ export const SeniorSurveyForm = () => {
       : SENIOR_CAREGIVER_SURVEY_ID;
 
   return (
-    <LayoutDefault>
+    <LayoutDefault className="bg-gradient lg:bg-ice-silver lg:bg-none">
       <div className="mb-10 flex h-screen flex-col">
-        <JotformFrame formId={formId} searchParam={searchParam} />
+        {isLoading && <Loading />}
+        {!isLoading && isSuccess && data?.data.active ? (
+          <JotformFrame formId={formId} searchParam={params} />
+        ) : (
+          isSuccess && data?.data && !data?.data?.active && <SurveyResponded />
+        )}
       </div>
     </LayoutDefault>
   );
