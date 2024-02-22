@@ -43,19 +43,19 @@ export function FooterFull() {
             Home
           </a>
           <a
-            href="https://eo.care/web/cancer"
+            href="https://eo.care/web/for-cancer"
             className="mb-0 py-2  font-new-hero text-[14px] font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mb-2 md:mr-2"
           >
             For Cancer Care
           </a>
           <a
-            href="https://eo.care/web/seniors"
+            href="https://eo.care/web/for-seniors"
             className="mb-0 py-2  font-new-hero text-[14px] font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mb-2 md:mr-2"
           >
             For Seniors
           </a>
           <a
-            href="https://eo.care/web/seniors"
+            href="https://eo.care/web/for-employers"
             className="mb-0 py-2  font-new-hero text-[14px] font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mb-2 md:mr-2"
           >
             For Employers
@@ -73,7 +73,7 @@ export function FooterFull() {
             About
           </a>
           <a
-            href="https://eo.care/web/faqs"
+            href="https://eo.care/web/frequently-asked-questions"
             className="mb-0 py-2  font-new-hero text-[14px] font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mb-2 md:mr-2"
           >
             FAQs
@@ -85,13 +85,13 @@ export function FooterFull() {
             Blog
           </a>
           <a
-            href="https://eo.care/blog-posts"
+            href="https://eo.care/methodology"
             className="mb-0 py-2  font-new-hero text-[14px] font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mb-2 md:mr-2"
           >
             Methodology
           </a>
           <a
-            href="https://eo.care/web/home"
+            href="https://eo.care/research"
             className="mb-0 py-2  font-new-hero text-[14px] font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mb-2 md:mr-2"
           >
             Research
