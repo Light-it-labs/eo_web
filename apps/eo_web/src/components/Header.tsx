@@ -106,7 +106,7 @@ export const Header = () => {
             variant="large"
             className="mb-4 whitespace-normal text-[18px] font-semibold leading-normal text-gray-800 md:mb-6 md:text-[22px]"
           >
-            Have questions or prefer to talk with an eo rep?
+            Have questions or prefer to talk with an EO rep?
           </Typography>
           <ul className="list-disc pl-4">
             <li>

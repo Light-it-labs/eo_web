@@ -27,23 +27,23 @@ export const PrePlan = () => {
   const { nonWorkdayPlan, workdayPlan, whyRecommended } = usePrePlan(
     !values
       ? {
-          avoidPresentation: [],
-          currentlyUsingCannabisProducts: false,
-          openToUseThcProducts: [],
-          reasonToUse: [],
-          symptomsWorseTimes: [],
-          thcTypePreferences: ThcProductPreferencesEnum.notSure,
-        }
+        avoidPresentation: [],
+        currentlyUsingCannabisProducts: false,
+        openToUseThcProducts: [],
+        reasonToUse: [],
+        symptomsWorseTimes: [],
+        thcTypePreferences: ThcProductPreferencesEnum.notSure,
+      }
       : {
-          avoidPresentation: values.areThere,
-          currentlyUsingCannabisProducts:
-            values.usingCannabisProducts === "Yes",
-          openToUseThcProducts:
-            values.workday_allow_intoxication_nonworkday_allow_intoxi,
-          reasonToUse: values.whatBrings,
-          symptomsWorseTimes: values.symptoms_worse_times,
-          thcTypePreferences: values.thc_type_preferences,
-        },
+        avoidPresentation: values.areThere,
+        currentlyUsingCannabisProducts:
+          values.usingCannabisProducts === "Yes",
+        openToUseThcProducts:
+          values.workday_allow_intoxication_nonworkday_allow_intoxi,
+        reasonToUse: values.whatBrings,
+        symptomsWorseTimes: values.symptoms_worse_times,
+        thcTypePreferences: values.thc_type_preferences,
+      },
   );
 
   const navigate = useNavigate();
@@ -275,10 +275,10 @@ export const PrePlan = () => {
               recommendations should be informed by a more complete
               understanding of your current symptoms, specific diagnoses,
               medications, or medical history, and have not been reviewed or
-              approved by an eo clinician. To most responsibly define and
+              approved by an EO clinician. To most responsibly define and
               maintain an optimal cannabis regimen,
               <a href={ROUTES.register} className="underline">
-                get your eo care plan now.
+                get your EO care plan now.
               </a>
             </Typography>
           </footer>

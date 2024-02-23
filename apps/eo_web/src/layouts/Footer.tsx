@@ -37,27 +37,27 @@ export function Footer() {
           </Typography>
           <a
             href="https://partner.eo.care/about"
-            className="mb-0 py-2 font-new-hero  font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mb-2 md:mr-2"
+            className="mb-0 py-2 font-new-hero font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mb-2 md:mr-2"
           >
             About
           </a>
           <a
             href="https://www.eo.care/kit/terms-of-use"
-            className="mb-0 py-2 font-new-hero  font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mb-2 md:mr-2"
+            className="mb-0 py-2 font-new-hero font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mb-2 md:mr-2"
           >
             Terms of Use
           </a>
           <a
             href="https://www.eo.care/privacy-policy"
-            className="mb-0 py-2 font-new-hero  font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mb-2 md:mr-2"
+            className="mb-0 py-2 font-new-hero font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mb-2 md:mr-2"
           >
             Privacy Policy
           </a>
           <a
             href="https://www.eo.care"
-            className="mb-0 py-2 font-new-hero  font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mb-2 md:mr-2"
+            className="mb-0 py-2 font-new-hero font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mb-2 md:mr-2"
           >
-            Visit eo
+            Visit EO
           </a>
         </div>
         <div className="flex flex-col md:flex-row">

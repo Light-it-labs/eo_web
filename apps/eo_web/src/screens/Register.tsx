@@ -202,7 +202,7 @@ export const Register = () => {
                   >
                     Privacy Policy{" "}
                   </a>{" "}
-                  of eo.
+                  of EO.
                 </Typography>
               }
             />

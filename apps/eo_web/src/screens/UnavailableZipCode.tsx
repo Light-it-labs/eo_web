@@ -14,7 +14,7 @@ export const UnavailableZipCode = () => {
     <LayoutDefault>
       <div className="flex h-full h-full flex-col items-center justify-center px-2">
         <Typography variant="large" font="bold" className="mx-10 text-center">
-          Sorry, this eo offering is not currently{" "}
+          Sorry, this EO offering is not currently{" "}
           <br className="hidden md:block" />
           available in {zip}. We’ll notify you
           <br className="hidden md:block" />
