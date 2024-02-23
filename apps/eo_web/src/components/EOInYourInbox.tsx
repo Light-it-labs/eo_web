@@ -9,7 +9,7 @@ export const EOInYourInbox = () => {
           font="bold"
           className="mb-4 text-center text-[32px] leading-[40px] text-skunk"
         >
-          eo in your inbox
+          EO in your inbox
         </Typography>
         <Typography className="text-center text-skunk-mid">
           Rollouts in new markets, new partnerships, research initiatives and
