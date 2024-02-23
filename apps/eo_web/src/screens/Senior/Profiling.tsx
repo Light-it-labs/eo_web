@@ -18,7 +18,7 @@ export const Profiling = () => {
     email: account.email,
     states: state ?? "",
     symptoms: symptoms.join(","),
-    payment: usePayment ? "yes" : "no",
+    usePayment: usePayment ? "yes" : "no",
     origin,
     experience,
   });
