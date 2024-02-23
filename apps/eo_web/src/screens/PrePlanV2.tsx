@@ -329,7 +329,7 @@ export const PrePlanV2 = () => {
               recommendations should be informed by a more complete
               understanding of your current symptoms, specific diagnoses,
               medications, or medical history, and have not been reviewed or
-              approved by an eo clinician. To most responsibly define and
+              approved by an EO clinician. To most responsibly define and
               maintain an optimal cannabis regimen,{" "}
               <span
                 onClick={() => {
@@ -337,7 +337,7 @@ export const PrePlanV2 = () => {
                 }}
                 className="poin cursor-pointer font-bold underline"
               >
-                get your eo care plan now.
+                get your EO care plan now.
               </span>
             </Typography>
           </footer>

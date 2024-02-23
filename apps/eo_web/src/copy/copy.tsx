@@ -103,7 +103,7 @@ export const CarrouselItems = [
 
 export const pilotFaqs: Copy[] = [
   {
-    title: "How much does eo cost?",
+    title: "How much does EO cost?",
     content: "Your care is completely free. And we’ll reimburse you for the cost of your products. Just send a picture of your receipt to support@eo.care each time you make a purchase and we’ll provide you with an Amazon gift card in an equal amount.",
   },
   {
@@ -124,19 +124,19 @@ export const pilotFaqs: Copy[] = [
   },
   {
     title: "Why can’t I see my initial care plan as soon as I submit my profile information?",
-    content: "Every profile submitted and piece of feedback provided is initially assessed by our proprietary data model and a draft care plan or care plan update is created. That plan is then closely reviewed and edited as needed by a licensed eo clinician. This can take as long as 24 hours or this can take as little as an hour, depending on the complexity of your profile, your care plan and clinician availability.",
+    content: "Every profile submitted and piece of feedback provided is initially assessed by our proprietary data model and a draft care plan or care plan update is created. That plan is then closely reviewed and edited as needed by a licensed EO clinician. This can take as long as 24 hours or this can take as little as an hour, depending on the complexity of your profile, your care plan and clinician availability.",
   },
   {
     title: "How do you decide which products, doses and times of use are most right for me?",
     content: (
       <>
-        The eo data model and your clinical team bases all recommendations on
+        The EO data model and your clinical team bases all recommendations on
         relevant aspects of your medical history, cannabis use history, your
         daily schedule and the feedback you provide as you use your care plan.
         <br />
         <br />
         The model and your team also considers the profiles, experiences and
-        feedback provided by other eo patients like you and the recommendations
+        feedback provided by other EO patients like you and the recommendations
         of our proprietary data model. And your clinical team (of course) always
         draws upon their extensive cannabis treatment and research experience to
         provide the best possible care for you.
@@ -187,9 +187,9 @@ export const pilotFaqs: Copy[] = [
 
 export const faqs: Copy[] = [
   {
-    title: "How much does eo cost?",
+    title: "How much does EO cost?",
     content:
-      "eo costs $14 per month for your clinician-reviewed plan, ongoing plan optimization based on your feedback and unlimited phone calls and in-app messaging with our care team. You can cancel your subscription any time. Note that the cost of your recommended products is NOT included in your plan unless you’re participating in an eo clinical pilot.",
+      "EO costs $14 per month for your clinician-reviewed plan, ongoing plan optimization based on your feedback and unlimited phone calls and in-app messaging with our care team. You can cancel your subscription any time. Note that the cost of your recommended products is NOT included in your plan unless you’re participating in an EO clinical pilot.",
   },
   {
     title:
@@ -211,20 +211,20 @@ export const faqs: Copy[] = [
     title:
       "Why can’t I see my initial care plan as soon as I submit my profile information?",
     content:
-      "Every profile submitted and piece of feedback provided is initially assessed by our proprietary data model and a draft care plan or care plan update is created. That plan is then closely reviewed and edited as needed by a licensed eo clinician. This can take as long as 24 hours or this can take as little as an hour, depending on the complexity of your profile, your care plan and clinician availability.",
+      "Every profile submitted and piece of feedback provided is initially assessed by our proprietary data model and a draft care plan or care plan update is created. That plan is then closely reviewed and edited as needed by a licensed EO clinician. This can take as long as 24 hours or this can take as little as an hour, depending on the complexity of your profile, your care plan and clinician availability.",
   },
   {
     title:
       "How do you decide which products, doses and times of use are most right for me?",
     content: (
       <>
-        The eo data model and your clinical team bases all recommendations on
+        The EO data model and your clinical team bases all recommendations on
         relevant aspects of your medical history, cannabis use history, your
         daily schedule and the feedback you provide as you use your care plan.
         <br />
         <br />
         The model and your team also considers the profiles, experiences and
-        feedback provided by other eo patients like you and the recommendations
+        feedback provided by other EO patients like you and the recommendations
         of our proprietary data model. And your clinical team (of course) always
         draws upon their extensive cannabis treatment and research experience to
         provide the best possible care for you.

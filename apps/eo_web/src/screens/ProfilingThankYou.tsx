@@ -90,12 +90,12 @@ export const ProfilingThankYou = () => {
           <a href="tel:+1-877-707-0706">877-707-0706</a>, or{" "}
           <a
             className="cursor-pointer font-new-hero text-[22px] underline"
-            href="https://eo-care-telemed.as.me/schedule.php"
+            href="https://calendly.com/eo-care/30min?back=1"
             target="_blank"
           >
-            schedule a free consultation
+            schedule a video chat
           </a>
-          .
+          {" "}with a member of our team.
         </Typography>
       </AllDonePanel>
       <HowEOWorks pilot={channel === "cancer" && !usePayment} />
