@@ -8,7 +8,7 @@ import { Typography, icons } from "@eo/ui";
 
 export function Footer() {
   return (
-    <footer className="flex flex-col justify-center gap-4 bg-black px-4 py-[100px] md:flex-row md:pl-0 md:pl-[10px] lg:pl-5">
+    <footer className="flex flex-col justify-center gap-4 bg-black px-4 py-[100px] md:flex-row md:pl-[10px] lg:pl-5">
       <section>
         <icons.EoWhiteIcon
           onClick={() => {
