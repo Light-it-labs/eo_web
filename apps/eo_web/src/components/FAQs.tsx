@@ -1,14 +1,13 @@
 import { Typography } from '@eo/ui'
 import React from 'react'
-import { faqs, pilotFaqs } from '~/copy/copy'
+import { faqs, type Copy } from '~/copy/copy'
 import { Collapsible } from './Collapsible'
 
 interface FAQsProps {
-  pilot?: boolean
+  faqList?: Copy[]
 }
 
-export const FAQs = ({ pilot = false }: FAQsProps) => {
-  const faqList = pilot ? pilotFaqs : faqs
+export const FAQs = ({ faqList = faqs }: FAQsProps) => {
   return (
     <section className="px-6 py-12 md:mx-0 md:my-[100px]">
       <div className="mx-auto my-0 flex max-w-[900px] flex-col">

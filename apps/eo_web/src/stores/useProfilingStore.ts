@@ -21,7 +21,9 @@ export type Flows =
   | "cancer_pilot"
   | "employer_center"
   | "cancer_support_community"
-  | "twist_out_cancer";
+  | "twist_out_cancer"
+  | "resource_center_1"
+  | "resource_center_2";
 
 export interface ProfilingStore {
   symptoms: string[];
