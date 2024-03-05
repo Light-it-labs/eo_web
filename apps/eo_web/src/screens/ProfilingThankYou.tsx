@@ -16,7 +16,6 @@ import { LayoutDefault } from "~/layouts";
 import { FooterFull } from "~/layouts/FooterFull";
 import { ROUTES } from "~/router";
 import { useProfilingStore } from "~/stores/useProfilingStore";
-import { cOrgFaqs, faqs, pilotFaqs } from "~/copy/copy";
 
 
 export const ProfilingThankYou = () => {
@@ -71,11 +70,6 @@ export const ProfilingThankYou = () => {
     window.location.href = WEB_APP_URL;
   };
 
-  const flowsWithCOrgFaqs = ["c_org", "twist_out_cancer", "resource_center_1", "resource_center_2"]
-  let faqList = faqs
-  if (flowsWithCOrgFaqs.includes(flow)) faqList = cOrgFaqs
-  else if (channel === "cancer" && !usePayment) faqList = pilotFaqs
-
   return (
     <LayoutDefault>
       <AllDonePanel>
@@ -105,7 +99,7 @@ export const ProfilingThankYou = () => {
         </Typography>
       </AllDonePanel>
       <HowEOWorks pilot={channel === "cancer" && !usePayment} />
-      <FAQs faqList={faqList} />
+      <FAQs channel={channel ?? undefined} flow={flow} usePayment={usePayment} />
       <FooterFull />
     </LayoutDefault>
   );

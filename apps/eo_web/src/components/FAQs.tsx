@@ -1,13 +1,21 @@
 import { Typography } from '@eo/ui'
 import React from 'react'
-import { faqs, type Copy } from '~/copy/copy'
+import { faqs, cOrgFaqs, pilotFaqs } from '~/copy/copy'
 import { Collapsible } from './Collapsible'
+import { type Channel } from '~/stores/useProfilingStore'
 
 interface FAQsProps {
-  faqList?: Copy[]
+  usePayment?: boolean
+  flow?: string
+  channel?: Channel
 }
 
-export const FAQs = ({ faqList = faqs }: FAQsProps) => {
+export const FAQs = ({ usePayment = false, channel, flow }: FAQsProps) => {
+  const flowsWithCOrgFaqs = ["c_org", "twist_out_cancer", "resource_center_1", "resource_center_2"]
+  let faqList = faqs
+  if (flow && flowsWithCOrgFaqs.includes(flow)) faqList = cOrgFaqs
+  else if (channel === "cancer" && !usePayment) faqList = pilotFaqs
+
   return (
     <section className="px-6 py-12 md:mx-0 md:my-[100px]">
       <div className="mx-auto my-0 flex max-w-[900px] flex-col">

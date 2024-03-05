@@ -14,7 +14,6 @@ import { LayoutDefault } from "~/layouts";
 import { FooterFull } from "~/layouts/FooterFull";
 import { useProfilingStore } from "~/stores/useProfilingStore";
 import { useSurveyStore } from "~/stores/useSurveyStore";
-import { cOrgFaqs, faqs, pilotFaqs } from "~/copy/copy";
 
 
 export const CancerSurveyThankYou = () => {
@@ -49,11 +48,6 @@ export const CancerSurveyThankYou = () => {
 
   useMount(() => mutate({ email, phase, submission_id }));
 
-  const flowsWithCOrgFaqs = ["c_org", "twist_out_cancer", "resource_center_1", "resource_center_2"]
-  let faqList = faqs
-  if (flowsWithCOrgFaqs.includes(flow)) faqList = cOrgFaqs
-  else if (!usePayment) faqList = pilotFaqs
-
   return (
     <LayoutDefault>
       <AllDonePanel>
@@ -79,7 +73,7 @@ export const CancerSurveyThankYou = () => {
         </Typography>
       </AllDonePanel>
       <HowEOWorks pilot={!usePayment} />
-      <FAQs faqList={faqList} />
+      <FAQs channel="cancer" flow={flow} usePayment={usePayment} />
       <FooterFull />
     </LayoutDefault>
   );
