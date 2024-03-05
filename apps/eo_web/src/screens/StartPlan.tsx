@@ -27,7 +27,7 @@ export const StartPlan = () => {
             <Typography
               className="text-center text-skun-mid text-sm lg:text-lg leading-[24px] lg:leading-[30px]"
             >
-              Go to <a href={`${WEB_APP_URL}/login`} className="underline">{WEB_APP_URL}/login</a> to log into your account. To access your care plan, you’ll need the ID and password you created when you set-up your eo account.
+              Go to <a href={`${WEB_APP_URL}login`} className="cursor-pointer font-new-hero text-sm lg:text-lg underline">{WEB_APP_URL}login</a> to log into your account. To access your care plan, you’ll need the ID and password you created when you set-up your eo account.
             </Typography>
           </NumberedStep>
           <NumberedStep number={2} title="Click the blue button">
@@ -62,7 +62,7 @@ export const StartPlan = () => {
         >
           Have a question? We’re here to help. Email support@eo.care, call 888-823-6143, or{" "}
           <a
-            className="underline"
+            className="cursor-pointer font-new-hero text-sm md:text-[22px] underline"
             href={WEB_APP_URL}
             target="_blank"
           >

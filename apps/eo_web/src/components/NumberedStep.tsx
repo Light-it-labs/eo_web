@@ -11,7 +11,7 @@ export const NumberedStep = ({ number, title, children }: NumberedStepProps) => 
   return (
     <div className="flex flex-col items-center gap-4 max-w-[360px]">
       <div className="rounded-full bg-electric-blue w-[70px] h-[70px] items-center justify-center flex">
-        <span className="text-white font-bold text-[40px] ">{number}</span>
+        <span className="text-white font-bold text-[40px] font-new-hero">{number}</span>
       </div>
       <Typography
         font="bold"
