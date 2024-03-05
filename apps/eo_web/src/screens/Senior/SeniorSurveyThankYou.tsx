@@ -70,7 +70,7 @@ export const SeniorSurveyThankYou = () => {
         </Typography>
       </AllDonePanel>
       <HowEOWorks />
-      <FAQs />
+      <FAQs channel="senior" />
       <FooterFull />
     </LayoutDefault>
   );

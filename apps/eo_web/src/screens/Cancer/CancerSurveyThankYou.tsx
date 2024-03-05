@@ -20,7 +20,7 @@ export const CancerSurveyThankYou = () => {
   const [searchParams] = useSearchParams();
 
   const { email, phase } = useSurveyStore();
-  const { usePayment } = useProfilingStore();
+  const { usePayment, flow } = useProfilingStore();
 
   const submission_id = searchParams.get("submission_id") ?? "";
 
@@ -73,7 +73,7 @@ export const CancerSurveyThankYou = () => {
         </Typography>
       </AllDonePanel>
       <HowEOWorks pilot={!usePayment} />
-      <FAQs pilot={!usePayment} />
+      <FAQs channel="cancer" flow={flow} usePayment={usePayment} />
       <FooterFull />
     </LayoutDefault>
   );
