@@ -22,6 +22,7 @@ export const ROUTES = {
   profilingThankYou: "/profiling-thank-you",
   accountSetup: "/account-setup",
   roiCalculator: "/roi-calculator",
+  RoiCalculatorThankYou: "/roi-calculator-thank-you",
 
   // Cancer PATH
   cancerForm: "/cancer/profiling",
