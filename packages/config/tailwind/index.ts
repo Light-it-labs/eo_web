@@ -3,10 +3,6 @@ import forms from "@tailwindcss/forms";
 import typography from "@tailwindcss/typography";
 import type { Config } from "tailwindcss";
 
-
-
-
-
 export default {
   content: [
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -159,6 +155,7 @@ export default {
           600: "#7C7B7A",
           700: "#697079",
           800: "#535A63",
+          950: "#2D3137",
           1000: "#1B1D21",
         },
         cream: {

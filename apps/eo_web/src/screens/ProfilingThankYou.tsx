@@ -99,7 +99,7 @@ export const ProfilingThankYou = () => {
         </Typography>
       </AllDonePanel>
       <HowEOWorks pilot={channel === "cancer" && !usePayment} />
-      <FAQs pilot={channel === "cancer" && !usePayment} />
+      <FAQs channel={channel ?? undefined} flow={flow} usePayment={usePayment} />
       <FooterFull />
     </LayoutDefault>
   );
