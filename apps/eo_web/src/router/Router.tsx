@@ -93,7 +93,7 @@ export const Router = () => {
       <Route element={<ROICalculator />} path={ROUTES.roiCalculator} />
       <Route
         element={<RoiCalculatorThankYou />}
-        path={ROUTES.RoiCalculatorThankYou}
+        path={ROUTES.roiCalculatorThankYou}
       />
       <Route element={<StartPlan />} path={ROUTES.startPlan} />
       <Route
