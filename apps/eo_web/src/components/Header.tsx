@@ -36,7 +36,7 @@ export const Header = () => {
         viewBox="0 0 42 20"
         fill="none"
         onClick={() => {
-          window.open("https://www.eo.care/web/privacy-policy", "_blank");
+          window.open("https://www.eo.care", "_blank");
         }}
       >
         <path
