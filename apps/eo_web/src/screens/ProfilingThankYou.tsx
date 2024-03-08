@@ -98,7 +98,7 @@ export const ProfilingThankYou = () => {
           with a member of our team.
         </Typography>
       </AllDonePanel>
-      <HowEOWorks pilot={channel === "cancer" && !usePayment} />
+      <HowEOWorks pilot={flow == "cancer_pilot"} />
       <FAQs
         channel={channel ?? undefined}
         flow={flow}
