@@ -9,5 +9,5 @@
   "cSpell.diagnosticLevel": "Error",
   "[typescriptreact]": {
     "editor.defaultFormatter": "vscode.typescript-language-features"
-  },
+  }
 }

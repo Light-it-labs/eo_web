@@ -1,14 +1,30 @@
-import { Typography } from '@eo/ui'
-import React from 'react'
-import { faqs, pilotFaqs } from '~/copy/copy'
-import { Collapsible } from './Collapsible'
+import React from "react";
+
+import { Typography } from "@eo/ui";
+
+import { cOrgFaqs, faqs, pilotFaqs } from "~/copy/copy";
+import { type Channel } from "~/stores/useProfilingStore";
+import { Collapsible } from "./Collapsible";
+
 
 interface FAQsProps {
-  pilot?: boolean
+  usePayment?: boolean;
+  flow?: string;
+  channel?: Channel;
 }
 
-export const FAQs = ({ pilot = false }: FAQsProps) => {
-  const faqList = pilot ? pilotFaqs : faqs
+export const FAQs = ({ usePayment = false, channel, flow }: FAQsProps) => {
+  const flowsWithCOrgFaqs = [
+    "c_org",
+    "twist_out_cancer",
+    "cancer_support_community",
+    "resource_center_1",
+    "resource_center_2",
+  ];
+  let faqList = faqs;
+  if (flow && flowsWithCOrgFaqs.includes(flow)) faqList = cOrgFaqs;
+  else if (channel === "cancer" && !usePayment) faqList = pilotFaqs;
+
   return (
     <section className="px-6 py-12 md:mx-0 md:my-[100px]">
       <div className="mx-auto my-0 flex max-w-[900px] flex-col">
@@ -30,5 +46,5 @@ export const FAQs = ({ pilot = false }: FAQsProps) => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};

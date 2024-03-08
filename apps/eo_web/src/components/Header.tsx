@@ -36,7 +36,7 @@ export const Header = () => {
         viewBox="0 0 42 20"
         fill="none"
         onClick={() => {
-          window.open("https://www.eo.care/web/privacy-policy", "_blank");
+          window.open("https://www.eo.care", "_blank");
         }}
       >
         <path
@@ -90,7 +90,7 @@ export const Header = () => {
         )}
       </div>
       {/* eslint-disable-next-line @typescript-eslint/no-empty-function */}
-      <Modal isOpen={openModal} onClose={() => { }} controller={setOpenModal}>
+      <Modal isOpen={openModal} onClose={() => {}} controller={setOpenModal}>
         <div
           className="flex h-full w-full flex-col justify-center rounded-3xl bg-white px-10 py-[50px] leading-[48px]
                     shadow-lg md:px-[60px] md:py-20"
@@ -130,10 +130,10 @@ export const Header = () => {
               >
                 Call{" "}
                 <a
-                  href="tel:877-707-0706"
+                  href="tel:888-823-6143"
                   className="underline decoration-1 underline-offset-8"
                 >
-                  877-707-0706
+                  888-823-6143
                 </a>
               </Typography>
             </li>

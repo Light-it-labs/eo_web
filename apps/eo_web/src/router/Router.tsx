@@ -5,6 +5,7 @@ import { ROUTES } from "~/router/routes";
 import { AccountCreation } from "~/screens/AccountCreation";
 import { AthleteSurveyForm } from "~/screens/Athlete/AthleteSurveyForm";
 import { AthleteSurveyThankYou } from "~/screens/Athlete/AthleteSurveyThankYou";
+import { CancerSurveyThankYou } from "~/screens/Cancer/CancerSurveyThankYou";
 import { Profiling } from "~/screens/Cancer/Profiling";
 import { SurveyForm } from "~/screens/Cancer/SurveyForm";
 import { EligibleProfile } from "~/screens/EligibleProfile";
@@ -16,12 +17,15 @@ import { PrePlan } from "~/screens/PrePlan";
 import { PrePlanV2 } from "~/screens/PrePlanV2";
 import { ProfilingIntroQuestions } from "~/screens/ProfilingIntroQuestions";
 import { ProfilingThankYou } from "~/screens/ProfilingThankYou";
+import { ROICalculator } from "~/screens/ROICalculator";
 import { RecoveryPassword } from "~/screens/RecoveryPassword";
 import { Register } from "~/screens/Register";
 import { RegisterComplete } from "~/screens/RegisterComplete";
+import { RoiCalculatorThankYou } from "~/screens/RoiCalculatorThankYou";
 import { Profiling as SeniorProfiling } from "~/screens/Senior/Profiling";
 import { SeniorSurveyForm } from "~/screens/Senior/SeniorSurveyForm";
 import { SeniorSurveyThankYou } from "~/screens/Senior/SeniorSurveyThankYou";
+import { StartPlan } from "~/screens/StartPlan";
 import { UnavailableZipCode } from "~/screens/UnavailableZipCode";
 import { UserRolSelector } from "~/screens/UserRolSelector";
 import { ZipCodeValidation } from "~/screens/ZipCodeValidation";
@@ -30,9 +34,6 @@ import { ProfilingOneRedirect } from "~/screens/profiling/ProfilingOneRedirect";
 import { ProfilingTwo } from "~/screens/profiling/ProfilingTwo";
 import { ProfilingTwoRedirect } from "~/screens/profiling/ProfilingTwoRedirect";
 import { ProtectedRoute } from "./ProtectedRoute";
-import { CancerSurveyThankYou } from "~/screens/Cancer/CancerSurveyThankYou";
-import { ROICalculator } from "~/screens/ROICalculator";
-
 
 export const Router = () => {
   return (
@@ -91,6 +92,11 @@ export const Router = () => {
       <Route element={<UserRolSelector />} path={ROUTES.userRolSelector} />
       <Route element={<ROICalculator />} path={ROUTES.roiCalculator} />
       <Route
+        element={<RoiCalculatorThankYou />}
+        path={ROUTES.roiCalculatorThankYou}
+      />
+      <Route element={<StartPlan />} path={ROUTES.startPlan} />
+      <Route
         element={<ProfilingIntroQuestions />}
         path={ROUTES.introQuestions}
       />
@@ -100,16 +106,25 @@ export const Router = () => {
       {/* CANCER */}
       <Route element={<Profiling />} path={ROUTES.cancerForm} />
       <Route element={<SurveyForm />} path={ROUTES.cancerSurvey} />
-      <Route element={<CancerSurveyThankYou />} path={ROUTES.cancerSurveyThankYou} />
+      <Route
+        element={<CancerSurveyThankYou />}
+        path={ROUTES.cancerSurveyThankYou}
+      />
 
       {/* ATHLETES */}
       <Route element={<AthleteSurveyForm />} path={ROUTES.athleteSurvey} />
-      <Route element={<AthleteSurveyThankYou />} path={ROUTES.athleteSurveyThankYou} />
+      <Route
+        element={<AthleteSurveyThankYou />}
+        path={ROUTES.athleteSurveyThankYou}
+      />
 
       {/* SENIOR */}
       <Route element={<SeniorProfiling />} path={ROUTES.seniorForm} />
       <Route element={<SeniorSurveyForm />} path={ROUTES.seniorSurvey} />
-      <Route element={<SeniorSurveyThankYou />} path={ROUTES.seniorSurveyThankYou} />
+      <Route
+        element={<SeniorSurveyThankYou />}
+        path={ROUTES.seniorSurveyThankYou}
+      />
     </Routes>
   );
 };

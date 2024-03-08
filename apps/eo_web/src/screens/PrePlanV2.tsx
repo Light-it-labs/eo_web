@@ -15,9 +15,6 @@ import { getImageForForm } from "~/helpers/PrePlan";
 import { LayoutDefault } from "~/layouts";
 
 
-
-
-
 export const PrePlanV2 = () => {
   const [searchParams] = useSearchParams();
 
@@ -247,7 +244,7 @@ export const PrePlanV2 = () => {
                     <br />
                     <br />
                     You can reach our customer support team by calling the
-                    following phone number: 877-707-0706. Our representatives
+                    following phone number: 888-823-6143. Our representatives
                     will be delighted to assist you and address any inquiries
                     you may have. Alternatively, you can also send us an email
                     at support@eo.care. Our support team regularly checks this
@@ -291,8 +288,9 @@ export const PrePlanV2 = () => {
                     }
                     className="mx-auto my-3"
                     onClick={() => {
-                      window.location.href = `/${union}/profile-onboarding?malady=${jotformAnswers?.malady || "Pain"
-                        }&union=${union}`;
+                      window.location.href = `/${union}/profile-onboarding?malady=${
+                        jotformAnswers?.malady || "Pain"
+                      }&union=${union}`;
                     }}
                   >
                     <Typography font="medium">Redirect</Typography>
