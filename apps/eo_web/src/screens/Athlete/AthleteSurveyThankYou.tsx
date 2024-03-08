@@ -6,15 +6,12 @@ import { toast } from "react-toastify";
 import { Typography } from "@eo/ui";
 
 import { useApi } from "~/api/useApi";
+import { AllDonePanel } from "~/components/AllDonePanel";
+import { FAQs } from "~/components/FAQs";
+import { HowEOWorks } from "~/components/HowEOWorks";
 import { useMount } from "~/hooks/useMount";
 import { LayoutDefault } from "~/layouts";
-import { AllDonePanel } from "~/components/AllDonePanel";
-import { HowEOWorks } from "~/components/HowEOWorks";
-import { FAQs } from "~/components/FAQs";
 import { FooterFull } from "~/layouts/FooterFull";
-
-
-
 
 
 export const AthleteSurveyThankYou = () => {
@@ -52,21 +49,22 @@ export const AthleteSurveyThankYou = () => {
         <Typography
           variant="base"
           font="regular"
-          className="text-center text-[22px] font-normal leading-[36px] max-w-xl"
+          className="max-w-xl text-center text-[22px] font-normal leading-[36px]"
         >
           We received your feedback! <br />
           <br />
           Thank you! <br />
           <br />
-          Have questions? We’re here. Email support@eo.care, call <a href="tel:+1-877-707-0706">877-707-0706</a>, or {" "}
+          Have questions? We’re here. Email support@eo.care, call{" "}
+          <a href="tel:+1-888-823-6143">888-823-6143</a>, or{" "}
           <a
             className="cursor-pointer font-new-hero text-[22px] underline"
             href="https://calendly.com/eo-care/30min?back=1"
             target="_blank"
           >
             schedule a video chat
-          </a>
-          {" "}with a member of our team.
+          </a>{" "}
+          with a member of our team.
         </Typography>
       </AllDonePanel>
       <HowEOWorks />

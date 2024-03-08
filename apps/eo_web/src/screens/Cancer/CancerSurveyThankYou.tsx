@@ -61,15 +61,15 @@ export const CancerSurveyThankYou = () => {
           Thank you! <br />
           <br />
           Have questions? We’re here. Email support@eo.care, call{" "}
-          <a href="tel:+1-877-707-0706">877-707-0706</a>, or{" "}
+          <a href="tel:+1-888-823-6143">888-823-6143</a>, or{" "}
           <a
             className="cursor-pointer font-new-hero text-[22px] underline"
             href="https://calendly.com/eo-care/30min?back=1"
             target="_blank"
           >
             schedule a video chat
-          </a>
-          {" "}with a member of our team.
+          </a>{" "}
+          with a member of our team.
         </Typography>
       </AllDonePanel>
       <HowEOWorks pilot={!usePayment} />

@@ -72,10 +72,10 @@ export function Footer() {
               Call:
             </Typography>
             <a
-              href="tel:877-707-0706"
+              href="tel:888-823-6143"
               className="mb-2 pb-2 font-new-hero font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mr-2"
             >
-              877-707-0706
+              888-823-6143
             </a>
             <Typography className="mb-0 pt-2  font-normal leading-[22px] text-white opacity-50 md:mr-2 ">
               Email:
