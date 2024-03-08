@@ -37,7 +37,7 @@ export const FAQs = ({ usePayment = false, channel, flow }: FAQsProps) => {
         </Typography>
         <div className="flex flex-col gap-6">
           {faqList.map(({ title, content }) => (
-            <Collapsible key={title} title={title} active={true}>
+            <Collapsible key={title} title={title} active={false}>
               <Typography className="text-[18px] leading-[26px] text-gray-800">
                 {content}
               </Typography>
