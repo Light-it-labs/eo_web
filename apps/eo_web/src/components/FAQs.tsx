@@ -1,20 +1,29 @@
-import { Typography } from '@eo/ui'
-import React from 'react'
-import { faqs, cOrgFaqs, pilotFaqs } from '~/copy/copy'
-import { Collapsible } from './Collapsible'
-import { type Channel } from '~/stores/useProfilingStore'
+import React from "react";
+
+import { Typography } from "@eo/ui";
+
+import { cOrgFaqs, faqs, pilotFaqs } from "~/copy/copy";
+import { type Channel } from "~/stores/useProfilingStore";
+import { Collapsible } from "./Collapsible";
+
 
 interface FAQsProps {
-  usePayment?: boolean
-  flow?: string
-  channel?: Channel
+  usePayment?: boolean;
+  flow?: string;
+  channel?: Channel;
 }
 
 export const FAQs = ({ usePayment = false, channel, flow }: FAQsProps) => {
-  const flowsWithCOrgFaqs = ["c_org", "twist_out_cancer", "resource_center_1", "resource_center_2"]
-  let faqList = faqs
-  if (flow && flowsWithCOrgFaqs.includes(flow)) faqList = cOrgFaqs
-  else if (channel === "cancer" && !usePayment) faqList = pilotFaqs
+  const flowsWithCOrgFaqs = [
+    "c_org",
+    "twist_out_cancer",
+    "cancer_support_community",
+    "resource_center_1",
+    "resource_center_2",
+  ];
+  let faqList = faqs;
+  if (flow && flowsWithCOrgFaqs.includes(flow)) faqList = cOrgFaqs;
+  else if (channel === "cancer" && !usePayment) faqList = pilotFaqs;
 
   return (
     <section className="px-6 py-12 md:mx-0 md:my-[100px]">
@@ -37,5 +46,5 @@ export const FAQs = ({ usePayment = false, channel, flow }: FAQsProps) => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
