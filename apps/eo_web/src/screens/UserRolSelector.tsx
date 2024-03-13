@@ -10,7 +10,7 @@ import { ROUTES } from "~/router";
 import {
   useProfilingStore,
   type Channel,
-  type Flows,
+  type FlowsTypes,
   type Type,
 } from "~/stores/useProfilingStore";
 
@@ -22,7 +22,8 @@ export const UserRolSelector = () => {
   const origin = searchParams.get("origin") ?? "localhost:5173";
   const channel = searchParams.get("channel") as Channel;
   const symptoms = searchParams.get("symptoms") ?? "";
-  const flow: Flows = (searchParams.get("flow") as Flows) ?? "marketing_site";
+  const flow: FlowsTypes =
+    (searchParams.get("flow") as FlowsTypes) ?? "marketing_site";
 
   const {
     setChannel,
