@@ -15,7 +15,7 @@ import { useMount } from "~/hooks/useMount";
 import { LayoutDefault } from "~/layouts";
 import { FooterFull } from "~/layouts/FooterFull";
 import { ROUTES } from "~/router";
-import { useProfilingStore } from "~/stores/useProfilingStore";
+import { Flows, useProfilingStore } from "~/stores/useProfilingStore";
 
 
 export const ProfilingThankYou = () => {
@@ -98,12 +98,8 @@ export const ProfilingThankYou = () => {
           with a member of our team.
         </Typography>
       </AllDonePanel>
-      <HowEOWorks pilot={flow == "cancer_pilot"} />
-      <FAQs
-        channel={channel ?? undefined}
-        flow={flow}
-        pilot={flow == "cancer_pilot"}
-      />
+      <HowEOWorks pilot={flow == Flows.cancer_pilot} />
+      <FAQs channel={channel ?? undefined} flow={flow} />
       <FooterFull />
     </LayoutDefault>
   );

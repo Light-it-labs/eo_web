@@ -18,10 +18,9 @@ import { useSurveyStore } from "~/stores/useSurveyStore";
 
 export const SurveyForm = () => {
   const [searchParams] = useSearchParams();
-  const { setPhase, setEmail, setFlow, setPilot } = useSurveyStore();
+  const { setPhase, setEmail, setFlow } = useSurveyStore();
   const { surveyStatus, getProfilingFlow } = useApi();
 
-  const isPilot = (searchParams.get("pilot") ?? "") === "true";
   const email = scapeParamFromQuery("email", searchParams);
   const profiled = searchParams.get("profiled") ?? "patient";
   const symptoms = searchParams.get("symptoms") ?? "";
@@ -34,7 +33,6 @@ export const SurveyForm = () => {
   useMount(() => {
     setPhase(phase);
     setEmail(email as string);
-    setPilot(isPilot);
   });
 
   const { data, isLoading, isSuccess } = useQuery({
@@ -42,13 +40,14 @@ export const SurveyForm = () => {
     queryKey: ["surveyStatus"],
   });
 
-  const { isLoading: profilingLoading } = useQuery({
-    queryFn: () => getProfilingFlow(email as string),
-    onSuccess: (response) => {
-      setFlow(response.data.flow ?? Flows.marketing_site);
-    },
-    queryKey: ["profilingFlow", email],
-  });
+  const { isLoading: profilingLoading, isSuccess: getProfilingSuccess } =
+    useQuery({
+      queryFn: () => getProfilingFlow(email as string),
+      onSuccess: (response) => {
+        setFlow(response.data.flow ?? Flows.marketing_site);
+      },
+      queryKey: ["profilingFlow", email],
+    });
 
   const formId =
     profiled === "patient"
@@ -67,7 +66,10 @@ export const SurveyForm = () => {
         {!isLoading && !profilingLoading && isSuccess && data?.data.active ? (
           <JotformFrame formId={formId} searchParam={params} />
         ) : (
-          isSuccess && data?.data && !data?.data?.active && <SurveyResponded />
+          isSuccess &&
+          getProfilingSuccess &&
+          data?.data &&
+          !data?.data?.active && <SurveyResponded />
         )}
       </div>
     </LayoutDefault>

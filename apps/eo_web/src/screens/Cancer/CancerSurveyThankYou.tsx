@@ -19,7 +19,7 @@ import { useSurveyStore } from "~/stores/useSurveyStore";
 export const CancerSurveyThankYou = () => {
   const [searchParams] = useSearchParams();
 
-  const { email, phase, flow, pilot } = useSurveyStore();
+  const { email, phase, flow } = useSurveyStore();
 
   const submission_id = searchParams.get("submission_id") ?? "";
 
@@ -71,12 +71,8 @@ export const CancerSurveyThankYou = () => {
           with a member of our team.
         </Typography>
       </AllDonePanel>
-      <HowEOWorks pilot={pilot && flow === Flows.cancer_pilot} />
-      <FAQs
-        channel="cancer"
-        flow={flow}
-        pilot={pilot && flow !== Flows.marketing_site}
-      />
+      <HowEOWorks pilot={flow === Flows.cancer_pilot} />
+      <FAQs channel="cancer" flow={flow} />
       <FooterFull />
     </LayoutDefault>
   );

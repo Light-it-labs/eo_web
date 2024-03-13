@@ -3,18 +3,20 @@ import React from "react";
 import { Typography } from "@eo/ui";
 
 import { cOrgFaqs, faqs, pilotFaqs } from "~/copy/copy";
-import { type Channel, type FlowsTypes } from "~/stores/useProfilingStore";
+import {
+  Flows,
+  type Channel,
+  type FlowsTypes,
+} from "~/stores/useProfilingStore";
 import { Collapsible } from "./Collapsible";
 
 
 interface FAQsProps {
-  pilot?: boolean;
   flow?: FlowsTypes;
   channel?: Channel;
 }
 
-export const FAQs = ({ pilot = false, channel, flow }: FAQsProps) => {
-  console.log(channel, flow, pilot);
+export const FAQs = ({ channel, flow }: FAQsProps) => {
   const flowsWithCOrgFaqs: FlowsTypes[] = [
     "c_org",
     "twist_out_cancer",
@@ -24,7 +26,8 @@ export const FAQs = ({ pilot = false, channel, flow }: FAQsProps) => {
   ];
   let faqList = faqs;
   if (flow && flowsWithCOrgFaqs.includes(flow)) faqList = cOrgFaqs;
-  else if (channel === "cancer" && pilot) faqList = pilotFaqs;
+  else if (channel === "cancer" && flow === Flows.cancer_pilot)
+    faqList = pilotFaqs;
 
   return (
     <section className="px-6 py-12 md:mx-0 md:my-[100px]">
