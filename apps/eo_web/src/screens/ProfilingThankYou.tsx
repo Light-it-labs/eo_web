@@ -21,7 +21,7 @@ import { useProfilingStore } from "~/stores/useProfilingStore";
 export const ProfilingThankYou = () => {
   const [searchParams] = useSearchParams();
 
-  const { account, introQuestionSubmissionId, channel, usePayment, flow } =
+  const { account, introQuestionSubmissionId, channel, flow } =
     useProfilingStore((state) => state);
   const submissionId = searchParams.get("submission_id") || "";
 
@@ -102,7 +102,7 @@ export const ProfilingThankYou = () => {
       <FAQs
         channel={channel ?? undefined}
         flow={flow}
-        usePayment={usePayment}
+        pilot={flow == "cancer_pilot"}
       />
       <FooterFull />
     </LayoutDefault>

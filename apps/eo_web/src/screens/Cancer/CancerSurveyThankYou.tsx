@@ -12,15 +12,14 @@ import { HowEOWorks } from "~/components/HowEOWorks";
 import { useMount } from "~/hooks/useMount";
 import { LayoutDefault } from "~/layouts";
 import { FooterFull } from "~/layouts/FooterFull";
-import { useProfilingStore } from "~/stores/useProfilingStore";
+import { Flows } from "~/stores/useProfilingStore";
 import { useSurveyStore } from "~/stores/useSurveyStore";
 
 
 export const CancerSurveyThankYou = () => {
   const [searchParams] = useSearchParams();
 
-  const { email, phase } = useSurveyStore();
-  const { usePayment, flow } = useProfilingStore();
+  const { email, phase, flow, pilot } = useSurveyStore();
 
   const submission_id = searchParams.get("submission_id") ?? "";
 
@@ -72,8 +71,12 @@ export const CancerSurveyThankYou = () => {
           with a member of our team.
         </Typography>
       </AllDonePanel>
-      <HowEOWorks pilot={!usePayment} />
-      <FAQs channel="cancer" flow={flow} usePayment={usePayment} />
+      <HowEOWorks pilot={pilot && flow === Flows.cancer_pilot} />
+      <FAQs
+        channel="cancer"
+        flow={flow}
+        pilot={pilot && flow !== Flows.marketing_site}
+      />
       <FooterFull />
     </LayoutDefault>
   );

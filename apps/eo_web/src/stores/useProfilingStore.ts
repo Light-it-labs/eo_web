@@ -1,6 +1,10 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
+
+
+
+
 export type Channel = "senior" | "cancer";
 
 export interface Account {
@@ -15,15 +19,18 @@ export interface Account {
 
 export type Type = "Patient" | "Caregiver" | null;
 
-export type Flows =
-  | "c_org"
-  | "marketing_site"
-  | "cancer_pilot"
-  | "employer_center"
-  | "cancer_support_community"
-  | "twist_out_cancer"
-  | "resource_center_1"
-  | "resource_center_2";
+export const Flows = {
+  c_org: "c_org",
+  marketing_site: "marketing_site",
+  cancer_pilot: "cancer_pilot",
+  employer_center: "employer_center",
+  cancer_support_community: "cancer_support_community",
+  twist_out_cancer: "twist_out_cancer",
+  resource_center_1: "resource_center_1",
+  resource_center_2: "resource_center_2",
+} as const;
+
+export type FlowsTypes = keyof typeof Flows;
 
 export interface ProfilingStore {
   symptoms: string[];
@@ -35,7 +42,7 @@ export interface ProfilingStore {
   origin: string;
   experience: string;
   account: Account;
-  flow: Flows;
+  flow: FlowsTypes;
   setAccountData: (account: Account) => void;
   setChannel: (channel: Channel) => void;
   setType: (type: Type) => void;
@@ -46,7 +53,7 @@ export interface ProfilingStore {
   resetProfilingStore: () => void;
   setOrigin: (origin: string) => void;
   setExperience: (experience: string) => void;
-  setFlow: (flow: Flows) => void;
+  setFlow: (flow: FlowsTypes) => void;
 }
 
 const defaultState = {
@@ -67,7 +74,7 @@ const defaultState = {
     agreeTermsAndConditions: false,
   },
   usePayment: true,
-  flow: "marketing-site" as Flows,
+  flow: Flows.marketing_site,
 };
 
 export const useProfilingStore = create<ProfilingStore>()(
@@ -103,7 +110,7 @@ export const useProfilingStore = create<ProfilingStore>()(
       setExperience: (experience: string) => {
         set({ experience });
       },
-      setFlow: (flow: Flows) => {
+      setFlow: (flow: FlowsTypes) => {
         set({ flow });
       },
       ...defaultState,

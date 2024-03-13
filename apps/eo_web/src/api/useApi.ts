@@ -8,6 +8,7 @@ import {
 } from "~/api/PrePlanTypes";
 import { apiElixir, apiLaravel } from "~/api/axios";
 import { useProfileStore, type Profile } from "~/stores/useProfileStore";
+import { type FlowsTypes } from "~/stores/useProfilingStore";
 
 export interface ZipCodeValidationResponseError {
   errors: {
@@ -164,6 +165,9 @@ export const useApi = () => {
       data,
     );
 
+  const getProfilingFlow = async (email: string) =>
+    await apiElixir.get<{ flow: FlowsTypes }>(`/v2/users/${email}/flow`);
+
   return {
     validateZipCode,
     combineProfileOne,
@@ -179,5 +183,6 @@ export const useApi = () => {
     postSeniorFormSubmission,
     postSeniorSurveyFormSubmission,
     surveyStatus,
+    getProfilingFlow,
   };
 };

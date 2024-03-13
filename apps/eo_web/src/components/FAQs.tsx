@@ -3,18 +3,19 @@ import React from "react";
 import { Typography } from "@eo/ui";
 
 import { cOrgFaqs, faqs, pilotFaqs } from "~/copy/copy";
-import { type Channel } from "~/stores/useProfilingStore";
+import { type Channel, type FlowsTypes } from "~/stores/useProfilingStore";
 import { Collapsible } from "./Collapsible";
 
 
 interface FAQsProps {
-  usePayment?: boolean;
-  flow?: string;
+  pilot?: boolean;
+  flow?: FlowsTypes;
   channel?: Channel;
 }
 
-export const FAQs = ({ usePayment = false, channel, flow }: FAQsProps) => {
-  const flowsWithCOrgFaqs = [
+export const FAQs = ({ pilot = false, channel, flow }: FAQsProps) => {
+  console.log(channel, flow, pilot);
+  const flowsWithCOrgFaqs: FlowsTypes[] = [
     "c_org",
     "twist_out_cancer",
     "cancer_support_community",
@@ -23,7 +24,7 @@ export const FAQs = ({ usePayment = false, channel, flow }: FAQsProps) => {
   ];
   let faqList = faqs;
   if (flow && flowsWithCOrgFaqs.includes(flow)) faqList = cOrgFaqs;
-  else if (channel === "cancer" && !usePayment) faqList = pilotFaqs;
+  else if (channel === "cancer" && pilot) faqList = pilotFaqs;
 
   return (
     <section className="px-6 py-12 md:mx-0 md:my-[100px]">
