@@ -36,6 +36,7 @@ interface EnvironmentsConfigs {
   SENIOR_CAREGIVER_SURVEY_ID: string;
   ROI_CALCULATOR_FORM: string;
   WEB_APP_URL: string;
+  CHECKOUT_FORM_ID: string;
 }
 
 declare global {
