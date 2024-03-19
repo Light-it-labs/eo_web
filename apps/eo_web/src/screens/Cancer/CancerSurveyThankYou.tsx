@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import { useNavigate, useSearchParams } from "react-router-dom";
@@ -9,6 +10,7 @@ import { useApi } from "~/api/useApi";
 import { AllDonePanel } from "~/components/AllDonePanel";
 import { FAQs } from "~/components/FAQs";
 import { HowEOWorks } from "~/components/HowEOWorks";
+import { Loading } from "~/components/Loading";
 import { useMount } from "~/hooks/useMount";
 import { LayoutDefault } from "~/layouts";
 import { FooterFull } from "~/layouts/FooterFull";
@@ -17,6 +19,8 @@ import { useSurveyStore } from "~/stores/useSurveyStore";
 
 
 export const CancerSurveyThankYou = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
   const [searchParams] = useSearchParams();
 
   const { email, phase, flow } = useSurveyStore();
@@ -34,6 +38,9 @@ export const CancerSurveyThankYou = () => {
   const { mutate } = useMutation({
     mutationFn: postCancerSurveyFormSubmission,
     mutationKey: ["postCancerSurveyFormSubmission", submission_id],
+    onSuccess: () => {
+      setIsLoading(false);
+    },
     onError: (result) => {
       if (axios.isAxiosError(result)) {
         if (result.response?.status !== 200) {
@@ -46,6 +53,14 @@ export const CancerSurveyThankYou = () => {
   });
 
   useMount(() => mutate({ email, phase, submission_id }));
+
+  if (isLoading) {
+    return (
+      <LayoutDefault>
+        <Loading />
+      </LayoutDefault>
+    );
+  }
 
   return (
     <LayoutDefault>
