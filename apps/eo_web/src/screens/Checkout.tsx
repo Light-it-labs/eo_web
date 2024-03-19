@@ -19,7 +19,7 @@ export const Checkout = () => {
   const [searchParams] = useSearchParams();
 
   const { account, introQuestionSubmissionId, channel, flow, origin } =
-    useProfilingStore((state) => state);
+    useProfilingStore();
 
   const formParams = new URLSearchParams({
     email: account.email,
