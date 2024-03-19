@@ -26,7 +26,7 @@ export const Checkout = () => {
     origin: origin,
   });
 
-  const submissionId = searchParams.get("submission_id") || "";
+  const submissionId = searchParams.get("submission_id") ?? "";
 
   const navigate = useNavigate();
 
