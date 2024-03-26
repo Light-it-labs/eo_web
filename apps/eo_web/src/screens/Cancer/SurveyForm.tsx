@@ -12,17 +12,15 @@ import {
 import { scapeParamFromQuery } from "~/helpers";
 import { useMount } from "~/hooks/useMount";
 import { LayoutDefault } from "~/layouts";
-import { useProfilingStore } from "~/stores/useProfilingStore";
+import { Flows } from "~/stores/useProfilingStore";
 import { useSurveyStore } from "~/stores/useSurveyStore";
 
 
 export const SurveyForm = () => {
   const [searchParams] = useSearchParams();
-  const { setUsePayment } = useProfilingStore();
-  const { setPhase, setEmail } = useSurveyStore();
-  const { surveyStatus } = useApi();
+  const { setPhase, setEmail, setFlow } = useSurveyStore();
+  const { surveyStatus, getProfilingFlow } = useApi();
 
-  const isPilot = (searchParams.get("pilot") ?? "") === "true";
   const email = scapeParamFromQuery("email", searchParams);
   const profiled = searchParams.get("profiled") ?? "patient";
   const symptoms = searchParams.get("symptoms") ?? "";
@@ -35,13 +33,21 @@ export const SurveyForm = () => {
   useMount(() => {
     setPhase(phase);
     setEmail(email as string);
-    setUsePayment(!isPilot);
   });
 
   const { data, isLoading, isSuccess } = useQuery({
     queryFn: () => (email && phase ? surveyStatus(email, phase) : null),
     queryKey: ["surveyStatus"],
   });
+
+  const { isLoading: profilingLoading, isSuccess: getProfilingSuccess } =
+    useQuery({
+      queryFn: () => getProfilingFlow(email as string),
+      onSuccess: (response) => {
+        setFlow(response.data.flow ?? Flows.marketing_site);
+      },
+      queryKey: ["profilingFlow", email],
+    });
 
   const formId =
     profiled === "patient"
@@ -56,11 +62,14 @@ export const SurveyForm = () => {
   return (
     <LayoutDefault className="bg-gradient lg:bg-ice-silver lg:bg-none">
       <div className="mb-10 flex h-screen flex-col">
-        {isLoading && <Loading />}
-        {!isLoading && isSuccess && data?.data.active ? (
+        {isLoading || (profilingLoading && <Loading />)}
+        {!isLoading && !profilingLoading && isSuccess && data?.data.active ? (
           <JotformFrame formId={formId} searchParam={params} />
         ) : (
-          isSuccess && data?.data && !data?.data?.active && <SurveyResponded />
+          isSuccess &&
+          getProfilingSuccess &&
+          data?.data &&
+          !data?.data?.active && <SurveyResponded />
         )}
       </div>
     </LayoutDefault>

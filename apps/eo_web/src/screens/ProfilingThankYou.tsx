@@ -15,13 +15,13 @@ import { useMount } from "~/hooks/useMount";
 import { LayoutDefault } from "~/layouts";
 import { FooterFull } from "~/layouts/FooterFull";
 import { ROUTES } from "~/router";
-import { useProfilingStore } from "~/stores/useProfilingStore";
+import { Flows, useProfilingStore } from "~/stores/useProfilingStore";
 
 
 export const ProfilingThankYou = () => {
   const [searchParams] = useSearchParams();
 
-  const { account, introQuestionSubmissionId, channel, usePayment, flow } =
+  const { account, introQuestionSubmissionId, channel, flow } =
     useProfilingStore((state) => state);
   const submissionId = searchParams.get("submission_id") || "";
 
@@ -98,12 +98,8 @@ export const ProfilingThankYou = () => {
           with a member of our team.
         </Typography>
       </AllDonePanel>
-      <HowEOWorks pilot={flow == "cancer_pilot"} />
-      <FAQs
-        channel={channel ?? undefined}
-        flow={flow}
-        usePayment={usePayment}
-      />
+      <HowEOWorks pilot={flow == Flows.cancer_pilot} />
+      <FAQs channel={channel ?? undefined} flow={flow} />
       <FooterFull />
     </LayoutDefault>
   );

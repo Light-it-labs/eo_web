@@ -11,12 +11,14 @@ interface JotformFrameProps {
 const Iframe = ({ formId, searchParam }: JotformFrameProps) => {
   const ref = useRef<HTMLIFrameElement>(null);
   useMount(() => {
-    jotformScript(formId);
+    setTimeout(() => {
+      jotformScript(formId);
+    }, 400);
     setTimeout(() => {
       if (ref?.current) {
         ref.current.style.opacity = "100";
       }
-    }, 1700);
+    }, 3500);
   }, [formId, searchParam]);
 
   return (
@@ -42,7 +44,7 @@ const Loading = () => {
   useEffect(() => {
     setTimeout(() => {
       setShowLoading(false);
-    }, 1200);
+    }, 3000);
   });
 
   return (
