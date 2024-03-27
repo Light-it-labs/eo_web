@@ -20,25 +20,19 @@ import { Flows, useProfilingStore } from "~/stores/useProfilingStore";
 
 export const ProfilingThankYou = () => {
   const [searchParams] = useSearchParams();
-
-  const { account, introQuestionSubmissionId, channel, flow } =
-    useProfilingStore((state) => state);
+  const { account, flow, channel, usePayment } = useProfilingStore();
   const submissionId = searchParams.get("submission_id") || "";
-
   const navigate = useNavigate();
 
   if (!submissionId) {
     navigate(ROUTES.userRolSelector);
   }
 
-  const { postCancerFormSubmission, postSeniorFormSubmission } = useApi();
+  const { checkoutComplete } = useApi();
 
   const { mutate } = useMutation({
-    mutationFn:
-      channel === "cancer"
-        ? postCancerFormSubmission
-        : postSeniorFormSubmission,
-    mutationKey: ["postCancerSeniorFormSubmission", submissionId],
+    mutationFn: checkoutComplete,
+    mutationKey: ["checkoutComplete", submissionId],
     onError: (result) => {
       if (axios.isAxiosError(result)) {
         if (result.response?.status !== 200) {
@@ -50,21 +44,14 @@ export const ProfilingThankYou = () => {
     },
   });
 
-  useMount(() =>
-    mutate({
-      name: account.firstName,
-      last_name: account.lastName,
-      email: account.email,
-      password: account.password,
-      phone_number: account.phoneNumber,
-      profiling_submission_id: submissionId,
-      intro_submission_id: introQuestionSubmissionId,
-      agree_receive_notifications: account.agreeReceiveNotifications,
-      agree_terms_and_conditions: account.agreeTermsAndConditions,
-      channel,
-      flow,
-    }),
-  );
+  useMount(() => {
+    if (usePayment) {
+      mutate({
+        email: account.email,
+        submission_id: submissionId,
+      });
+    }
+  });
 
   const goToWebApp = () => {
     window.location.href = WEB_APP_URL;

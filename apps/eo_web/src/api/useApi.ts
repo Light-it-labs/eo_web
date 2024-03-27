@@ -139,7 +139,7 @@ export const useApi = () => {
 
   const postCancerFormSubmission = async (data: object) =>
     await apiLaravel.post<LaravelSuccessBase<ProfileCreationResult>>(
-      "/api/v2/cancer/profile",
+      "/api/cancer/profile",
       data,
     );
 
@@ -168,6 +168,9 @@ export const useApi = () => {
   const getProfilingFlow = async (email: string) =>
     await apiElixir.get<{ flow: FlowsTypes }>(`/v2/users/${email}/flow`);
 
+  const checkoutComplete = async (data: object) =>
+    await apiLaravel.patch("/api/profiles/checkout-complete", data);
+
   return {
     validateZipCode,
     combineProfileOne,
@@ -184,5 +187,6 @@ export const useApi = () => {
     postSeniorSurveyFormSubmission,
     surveyStatus,
     getProfilingFlow,
+    checkoutComplete,
   };
 };
