@@ -38,4 +38,6 @@ export const ROUTES = {
   seniorForm: "/senior/profiling",
   seniorSurvey: "/senior/survey",
   seniorSurveyThankYou: "/senior/survey-thank-you",
+
+  checkout: "/checkout",
 } as const;

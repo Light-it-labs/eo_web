@@ -8,6 +8,7 @@ import { AthleteSurveyThankYou } from "~/screens/Athlete/AthleteSurveyThankYou";
 import { CancerSurveyThankYou } from "~/screens/Cancer/CancerSurveyThankYou";
 import { Profiling } from "~/screens/Cancer/Profiling";
 import { SurveyForm } from "~/screens/Cancer/SurveyForm";
+import { Checkout } from "~/screens/Checkout";
 import { EligibleProfile } from "~/screens/EligibleProfile";
 import { EmailVerificationUncompletedButLogged } from "~/screens/EmailVerificationUncompletedButLogged";
 import { ForgotPassword } from "~/screens/ForgotPassword";
@@ -34,6 +35,7 @@ import { ProfilingOneRedirect } from "~/screens/profiling/ProfilingOneRedirect";
 import { ProfilingTwo } from "~/screens/profiling/ProfilingTwo";
 import { ProfilingTwoRedirect } from "~/screens/profiling/ProfilingTwoRedirect";
 import { ProtectedRoute } from "./ProtectedRoute";
+
 
 export const Router = () => {
   return (
@@ -125,6 +127,8 @@ export const Router = () => {
         element={<SeniorSurveyThankYou />}
         path={ROUTES.seniorSurveyThankYou}
       />
+
+      <Route element={<Checkout />} path={ROUTES.checkout} />
     </Routes>
   );
 };
