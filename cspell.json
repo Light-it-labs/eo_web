@@ -1,5 +1,7 @@
 {
-  "enableFiletypes": ["astro"],
+  "enableFiletypes": [
+    "astro"
+  ],
   "ignorePaths": [
     "*node_modules",
     "*tsconfig.tsbuildinfo",
@@ -30,6 +32,7 @@
     "ianvs",
     "iconify",
     "jotform",
+    "LARAVEL",
     "manypkg",
     "medtech",
     "middlewares",
@@ -53,8 +56,8 @@
     "Viewports",
     "WORKDIR",
     "xlink",
-    "zustand",
+    "Zuko",
     "ZUKO",
-    "Zuko"
+    "zustand"
   ]
 }
