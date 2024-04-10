@@ -8,58 +8,50 @@ interface FooterProps {
   flow: FlowsTypes;
 }
 
-const c_org = [
-  { title: 'About EO', url: 'https://partner.eo.care/c-org/about' },
+const basicData = [
   { title: 'Terms of use', url: 'https://eo.care/web/terms-of-use' },
   { title: 'Privacy Policy', url: 'https://eo.care/web/privacy-policy' },
   { title: 'Visit eo.care', url: 'https://eo.care/web/home' }
+]
+
+const c_org = [
+  { title: 'About EO', url: 'https://partner.eo.care/c-org/about' },
+  ...basicData
 ]
 
 const cancer_pilot = [
   { title: 'About EO', url: 'https://partner.eo.care/cancer/about' },
   { title: 'Partner Dispensaries', url: 'https://partner.eo.care/partner-dispensaries' },
-  { title: 'Terms of use', url: 'https://eo.care/web/terms-of-use' },
-  { title: 'Privacy Policy', url: 'https://eo.care/web/privacy-policy' },
-  { title: 'Visit eo.care', url: 'https://eo.care/web/home' }
+  ...basicData
 ]
 
 const twist_out_cancer = [
   { title: 'About EO', url: 'https://partner.eo.care/twist-out-cancer/about' },
   { title: 'Cannabis 101', url: 'https://partner.eo.care/twist-out-cancer/cannabis-101' },
-  { title: 'Terms of use', url: 'https://eo.care/web/terms-of-use' },
-  { title: 'Privacy Policy', url: 'https://eo.care/web/privacy-policy' },
-  { title: 'Visit eo.care', url: 'https://eo.care/web/home' }
+  ...basicData
 ]
 
 const cancer_support_community = [
   { title: 'About EO', url: 'https://partner.eo.care/cancer-support-community/about' },
   { title: 'Cannabis 101', url: 'https://partner.eo.care/cancer-support-community/cancer-101' },
-  { title: 'Terms of use', url: 'https://eo.care/web/terms-of-use' },
-  { title: 'Privacy Policy', url: 'https://eo.care/web/privacy-policy' },
-  { title: 'Visit eo.care', url: 'https://eo.care/web/home' }
+  ...basicData
 ]
 
 const employer_center = [
   { title: 'About EO', url: 'https://partner.eo.care/employers/about' },
-  { title: 'Terms of use', url: 'https://eo.care/web/terms-of-use' },
-  { title: 'Privacy Policy', url: 'https://eo.care/web/privacy-policy' },
-  { title: 'Visit eo.care', url: 'https://eo.care/web/home' }
+  ...basicData
 ];
 
 const resource_center_1 = [
   { title: 'About EO', url: 'https://partner.eo.care/cannabis-resource-center-1/about' },
   { title: 'Cannabis 101', url: 'https://partner.eo.care/cannabis-resource-center-1/cannabis-101' },
-  { title: 'Terms of use', url: 'https://eo.care/web/terms-of-use' },
-  { title: 'Privacy Policy', url: 'https://eo.care/web/privacy-policy' },
-  { title: 'Visit eo.care', url: 'https://eo.care/web/home' }
+  ...basicData
 ];
 
 const resource_center_2 = [
   { title: 'About EO', url: 'https://partner.eo.care/cannabis-resource-center-2/about' },
   { title: 'Cannabis 101', url: 'https://partner.eo.care/cannabis-resource-center-2/cannabis-101' },
-  { title: 'Terms of use', url: 'https://eo.care/web/terms-of-use' },
-  { title: 'Privacy Policy', url: 'https://eo.care/web/privacy-policy' },
-  { title: 'Visit eo.care', url: 'https://eo.care/web/home' }
+  ...basicData
 ];
 
 
@@ -73,6 +65,8 @@ const allData = {
   resource_center_1,
   resource_center_2
 }
+
+
 
 export function Footer({ flow }: FooterProps) {
 
