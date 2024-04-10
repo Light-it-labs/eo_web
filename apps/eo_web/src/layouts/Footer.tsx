@@ -1,8 +1,8 @@
 import React from "react";
 
 import { Typography, icons } from "@eo/ui";
-import { Flows } from "~/stores/useProfilingStore";
-export type FlowsTypes = keyof typeof Flows;
+import { type Flows } from "~/stores/useProfilingStore";
+type FlowsTypes = keyof typeof Flows;
 
 interface FooterProps {
   flow: FlowsTypes;
