@@ -97,6 +97,7 @@ export function Footer({ flow }: FooterProps) {
           </Typography>
           {allData[flow].map(({ title, url }) => (
             <a
+              key={url}
               href={url}
               className="mb-0 py-2 font-new-hero font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mb-2 md:mr-2"
             >
