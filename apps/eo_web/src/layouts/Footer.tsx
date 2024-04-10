@@ -54,30 +54,18 @@ const resource_center_2 = [
   ...basicData
 ];
 
-
 const allData = {
   c_org,
   cancer_pilot,
   twist_out_cancer,
   cancer_support_community,
-  marketing_site: null,
+  marketing_site: basicData, // Will never happen, it's filtered outside
   employer_center,
   resource_center_1,
   resource_center_2
 }
 
-
-
 export function Footer({ flow }: FooterProps) {
-
-  const defaultData = [
-    { title: 'About EO', url: 'https://partner.eo.care/about' },
-    { title: 'Terms of use', url: 'https://www.eo.care/privacy-policy' },
-    { title: 'Privacy Policy', url: 'https://www.eo.care/privacy-policy' },
-    { title: 'Visit eo.care', url: 'https://www.eo.care' }
-  ]
-
-  const data = allData[flow] ?? defaultData;
 
   return (
     <footer className="flex flex-col justify-center gap-4 bg-black px-4 py-[100px] md:flex-row md:pl-[10px] lg:pl-5">
@@ -107,7 +95,7 @@ export function Footer({ flow }: FooterProps) {
           >
             COMPANY
           </Typography>
-          {data.map(({ title, url }) => (
+          {allData[flow].map(({ title, url }) => (
             <a
               href={url}
               className="mb-0 py-2 font-new-hero font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mb-2 md:mr-2"
