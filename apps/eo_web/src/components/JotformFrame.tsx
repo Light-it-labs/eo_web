@@ -24,9 +24,8 @@ const Iframe = ({ formId, searchParam }: JotformFrameProps) => {
   return (
     <iframe
       ref={ref}
-      src={`https://form.jotform.com/${formId}?${
-        searchParam ? searchParam.toString() : ""
-      }`}
+      src={`https://form.jotform.com/${formId}?${searchParam ? searchParam.toString().replace("+", "%20") : ""
+        }`}
       id={`JotFormIFrame-${formId}`}
       title=""
       onLoad={() => {
