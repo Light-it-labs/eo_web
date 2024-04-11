@@ -21,7 +21,6 @@ const c_org = [
 
 const cancer_pilot = [
   { title: 'About EO', url: 'https://partner.eo.care/cancer/about' },
-  { title: 'Partner Dispensaries', url: 'https://partner.eo.care/partner-dispensaries' },
   ...basicData
 ]
 
