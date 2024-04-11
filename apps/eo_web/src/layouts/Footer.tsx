@@ -1,12 +1,72 @@
 import React from "react";
 
 import { Typography, icons } from "@eo/ui";
+import { type Flows } from "~/stores/useProfilingStore";
+type FlowsTypes = keyof typeof Flows;
 
+interface FooterProps {
+  flow: FlowsTypes;
+}
 
+const basicData = [
+  { title: 'Terms of use', url: 'https://eo.care/web/terms-of-use' },
+  { title: 'Privacy Policy', url: 'https://eo.care/web/privacy-policy' },
+  { title: 'Visit eo.care', url: 'https://eo.care/web/home' }
+]
 
+const c_org = [
+  { title: 'About EO', url: 'https://partner.eo.care/c-org/about' },
+  ...basicData
+]
 
+const cancer_pilot = [
+  { title: 'About EO', url: 'https://partner.eo.care/cancer/about' },
+  { title: 'Partner Dispensaries', url: 'https://partner.eo.care/partner-dispensaries' },
+  ...basicData
+]
 
-export function Footer() {
+const twist_out_cancer = [
+  { title: 'About EO', url: 'https://partner.eo.care/twist-out-cancer/about' },
+  { title: 'Cannabis 101', url: 'https://partner.eo.care/twist-out-cancer/cannabis-101' },
+  ...basicData
+]
+
+const cancer_support_community = [
+  { title: 'About EO', url: 'https://partner.eo.care/cancer-support-community/about' },
+  { title: 'Cannabis 101', url: 'https://partner.eo.care/cancer-support-community/cancer-101' },
+  ...basicData
+]
+
+const employer_center = [
+  { title: 'About EO', url: 'https://partner.eo.care/employers/about' },
+  ...basicData
+];
+
+const resource_center_1 = [
+  { title: 'About EO', url: 'https://partner.eo.care/cannabis-resource-center-1/about' },
+  { title: 'Cannabis 101', url: 'https://partner.eo.care/cannabis-resource-center-1/cannabis-101' },
+  ...basicData
+];
+
+const resource_center_2 = [
+  { title: 'About EO', url: 'https://partner.eo.care/cannabis-resource-center-2/about' },
+  { title: 'Cannabis 101', url: 'https://partner.eo.care/cannabis-resource-center-2/cannabis-101' },
+  ...basicData
+];
+
+const allData = {
+  c_org,
+  cancer_pilot,
+  twist_out_cancer,
+  cancer_support_community,
+  marketing_site: basicData, // Will never happen, it's filtered outside
+  employer_center,
+  resource_center_1,
+  resource_center_2
+}
+
+export function Footer({ flow }: FooterProps) {
+
   return (
     <footer className="flex flex-col justify-center gap-4 bg-black px-4 py-[100px] md:flex-row md:pl-[10px] lg:pl-5">
       <section>
@@ -35,30 +95,15 @@ export function Footer() {
           >
             COMPANY
           </Typography>
-          <a
-            href="https://partner.eo.care/about"
-            className="mb-0 py-2 font-new-hero font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mb-2 md:mr-2"
-          >
-            About
-          </a>
-          <a
-            href="https://www.eo.care/kit/terms-of-use"
-            className="mb-0 py-2 font-new-hero font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mb-2 md:mr-2"
-          >
-            Terms of Use
-          </a>
-          <a
-            href="https://www.eo.care/privacy-policy"
-            className="mb-0 py-2 font-new-hero font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mb-2 md:mr-2"
-          >
-            Privacy Policy
-          </a>
-          <a
-            href="https://www.eo.care"
-            className="mb-0 py-2 font-new-hero font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mb-2 md:mr-2"
-          >
-            Visit EO
-          </a>
+          {allData[flow].map(({ title, url }) => (
+            <a
+              key={url}
+              href={url}
+              className="mb-0 py-2 font-new-hero font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mb-2 md:mr-2"
+            >
+              {title}
+            </a>
+          ))}
         </div>
         <div className="flex flex-col md:flex-row">
           <div className="flex w-auto flex-col md:w-[100px] lg:w-[200px]">
@@ -81,10 +126,10 @@ export function Footer() {
               Email:
             </Typography>
             <a
-              href="mailto:employers@eo.care"
+              href="mailto:support@eo.care"
               className="mb-2 pb-2 font-new-hero font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mr-2"
             >
-              employers@eo.care
+              support@eo.care
             </a>
           </div>
           <div className="flex w-auto flex-col md:w-[100px] lg:w-[180px]">
