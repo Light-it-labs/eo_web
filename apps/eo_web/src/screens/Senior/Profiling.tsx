@@ -17,7 +17,7 @@ export const Profiling = () => {
   const searchParam = new URLSearchParams({
     email: account.email,
     states: state ?? "",
-    symptoms: symptoms.join(","),
+    symptoms: encodeURIComponent(symptoms.join(",")),
     usePayment: usePayment ? "yes" : "no",
     origin,
     experience,
