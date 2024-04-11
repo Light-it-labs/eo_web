@@ -99,7 +99,7 @@ export function Footer({ flow }: FooterProps) {
             <a
               key={url}
               href={url}
-              className="mb-0 py-2 font-new-hero font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mb-2 md:mr-2"
+              className="mb-0 py-2 font-new-hero text-[14px] font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mb-2 md:mr-2"
             >
               {title}
             </a>
@@ -118,7 +118,7 @@ export function Footer({ flow }: FooterProps) {
             </Typography>
             <a
               href="tel:888-823-6143"
-              className="mb-2 pb-2 font-new-hero font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mr-2"
+              className="mb-0 py-2 font-new-hero text-[14px] font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mb-2 md:mr-2"
             >
               888-823-6143
             </a>
@@ -127,7 +127,7 @@ export function Footer({ flow }: FooterProps) {
             </Typography>
             <a
               href="mailto:support@eo.care"
-              className="mb-2 pb-2 font-new-hero font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mr-2"
+              className="mb-0 py-2 font-new-hero text-[14px] font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mb-2 md:mr-2"
             >
               support@eo.care
             </a>
