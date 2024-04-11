@@ -1,25 +1,18 @@
 import { Button, Typography } from '@eo/ui'
 import React, { useState } from 'react'
-import { SubscribeToEoEmailPost } from '~/api/email'
+import { useMutation } from '@tanstack/react-query'
+import { subscribeToEoEmailPost } from '~/api/email'
+import { toast } from 'react-toastify'
 
 export const EOInYourInbox = () => {
-  const [isLoading, setIsLoading] = useState(false)
   const [submitted, setSubmitted] = useState(false)
   const [email, setEmail] = useState('')
 
-  const onButtonSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsLoading(true)
-
-    try {
-      await SubscribeToEoEmailPost(email);
-    } catch (error) {
-      console.error('Error submitting email:', error);
-    } finally {
-      setIsLoading(false)
-      setSubmitted(true)
-    }
-  };
+  const { mutate, isLoading } = useMutation({
+    mutationFn: subscribeToEoEmailPost,
+    onSuccess: () => setSubmitted(true),
+    onError: () => toast.error("Something went wrong, try again.")
+  });
 
   return (
     <section className="w-full bg-white px-6 py-12 md:px-[50px] md:py-[100px]">
@@ -35,7 +28,11 @@ export const EOInYourInbox = () => {
           special offers are all coming soon.
         </Typography>
         {!submitted ?
-          (<form onSubmit={(e) => { void onButtonSubmit(e) }} className="mt-[30px] flex w-full flex-col justify-items-end gap-4 md:w-auto md:flex-row">
+          (<form onSubmit={
+            (e) => {
+              e.preventDefault()
+              mutate(email)
+            }} className="mt-[30px] flex w-full flex-col justify-items-end gap-4 md:w-auto md:flex-row">
             <input
               className="h-[49px] w-full rounded-[40px] border border-solid border-black bg-white py-3 pl-4 pr-2 text-black placeholder:text-gray-300 md:w-[327px]"
               placeholder="Enter your email..."

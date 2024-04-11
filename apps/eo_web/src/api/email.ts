@@ -15,7 +15,7 @@ export interface SubscribeToEoEmailPostResponse {
   success: boolean;
 }
 
-export const SubscribeToEoEmailPost = async (email: string) => {
+export const subscribeToEoEmailPost = async (email: string) => {
   return await apiLaravel.post<SubscribeToEoEmailPostResponse>(
     "/api/slack-notification/eo-subscription",
     { email },
