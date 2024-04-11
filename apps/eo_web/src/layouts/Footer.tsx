@@ -24,6 +24,11 @@ const cancer_pilot = [
   ...basicData
 ]
 
+const inova = [
+  { title: 'About EO', url: 'https://partner.eo.care/inova/about' },
+  ...basicData
+]
+
 const twist_out_cancer = [
   { title: 'About EO', url: 'https://partner.eo.care/twist-out-cancer/about' },
   { title: 'Cannabis 101', url: 'https://partner.eo.care/twist-out-cancer/cannabis-101' },
@@ -61,7 +66,8 @@ const allData = {
   marketing_site: basicData, // Will never happen, it's filtered outside
   employer_center,
   resource_center_1,
-  resource_center_2
+  resource_center_2,
+  inova
 }
 
 export function Footer({ flow }: FooterProps) {

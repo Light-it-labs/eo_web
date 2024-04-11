@@ -2,7 +2,7 @@ import React from "react";
 
 import { Typography } from "@eo/ui";
 
-import { cOrgFaqs, faqs, pilotFaqs } from "~/copy/copy";
+import { cOrgFaqs, faqs, inovaFaqs, pilotFaqs } from "~/copy/copy";
 import {
   Flows,
   type Channel,
@@ -26,6 +26,7 @@ export const FAQs = ({ channel, flow }: FAQsProps) => {
   ];
   let faqList = faqs;
   if (flow && flowsWithCOrgFaqs.includes(flow)) faqList = cOrgFaqs;
+  else if (flow === Flows.inova) faqList = inovaFaqs;
   else if (channel === "cancer" && flow === Flows.cancer_pilot)
     faqList = pilotFaqs;
 

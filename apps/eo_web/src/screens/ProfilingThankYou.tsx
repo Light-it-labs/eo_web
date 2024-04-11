@@ -88,7 +88,7 @@ export const ProfilingThankYou = () => {
       </AllDonePanel>
       <HowEOWorks pilot={flow == Flows.cancer_pilot} />
       <FAQs channel={channel ?? undefined} flow={flow} />
-      {['c_org', 'cancer_pilot', 'twist_out_cancer', 'cancer_support_community', 'employer_center', 'resource_center_1', 'resource_center_2'].includes(flow)
+      {['c_org', 'cancer_pilot', 'twist_out_cancer', 'cancer_support_community', 'employer_center', 'resource_center_1', 'resource_center_2', 'inova'].includes(flow)
         ? <Footer flow={flow} />
         : <FooterFull />}
     </LayoutDefault>
