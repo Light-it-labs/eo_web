@@ -16,6 +16,7 @@ import { LayoutDefault } from "~/layouts";
 import { FooterFull } from "~/layouts/FooterFull";
 import { Flows } from "~/stores/useProfilingStore";
 import { useSurveyStore } from "~/stores/useSurveyStore";
+import { Footer } from "~/layouts/Footer";
 
 
 export const CancerSurveyThankYou = () => {
@@ -88,7 +89,9 @@ export const CancerSurveyThankYou = () => {
       </AllDonePanel>
       <HowEOWorks pilot={flow === Flows.cancer_pilot} />
       <FAQs channel="cancer" flow={flow} />
-      <FooterFull />
+      {['c_org', 'cancer_pilot', 'twist_out_cancer', 'cancer_support_community', 'employer_center', 'resource_center_1', 'resource_center_2'].includes(flow)
+        ? <Footer flow={flow} />
+        : <FooterFull />}
     </LayoutDefault>
   );
 };
