@@ -331,8 +331,9 @@ export const inovaFaqs: Copy[] = [
         right to your home and don’t require you to visit a dispensary.
         <br />
         <br />
-        However, if the nature and intensity of your symptoms suggest the need for
-        products that can only be sourced from a local dispensary, we will products.
+        However, if the nature and intensity of your symptoms suggest the need
+        for products that can only be sourced from a local dispensary, we will
+        recommend those products instead.
       </>
     ),
   },
