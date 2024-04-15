@@ -373,14 +373,14 @@ export const inovaFaqs: Copy[] = [
     ),
   },
   {
-    title: "What happens if I miss a use session entirely?",
+    title: "What happens if I miss a dose entirely?",
     content:
-      "Just begin the next session as scheduled!",
+      "Just begin the next dose as scheduled!",
   },
   {
-    title: "What happens if I’m late starting a use session? ",
+    title: "What happens if I’m late taking a dose?",
     content:
-      "If you’re less than 30 minutes late, go ahead and begin the session (also be sure to begin the next session at the originally scheduled time). If you’re more than 30 minutes late just wait for the next session to begin.",
+      "If you’re less than 30 minutes late, go ahead and take the dose (also be sure to begin the next dose at the originally scheduled time). If you’re more than 30 minutes late just wait for the next dose to begin.",
   },
   {
     title: "What happens if I miss an opportunity to provide feedback?",
@@ -409,12 +409,12 @@ export const inovaFaqs: Copy[] = [
   {
     title: "Can I use a different dispensary or delivery provider than the one you’ve recommended? ",
     content:
-      "The answer is an honest “maybe”. If you’d like to make a change just email us at support@eo.care or call 877-707-0706. We’ll do everything we can to accommodate your request.",
+      "The answer is an honest “maybe”. If you’d like to make a change just email us at support@eo.care or call 888-823-6143. We’ll do everything we can to accommodate your request.",
   },
   {
     title: "What happens if I run out of a particular product?",
     content:
-      "No problem. Just email us at support@eo.care or call 877-707-0706. We’ll update your care plan in the very near term to accommodate the absence of that product if/as appropriate and coordinate the ordering of the needed product or a responsible replacement.",
+      "No problem. Just email us at support@eo.care or call 888-823-6143. We’ll update your care plan in the very near term to accommodate the absence of that product if/as appropriate and coordinate the ordering of the needed product or a responsible replacement.",
   },
 ];
 
