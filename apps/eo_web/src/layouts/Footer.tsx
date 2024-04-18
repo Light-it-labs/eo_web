@@ -2,7 +2,7 @@ import React from "react";
 
 import { Typography, icons } from "@eo/ui";
 
-import { type Flows } from "~/stores/useProfilingStore";
+import { Flows } from "~/stores/useProfilingStore";
 
 
 type FlowsTypes = keyof typeof Flows;
@@ -113,13 +113,15 @@ export function Footer({ flow }: FooterProps) {
         <Typography className="mb-[36px] font-new-hero text-[14px] font-normal text-[#ababab]">
           © 2022 All rights reserved. Patents pending. EO Care, Inc.
         </Typography>
-        <Typography className="font-new-hero text-[14px] font-normal text-[#ababab]">
-          Reference in this site to any specific commercial product, process, or
-          service, or the use of any trade, firm or corporation name is for the
-          information and convenience of the recipient, and does not constitute
-          endorsement, recommendation, or favoring by the Cancer Support
-          Community.
-        </Typography>
+        {flow === Flows.cancer_support_community && (
+          <Typography className="font-new-hero text-[14px] font-normal text-[#ababab]">
+            Reference in this site to any specific commercial product, process,
+            or service, or the use of any trade, firm or corporation name is for
+            the information and convenience of the recipient, and does not
+            constitute endorsement, recommendation, or favoring by the Cancer
+            Support Community.
+          </Typography>
+        )}
       </section>
       <section className="block w-auto md:w-[100px] lg:w-[180px]"></section>
       <section className="flex flex-row justify-between">

@@ -2,11 +2,13 @@ import React from "react";
 
 import { Typography, icons } from "@eo/ui";
 
+import { Flows, type FlowsTypes } from "~/stores/useProfilingStore";
 
+interface FooterFullProps {
+  flow?: FlowsTypes;
+}
 
-
-
-export function FooterFull() {
+export function FooterFull({ flow }: FooterFullProps) {
   return (
     <footer className="flex flex-col justify-center gap-4 bg-black px-4 py-[100px] md:flex-row md:pl-0 lg:pl-5">
       <section className="sm:max-w-full md:max-w-[453px]">
@@ -26,13 +28,15 @@ export function FooterFull() {
         <Typography className="mb-[36px] font-new-hero text-[14px] font-normal text-[#ababab]">
           © 2022 All rights reserved. Patents pending. EO Care, Inc.
         </Typography>
-        <Typography className="font-new-hero text-[14px] font-normal text-[#ababab]">
-          Reference in this site to any specific commercial product, process, or
-          service, or the use of any trade, firm or corporation name is for the
-          information and convenience of the recipient, and does not constitute
-          endorsement, recommendation, or favoring by the Cancer Support
-          Community.
-        </Typography>
+        {flow === Flows.cancer_support_community && (
+          <Typography className="font-new-hero text-[14px] font-normal text-[#ababab]">
+            Reference in this site to any specific commercial product, process,
+            or service, or the use of any trade, firm or corporation name is for
+            the information and convenience of the recipient, and does not
+            constitute endorsement, recommendation, or favoring by the Cancer
+            Support Community.
+          </Typography>
+        )}
       </section>
       <section className="block w-auto md:w-[100px] lg:w-[180px]"></section>
       <section className="flex flex-row justify-between">
