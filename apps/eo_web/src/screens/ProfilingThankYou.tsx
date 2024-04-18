@@ -13,10 +13,10 @@ import { HowEOWorks } from "~/components/HowEOWorks";
 import { WEB_APP_URL } from "~/configs/env";
 import { useMount } from "~/hooks/useMount";
 import { LayoutDefault } from "~/layouts";
-import { ROUTES } from "~/router";
-import { Flows, useProfilingStore } from "~/stores/useProfilingStore";
 import { Footer } from "~/layouts/Footer";
 import { FooterFull } from "~/layouts/FooterFull";
+import { ROUTES } from "~/router";
+import { Flows, useProfilingStore } from "~/stores/useProfilingStore";
 
 
 export const ProfilingThankYou = () => {
@@ -88,9 +88,20 @@ export const ProfilingThankYou = () => {
       </AllDonePanel>
       <HowEOWorks pilot={flow == Flows.cancer_pilot} />
       <FAQs channel={channel ?? undefined} flow={flow} />
-      {['c_org', 'cancer_pilot', 'twist_out_cancer', 'cancer_support_community', 'employer_center', 'resource_center_1', 'resource_center_2', 'inova'].includes(flow)
-        ? <Footer flow={flow} />
-        : <FooterFull />}
+      {[
+        "c_org",
+        "cancer_pilot",
+        "twist_out_cancer",
+        "cancer_support_community",
+        "employer_center",
+        "resource_center_1",
+        "resource_center_2",
+        "inova",
+      ].includes(flow) ? (
+        <Footer flow={flow} />
+      ) : (
+        <FooterFull />
+      )}
     </LayoutDefault>
   );
 };

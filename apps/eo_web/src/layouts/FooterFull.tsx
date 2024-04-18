@@ -9,7 +9,7 @@ import { Typography, icons } from "@eo/ui";
 export function FooterFull() {
   return (
     <footer className="flex flex-col justify-center gap-4 bg-black px-4 py-[100px] md:flex-row md:pl-0 lg:pl-5">
-      <section>
+      <section className="sm:max-w-full md:max-w-[453px]">
         <icons.EoWhiteIcon
           onClick={() => {
             window.open("https://eo.care/web/home", "_blank");
@@ -23,7 +23,7 @@ export function FooterFull() {
           The wise use <br className="hidden md:block" />
           cannabis company.
         </Typography>
-        <Typography className="font-new-hero text-[14px] font-normal text-[#ababab]">
+        <Typography className="mb-[36px] font-new-hero text-[14px] font-normal text-[#ababab]">
           © 2022 All rights reserved. Patents pending. EO Care, Inc.
         </Typography>
       </section>

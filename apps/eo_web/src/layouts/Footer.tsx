@@ -1,7 +1,10 @@
 import React from "react";
 
 import { Typography, icons } from "@eo/ui";
-import { type Flows } from "~/stores/useProfilingStore";
+
+import { Flows } from "~/stores/useProfilingStore";
+
+
 type FlowsTypes = keyof typeof Flows;
 
 interface FooterProps {
@@ -9,53 +12,74 @@ interface FooterProps {
 }
 
 const basicData = [
-  { title: 'Terms of use', url: 'https://eo.care/web/terms-of-use' },
-  { title: 'Privacy Policy', url: 'https://eo.care/web/privacy-policy' },
-  { title: 'Visit eo.care', url: 'https://eo.care/web/home' }
-]
+  { title: "Terms of use", url: "https://eo.care/web/terms-of-use" },
+  { title: "Privacy Policy", url: "https://eo.care/web/privacy-policy" },
+  { title: "Visit eo.care", url: "https://eo.care/web/home" },
+];
 
 const c_org = [
-  { title: 'About EO', url: 'https://partner.eo.care/c-org/about' },
-  ...basicData
-]
+  { title: "About EO", url: "https://partner.eo.care/c-org/about" },
+  ...basicData,
+];
 
 const cancer_pilot = [
-  { title: 'About EO', url: 'https://partner.eo.care/cancer/about' },
-  ...basicData
-]
+  { title: "About EO", url: "https://partner.eo.care/cancer/about" },
+  ...basicData,
+];
 
 const inova = [
-  { title: 'About EO', url: 'https://partner.eo.care/inova/about' },
-  ...basicData
-]
+  { title: "About EO", url: "https://partner.eo.care/inova/about" },
+  ...basicData,
+];
 
 const twist_out_cancer = [
-  { title: 'About EO', url: 'https://partner.eo.care/twist-out-cancer/about' },
-  { title: 'Cannabis 101', url: 'https://partner.eo.care/twist-out-cancer/cannabis-101' },
-  ...basicData
-]
+  { title: "About EO", url: "https://partner.eo.care/twist-out-cancer/about" },
+  {
+    title: "Cannabis 101",
+    url: "https://partner.eo.care/twist-out-cancer/cannabis-101",
+  },
+  ...basicData,
+];
 
 const cancer_support_community = [
-  { title: 'About EO', url: 'https://partner.eo.care/cancer-support-community/about' },
-  { title: 'Cannabis 101', url: 'https://partner.eo.care/cancer-support-community/cancer-101' },
-  ...basicData
-]
+  {
+    title: "About EO",
+    url: "https://partner.eo.care/cancer-support-community/about",
+  },
+  {
+    title: "Cannabis 101",
+    url: "https://partner.eo.care/cancer-support-community/cancer-101",
+  },
+  ...basicData,
+];
 
 const employer_center = [
-  { title: 'About EO', url: 'https://partner.eo.care/employers/about' },
-  ...basicData
+  { title: "About EO", url: "https://partner.eo.care/employers/about" },
+  ...basicData,
 ];
 
 const resource_center_1 = [
-  { title: 'About EO', url: 'https://partner.eo.care/cannabis-resource-center-1/about' },
-  { title: 'Cannabis 101', url: 'https://partner.eo.care/cannabis-resource-center-1/cannabis-101' },
-  ...basicData
+  {
+    title: "About EO",
+    url: "https://partner.eo.care/cannabis-resource-center-1/about",
+  },
+  {
+    title: "Cannabis 101",
+    url: "https://partner.eo.care/cannabis-resource-center-1/cannabis-101",
+  },
+  ...basicData,
 ];
 
 const resource_center_2 = [
-  { title: 'About EO', url: 'https://partner.eo.care/cannabis-resource-center-2/about' },
-  { title: 'Cannabis 101', url: 'https://partner.eo.care/cannabis-resource-center-2/cannabis-101' },
-  ...basicData
+  {
+    title: "About EO",
+    url: "https://partner.eo.care/cannabis-resource-center-2/about",
+  },
+  {
+    title: "Cannabis 101",
+    url: "https://partner.eo.care/cannabis-resource-center-2/cannabis-101",
+  },
+  ...basicData,
 ];
 
 const allData = {
@@ -67,14 +91,13 @@ const allData = {
   employer_center,
   resource_center_1,
   resource_center_2,
-  inova
-}
+  inova,
+};
 
 export function Footer({ flow }: FooterProps) {
-
   return (
     <footer className="flex flex-col justify-center gap-4 bg-black px-4 py-[100px] md:flex-row md:pl-[10px] lg:pl-5">
-      <section>
+      <section className="sm:max-w-full md:max-w-[453px]">
         <icons.EoWhiteIcon
           onClick={() => {
             window.open("https://eo.care/kit", "_blank");
@@ -87,9 +110,18 @@ export function Footer({ flow }: FooterProps) {
         >
           Wise use for all.
         </Typography>
-        <Typography className="font-new-hero font-normal text-[#ababab]">
+        <Typography className="mb-[36px] font-new-hero text-[14px] font-normal text-[#ababab]">
           © 2022 All rights reserved. Patents pending. EO Care, Inc.
         </Typography>
+        {flow === Flows.cancer_support_community && (
+          <Typography className="font-new-hero text-[14px] font-normal text-[#ababab]">
+            Reference in this site to any specific commercial product, process,
+            or service, or the use of any trade, firm or corporation name is for
+            the information and convenience of the recipient, and does not
+            constitute endorsement, recommendation, or favoring by the Cancer
+            Support Community.
+          </Typography>
+        )}
       </section>
       <section className="block w-auto md:w-[100px] lg:w-[180px]"></section>
       <section className="flex flex-row justify-between">
