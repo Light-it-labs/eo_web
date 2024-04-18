@@ -100,7 +100,7 @@ export const ProfilingThankYou = () => {
       ].includes(flow) ? (
         <Footer flow={flow} />
       ) : (
-        <FooterFull flow={flow} />
+        <FooterFull />
       )}
     </LayoutDefault>
   );
