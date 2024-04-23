@@ -8,6 +8,7 @@ import { Typography } from "@eo/ui";
 
 import { useApi } from "~/api/useApi";
 import { AllDonePanel } from "~/components/AllDonePanel";
+import { EOInYourInbox } from "~/components/EOInYourInbox";
 import { FAQs } from "~/components/FAQs";
 import { HowEOWorks } from "~/components/HowEOWorks";
 import { WEB_APP_URL } from "~/configs/env";
@@ -88,6 +89,7 @@ export const ProfilingThankYou = () => {
       </AllDonePanel>
       <HowEOWorks pilot={flow == Flows.cancer_pilot} />
       <FAQs channel={channel ?? undefined} flow={flow} />
+      <EOInYourInbox />
       {[
         "c_org",
         "cancer_pilot",
