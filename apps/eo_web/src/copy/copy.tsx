@@ -218,7 +218,7 @@ export const pilotFaqs: Copy[] = [
   },
   {
     title: "What if I don’t yet have a physical medical card?",
-    content: "If you want a med card and don't have one, your care team will direct you towards relevant resources in your home state.",
+    content: "If you want a med card/cannabis certification and don't have one, your care team will direct you towards relevant resources in your home state.",
   },
   {
     title:
