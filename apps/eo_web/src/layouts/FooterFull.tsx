@@ -44,70 +44,77 @@ export function FooterFull() {
           </a>
           <a
             href="https://eo.care/web/for-cancer"
-            className="mb-0 py-2  font-new-hero text-[14px] font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mb-2 md:mr-2"
+            className="mb-0 py-2 font-new-hero text-[14px] font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mb-2 md:mr-2"
           >
             For Cancer Care
           </a>
           <a
             href="https://eo.care/web/for-seniors"
-            className="mb-0 py-2  font-new-hero text-[14px] font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mb-2 md:mr-2"
+            className="mb-0 py-2 font-new-hero text-[14px] font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mb-2 md:mr-2"
           >
             For Seniors
           </a>
           <a
             href="https://eo.care/web/for-employers"
-            className="mb-0 py-2  font-new-hero text-[14px] font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mb-2 md:mr-2"
+            className="mb-0 py-2 font-new-hero text-[14px] font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mb-2 md:mr-2"
           >
             For Employers
           </a>
           <a
             href="https://shop.eo.care"
-            className="mb-0 py-2  font-new-hero text-[14px] font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mb-2 md:mr-2"
+            className="mb-0 py-2 font-new-hero text-[14px] font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mb-2 md:mr-2"
           >
             Shop CBD
           </a>
           <a
             href="https://eo.care/web/about"
-            className="mb-0 py-2  font-new-hero text-[14px] font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mb-2 md:mr-2"
+            className="mb-0 py-2 font-new-hero text-[14px] font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mb-2 md:mr-2"
           >
             About
           </a>
           <a
             href="https://eo.care/web/frequently-asked-questions"
-            className="mb-0 py-2  font-new-hero text-[14px] font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mb-2 md:mr-2"
+            className="mb-0 py-2 font-new-hero text-[14px] font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mb-2 md:mr-2"
           >
             FAQs
           </a>
           <a
             href="https://eo.care/blog-posts"
-            className="mb-0 py-2  font-new-hero text-[14px] font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mb-2 md:mr-2"
+            className="mb-0 py-2 font-new-hero text-[14px] font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mb-2 md:mr-2"
           >
             Blog
           </a>
           <a
             href="https://eo.care/methodology"
-            className="mb-0 py-2  font-new-hero text-[14px] font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mb-2 md:mr-2"
+            className="mb-0 py-2 font-new-hero text-[14px] font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mb-2 md:mr-2"
           >
             Methodology
           </a>
           <a
             href="https://eo.care/research"
-            className="mb-0 py-2  font-new-hero text-[14px] font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mb-2 md:mr-2"
+            className="mb-0 py-2 font-new-hero text-[14px] font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mb-2 md:mr-2"
           >
             Research
           </a>
 
           <a
             href="https://www.eo.care/web/terms-of-use"
-            className="mb-0 py-2  font-new-hero text-[14px] font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mb-2 md:mr-2"
+            className="mb-0 py-2 font-new-hero text-[14px] font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mb-2 md:mr-2"
           >
             Terms of Use
           </a>
           <a
             href="https://www.eo.care/web/privacy-policy"
-            className="mb-0 py-2  font-new-hero text-[14px] font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mb-2 md:mr-2"
+            className="mb-0 py-2 font-new-hero text-[14px] font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mb-2 md:mr-2"
           >
             Privacy Policy
+          </a>
+          <a
+            // The class cky-banner-element is used to display the cookie banner
+            href="#"
+            className="mb-0 py-2 font-new-hero text-[14px] font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mb-2 md:mr-2 cky-banner-element"
+          >
+            Cookie Settings
           </a>
         </div>
         <div className="flex flex-col md:flex-row">
@@ -155,19 +162,19 @@ export function FooterFull() {
             </Typography>
             <a
               href="https://www.linkedin.com/company/eo-cannnabis-care"
-              className="mb-0 py-2  font-new-hero text-[14px] font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mb-2 md:mr-2"
+              className="mb-0 py-2 font-new-hero text-[14px] font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mb-2 md:mr-2"
             >
               LinkedIn
             </a>
             <a
               href="https://twitter.com/eocare_"
-              className="mb-0 py-2  font-new-hero text-[14px] font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mb-2 md:mr-2"
+              className="mb-0 py-2 font-new-hero text-[14px] font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mb-2 md:mr-2"
             >
               Twitter
             </a>
             <a
               href="https://www.instagram.com/eo.care_/"
-              className="mb-0 py-2  font-new-hero text-[14px] font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mb-2 md:mr-2"
+              className="mb-0 py-2 font-new-hero text-[14px] font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mb-2 md:mr-2"
             >
               Instagram
             </a>

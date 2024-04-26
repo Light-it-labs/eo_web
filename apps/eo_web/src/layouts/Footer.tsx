@@ -3,6 +3,7 @@ import React from "react";
 import { Typography, icons } from "@eo/ui";
 
 import { Flows } from "~/stores/useProfilingStore";
+import { tw } from "@eo/shared";
 
 
 type FlowsTypes = keyof typeof Flows;
@@ -14,6 +15,7 @@ interface FooterProps {
 const basicData = [
   { title: "Terms of use", url: "https://eo.care/web/terms-of-use" },
   { title: "Privacy Policy", url: "https://eo.care/web/privacy-policy" },
+  { title: "Cookie Settings", url: "#", extraClasses: "cky-banner-element" },
   { title: "Visit eo.care", url: "https://eo.care/web/home" },
 ];
 
@@ -132,11 +134,11 @@ export function Footer({ flow }: FooterProps) {
           >
             COMPANY
           </Typography>
-          {allData[flow].map(({ title, url }) => (
+          {allData[flow].map(({ title, url, extraClasses }) => (
             <a
               key={url}
               href={url}
-              className="mb-0 py-2 font-new-hero text-[14px] font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mb-2 md:mr-2"
+              className={tw("mb-0 py-2 font-new-hero text-[14px] font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mb-2 md:mr-2", extraClasses)}
             >
               {title}
             </a>
