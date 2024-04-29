@@ -15,7 +15,7 @@ interface FooterProps {
 const basicData = [
   { title: "Terms of use", url: "https://eo.care/web/terms-of-use" },
   { title: "Privacy Policy", url: "https://eo.care/web/privacy-policy" },
-  { title: "Cookie Settings", url: "#", extraClasses: "cky-banner-element" },
+  { title: "Cookie Preferences", url: "#", extraClasses: "cky-banner-element" },
   { title: "Visit eo.care", url: "https://eo.care/web/home" },
 ];
 
