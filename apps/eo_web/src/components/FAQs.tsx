@@ -2,11 +2,8 @@ import React from "react";
 
 import { Typography } from "@eo/ui";
 
-import { cOrgFaqs, faqs, inovaFaqs, pilotFaqs } from "~/copy/copy";
-import {
-  Flows,
-  type FlowType,
-} from "~/stores/useProfilingStore";
+import { faqs as PayFaqs, cOrgFaqs, inovaFaqs, pilotFaqs } from "~/copy/copy";
+import { Flows, type FlowType } from "~/stores/useProfilingStore";
 import { Collapsible } from "./Collapsible";
 
 
@@ -20,7 +17,8 @@ const flowsWithCOrgFaqs: FlowType[] = [
   Flows.cancer_support_community,
   Flows.resource_center_1,
   Flows.resource_center_2,
-  Flows.employer_center
+  Flows.employer_center,
+  Flows.imerman,
 ];
 
 const getFAQCopies = (flow?: FlowType) => {
@@ -28,11 +26,11 @@ const getFAQCopies = (flow?: FlowType) => {
   if (flow === Flows.inova) return inovaFaqs;
   if (flow === Flows.cancer_pilot) return pilotFaqs;
 
-  return faqs
-}
+  return PayFaqs;
+};
 
 export const FAQs = ({ flow }: FAQsProps) => {
-  const faqList = getFAQCopies(flow)
+  const faqList = getFAQCopies(flow);
 
   return (
     <section className="px-6 py-12 md:mx-0 md:my-[100px]">

@@ -1,6 +1,10 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
+
+
+
+
 export type Channel = "senior" | "cancer";
 
 export interface Account {
@@ -25,6 +29,7 @@ export const Flows = {
   resource_center_1: "resource_center_1",
   resource_center_2: "resource_center_2",
   inova: "inova",
+  imerman: "imerman",
 } as const;
 
 export type FlowType = keyof typeof Flows;
