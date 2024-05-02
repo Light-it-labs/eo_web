@@ -2,14 +2,11 @@ import React from "react";
 
 import { Typography, icons } from "@eo/ui";
 
-import { Flows } from "~/stores/useProfilingStore";
 import { tw } from "@eo/shared";
-
-
-type FlowsTypes = keyof typeof Flows;
+import { Flows, type FlowType } from "~/stores/useProfilingStore";
 
 interface FooterProps {
-  flow: FlowsTypes;
+  flow: FlowType;
 }
 
 const basicData = [

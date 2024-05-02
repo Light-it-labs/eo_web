@@ -5,30 +5,34 @@ import { Typography } from "@eo/ui";
 import { cOrgFaqs, faqs, inovaFaqs, pilotFaqs } from "~/copy/copy";
 import {
   Flows,
-  type Channel,
-  type FlowsTypes,
+  type FlowType,
 } from "~/stores/useProfilingStore";
 import { Collapsible } from "./Collapsible";
 
 
 interface FAQsProps {
-  flow?: FlowsTypes;
-  channel?: Channel;
+  flow?: FlowType;
 }
 
-export const FAQs = ({ channel, flow }: FAQsProps) => {
-  const flowsWithCOrgFaqs: FlowsTypes[] = [
-    "c_org",
-    "twist_out_cancer",
-    "cancer_support_community",
-    "resource_center_1",
-    "resource_center_2",
-  ];
-  let faqList = faqs;
-  if (flow && flowsWithCOrgFaqs.includes(flow)) faqList = cOrgFaqs;
-  else if (flow === Flows.inova) faqList = inovaFaqs;
-  else if (channel === "cancer" && flow === Flows.cancer_pilot)
-    faqList = pilotFaqs;
+const flowsWithCOrgFaqs: FlowType[] = [
+  Flows.c_org,
+  Flows.twist_out_cancer,
+  Flows.cancer_support_community,
+  Flows.resource_center_1,
+  Flows.resource_center_2,
+  Flows.employer_center
+];
+
+const getFAQCopies = (flow?: FlowType) => {
+  if (flow && flowsWithCOrgFaqs.includes(flow)) return cOrgFaqs;
+  if (flow === Flows.inova) return inovaFaqs;
+  if (flow === Flows.cancer_pilot) return pilotFaqs;
+
+  return faqs
+}
+
+export const FAQs = ({ flow }: FAQsProps) => {
+  const faqList = getFAQCopies(flow)
 
   return (
     <section className="px-6 py-12 md:mx-0 md:my-[100px]">
