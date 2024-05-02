@@ -17,12 +17,22 @@ import { LayoutDefault } from "~/layouts";
 import { Footer } from "~/layouts/Footer";
 import { FooterFull } from "~/layouts/FooterFull";
 import { ROUTES } from "~/router";
-import { Flows, useProfilingStore } from "~/stores/useProfilingStore";
+import { type FlowType, Flows, useProfilingStore } from "~/stores/useProfilingStore";
 
+const flowsWithSmallFooter: FlowType[] = [
+  Flows.c_org,
+  Flows.cancer_pilot,
+  Flows.twist_out_cancer,
+  Flows.cancer_support_community,
+  Flows.resource_center_1,
+  Flows.resource_center_2,
+  Flows.employer_center,
+  Flows.inova
+];
 
 export const ProfilingThankYou = () => {
   const [searchParams] = useSearchParams();
-  const { account, flow, channel, usePayment } = useProfilingStore();
+  const { account, flow, usePayment } = useProfilingStore();
   const submissionId = searchParams.get("submission_id") || "";
   const navigate = useNavigate();
 
@@ -88,18 +98,9 @@ export const ProfilingThankYou = () => {
         </Typography>
       </AllDonePanel>
       <HowEOWorks pilot={flow == Flows.cancer_pilot} />
-      <FAQs channel={channel ?? undefined} flow={flow} />
+      <FAQs flow={flow} />
       <EOInYourInbox />
-      {[
-        "c_org",
-        "cancer_pilot",
-        "twist_out_cancer",
-        "cancer_support_community",
-        "employer_center",
-        "resource_center_1",
-        "resource_center_2",
-        "inova",
-      ].includes(flow) ? (
+      {flowsWithSmallFooter.includes(flow) ? (
         <Footer flow={flow} />
       ) : (
         <FooterFull />
