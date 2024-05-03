@@ -2,7 +2,7 @@ import React from "react";
 
 import { Typography } from "@eo/ui";
 
-import { faqs as PayFaqs, cOrgFaqs, inovaFaqs, pilotFaqs } from "~/copy/copy";
+import { cOrgFaqs, inovaFaqs, paidFaqs, pilotFaqs } from "~/copy/copy";
 import { Flows, type FlowType } from "~/stores/useProfilingStore";
 import { Collapsible } from "./Collapsible";
 
@@ -26,7 +26,7 @@ const getFAQCopies = (flow?: FlowType) => {
   if (flow === Flows.inova) return inovaFaqs;
   if (flow === Flows.cancer_pilot) return pilotFaqs;
 
-  return PayFaqs;
+  return paidFaqs;
 };
 
 export const FAQs = ({ flow }: FAQsProps) => {
