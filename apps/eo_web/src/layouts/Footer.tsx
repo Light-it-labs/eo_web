@@ -1,9 +1,10 @@
 import React from "react";
 
+import { tw } from "@eo/shared";
 import { Typography, icons } from "@eo/ui";
 
-import { tw } from "@eo/shared";
 import { Flows, type FlowType } from "~/stores/useProfilingStore";
+
 
 interface FooterProps {
   flow: FlowType;
@@ -81,6 +82,18 @@ const resource_center_2 = [
   ...basicData,
 ];
 
+const imerman = [
+  {
+    title: "About EO",
+    url: "https://partner.eo.care/imerman/about",
+  },
+  {
+    title: "Cannabis 101",
+    url: "https://partner.eo.care/imerman/cannabis-101",
+  },
+  ...basicData,
+];
+
 const allData = {
   c_org,
   cancer_pilot,
@@ -91,6 +104,7 @@ const allData = {
   resource_center_1,
   resource_center_2,
   inova,
+  imerman,
 };
 
 export function Footer({ flow }: FooterProps) {
@@ -135,7 +149,10 @@ export function Footer({ flow }: FooterProps) {
             <a
               key={url}
               href={url}
-              className={tw("mb-0 py-2 font-new-hero text-[14px] font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mb-2 md:mr-2", extraClasses)}
+              className={tw(
+                "mb-0 py-2 font-new-hero text-[14px] font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mb-2 md:mr-2",
+                extraClasses,
+              )}
             >
               {title}
             </a>
