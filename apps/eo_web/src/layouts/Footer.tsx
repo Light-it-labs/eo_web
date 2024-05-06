@@ -94,6 +94,18 @@ const imerman = [
   ...basicData,
 ];
 
+const unite_for_her = [
+  {
+    title: "About EO",
+    url: "https://partner.eo.care/unite-for-her/about",
+  },
+  {
+    title: "Cannabis 101",
+    url: "https://partner.eo.care/unite-for-her/cannabis-101",
+  },
+  ...basicData,
+];
+
 const allData = {
   c_org,
   cancer_pilot,
@@ -105,6 +117,7 @@ const allData = {
   resource_center_2,
   inova,
   imerman,
+  unite_for_her,
 };
 
 export function Footer({ flow }: FooterProps) {

@@ -17,7 +17,12 @@ import { LayoutDefault } from "~/layouts";
 import { Footer } from "~/layouts/Footer";
 import { FooterFull } from "~/layouts/FooterFull";
 import { ROUTES } from "~/router";
-import { type FlowType, Flows, useProfilingStore } from "~/stores/useProfilingStore";
+import {
+  Flows,
+  useProfilingStore,
+  type FlowType,
+} from "~/stores/useProfilingStore";
+
 
 const flowsWithSmallFooter: FlowType[] = [
   Flows.c_org,
@@ -27,7 +32,9 @@ const flowsWithSmallFooter: FlowType[] = [
   Flows.resource_center_1,
   Flows.resource_center_2,
   Flows.employer_center,
-  Flows.inova
+  Flows.inova,
+  Flows.imerman,
+  Flows.unite_for_her,
 ];
 
 export const ProfilingThankYou = () => {
