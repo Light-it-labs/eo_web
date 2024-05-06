@@ -30,6 +30,7 @@ export const Flows = {
   resource_center_2: "resource_center_2",
   inova: "inova",
   imerman: "imerman",
+  unite_for_her: "unite_for_her",
 } as const;
 
 export type FlowType = keyof typeof Flows;

@@ -19,6 +19,7 @@ const flowsWithCOrgFaqs: FlowType[] = [
   Flows.resource_center_2,
   Flows.employer_center,
   Flows.imerman,
+  Flows.unite_for_her,
 ];
 
 const getFAQCopies = (flow?: FlowType) => {
