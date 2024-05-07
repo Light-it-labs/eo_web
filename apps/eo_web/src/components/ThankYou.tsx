@@ -61,8 +61,8 @@ export const ThankYou = ({ children, mutationKey, mutationFunction, exitRoute = 
 
   return (
     <AllDonePanel>
-      {!isLoading ?
-        <Loading setIsLoading={setIsLoading} />
+      {isLoading ?
+        <Loading />
         : <>
           <Typography
             variant="base"
