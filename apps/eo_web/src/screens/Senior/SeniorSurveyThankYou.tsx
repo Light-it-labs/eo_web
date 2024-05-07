@@ -11,7 +11,7 @@ export const SeniorSurveyThankYou = () => {
 
   return (
     <LayoutDefault>
-      <ThankYou mutationKey="postSeniorSurveyFormSubmission" mutationFn={postSeniorSurveyFormSubmission} />
+      <ThankYou mutationKey="postSeniorSurveyFormSubmission" mutationFunction={postSeniorSurveyFormSubmission} />
       <HowEOWorks />
       <FAQs />
       <FooterFull />
