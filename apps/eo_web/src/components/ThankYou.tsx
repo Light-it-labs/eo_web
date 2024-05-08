@@ -3,7 +3,6 @@ import { Typography } from "@eo/ui";
 import { AllDonePanel } from "./AllDonePanel";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
-import { Navigate, useSearchParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Loading } from "~/components/Loading";
 
@@ -14,6 +13,7 @@ type ThankYouProps = HTMLAttributes<HTMLElement> & {
   mutationsParams: {
     email: string;
     phase?: string;
+    submission_id: string;
   },
   mutationKey: string[];
   mutationFunction: (data: object) => Promise<any>;

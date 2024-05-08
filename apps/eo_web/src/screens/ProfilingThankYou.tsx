@@ -46,7 +46,6 @@ export const ProfilingThankYou = () => {
     window.location.href = WEB_APP_URL;
   };
 
-
   return (
     <LayoutDefault>
       <ThankYou
@@ -54,7 +53,7 @@ export const ProfilingThankYou = () => {
         mutationFunction={checkoutComplete}
         isProfiling={true}
         mutateOnMount={usePayment}
-        mutationsParams={{ email: account.email }}
+        mutationsParams={{ email: account.email, submission_id }}
       >
         You’ll be able to review your initial, personalized,
         clinician-approved care plan within 24 hours. When your care plan is
