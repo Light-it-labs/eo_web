@@ -1,4 +1,5 @@
 import React from "react";
+import { Navigate, useSearchParams } from "react-router-dom";
 
 import { useApi } from "~/api/useApi";
 import { ThankYou } from "~/components";
@@ -32,6 +33,12 @@ const flowsWithSmallFooter: FlowType[] = [
 
 export const ProfilingThankYou = () => {
   const { flow, account, usePayment } = useProfilingStore();
+  const [searchParams] = useSearchParams();
+  const submission_id = searchParams.get("submission_id") ?? "";
+
+  if (!submission_id) {
+    return <Navigate to={ROUTES.userRolSelector} />
+  }
 
   const { checkoutComplete } = useApi();
 
@@ -46,7 +53,6 @@ export const ProfilingThankYou = () => {
         mutationKey="checkoutComplete"
         mutationFunction={checkoutComplete}
         isProfiling={true}
-        exitRoute={ROUTES.userRolSelector}
         mutateOnMount={usePayment}
         mutationsParams={{ email: account.email }}
       >

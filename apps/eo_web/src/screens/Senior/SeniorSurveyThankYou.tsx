@@ -5,10 +5,16 @@ import { LayoutDefault } from "~/layouts";
 import { FooterFull } from "~/layouts/FooterFull";
 import { ThankYou } from "~/components";
 import { useSurveyStore } from "~/stores/useSurveyStore";
+import { Navigate, useSearchParams } from "react-router-dom";
 
 export const SeniorSurveyThankYou = () => {
   const { email, phase } = useSurveyStore();
+  const [searchParams] = useSearchParams();
+  const submission_id = searchParams.get("submission_id") ?? "";
 
+  if (!submission_id) {
+    return <Navigate to={'/'} />
+  }
   const { postSeniorSurveyFormSubmission } = useApi();
 
   return (
@@ -16,7 +22,7 @@ export const SeniorSurveyThankYou = () => {
       <ThankYou
         mutationKey="postSeniorSurveyFormSubmission"
         mutationFunction={postSeniorSurveyFormSubmission}
-        mutationsParams={{ email, phase }}
+        mutationsParams={{ email, phase, submission_id }}
       />
       <HowEOWorks />
       <FAQs />

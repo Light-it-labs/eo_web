@@ -14,10 +14,10 @@ type ThankYouProps = HTMLAttributes<HTMLElement> & {
   mutationsParams: {
     email: string;
     phase?: string;
+    submission_id: string;
   },
   mutationKey: string;
   mutationFunction: (data: object) => Promise<any>;
-  exitRoute?: string;
   isProfiling?: boolean;
   mutateOnMount?: boolean;
 }
@@ -26,17 +26,14 @@ export const ThankYou = ({
   children,
   mutationKey,
   mutationFunction,
-  exitRoute = '/',
   mutationsParams,
   mutateOnMount = true
 }: ThankYouProps) => {
   const [isLoading, setIsLoading] = useState(mutateOnMount);
-  const [searchParams] = useSearchParams();
-  const submission_id = searchParams.get("submission_id") ?? "";
 
   const { mutate } = useMutation({
     mutationFn: mutationFunction,
-    mutationKey: [mutationKey, submission_id],
+    mutationKey: [mutationKey, mutationsParams.submission_id],
     onSuccess: () => {
       setIsLoading(false);
     },
@@ -53,13 +50,9 @@ export const ThankYou = ({
 
   useMount(() => {
     if (mutateOnMount) {
-      mutate({ ...mutationsParams, submission_id });
+      mutate(mutationsParams);
     };
   })
-
-  if (!submission_id) {
-    return <Navigate to={exitRoute} />
-  }
 
   return (
     isLoading ?
