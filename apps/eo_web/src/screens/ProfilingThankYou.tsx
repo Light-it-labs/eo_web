@@ -1,4 +1,3 @@
-import { Loading } from "@eo/ui";
 import React from "react";
 
 import { useApi } from "~/api/useApi";

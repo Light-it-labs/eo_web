@@ -34,10 +34,6 @@ export const ThankYou = ({
   const [searchParams] = useSearchParams();
   const submission_id = searchParams.get("submission_id") ?? "";
 
-  if (!submission_id) {
-    return <Navigate to={exitRoute} />
-  }
-
   const { mutate } = useMutation({
     mutationFn: mutationFunction,
     mutationKey: [mutationKey, submission_id],
@@ -60,6 +56,10 @@ export const ThankYou = ({
       mutate({ ...mutationsParams, submission_id });
     };
   })
+
+  if (!submission_id) {
+    return <Navigate to={exitRoute} />
+  }
 
   return (
     isLoading ?
