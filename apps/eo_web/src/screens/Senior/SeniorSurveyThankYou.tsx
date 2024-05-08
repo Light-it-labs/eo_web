@@ -20,7 +20,7 @@ export const SeniorSurveyThankYou = () => {
   return (
     <LayoutDefault>
       <ThankYou
-        mutationKey="postSeniorSurveyFormSubmission"
+        mutationKey={["postSeniorSurveyFormSubmission", submission_id]}
         mutationFunction={postSeniorSurveyFormSubmission}
         mutationsParams={{ email, phase, submission_id }}
       />

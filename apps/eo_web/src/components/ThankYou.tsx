@@ -16,7 +16,7 @@ type ThankYouProps = HTMLAttributes<HTMLElement> & {
     phase?: string;
     submission_id: string;
   },
-  mutationKey: string;
+  mutationKey: string[];
   mutationFunction: (data: object) => Promise<any>;
   isProfiling?: boolean;
   mutateOnMount?: boolean;
@@ -33,7 +33,7 @@ export const ThankYou = ({
 
   const { mutate } = useMutation({
     mutationFn: mutationFunction,
-    mutationKey: [mutationKey, mutationsParams.submission_id],
+    mutationKey: mutationKey,
     onSuccess: () => {
       setIsLoading(false);
     },

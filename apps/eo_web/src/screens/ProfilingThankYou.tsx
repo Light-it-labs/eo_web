@@ -50,7 +50,7 @@ export const ProfilingThankYou = () => {
   return (
     <LayoutDefault>
       <ThankYou
-        mutationKey="checkoutComplete"
+        mutationKey={["checkoutComplete", submission_id]}
         mutationFunction={checkoutComplete}
         isProfiling={true}
         mutateOnMount={usePayment}
