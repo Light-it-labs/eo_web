@@ -3,9 +3,8 @@ import { Typography } from "@eo/ui";
 import { AllDonePanel } from "./AllDonePanel";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { Navigate, useSearchParams } from "react-router-dom";
 import { toast } from "react-toastify";
-import { useSurveyStore } from "~/stores/useSurveyStore";
 import { Loading } from "~/components/Loading";
 
 import { useMount } from "~/hooks/useMount";
@@ -31,13 +30,12 @@ export const ThankYou = ({
   mutationsParams,
   mutateOnMount = true
 }: ThankYouProps) => {
-  const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(mutateOnMount);
   const [searchParams] = useSearchParams();
   const submission_id = searchParams.get("submission_id") ?? "";
 
   if (!submission_id) {
-    navigate(exitRoute);
+    return <Navigate to={exitRoute} />
   }
 
   const { mutate } = useMutation({
@@ -68,34 +66,33 @@ export const ThankYou = ({
       <section className="flex flex-col items-center justify-center md:min-h-[479px] relative">
         <Loading />
       </section>
-      : <>
-        <AllDonePanel>
-          <Typography
-            variant="base"
-            font="regular"
-            className="max-w-xl text-center text-[22px] font-normal leading-[36px]"
+      :
+      <AllDonePanel>
+        <Typography
+          variant="base"
+          font="regular"
+          className="max-w-xl text-center text-[22px] font-normal leading-[36px]"
+        >
+          {children ?? <>
+            We received your feedback!
+            <br />
+            <br />
+            Thank you!
+          </>
+          }
+          <br />
+          <br />
+          Have questions? We’re here. Email support@eo.care, call{" "}
+          <a href="tel:+1-888-823-6143">888-823-6143</a>, or{" "}
+          <a
+            className="cursor-pointer font-new-hero text-[22px] underline"
+            href="https://calendly.com/eo-care/30min?back=1"
+            target="_blank"
           >
-            {children ?? <>
-              We received your feedback!
-              <br />
-              <br />
-              Thank you!
-            </>
-            }
-            <br />
-            <br />
-            Have questions? We’re here. Email support@eo.care, call{" "}
-            <a href="tel:+1-888-823-6143">888-823-6143</a>, or{" "}
-            <a
-              className="cursor-pointer font-new-hero text-[22px] underline"
-              href="https://calendly.com/eo-care/30min?back=1"
-              target="_blank"
-            >
-              schedule a video chat
-            </a>{" "}
-            with a member of our team.
-          </Typography>
-        </AllDonePanel>
-      </>
+            schedule a video chat
+          </a>{" "}
+          with a member of our team.
+        </Typography>
+      </AllDonePanel>
   )
 };
