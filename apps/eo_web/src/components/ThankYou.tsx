@@ -13,7 +13,7 @@ import { useState } from "react";
 type ThankYouProps = HTMLAttributes<HTMLElement> & {
   mutationsParams: {
     email: string;
-    phase: string;
+    phase?: string;
   },
   mutationKey: string;
   mutationFunction: (data: object) => Promise<any>;
