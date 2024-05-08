@@ -14,7 +14,6 @@ type ThankYouProps = HTMLAttributes<HTMLElement> & {
   mutationsParams: {
     email: string;
     phase?: string;
-    submission_id: string;
   },
   mutationKey: string[];
   mutationFunction: (data: object) => Promise<any>;
