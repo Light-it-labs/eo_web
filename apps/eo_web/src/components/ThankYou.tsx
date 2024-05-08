@@ -19,7 +19,7 @@ type ThankYouProps = HTMLAttributes<HTMLElement> & {
   mutationFunction: (data: object) => Promise<any>;
   exitRoute?: string;
   isProfiling?: boolean;
-  mutateOnMount: boolean;
+  mutateOnMount?: boolean;
 }
 
 export const ThankYou = ({
