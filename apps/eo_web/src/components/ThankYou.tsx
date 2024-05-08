@@ -10,26 +10,31 @@ import { Loading } from "~/components/Loading";
 
 import { useMount } from "~/hooks/useMount";
 import { useState } from "react";
-import { useProfilingStore } from "~/stores/useProfilingStore";
 
 type ThankYouProps = HTMLAttributes<HTMLElement> & {
+  mutationsParams: {
+    email: string;
+    phase: string;
+  },
   mutationKey: string;
   mutationFunction: (data: object) => Promise<any>;
   exitRoute?: string;
   isProfiling?: boolean;
+  mutateOnMount: boolean;
 }
 
-export const ThankYou = ({ children, mutationKey, mutationFunction, exitRoute = '/', isProfiling = false }: ThankYouProps) => {
-  const [isLoading, setIsLoading] = useState(true);
-
-  const [searchParams] = useSearchParams();
-
-  const { email, phase } = useSurveyStore();
-  const { account, usePayment } = useProfilingStore();
-
-  const submission_id = searchParams.get("submission_id") ?? "";
-
+export const ThankYou = ({
+  children,
+  mutationKey,
+  mutationFunction,
+  exitRoute = '/',
+  mutationsParams,
+  mutateOnMount = true
+}: ThankYouProps) => {
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(mutateOnMount);
+  const [searchParams] = useSearchParams();
+  const submission_id = searchParams.get("submission_id") ?? "";
 
   if (!submission_id) {
     navigate(exitRoute);
@@ -39,7 +44,7 @@ export const ThankYou = ({ children, mutationKey, mutationFunction, exitRoute = 
     mutationFn: mutationFunction,
     mutationKey: [mutationKey, submission_id],
     onSuccess: () => {
-      () => setIsLoading(false);
+      setIsLoading(false);
     },
     onError: (result) => {
       if (axios.isAxiosError(result)) {
@@ -53,17 +58,18 @@ export const ThankYou = ({ children, mutationKey, mutationFunction, exitRoute = 
   });
 
   useMount(() => {
-    if (!isProfiling || usePayment) {
-
-      mutate({ email: isProfiling ? account.email : email, phase, submission_id })
+    if (mutateOnMount) {
+      mutate({ ...mutationsParams, submission_id });
     };
   })
 
   return (
-    <AllDonePanel>
-      {isLoading ?
+    isLoading ?
+      <section className="flex flex-col items-center justify-center md:min-h-[479px] relative">
         <Loading />
-        : <>
+      </section>
+      : <>
+        <AllDonePanel>
           <Typography
             variant="base"
             font="regular"
@@ -74,7 +80,8 @@ export const ThankYou = ({ children, mutationKey, mutationFunction, exitRoute = 
               <br />
               <br />
               Thank you!
-            </>}
+            </>
+            }
             <br />
             <br />
             Have questions? We’re here. Email support@eo.care, call{" "}
@@ -88,7 +95,7 @@ export const ThankYou = ({ children, mutationKey, mutationFunction, exitRoute = 
             </a>{" "}
             with a member of our team.
           </Typography>
-        </>}
-    </AllDonePanel>
+        </AllDonePanel>
+      </>
   )
 };

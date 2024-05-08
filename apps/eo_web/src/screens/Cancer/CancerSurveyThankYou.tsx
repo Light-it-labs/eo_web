@@ -20,13 +20,17 @@ const flowsWithSmallFooter: FlowType[] = [
 ];
 
 export const CancerSurveyThankYou = () => {
-  const { flow } = useSurveyStore();
+  const { flow, email, phase } = useSurveyStore();
 
   const { postCancerSurveyFormSubmission } = useApi();
 
   return (
     <LayoutDefault>
-      <ThankYou mutationKey="postCancerSurveyFormSubmission" mutationFunction={postCancerSurveyFormSubmission} />
+      <ThankYou
+        mutationKey="postCancerSurveyFormSubmission"
+        mutationFunction={postCancerSurveyFormSubmission}
+        mutationsParams={{ email, phase }}
+      />
       <HowEOWorks pilot={flow === Flows.cancer_pilot} />
       <FAQs flow={flow} />
       {flowsWithSmallFooter.includes(flow)

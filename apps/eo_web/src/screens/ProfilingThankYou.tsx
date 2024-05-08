@@ -1,3 +1,4 @@
+import { Loading } from "@eo/ui";
 import React from "react";
 
 import { useApi } from "~/api/useApi";
@@ -31,7 +32,7 @@ const flowsWithSmallFooter: FlowType[] = [
 ];
 
 export const ProfilingThankYou = () => {
-  const { flow } = useProfilingStore();
+  const { flow, account, usePayment } = useProfilingStore();
 
   const { checkoutComplete } = useApi();
 
@@ -39,9 +40,17 @@ export const ProfilingThankYou = () => {
     window.location.href = WEB_APP_URL;
   };
 
+
   return (
     <LayoutDefault>
-      <ThankYou mutationKey="checkoutComplete" mutationFunction={checkoutComplete} isProfiling={true} exitRoute={ROUTES.userRolSelector}>
+      <ThankYou
+        mutationKey="checkoutComplete"
+        mutationFunction={checkoutComplete}
+        isProfiling={true}
+        exitRoute={ROUTES.userRolSelector}
+        mutateOnMount={usePayment}
+        mutationsParams={{ email: account.email }}
+      >
         You’ll be able to review your initial, personalized,
         clinician-approved care plan within 24 hours. When your care plan is
         ready, we will send you an email with a link to{" "}
