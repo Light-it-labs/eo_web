@@ -36,11 +36,11 @@ export const ProfilingThankYou = () => {
   const [searchParams] = useSearchParams();
   const submission_id = searchParams.get("submission_id") ?? "";
 
+  const { checkoutComplete } = useApi();
+
   if (!submission_id) {
     return <Navigate to={ROUTES.userRolSelector} />
   }
-
-  const { checkoutComplete } = useApi();
 
   const goToWebApp = () => {
     window.location.href = WEB_APP_URL;

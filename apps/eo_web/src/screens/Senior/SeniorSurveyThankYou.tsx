@@ -12,10 +12,11 @@ export const SeniorSurveyThankYou = () => {
   const [searchParams] = useSearchParams();
   const submission_id = searchParams.get("submission_id") ?? "";
 
+  const { postSeniorSurveyFormSubmission } = useApi();
+
   if (!submission_id) {
     return <Navigate to={'/'} />
   }
-  const { postSeniorSurveyFormSubmission } = useApi();
 
   return (
     <LayoutDefault>

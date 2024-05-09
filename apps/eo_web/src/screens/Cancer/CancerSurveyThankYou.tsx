@@ -26,11 +26,11 @@ export const CancerSurveyThankYou = () => {
   const [searchParams] = useSearchParams();
   const submission_id = searchParams.get("submission_id") ?? "";
 
+  const { postCancerSurveyFormSubmission } = useApi();
+
   if (!submission_id) {
     return <Navigate to={'/'} />
   }
-
-  const { postCancerSurveyFormSubmission } = useApi();
 
 
   return (
