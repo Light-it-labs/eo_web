@@ -10,8 +10,9 @@ import { ROUTES } from "~/router";
 import {
   useProfilingStore,
   type Channel,
-  type FlowsTypes,
+  type FlowType,
   type Type,
+  Flows,
 } from "~/stores/useProfilingStore";
 
 
@@ -22,8 +23,8 @@ export const UserRolSelector = () => {
   const origin = searchParams.get("origin") ?? "localhost:5173";
   const channel = searchParams.get("channel") as Channel;
   const symptoms = searchParams.get("symptoms") ?? "";
-  const flow: FlowsTypes =
-    (searchParams.get("flow") as FlowsTypes) ?? "marketing_site";
+  const flow: FlowType =
+    (searchParams.get("flow") as FlowType) ?? Flows.marketing_site;
 
   const {
     setChannel,
@@ -67,7 +68,7 @@ export const UserRolSelector = () => {
                 className={tw(
                   "flex h-12 items-center justify-start gap-2 rounded border border-solid border-gray-800 px-[15px] py-[9px] font-nunito text-gray-800 lg:w-1/2",
                   selectedValue === "Patient" &&
-                    "border-[#5AADFD] bg-[#5AADFD] bg-opacity-20",
+                  "border-[#5AADFD] bg-[#5AADFD] bg-opacity-20",
                 )}
                 onClick={() => setSelectedValue("Patient")}
               >
@@ -99,7 +100,7 @@ export const UserRolSelector = () => {
                 className={tw(
                   "flex h-12 items-center justify-start gap-2 rounded border border-solid border-gray-800 px-[15px] py-[9px] font-nunito text-gray-800 lg:w-1/2",
                   selectedValue === "Caregiver" &&
-                    "border-[#5AADFD] bg-[#5AADFD] bg-opacity-20",
+                  "border-[#5AADFD] bg-[#5AADFD] bg-opacity-20",
                 )}
                 onClick={() => setSelectedValue("Caregiver")}
               >

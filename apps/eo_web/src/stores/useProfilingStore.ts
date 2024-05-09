@@ -1,6 +1,10 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
+
+
+
+
 export type Channel = "senior" | "cancer";
 
 export interface Account {
@@ -25,9 +29,11 @@ export const Flows = {
   resource_center_1: "resource_center_1",
   resource_center_2: "resource_center_2",
   inova: "inova",
+  imerman: "imerman",
+  unite_for_her: "unite_for_her",
 } as const;
 
-export type FlowsTypes = keyof typeof Flows;
+export type FlowType = keyof typeof Flows;
 
 export interface ProfilingStore {
   symptoms: string[];
@@ -39,7 +45,7 @@ export interface ProfilingStore {
   origin: string;
   experience: string;
   account: Account;
-  flow: FlowsTypes;
+  flow: FlowType;
   setAccountData: (account: Account) => void;
   setChannel: (channel: Channel) => void;
   setType: (type: Type) => void;
@@ -50,7 +56,7 @@ export interface ProfilingStore {
   resetProfilingStore: () => void;
   setOrigin: (origin: string) => void;
   setExperience: (experience: string) => void;
-  setFlow: (flow: FlowsTypes) => void;
+  setFlow: (flow: FlowType) => void;
 }
 
 const defaultState = {
@@ -107,7 +113,7 @@ export const useProfilingStore = create<ProfilingStore>()(
       setExperience: (experience: string) => {
         set({ experience });
       },
-      setFlow: (flow: FlowsTypes) => {
+      setFlow: (flow: FlowType) => {
         set({ flow });
       },
       ...defaultState,

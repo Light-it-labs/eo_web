@@ -85,7 +85,7 @@ export const SeniorSurveyThankYou = () => {
         </Typography>
       </AllDonePanel>
       <HowEOWorks />
-      <FAQs channel="senior" />
+      <FAQs />
       <FooterFull />
     </LayoutDefault>
   );

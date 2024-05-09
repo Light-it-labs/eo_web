@@ -1,19 +1,19 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-import { Flows, type FlowsTypes } from "~/stores/useProfilingStore";
+import { Flows, type FlowType } from "~/stores/useProfilingStore";
 
 
 export interface SurveyStorageState {
   phase: string;
   email: string;
-  flow: FlowsTypes;
+  flow: FlowType;
 
   setPhase(phase: string): void;
 
   setEmail(email: string): void;
 
-  setFlow(flows: FlowsTypes): void;
+  setFlow(flows: FlowType): void;
 }
 
 export const useSurveyStore = create<SurveyStorageState>()(
@@ -24,7 +24,7 @@ export const useSurveyStore = create<SurveyStorageState>()(
       flow: Flows.marketing_site,
       setEmail: (email: string) => set({ email }),
       setPhase: (phase: string) => set({ phase }),
-      setFlow: (flow: FlowsTypes) => set({ flow }),
+      setFlow: (flow: FlowType) => set({ flow }),
     }),
     {
       name: "useSurveyStore",

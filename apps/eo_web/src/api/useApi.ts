@@ -8,7 +8,7 @@ import {
 } from "~/api/PrePlanTypes";
 import { apiElixir, apiLaravel } from "~/api/axios";
 import { useProfileStore, type Profile } from "~/stores/useProfileStore";
-import { type FlowsTypes } from "~/stores/useProfilingStore";
+import { type FlowType } from "~/stores/useProfilingStore";
 
 export interface ZipCodeValidationResponseError {
   errors: {
@@ -166,7 +166,7 @@ export const useApi = () => {
     );
 
   const getProfilingFlow = async (email: string) =>
-    await apiElixir.get<{ flow: FlowsTypes }>(`/v2/users/${email}/flow`);
+    await apiElixir.get<{ flow: FlowType }>(`/v2/users/${email}/flow`);
 
   const checkoutComplete = async (data: object) =>
     await apiLaravel.patch("/api/profiles/checkout-complete", data);
