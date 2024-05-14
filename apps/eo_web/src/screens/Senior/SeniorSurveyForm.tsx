@@ -9,7 +9,7 @@ import {
   SENIOR_CAREGIVER_SURVEY_ID,
   SENIOR_PATIENT_SURVEY_ID,
 } from "~/configs/env";
-import { scapeParamFromQuery } from "~/helpers";
+import { getUrlFromHost, scapeParamFromQuery } from "~/helpers";
 import { useMount } from "~/hooks/useMount";
 import { LayoutDefault } from "~/layouts";
 import { useSurveyStore } from "~/stores/useSurveyStore";
@@ -41,6 +41,7 @@ export const SeniorSurveyForm = () => {
   const params = new URLSearchParams({
     email: email as string,
     symptoms,
+    origin: getUrlFromHost(),
   });
 
   const formId =

@@ -9,7 +9,7 @@ import {
   CANCER_CAREGIVER_SURVEY_ID,
   CANCER_PATIENT_SURVEY_ID,
 } from "~/configs/env";
-import { scapeParamFromQuery } from "~/helpers";
+import { getUrlFromHost, scapeParamFromQuery } from "~/helpers";
 import { useMount } from "~/hooks/useMount";
 import { LayoutDefault } from "~/layouts";
 import { Flows } from "~/stores/useProfilingStore";
@@ -57,6 +57,7 @@ export const SurveyForm = () => {
   const params = new URLSearchParams({
     email: email as string,
     symptoms,
+    origin: getUrlFromHost(),
   });
 
   return (
