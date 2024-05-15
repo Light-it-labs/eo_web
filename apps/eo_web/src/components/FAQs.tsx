@@ -21,6 +21,7 @@ const flowsWithCOrgFaqs: FlowType[] = [
   Flows.imerman,
   Flows.unite_for_her,
   Flows.mass_retirees,
+  Flows.stupid_cancer,
 ];
 
 const getFAQCopies = (flow?: FlowType) => {
