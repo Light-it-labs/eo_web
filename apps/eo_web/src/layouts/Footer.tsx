@@ -117,6 +117,18 @@ const mass_retirees = [
   },
   ...basicData,
 ];
+
+const stupid_cancer = [
+  {
+    title: "About EO",
+    url: "https://partner.eo.care/stupid-cancer/about",
+  },
+  {
+    title: "Cannabis 101",
+    url: "https://partner.eo.care/stupid-cancer/cannabis-101",
+  },
+  ...basicData,
+];
 const allData = {
   c_org,
   cancer_pilot,
@@ -130,6 +142,7 @@ const allData = {
   imerman,
   unite_for_her,
   mass_retirees,
+  stupid_cancer,
 };
 
 export function Footer({ flow }: FooterProps) {
