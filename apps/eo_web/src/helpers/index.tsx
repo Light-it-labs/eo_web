@@ -8,3 +8,8 @@ export const scapeParamFromQuery = (
   const val = urlParam.get(key);
   return val ? val.replace(" ", "+") : null;
 };
+
+export const getUrlFromHost = () => {
+  const protocol = window.location.hostname === "localhost" ? "http" : "https";
+  return `${protocol}://${window.location.host}`;
+};
