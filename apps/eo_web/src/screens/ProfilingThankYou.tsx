@@ -38,8 +38,8 @@ export const ProfilingThankYou = () => {
 
   const { checkoutComplete } = useApi();
 
-  if (!submission_id) {
-    return <Navigate to={ROUTES.userRolSelector} />
+  if (!submission_id && usePayment) {
+    return <Navigate to={ROUTES.userRolSelector} />;
   }
 
   const goToWebApp = () => {
@@ -55,9 +55,9 @@ export const ProfilingThankYou = () => {
         mutateOnMount={usePayment}
         mutationsParams={{ email: account.email, submission_id }}
       >
-        You’ll be able to review your initial, personalized,
-        clinician-approved care plan within 24 hours. When your care plan is
-        ready, we will send you an email with a link to{" "}
+        You’ll be able to review your initial, personalized, clinician-approved
+        care plan within 24 hours. When your care plan is ready, we will send
+        you an email with a link to{" "}
         <span className="cursor-pointer underline" onClick={goToWebApp}>
           log into your account.
         </span>
