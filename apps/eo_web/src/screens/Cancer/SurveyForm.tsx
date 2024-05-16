@@ -24,7 +24,7 @@ export const SurveyForm = () => {
   const profiled = searchParams.get("profiled") ?? "patient";
   const symptoms = searchParams.get("symptoms") ?? "";
   const phase = searchParams.get("phase") ?? "";
-  const uid = searchParams.get("uid") ?? "";
+  const uid = searchParams.get("uid") ?? phase;
 
   if (!email) {
     window.location.href = "https://eo.care";
