@@ -15,7 +15,6 @@ import { LayoutDefault } from "~/layouts";
 import { Flows } from "~/stores/useProfilingStore";
 import { useSurveyStore } from "~/stores/useSurveyStore";
 
-
 export const SurveyForm = () => {
   const [searchParams] = useSearchParams();
   const { setPhase, setEmail, setFlow } = useSurveyStore();
@@ -25,6 +24,7 @@ export const SurveyForm = () => {
   const profiled = searchParams.get("profiled") ?? "patient";
   const symptoms = searchParams.get("symptoms") ?? "";
   const phase = searchParams.get("phase") ?? "";
+  const uid = searchParams.get("uid") ?? "";
 
   if (!email) {
     window.location.href = "https://eo.care";
@@ -58,6 +58,7 @@ export const SurveyForm = () => {
     email: email as string,
     symptoms,
     origin: getUrlFromHost(),
+    uid,
   });
 
   return (

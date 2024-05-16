@@ -14,7 +14,6 @@ import { useMount } from "~/hooks/useMount";
 import { LayoutDefault } from "~/layouts";
 import { useSurveyStore } from "~/stores/useSurveyStore";
 
-
 export const SeniorSurveyForm = () => {
   const { surveyStatus } = useApi();
   const { setPhase, setEmail } = useSurveyStore();
@@ -23,6 +22,7 @@ export const SeniorSurveyForm = () => {
   const symptoms = searchParams.get("symptoms") || "";
   const profiled = searchParams.get("profiled") ?? "patient";
   const phase = searchParams.get("phase") ?? "";
+  const uid = searchParams.get("uid") ?? "";
 
   if (!email) {
     window.location.href = "https://eo.care";
@@ -42,6 +42,7 @@ export const SeniorSurveyForm = () => {
     email: email as string,
     symptoms,
     origin: getUrlFromHost(),
+    uid,
   });
 
   const formId =
