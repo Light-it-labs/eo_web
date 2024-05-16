@@ -31,6 +31,8 @@ export const Flows = {
   inova: "inova",
   imerman: "imerman",
   unite_for_her: "unite_for_her",
+  mass_retirees: "mass_retirees",
+  stupid_cancer: "stupid_cancer",
 } as const;
 
 export type FlowType = keyof typeof Flows;

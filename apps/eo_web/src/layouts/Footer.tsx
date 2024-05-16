@@ -106,6 +106,29 @@ const unite_for_her = [
   ...basicData,
 ];
 
+const mass_retirees = [
+  {
+    title: "About EO",
+    url: "https://partner.eo.care/mass-retirees/about",
+  },
+  {
+    title: "Cannabis 101",
+    url: "https://partner.eo.care/mass-retirees/cannabis-101",
+  },
+  ...basicData,
+];
+
+const stupid_cancer = [
+  {
+    title: "About EO",
+    url: "https://partner.eo.care/stupid-cancer/about",
+  },
+  {
+    title: "Cannabis 101",
+    url: "https://partner.eo.care/stupid-cancer/cannabis-101",
+  },
+  ...basicData,
+];
 const allData = {
   c_org,
   cancer_pilot,
@@ -118,6 +141,8 @@ const allData = {
   inova,
   imerman,
   unite_for_her,
+  mass_retirees,
+  stupid_cancer,
 };
 
 export function Footer({ flow }: FooterProps) {
