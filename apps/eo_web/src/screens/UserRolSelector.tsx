@@ -8,11 +8,11 @@ import { useMount } from "~/hooks/useMount";
 import { LayoutDefault } from "~/layouts";
 import { ROUTES } from "~/router";
 import {
+  Flows,
   useProfilingStore,
   type Channel,
   type FlowType,
   type Type,
-  Flows,
 } from "~/stores/useProfilingStore";
 
 
@@ -53,6 +53,11 @@ export const UserRolSelector = () => {
       : setUsePayment(true);
   });
 
+  const redirectBack = () => {
+    const url = localStorage.getItem("redirect_back_origin");
+    if (url) window.location.href = url;
+  };
+
   return (
     <LayoutDefault>
       <div className="flex h-full w-full items-center justify-center bg-opacity-50 ">
@@ -68,7 +73,7 @@ export const UserRolSelector = () => {
                 className={tw(
                   "flex h-12 items-center justify-start gap-2 rounded border border-solid border-gray-800 px-[15px] py-[9px] font-nunito text-gray-800 lg:w-1/2",
                   selectedValue === "Patient" &&
-                  "border-[#5AADFD] bg-[#5AADFD] bg-opacity-20",
+                    "border-[#5AADFD] bg-[#5AADFD] bg-opacity-20",
                 )}
                 onClick={() => setSelectedValue("Patient")}
               >
@@ -100,7 +105,7 @@ export const UserRolSelector = () => {
                 className={tw(
                   "flex h-12 items-center justify-start gap-2 rounded border border-solid border-gray-800 px-[15px] py-[9px] font-nunito text-gray-800 lg:w-1/2",
                   selectedValue === "Caregiver" &&
-                  "border-[#5AADFD] bg-[#5AADFD] bg-opacity-20",
+                    "border-[#5AADFD] bg-[#5AADFD] bg-opacity-20",
                 )}
                 onClick={() => setSelectedValue("Caregiver")}
               >
@@ -137,21 +142,7 @@ export const UserRolSelector = () => {
               className="click:border-0 focus:ring-outline-0 rounded-none hover:outline-0 focus:ring-0"
               variant="black"
               size="lg"
-              onClick={() => {
-                if (window.data.isMarketingSite(origin)) {
-                  if (channel === "senior") {
-                    window.location.href = `https://${window.location.host}/you/seniors-careplan#seniors-panel`;
-                  } else if (channel === "cancer") {
-                    window.location.href = `https://${window.location.host}/you/cancer-careplan#cancer-panel`;
-                  } else {
-                    history.back();
-                  }
-                } else if (window.data.isPartnerSite(origin)) {
-                  window.location.href = `https://${window.location.host}/pilot#how-eo-care-plans-works`;
-                } else {
-                  history.back();
-                }
-              }}
+              onClick={redirectBack}
               left={
                 <icons.RightArrow className="h-6 w-6 rotate-180 text-gray-300" />
               }
