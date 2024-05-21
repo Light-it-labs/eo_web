@@ -26,6 +26,8 @@ export const UserRolSelector = () => {
   const flow: FlowType =
     (searchParams.get("flow") as FlowType) ?? Flows.marketing_site;
 
+  const URL = localStorage.getItem("redirect_back_origin");
+
   const {
     setChannel,
     setType,
@@ -54,8 +56,7 @@ export const UserRolSelector = () => {
   });
 
   const redirectBack = () => {
-    const url = localStorage.getItem("redirect_back_origin");
-    if (url) window.location.href = url;
+    if (URL) window.location.href = URL;
   };
 
   return (
@@ -137,19 +138,26 @@ export const UserRolSelector = () => {
               </button>
             </div>
           </div>
-          <section className="flex h-[53px] items-center justify-between rounded-b-md bg-black pb-[19px] pt-4 md:w-full ">
-            <Button
-              className="click:border-0 focus:ring-outline-0 rounded-none hover:outline-0 focus:ring-0"
-              variant="black"
-              size="lg"
-              onClick={redirectBack}
-              left={
-                <icons.RightArrow className="h-6 w-6 rotate-180 text-gray-300" />
-              }
-            >
-              <span className="hidden text-gray-300 lg:flex">PREVIOUS</span>
-            </Button>
-
+          <section
+            className={tw(
+              "flex h-[53px] items-center justify-between rounded-b-md bg-black pb-[19px] pt-4 md:w-full",
+              !URL && "justify-end",
+            )}
+          >
+            {URL && (
+              <Button
+                className="click:border-0 focus:ring-outline-0 rounded-none hover:outline-0 focus:ring-0"
+                variant="black"
+                size="lg"
+                onClick={redirectBack}
+                disabled={!URL}
+                left={
+                  <icons.RightArrow className="h-6 w-6 rotate-180 text-gray-300" />
+                }
+              >
+                <span className="hidden text-gray-300 lg:flex">PREVIOUS</span>
+              </Button>
+            )}
             <Button
               className="click:border-0 focus:ring-outline-0 hidden rounded-none hover:outline-0 focus:ring-0 lg:flex"
               variant="black"
