@@ -23,6 +23,7 @@ export const SeniorSurveyForm = () => {
   const symptoms = searchParams.get("symptoms") || "";
   const profiled = searchParams.get("profiled") ?? "patient";
   const phase = searchParams.get("phase") ?? "";
+  const uid = searchParams.get("uid") ?? phase;
 
   if (!email) {
     window.location.href = "https://eo.care";
@@ -42,6 +43,7 @@ export const SeniorSurveyForm = () => {
     email: email as string,
     symptoms,
     origin: getUrlFromHost(),
+    uid,
   });
 
   const formId =
