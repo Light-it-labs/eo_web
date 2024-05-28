@@ -90,7 +90,7 @@ export const Header = () => {
         )}
       </div>
       {/* eslint-disable-next-line @typescript-eslint/no-empty-function */}
-      <Modal isOpen={openModal} onClose={() => {}} controller={setOpenModal}>
+      <Modal isOpen={openModal} onClose={() => { }} controller={setOpenModal}>
         <div
           className="flex h-full w-full flex-col justify-center rounded-3xl bg-white px-10 py-[50px] leading-[48px]
                     shadow-lg md:px-[60px] md:py-20"
@@ -118,7 +118,7 @@ export const Header = () => {
                   href="https://calendly.com/help-eo/30min"
                   className="underline decoration-1 underline-offset-8"
                 >
-                  Schedule a video chat
+                  Schedule a chat
                 </a>{" "}
                 with a member of our team.
               </Typography>

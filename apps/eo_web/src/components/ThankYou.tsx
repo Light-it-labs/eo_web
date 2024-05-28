@@ -81,7 +81,7 @@ export const ThankYou = ({
             href="https://calendly.com/eo-care/30min?back=1"
             target="_blank"
           >
-            schedule a video chat
+            schedule a chat
           </a>{" "}
           with a member of our team.
         </Typography>
