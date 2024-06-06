@@ -1,21 +1,23 @@
+import { Navigate, useSearchParams } from "react-router-dom";
+
 import { useApi } from "~/api/useApi";
+import { ThankYou } from "~/components";
 import { FAQs } from "~/components/FAQs";
 import { HowEOWorks } from "~/components/HowEOWorks";
 import { LayoutDefault } from "~/layouts";
 import { FooterFull } from "~/layouts/FooterFull";
-import { ThankYou } from "~/components";
 import { useSurveyStore } from "~/stores/useSurveyStore";
-import { Navigate, useSearchParams } from "react-router-dom";
+
 
 export const SeniorSurveyThankYou = () => {
-  const { email, phase } = useSurveyStore();
+  const { email, phase, channel } = useSurveyStore();
   const [searchParams] = useSearchParams();
   const submission_id = searchParams.get("submission_id") ?? "";
 
   const { postSeniorSurveyFormSubmission } = useApi();
 
-  if (!submission_id) {
-    return <Navigate to={'/'} />
+  if (!submission_id || !channel) {
+    return <Navigate to={"/"} />;
   }
 
   return (
@@ -23,7 +25,7 @@ export const SeniorSurveyThankYou = () => {
       <ThankYou
         mutationKey={["postSeniorSurveyFormSubmission", submission_id]}
         mutationFunction={postSeniorSurveyFormSubmission}
-        mutationsParams={{ email, phase, submission_id }}
+        mutationsParams={{ email, phase, submission_id, channel }}
       />
       <HowEOWorks />
       <FAQs />
