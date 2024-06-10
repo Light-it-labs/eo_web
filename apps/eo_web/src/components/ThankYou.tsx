@@ -7,6 +7,7 @@ import { Typography } from "@eo/ui";
 
 import { Loading } from "~/components/Loading";
 import { useMount } from "~/hooks/useMount";
+import { type Channel } from "~/stores/useProfilingStore";
 import { AllDonePanel } from "./AllDonePanel";
 
 
@@ -15,6 +16,7 @@ type ThankYouProps = HTMLAttributes<HTMLElement> & {
     email: string;
     phase?: string;
     submission_id: string;
+    channel: Channel;
   };
   mutationKey: string[];
   mutationFunction: (data: object) => Promise<any>;

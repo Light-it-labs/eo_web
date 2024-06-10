@@ -12,12 +12,13 @@ import {
 import { getUrlFromHost, scapeParamFromQuery } from "~/helpers";
 import { useMount } from "~/hooks/useMount";
 import { LayoutDefault } from "~/layouts";
-import { Flows } from "~/stores/useProfilingStore";
+import { Channels, Flows } from "~/stores/useProfilingStore";
 import { useSurveyStore } from "~/stores/useSurveyStore";
+
 
 export const SurveyForm = () => {
   const [searchParams] = useSearchParams();
-  const { setPhase, setEmail, setFlow } = useSurveyStore();
+  const { setPhase, setEmail, setFlow, setChannel } = useSurveyStore();
   const { surveyStatus, getProfilingFlow } = useApi();
 
   const email = scapeParamFromQuery("email", searchParams);
@@ -33,6 +34,7 @@ export const SurveyForm = () => {
   useMount(() => {
     setPhase(phase);
     setEmail(email as string);
+    setChannel(Channels.cancer);
   });
 
   const { data, isLoading, isSuccess } = useQuery({
