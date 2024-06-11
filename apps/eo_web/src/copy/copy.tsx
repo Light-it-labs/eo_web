@@ -361,7 +361,7 @@ export const inovaFaqs: Copy[] = [
   {
     title: "How much does EO cost?",
     content:
-      "Your care is completely free. And we’ll reimburse you for the cost of your products over your first 90 days of care. Just send a picture of your receipt to support@eo.care each time you make a purchase and we’ll provide you with an Amazon gift card in an equal amount.",
+      "Your care is completely free. This includes your clinician-reviewed plan, ongoing plan optimization based on your feedback and unlimited phone calls and in-app messaging with our care team. All you pay for are your products.",
   },
   {
     title: "How do I get my products?",
