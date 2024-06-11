@@ -24,9 +24,14 @@ const flowsWithCOrgFaqs: FlowType[] = [
   Flows.stupid_cancer,
 ];
 
+const flowsWithInovaFaqs: FlowType[] = [
+  Flows.inova,
+  Flows.uva,
+];
+
 const getFAQCopies = (flow?: FlowType) => {
   if (flow && flowsWithCOrgFaqs.includes(flow)) return cOrgFaqs;
-  if (flow === Flows.inova) return inovaFaqs;
+  if (flow && flowsWithInovaFaqs.includes(flow)) return inovaFaqs;
   if (flow === Flows.cancer_pilot) return pilotFaqs;
 
   return paidFaqs;

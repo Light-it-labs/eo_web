@@ -27,6 +27,7 @@ const flowsWithSmallFooter: FlowType[] = [
   Flows.resource_center_2,
   Flows.employer_center,
   Flows.inova,
+  Flows.uva,
   Flows.imerman,
   Flows.unite_for_her,
 ];
