@@ -41,7 +41,7 @@ export const CancerSurveyThankYou = () => {
         mutationFunction={postCancerSurveyFormSubmission}
         mutationsParams={{ email, phase, submission_id, channel }}
       />
-      <HowEOWorks pilot={flow === Flows.cancer_pilot} />
+      <HowEOWorks flow={flow} />
       <FAQs flow={flow} />
       {flowsWithSmallFooter.includes(flow) ? (
         <Footer flow={flow} />

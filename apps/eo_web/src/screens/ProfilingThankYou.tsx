@@ -67,7 +67,7 @@ export const ProfilingThankYou = () => {
         </span>
       </ThankYou>
 
-      <HowEOWorks pilot={flow == Flows.cancer_pilot} />
+      <HowEOWorks flow={flow} />
       <FAQs flow={flow} />
       <EOInYourInbox />
       {flowsWithSmallFooter.includes(flow) ? (
