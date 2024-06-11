@@ -16,21 +16,17 @@ interface HowEOWorksProps {
   flow?: FlowType;
 }
 
-const CarouselMap = {
-  [Flows.cancer_pilot]: CancerPilotCarrouselItems,
-  [Flows.inova]: InovaItems,
-  default: CarrouselItems,
-} as const;
-
 export const HowEOWorks = ({ flow }: HowEOWorksProps) => {
   let carouselItems: CarrouselItem[] = [];
   switch (flow) {
     case Flows.cancer_pilot:
+      carouselItems = CancerPilotCarrouselItems;
+      break;
     case Flows.inova:
-      carouselItems = CarouselMap[flow];
+      carouselItems = InovaItems;
       break;
     default:
-      carouselItems = CarouselMap.default;
+      carouselItems = CarrouselItems;
   }
 
   return (
