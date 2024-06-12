@@ -1,4 +1,4 @@
-import { type ReactNode } from "react";
+import { type ElementType, type ReactNode } from "react";
 
 import { icons } from "@eo/ui";
 
@@ -6,100 +6,90 @@ import { icons } from "@eo/ui";
 
 
 
+export type CarrouselItem = {
+  step: string;
+  title: string;
+  content: string | ReactNode;
+  icon: ElementType;
+};
+
+const STEP_1: CarrouselItem = {
+  step: "STEP 1",
+  title: "Profile & subscribe",
+  content:
+    "In 5-10 minutes, you can share the key information our clinical team needs to create your initial plan.",
+  icon: icons.ProfileIconWhite,
+};
+const STEP_2: CarrouselItem = {
+  step: "STEP 2",
+  title: "Get your care plan",
+  content:
+    "In under 24 hours, you’ll receive an email with a link to your personalized, clinician-approved care plan.",
+  icon: icons.HandHeartWhite,
+};
+const STEP_3: CarrouselItem = {
+  step: "STEP 3",
+  title: "Get your products",
+  content:
+    "You’ll order recommended CDB and Delta-9 THC products online for easy home delivery. Typically, there’s no need to visit a dispensary.",
+  icon: icons.PillsWhite,
+};
+const STEP_4: CarrouselItem = {
+  step: "STEP 4",
+  title: "Provide feedback",
+  content:
+    "As you use your recommended products per the directions in your care plan, we’ll check in regularly and ask you to complete brief, periodic surveys.",
+  icon: icons.FeedBackWhite,
+};
+
+const STEP_5: CarrouselItem = {
+  step: "STEP 5",
+  title: "Get refined plans",
+  content:
+    "Early on, we’ll provide updated plans every 3-7 days based on your inputs. We’ll then regularly tune your plan for efficacy, safety and affordability.",
+  icon: icons.CalendarChecked,
+};
+
+const STEP_6: CarrouselItem = {
+  step: "ALWAYS",
+  title: "Be supported",
+  content:
+    "You can message our clinical team anytime as needs or questions arise - as often as you like. We’ll respond in under 24 hours - and usually within minutes.",
+  icon: icons.SupportIconWhite,
+};
+
+export const CancerPilotCarrouselItems: CarrouselItem[] = [
+  STEP_1,
+  STEP_2,
+  {
+    ...STEP_3,
+    content:
+      "You’ll order recommended CDB and Delta-9 THC products online for easy home delivery. Our team will provide details on how to be reimbursed for all purchases.",
+  },
+  STEP_4,
+  STEP_5,
+  STEP_6,
+];
+
+export const InovaItems: CarrouselItem[] = [
+  STEP_1,
+  STEP_2,
+  {
+    ...STEP_3,
+    content:
+      "You’ll order recommended CDB and Delta-9 THC products online for easy home delivery. Typically, there’s no need to visit a dispensary.",
+  },
+  STEP_4,
+  STEP_5,
+  STEP_6,
+];
+
+export const CarrouselItems = [STEP_1, STEP_2, STEP_3, STEP_4, STEP_5, STEP_6];
+
 export type Copy = {
   title: string;
   content: string | ReactNode;
 };
-
-export const CancerPilotCarrouselItems = [
-  {
-    step: "STEP 1",
-    title: "Profile & subscribe",
-    content:
-      "In 5-10 minutes, you can share the key information our clinical team needs to create your initial plan.",
-    icon: icons.ProfileIconWhite,
-  },
-  {
-    step: "STEP 2",
-    title: "Get your care plan",
-    content:
-      "In under 24 hours, you’ll receive an email with a link to your personalized, clinician-approved care plan.",
-    icon: icons.HandHeartWhite,
-  },
-  {
-    step: "STEP 3",
-    title: "Get your products",
-    content:
-      "You’ll order recommended CDB and Delta-9 THC products online for easy home delivery. Our team will provide details on how to be reimbursed for all purchases.",
-    icon: icons.PillsWhite,
-  },
-  {
-    step: "STEP 4",
-    title: "Provide feedback",
-    content:
-      "As you use your recommended products per the directions in your care plan, we’ll check in regularly and ask you to complete brief, periodic surveys.",
-    icon: icons.FeedBackWhite,
-  },
-  {
-    step: "STEP 5",
-    title: "Get refined plans",
-    content:
-      "Early on, we’ll provide updated plans every 3-7 days based on your inputs. We’ll then regularly tune your plan for efficacy, safety and affordability.",
-    icon: icons.CalendarChecked,
-  },
-  {
-    step: "ALWAYS",
-    title: "Be supported",
-    content:
-      "You can message our clinical team anytime as needs or questions arise - as often as you like. We’ll respond in under 24 hours - and usually within minutes.",
-    icon: icons.SupportIconWhite,
-  },
-];
-
-export const CarrouselItems = [
-  {
-    step: "STEP 1",
-    title: "Profile & subscribe",
-    content:
-      "In 5-10 minutes, you can share the key information our clinical team needs to create your initial plan.",
-    icon: icons.ProfileIconWhite,
-  },
-  {
-    step: "STEP 2",
-    title: "Get your care plan",
-    content:
-      "In under 24 hours, you’ll receive an email with a link to your personalized, clinician-approved care plan.",
-    icon: icons.HandHeartWhite,
-  },
-  {
-    step: "STEP 3",
-    title: "Get your products",
-    content:
-      "You’ll order recommended CDB and Delta-9 THC products online for easy home delivery. Typically, there’s no need to visit a dispensary.",
-    icon: icons.PillsWhite,
-  },
-  {
-    step: "STEP 4",
-    title: "Provide feedback",
-    content:
-      "As you use your recommended products per the directions in your care plan, we’ll check in regularly and ask you to complete brief, periodic surveys.",
-    icon: icons.FeedBackWhite,
-  },
-  {
-    step: "STEP 5",
-    title: "Get refined plans",
-    content:
-      "Early on, we’ll provide updated plans every 3-7 days based on your inputs. We’ll then regularly tune your plan for efficacy, safety and affordability.",
-    icon: icons.CalendarChecked,
-  },
-  {
-    step: "ALWAYS",
-    title: "Be supported",
-    content:
-      "You can message our clinical team anytime as needs or questions arise - as often as you like. We’ll respond in under 24 hours - and usually within minutes.",
-    icon: icons.SupportIconWhite,
-  },
-];
 
 export const cOrgFaqs: Copy[] = [
   {
@@ -361,7 +351,7 @@ export const inovaFaqs: Copy[] = [
   {
     title: "How much does EO cost?",
     content:
-      "Your care is completely free. And we’ll reimburse you for the cost of your products over your first 90 days of care. Just send a picture of your receipt to support@eo.care each time you make a purchase and we’ll provide you with an Amazon gift card in an equal amount.",
+      "Your care is completely free. This includes your clinician-reviewed plan, ongoing plan optimization based on your feedback and unlimited phone calls and in-app messaging with our care team. All you pay for are your products.",
   },
   {
     title: "How do I get my products?",

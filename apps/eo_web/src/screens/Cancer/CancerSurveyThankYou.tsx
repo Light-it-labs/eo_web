@@ -1,13 +1,15 @@
+import { Navigate, useSearchParams } from "react-router-dom";
+
+import { useApi } from "~/api/useApi";
+import { ThankYou } from "~/components";
 import { FAQs } from "~/components/FAQs";
 import { HowEOWorks } from "~/components/HowEOWorks";
 import { LayoutDefault } from "~/layouts";
+import { Footer } from "~/layouts/Footer";
 import { FooterFull } from "~/layouts/FooterFull";
 import { Flows, type FlowType } from "~/stores/useProfilingStore";
-import { Footer } from "~/layouts/Footer";
-import { ThankYou } from "~/components";
 import { useSurveyStore } from "~/stores/useSurveyStore";
-import { useApi } from "~/api/useApi";
-import { Navigate, useSearchParams } from "react-router-dom";
+
 
 const flowsWithSmallFooter: FlowType[] = [
   Flows.c_org,
@@ -18,33 +20,35 @@ const flowsWithSmallFooter: FlowType[] = [
   Flows.resource_center_2,
   Flows.employer_center,
   Flows.inova,
+  Flows.uva,
 ];
 
 export const CancerSurveyThankYou = () => {
-  const { flow, email, phase } = useSurveyStore();
+  const { flow, email, phase, channel } = useSurveyStore();
 
   const [searchParams] = useSearchParams();
   const submission_id = searchParams.get("submission_id") ?? "";
 
   const { postCancerSurveyFormSubmission } = useApi();
 
-  if (!submission_id) {
-    return <Navigate to={'/'} />
+  if (!submission_id || !channel) {
+    return <Navigate to={"/"} />;
   }
-
 
   return (
     <LayoutDefault>
       <ThankYou
         mutationKey={["postCancerSurveyFormSubmission", submission_id]}
         mutationFunction={postCancerSurveyFormSubmission}
-        mutationsParams={{ email, phase, submission_id }}
+        mutationsParams={{ email, phase, submission_id, channel }}
       />
-      <HowEOWorks pilot={flow === Flows.cancer_pilot} />
+      <HowEOWorks flow={flow} />
       <FAQs flow={flow} />
-      {flowsWithSmallFooter.includes(flow)
-        ? <Footer flow={flow} />
-        : <FooterFull />}
-    </LayoutDefault >
+      {flowsWithSmallFooter.includes(flow) ? (
+        <Footer flow={flow} />
+      ) : (
+        <FooterFull />
+      )}
+    </LayoutDefault>
   );
 };

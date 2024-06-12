@@ -27,12 +27,13 @@ const flowsWithSmallFooter: FlowType[] = [
   Flows.resource_center_2,
   Flows.employer_center,
   Flows.inova,
+  Flows.uva,
   Flows.imerman,
   Flows.unite_for_her,
 ];
 
 export const ProfilingThankYou = () => {
-  const { flow, account, usePayment } = useProfilingStore();
+  const { flow, account, usePayment, channel } = useProfilingStore();
   const [searchParams] = useSearchParams();
   const submission_id = searchParams.get("submission_id") ?? "";
 
@@ -53,7 +54,11 @@ export const ProfilingThankYou = () => {
         mutationFunction={checkoutComplete}
         isProfiling={true}
         mutateOnMount={usePayment}
-        mutationsParams={{ email: account.email, submission_id }}
+        mutationsParams={{
+          email: account.email,
+          submission_id,
+          channel: channel!,
+        }}
       >
         You’ll be able to review your initial, personalized, clinician-approved
         care plan within 24 hours. When your care plan is ready, we will send
@@ -63,7 +68,7 @@ export const ProfilingThankYou = () => {
         </span>
       </ThankYou>
 
-      <HowEOWorks pilot={flow == Flows.cancer_pilot} />
+      <HowEOWorks flow={flow} />
       <FAQs flow={flow} />
       <EOInYourInbox />
       {flowsWithSmallFooter.includes(flow) ? (

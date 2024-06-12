@@ -32,6 +32,11 @@ const inova = [
   ...basicData,
 ];
 
+const uva = [
+  { title: "About EO", url: "https://partner.eo.care/inova/about" },
+  ...basicData,
+];
+
 const twist_out_cancer = [
   { title: "About EO", url: "https://partner.eo.care/twist-out-cancer/about" },
   {
@@ -139,6 +144,7 @@ const allData = {
   resource_center_1,
   resource_center_2,
   inova,
+  uva,
   imerman,
   unite_for_her,
   mass_retirees,

@@ -1,7 +1,5 @@
 {
-  "enableFiletypes": [
-    "astro"
-  ],
+  "enableFiletypes": ["astro"],
   "ignorePaths": [
     "*node_modules",
     "*tsconfig.tsbuildinfo",
@@ -31,6 +29,7 @@
     "hookform",
     "ianvs",
     "iconify",
+    "imerman",
     "inova",
     "jotform",
     "LARAVEL",

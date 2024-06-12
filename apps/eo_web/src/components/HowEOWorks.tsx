@@ -2,20 +2,39 @@ import React from "react";
 
 import { Typography } from "@eo/ui";
 
-import { CancerPilotCarrouselItems, CarrouselItems } from "~/copy/copy";
+import {
+  CancerPilotCarrouselItems,
+  CarrouselItems,
+  InovaItems,
+  type CarrouselItem,
+} from "~/copy/copy";
+import { Flows, type FlowType } from "~/stores/useProfilingStore";
 import { EoCarousel } from "./Carousel";
 
 
 interface HowEOWorksProps {
-  pilot?: boolean
+  flow?: FlowType;
 }
 
-export const HowEOWorks = ({ pilot = false }: HowEOWorksProps) => {
-  const carouselItems = pilot ? CancerPilotCarrouselItems : CarrouselItems;
+export const HowEOWorks = ({ flow }: HowEOWorksProps) => {
+  let carouselItems: CarrouselItem[] = [];
+  switch (flow) {
+    case Flows.cancer_pilot:
+      carouselItems = CancerPilotCarrouselItems;
+      break;
+    case Flows.inova:
+      carouselItems = InovaItems;
+      break;
+    default:
+      carouselItems = CarrouselItems;
+  }
+
   return (
     <section className="bg-white px-6 py-12 md:px-[50px] md:py-[100px] ">
       <Typography font="bold" variant="large" className="mb-20 text-center">
-        {pilot ? "How the EO Pilot Works" : "How EO Care Plans Work"}
+        {flow === Flows.cancer_pilot
+          ? "How the EO Pilot Works"
+          : "How EO Care Plans Work"}
       </Typography>
       <EoCarousel>
         {carouselItems.map(({ title, content, step, icon: Icon }) => (

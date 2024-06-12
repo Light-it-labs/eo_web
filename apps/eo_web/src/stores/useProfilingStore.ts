@@ -1,11 +1,11 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-
-
-
-
-export type Channel = "senior" | "cancer";
+export const Channels = {
+  senior: "senior",
+  cancer: "cancer",
+} as const;
+export type Channel = keyof typeof Channels;
 
 export interface Account {
   email: string;
@@ -29,6 +29,7 @@ export const Flows = {
   resource_center_1: "resource_center_1",
   resource_center_2: "resource_center_2",
   inova: "inova",
+  uva: "uva",
   imerman: "imerman",
   unite_for_her: "unite_for_her",
   mass_retirees: "mass_retirees",
