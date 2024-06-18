@@ -6,10 +6,11 @@ import { toast } from "react-toastify";
 import { z } from "zod";
 
 import { tw } from "@eo/shared/src";
-import { Button, Input, Typography, icons } from "@eo/ui";
+import { Button, icons, Input, Typography } from "@eo/ui";
 import { CheckBox } from "@eo/ui/src/form/CheckBox";
 
 import { useApi } from "~/api/useApi";
+import { usePreProfile } from "~/api/usePreProfile";
 import { useMount } from "~/hooks/useMount";
 import { LayoutDefault } from "~/layouts";
 import { ROUTES } from "~/router";
@@ -24,17 +25,16 @@ export const signUpSchema = z.object({
     .string()
     .min(1, { message: "Email is required" })
     .email({ message: "Enter a valid email." }),
-  phoneNumber: z
-    .string().superRefine((phoneNumber, ctx) => {
-      const phoneWithOnlyNumbers = phoneNumber.replace(/\D/g, "");
-      const numberOfDigits = phoneWithOnlyNumbers.length;
-      if (numberOfDigits !== 10) {
-        ctx.addIssue({
-          code: "custom",
-          message: "Contact number must be 10 digits"
-        });
-      }
-    }),
+  phoneNumber: z.string().superRefine((phoneNumber, ctx) => {
+    const phoneWithOnlyNumbers = phoneNumber.replace(/\D/g, "");
+    const numberOfDigits = phoneWithOnlyNumbers.length;
+    if (numberOfDigits !== 10) {
+      ctx.addIssue({
+        code: "custom",
+        message: "Contact number must be 10 digits",
+      });
+    }
+  }),
   password: z
     .string()
     .regex(
@@ -72,11 +72,10 @@ export const AccountCreation = () => {
     setState,
     setExperience,
   } = useProfilingStore((state) => state);
-  // const navigate = useNavigate();
   const { eligibleEmail } = useApi();
 
   const [validatingForm, setValidatingForm] = useState(false);
-
+  const { mutate: createPreProfile } = usePreProfile().preProfileMutation;
   const {
     formState: { errors },
     handleSubmit,
@@ -98,8 +97,16 @@ export const AccountCreation = () => {
       setValidatingForm(false);
       return;
     } else {
-      setAccountData({ ...data, phoneNumber: data.phoneNumber.replace(/\D/g, "") });
-
+      setAccountData({
+        ...data,
+        phoneNumber: data.phoneNumber.replace(/\D/g, ""),
+      });
+      createPreProfile({
+        first_name: data.firstName,
+        last_name: data.lastName,
+        email: data.email,
+        phone_number: data.phoneNumber.replace(/\D/g, ""),
+      });
       switch (channel) {
         case "cancer":
           navigate(ROUTES.cancerForm);
@@ -211,10 +218,11 @@ export const AccountCreation = () => {
                       className={tw(
                         "font-nunito text-[11px] font-light ",
                         errors.agreeReceiveNotifications?.message &&
-                        "text-red-500",
+                          "text-red-500",
                       )}
                     >
-                      I agree to receive emails and text messages related to my care.
+                      I agree to receive emails and text messages related to my
+                      care.
                     </Typography>
                   }
                 />
@@ -232,7 +240,7 @@ export const AccountCreation = () => {
                       className={tw(
                         "font-nunito text-[11px] font-light !leading-4",
                         errors.agreeTermsAndConditions?.message &&
-                        "text-red-500",
+                          "text-red-500",
                       )}
                     >
                       I have read and agree to the{" "}

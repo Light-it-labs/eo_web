@@ -1,3 +1,4 @@
+import { apiElixir, apiLaravel } from "~/api/axios";
 import {
   type AvoidPresentation,
   type Maladies,
@@ -6,7 +7,6 @@ import {
   type ThcProductPreferences,
   type WorseSymptomsMoment,
 } from "~/api/PrePlanTypes";
-import { apiElixir, apiLaravel } from "~/api/axios";
 import { useProfileStore, type Profile } from "~/stores/useProfileStore";
 import { type FlowType } from "~/stores/useProfilingStore";
 
@@ -171,6 +171,9 @@ export const useApi = () => {
   const checkoutComplete = async (data: object) =>
     await apiLaravel.patch("/api/profiles/checkout-complete", data);
 
+  const createPreProfile = (data: object) =>
+    apiLaravel.post<LaravelSuccessBase<void>>("api/pre-profiling", data);
+
   return {
     validateZipCode,
     combineProfileOne,
@@ -188,5 +191,6 @@ export const useApi = () => {
     surveyStatus,
     getProfilingFlow,
     checkoutComplete,
+    createPreProfile,
   };
 };
