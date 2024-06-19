@@ -74,6 +74,13 @@ export interface ProfileOne {
   };
 }
 
+interface CreatePreProfileParams {
+  first_name: string;
+  last_name: string;
+  email: string;
+  phone_number: string;
+}
+
 export const useApi = () => {
   const token = useProfileStore((state) => state.session?.token);
 
@@ -171,7 +178,7 @@ export const useApi = () => {
   const checkoutComplete = async (data: object) =>
     await apiLaravel.patch("/api/profiles/checkout-complete", data);
 
-  const createPreProfile = (data: object) =>
+  const createPreProfile = (data: CreatePreProfileParams) =>
     apiLaravel.post<LaravelSuccessBase<void>>("api/pre-profiling", data);
 
   return {
