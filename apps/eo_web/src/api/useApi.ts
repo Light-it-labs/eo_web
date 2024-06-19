@@ -1,3 +1,4 @@
+import { apiElixir, apiLaravel } from "~/api/axios";
 import {
   type AvoidPresentation,
   type Maladies,
@@ -6,7 +7,6 @@ import {
   type ThcProductPreferences,
   type WorseSymptomsMoment,
 } from "~/api/PrePlanTypes";
-import { apiElixir, apiLaravel } from "~/api/axios";
 import { useProfileStore, type Profile } from "~/stores/useProfileStore";
 import { type FlowType } from "~/stores/useProfilingStore";
 
@@ -72,6 +72,13 @@ export interface ProfileOne {
     whatBrings: (typeof ReasonsEnum)[keyof typeof ReasonsEnum][];
     workday_allow_intoxication_nonworkday_allow_intoxi: OpenToUseThcProducts[];
   };
+}
+
+interface CreatePreProfileParams {
+  first_name: string;
+  last_name: string;
+  email: string;
+  phone_number: string;
 }
 
 export const useApi = () => {
@@ -171,6 +178,9 @@ export const useApi = () => {
   const checkoutComplete = async (data: object) =>
     await apiLaravel.patch("/api/profiles/checkout-complete", data);
 
+  const createPreProfile = (data: CreatePreProfileParams) =>
+    apiLaravel.post<LaravelSuccessBase<void>>("api/pre-profiling", data);
+
   return {
     validateZipCode,
     combineProfileOne,
@@ -188,5 +198,6 @@ export const useApi = () => {
     surveyStatus,
     getProfilingFlow,
     checkoutComplete,
+    createPreProfile,
   };
 };
