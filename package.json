@@ -1,34 +1,34 @@
 {
-  "name": "create-t3-turbo",
-  "private": true,
-  "engines": {
-    "node": ">=18.0.0"
-  },
-  "packageManager": "pnpm@8.3.1",
-  "scripts": {
-    "build": "turbo build",
-    "clean:all": "turbo clean",
-    "clean:root-only": "git clean -xdf node_modules",
-    "dev": "turbo dev --parallel",
-    "format": "prettier --write \"**/*.{js,cjs,mjs,ts,tsx,md,json}\" --ignore-path .gitignore",
-    "lint": "turbo lint && manypkg check",
-    "lint:fix": "turbo lint:fix && manypkg fix",
-    "prepare": "chmod +x ./node_modules/husky/lib/bin.js && husky install",
-    "spell-checker": "cspell . --no-progress",
-    "spell-checker:staged": "git diff --cached --name-only | npx cspell --no-summary --no-progress --no-must-find-files --file-list stdin",
-    "type-check": "turbo type-check"
-  },
-  "dependencies": {
-    "@eo/eslint-config": "*",
-    "@ianvs/prettier-plugin-sort-imports": "^3.7.2",
-    "@manypkg/cli": "^0.20.0",
-    "@types/prettier": "^2.7.2",
-    "cspell": "^6.31.1",
-    "eslint": "^8.38.0",
-    "husky": "^8.0.3",
-    "prettier": "^2.8.7",
-    "prettier-plugin-tailwindcss": "^0.2.7",
-    "turbo": "^1.9.3",
-    "typescript": "^5.0.4"
-  }
+    "name": "create-t3-turbo",
+    "private": true,
+    "engines": {
+        "node": ">=18.0.0"
+    },
+    "packageManager": "pnpm@8.3.1",
+    "scripts": {
+        "build": "turbo build",
+        "clean:all": "turbo clean",
+        "clean:root-only": "git clean -xdf node_modules",
+        "dev": "turbo dev --parallel",
+        "format": "prettier --write \"**/*.{js,cjs,mjs,ts,tsx,md,json}\" --ignore-path .gitignore",
+        "lint": "turbo lint && manypkg check",
+        "lint:fix": "turbo lint:fix && manypkg fix",
+        "prepare": "chmod +x ./node_modules/husky/husky && husky install",
+        "spell-checker": "cspell . --no-progress",
+        "spell-checker:staged": "git diff --cached --name-only | npx cspell --no-summary --no-progress --no-must-find-files --file-list stdin",
+        "type-check": "turbo type-check"
+    },
+    "dependencies": {
+        "@eo/eslint-config": "*",
+        "@ianvs/prettier-plugin-sort-imports": "^4.2.1",
+        "@manypkg/cli": "^0.20.0",
+        "@types/prettier": "^2.7.2",
+        "cspell": "^6.31.1",
+        "eslint": "^8.38.0",
+        "husky": "^9.0.11",
+        "prettier": "^2.8.7",
+        "prettier-plugin-tailwindcss": "^0.2.7",
+        "turbo": "^1.9.3",
+        "typescript": "^5.0.4"
+    }
 }
