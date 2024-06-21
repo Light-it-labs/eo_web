@@ -36,7 +36,7 @@ jobs:
         run: pnpm install
 
       - name: Build
-        run: pnpm run build-staging
+        run: pnpm run build
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
