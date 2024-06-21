@@ -1,4 +1,4 @@
-name: STAGING Deploy
+name: PRODUCTION Deploy
 
 on:
   push:
