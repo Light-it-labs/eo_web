@@ -46,4 +46,4 @@ jobs:
           aws-region: us-east-2
 
       - name: Deploy static site to S3 bucket
-        run: aws s3 sync ./dist/ s3://eo-care-web-prod --delete
+        run: aws s3 sync ./apps/eo_web/dist/ s3://eo-care-web-prod --delete
