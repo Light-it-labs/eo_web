@@ -71,6 +71,7 @@ export const AccountCreation = () => {
     channel,
     setState,
     setExperience,
+    flow,
   } = useProfilingStore((state) => state);
   const { eligibleEmail } = useApi();
 
@@ -89,6 +90,13 @@ export const AccountCreation = () => {
   const errorMessage =
     Object.keys(errors).length === 0 ? "" : Object.values(errors)[0];
 
+  const obfuscate = (input: string): string => {
+    return input
+      .split("_")
+      .map((word) => word.charAt(0).toUpperCase() + word.substring(1, 3))
+      .join("");
+  };
+
   const onFormSubmission = async (data: SignUpFormSchema) => {
     setValidatingForm(true);
     const result = await eligibleEmail(data.email);
@@ -106,6 +114,7 @@ export const AccountCreation = () => {
         last_name: data.lastName,
         email: data.email,
         phone_number: data.phoneNumber.replace(/\D/g, ""),
+        origin: obfuscate(flow),
       });
       switch (channel) {
         case "cancer":
