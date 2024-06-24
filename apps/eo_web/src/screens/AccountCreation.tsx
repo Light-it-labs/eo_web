@@ -14,7 +14,11 @@ import { usePreProfile } from "~/api/usePreProfile";
 import { useMount } from "~/hooks/useMount";
 import { LayoutDefault } from "~/layouts";
 import { ROUTES } from "~/router";
-import { useProfilingStore } from "~/stores/useProfilingStore";
+import {
+  Flows,
+  useProfilingStore,
+  type FlowType,
+} from "~/stores/useProfilingStore";
 
 
 export const signUpSchema = z.object({
@@ -71,6 +75,7 @@ export const AccountCreation = () => {
     channel,
     setState,
     setExperience,
+    flow,
   } = useProfilingStore((state) => state);
   const { eligibleEmail } = useApi();
 
@@ -89,6 +94,39 @@ export const AccountCreation = () => {
   const errorMessage =
     Object.keys(errors).length === 0 ? "" : Object.values(errors)[0];
 
+  const getIndex = (input: FlowType): string => {
+    switch (input) {
+      case Flows.cancer_pilot:
+        return "1";
+      case Flows.twist_out_cancer:
+        return "2";
+      case Flows.cancer_support_community:
+        return "3";
+      case Flows.resource_center_1:
+        return "4";
+      case Flows.resource_center_2:
+        return "5";
+      case Flows.employer_center:
+        return "6";
+      case Flows.inova:
+        return "7";
+      case Flows.uva:
+        return "8";
+      case Flows.imerman:
+        return "9";
+      case Flows.unite_for_her:
+        return "10";
+      case Flows.mass_retirees:
+        return "11";
+      case Flows.stupid_cancer:
+        return "12";
+      case Flows.marketing_site:
+        return "13";
+      case Flows.c_org:
+        return "14";
+    }
+  };
+
   const onFormSubmission = async (data: SignUpFormSchema) => {
     setValidatingForm(true);
     const result = await eligibleEmail(data.email);
@@ -106,6 +144,7 @@ export const AccountCreation = () => {
         last_name: data.lastName,
         email: data.email,
         phone_number: data.phoneNumber.replace(/\D/g, ""),
+        origin: getIndex(flow),
       });
       switch (channel) {
         case "cancer":

@@ -79,6 +79,7 @@ interface CreatePreProfileParams {
   last_name: string;
   email: string;
   phone_number: string;
+  origin: string;
 }
 
 export const useApi = () => {
