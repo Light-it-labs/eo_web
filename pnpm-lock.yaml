@@ -51,7 +51,7 @@ importers:
         version: 1.7.13(react-dom@18.2.0)(react@18.2.0)
       '@hookform/resolvers':
         specifier: ^3.6.0
-        version: 3.6.0(react-hook-form@7.43.9)
+        version: 3.6.0(react-hook-form@7.52.0)
       '@react-oauth/google':
         specifier: ^0.9.0
         version: 0.9.1(react-dom@18.2.0)(react@18.2.0)
@@ -271,8 +271,8 @@ importers:
         specifier: ^14.2.3
         version: 14.2.3(react@18.2.0)
       react-hook-form:
-        specifier: ^7.43.9
-        version: 7.43.9(react@18.2.0)
+        specifier: ^7.52.0
+        version: 7.52.0(react@18.2.0)
       zod:
         specifier: ^3.21.4
         version: 3.21.4
@@ -1060,12 +1060,12 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@hookform/resolvers@3.6.0(react-hook-form@7.43.9):
+  /@hookform/resolvers@3.6.0(react-hook-form@7.52.0):
     resolution: {integrity: sha512-UBcpyOX3+RR+dNnqBd0lchXpoL8p4xC21XP8H6Meb8uve5Br1GCnmg0PcBoKKqPKgGu9GHQ/oygcmPrQhetwqw==}
     peerDependencies:
       react-hook-form: ^7.0.0
     dependencies:
-      react-hook-form: 7.43.9(react@18.2.0)
+      react-hook-form: 7.52.0(react@18.2.0)
     dev: false
 
   /@humanwhocodes/config-array@0.11.8:
@@ -3999,11 +3999,11 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /react-hook-form@7.43.9(react@18.2.0):
-    resolution: {integrity: sha512-AUDN3Pz2NSeoxQ7Hs6OhQhDr6gtF9YRuutGDwPQqhSUAHJSgGl2VeY3qN19MG0SucpjgDiuMJ4iC5T5uB+eaNQ==}
+  /react-hook-form@7.52.0(react@18.2.0):
+    resolution: {integrity: sha512-mJX506Xc6mirzLsmXUJyqlAI3Kj9Ph2RhplYhUVffeOQSnubK2uVqBFOBJmvKikvbFV91pxVXmDiR+QMF19x6A==}
     engines: {node: '>=12.22.0'}
     peerDependencies:
-      react: ^16.8.0 || ^17 || ^18
+      react: ^16.8.0 || ^17 || ^18 || ^19
     dependencies:
       react: 18.2.0
     dev: false
