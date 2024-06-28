@@ -134,11 +134,8 @@ export const useApi = () => {
       authHeader,
     );
 
-  const eligibleEmail = async (email: string) =>
-    await apiElixir.post<LaravelSuccessBase<unknown> | LaravelErrorValidation>(
-      "/v2/profiles/eligible",
-      { email },
-    );
+  const eligibleEmail = (email: string) =>
+    apiLaravel.post<void>(`/api/profiles/eligible`, { email });
 
   const surveyStatus = async (email: string, phase: string) =>
     await apiElixir.get<{ active: boolean }>(

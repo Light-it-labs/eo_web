@@ -1,11 +1,10 @@
-import React from "react";
+import React, { useId } from "react";
 
 import { Typography } from "@eo/ui";
 
 import { cOrgFaqs, inovaFaqs, paidFaqs, pilotFaqs } from "~/copy/copy";
 import { Flows, type FlowType } from "~/stores/useProfilingStore";
 import { Collapsible } from "./Collapsible";
-
 
 interface FAQsProps {
   flow?: FlowType;
@@ -24,10 +23,7 @@ const flowsWithCOrgFaqs: FlowType[] = [
   Flows.stupid_cancer,
 ];
 
-const flowsWithInovaFaqs: FlowType[] = [
-  Flows.inova,
-  Flows.uva,
-];
+const flowsWithInovaFaqs: FlowType[] = [Flows.inova, Flows.uva];
 
 const getFAQCopies = (flow?: FlowType) => {
   if (flow && flowsWithCOrgFaqs.includes(flow)) return cOrgFaqs;
@@ -39,6 +35,7 @@ const getFAQCopies = (flow?: FlowType) => {
 
 export const FAQs = ({ flow }: FAQsProps) => {
   const faqList = getFAQCopies(flow);
+  const faqId = useId();
 
   return (
     <section className="px-6 py-12 md:mx-0 md:my-[100px]">
@@ -52,7 +49,7 @@ export const FAQs = ({ flow }: FAQsProps) => {
         </Typography>
         <div className="flex flex-col gap-6">
           {faqList.map(({ title, content }) => (
-            <Collapsible key={title} title={title} active={false}>
+            <Collapsible key={`${title}-${faqId}`} title={title} active={false}>
               <Typography className="text-[18px] leading-[26px] text-gray-800">
                 {content}
               </Typography>

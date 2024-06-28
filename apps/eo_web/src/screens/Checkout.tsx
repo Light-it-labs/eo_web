@@ -1,4 +1,5 @@
 import { useState } from "react";
+import * as Sentry from "@sentry/react";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import { Navigate, useNavigate, useSearchParams } from "react-router-dom";
@@ -12,7 +13,6 @@ import { useMount } from "~/hooks/useMount";
 import { LayoutDefault } from "~/layouts";
 import { ROUTES } from "~/router";
 import { useProfilingStore } from "~/stores/useProfilingStore";
-
 
 export const Checkout = () => {
   const { usePayment } = useProfilingStore();
@@ -49,10 +49,19 @@ export const Checkout = () => {
     },
     onError: (result) => {
       if (axios.isAxiosError(result)) {
-        if (result.response?.status !== 200) {
-          toast.error("Something went wrong");
-        }
-      } else {
+        Sentry.captureException(
+          new Error(
+            JSON.stringify({
+              ...{
+                profiling_submission_id: submissionId,
+                intro_submission_id: introQuestionSubmissionId,
+                flow,
+                channel,
+              },
+              ...result.response?.data,
+            }),
+          ),
+        );
         toast.error("Something went wrong");
       }
     },

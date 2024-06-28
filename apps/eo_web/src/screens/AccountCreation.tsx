@@ -9,8 +9,8 @@ import { tw } from "@eo/shared/src";
 import { Button, icons, Input, Typography } from "@eo/ui";
 import { CheckBox } from "@eo/ui/src/form/CheckBox";
 
-import { useApi } from "~/api/useApi";
 import { usePreProfile } from "~/api/usePreProfile";
+import { useProfile } from "~/api/useProfile";
 import { useMount } from "~/hooks/useMount";
 import { LayoutDefault } from "~/layouts";
 import { ROUTES } from "~/router";
@@ -19,7 +19,6 @@ import {
   useProfilingStore,
   type FlowType,
 } from "~/stores/useProfilingStore";
-
 
 export const signUpSchema = z.object({
   // Profiling
@@ -77,7 +76,6 @@ export const AccountCreation = () => {
     setExperience,
     flow,
   } = useProfilingStore((state) => state);
-  const { eligibleEmail } = useApi();
 
   const [validatingForm, setValidatingForm] = useState(false);
   const { mutate: createPreProfile } = usePreProfile().preProfileMutation;
@@ -86,9 +84,44 @@ export const AccountCreation = () => {
     handleSubmit,
     register,
     setError,
+    getValues,
   } = useForm<SignUpFormSchema>({
     resolver: zodResolver(signUpSchema),
     defaultValues: account,
+  });
+
+  useProfile().useEligibleEmailQuery(getValues("email"), {
+    enabled: validatingForm,
+    retry: 1,
+    retryOnMount: false,
+    onSettled: () => setValidatingForm(false),
+    onError: () => {
+      setError("email", { message: "Email was already taken" });
+    },
+    onSuccess: () => {
+      const data = getValues();
+      setAccountData({
+        ...data,
+        phoneNumber: data.phoneNumber.replace(/\D/g, ""),
+      });
+      createPreProfile({
+        first_name: data.firstName,
+        last_name: data.lastName,
+        email: data.email,
+        phone_number: data.phoneNumber.replace(/\D/g, ""),
+        origin: getIndex(flow),
+      });
+      switch (channel) {
+        case "cancer":
+          navigate(ROUTES.cancerForm);
+          break;
+        case "senior":
+          navigate(ROUTES.seniorForm);
+          break;
+        default:
+          navigate("/");
+      }
+    },
   });
 
   const errorMessage =
@@ -127,37 +160,7 @@ export const AccountCreation = () => {
     }
   };
 
-  const onFormSubmission = async (data: SignUpFormSchema) => {
-    setValidatingForm(true);
-    const result = await eligibleEmail(data.email);
-    if (!result.data.success) {
-      setError("email", { message: "Email was already taken" });
-      setValidatingForm(false);
-      return;
-    } else {
-      setAccountData({
-        ...data,
-        phoneNumber: data.phoneNumber.replace(/\D/g, ""),
-      });
-      createPreProfile({
-        first_name: data.firstName,
-        last_name: data.lastName,
-        email: data.email,
-        phone_number: data.phoneNumber.replace(/\D/g, ""),
-        origin: getIndex(flow),
-      });
-      switch (channel) {
-        case "cancer":
-          navigate(ROUTES.cancerForm);
-          break;
-        case "senior":
-          navigate(ROUTES.seniorForm);
-          break;
-        default:
-          navigate("/");
-      }
-    }
-  };
+  const onFormSubmission = () => setValidatingForm(true);
 
   useMount(() => {
     const submissionId = useParams.get("submission_id");

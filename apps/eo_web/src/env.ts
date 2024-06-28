@@ -1,11 +1,12 @@
 import { omit } from "lodash/fp";
-import { ZodError, z } from "zod";
+import { z, ZodError } from "zod"; // We've defined here the validations & schema for making sure the env vars ARE correct.
 
 // We've defined here the validations & schema for making sure the env vars ARE correct.
 const defaultValidation = z.string().min(1, "Env Var is not defined");
 const envSchema = z.object({
   VITE_APP_ENV: defaultValidation,
   VITE_APP_URL: defaultValidation,
+  VITE_SENTRY_DSN_PUBLIC: z.string().nullish(),
 });
 
 type EnvValues = z.infer<typeof envSchema>;
