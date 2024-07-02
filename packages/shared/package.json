@@ -11,7 +11,7 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "clsx": "^1.2.1",
+    "clsx": "^2.1.1",
     "grapheme-splitter": "^1.0.4",
     "tailwind-merge": "^1.6.2",
     "zod": "^3.21.4"
