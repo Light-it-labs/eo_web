@@ -9,13 +9,12 @@ import {
 
 import { env } from "~/env";
 
-
 const sentryDns =
   window.data.getEnv("VITE_SENTRY_DSN_PUBLIC") ?? env.VITE_SENTRY_DSN_PUBLIC;
 
 if (sentryDns) {
   Sentry.init({
-    environment: window.data.getEnv("VITE_ENV") ?? env.VITE_APP_ENV,
+    environment: window.data.getEnv("VITE_APP_ENV") ?? env.VITE_APP_ENV,
     dsn: sentryDns,
     integrations: [
       Sentry.reactRouterV6BrowserTracingIntegration({
