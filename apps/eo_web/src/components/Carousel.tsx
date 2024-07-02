@@ -21,7 +21,6 @@ export const EoCarousel = ({ children }: EoCarouselProps) => {
   const isMobile = useIsMobile();
   const isDesktop = useIsDesktop();
   const swiperRef = useRef<SwiperType>();
-  const id = useId();
 
   return (
     <div className="relative mx-auto my-0 flex flex-row items-center justify-center md:max-w-[1440px]">
@@ -56,7 +55,7 @@ export const EoCarousel = ({ children }: EoCarouselProps) => {
         >
           {children.map((item, key) => {
             return (
-              <SwiperSlide key={`${id}-${key}`}>
+              <SwiperSlide key={`carrousel-item-${key}`}>
                 <div className="mb-12">{item}</div>
               </SwiperSlide>
             );

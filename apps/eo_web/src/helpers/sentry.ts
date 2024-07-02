@@ -10,7 +10,7 @@ import {
 import { env } from "~/env";
 
 const sentryDns =
-  window.data.getEnv("VITE_SENTRY_DSN_PUBLIC") ?? env.VITE_SENTRY_DSN_PUBLIC;
+  window.data.getEnv("VITE_SENTRY_DNS_PUBLIC") ?? env.VITE_SENTRY_DSN_PUBLIC;
 
 if (sentryDns) {
   Sentry.init({
