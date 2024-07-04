@@ -1,5 +1,5 @@
-import React from "react";
-import { Navigate, useSearchParams } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 import { useApi } from "~/api/useApi";
 import { ThankYou } from "~/components";
@@ -14,6 +14,7 @@ import { ROUTES } from "~/router";
 import {
   Flows,
   useProfilingStore,
+  type Channel,
   type FlowType,
 } from "~/stores/useProfilingStore";
 
@@ -35,12 +36,15 @@ export const ProfilingThankYou = () => {
   const { flow, account, usePayment, channel } = useProfilingStore();
   const [searchParams] = useSearchParams();
   const submission_id = searchParams.get("submission_id") ?? "";
+  const navigate = useNavigate();
 
   const { checkoutComplete } = useApi();
 
-  if (!submission_id && usePayment) {
-    return <Navigate to={ROUTES.userRolSelector} />;
-  }
+  useEffect(() => {
+    if (!submission_id && usePayment) {
+      navigate(ROUTES.userRolSelector);
+    }
+  }, []);
 
   const goToWebApp = () => {
     window.location.href = WEB_APP_URL;
@@ -56,8 +60,7 @@ export const ProfilingThankYou = () => {
         mutationsParams={{
           email: account.email,
           submission_id,
-          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-          channel: channel!,
+          channel: channel as Channel,
         }}
       >
         You’ll be able to review your initial, personalized, clinician-approved
