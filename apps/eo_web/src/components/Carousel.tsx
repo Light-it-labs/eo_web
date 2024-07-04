@@ -8,7 +8,7 @@ import { useIsDesktop, useIsMobile } from "~/hooks/useIsMobile"; // Import Swipe
 import "swiper/css";
 import "swiper/css/pagination";
 
-import React, { useId, useRef } from "react";
+import React, { useRef } from "react";
 
 import { tw } from "@eo/shared";
 import { icons } from "@eo/ui";

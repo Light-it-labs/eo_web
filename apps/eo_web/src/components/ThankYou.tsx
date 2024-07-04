@@ -10,7 +10,6 @@ import { useMount } from "~/hooks/useMount";
 import { type Channel } from "~/stores/useProfilingStore";
 import { AllDonePanel } from "./AllDonePanel";
 
-
 type ThankYouProps = HTMLAttributes<HTMLElement> & {
   mutationsParams: {
     email: string;
@@ -19,7 +18,7 @@ type ThankYouProps = HTMLAttributes<HTMLElement> & {
     channel: Channel;
   };
   mutationKey: string[];
-  mutationFunction: (data: object) => Promise<any>;
+  mutationFunction: (data: object) => Promise<never>;
   isProfiling?: boolean;
   mutateOnMount?: boolean;
 };
