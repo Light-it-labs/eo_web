@@ -40,8 +40,8 @@ interface EnvironmentsConfigs {
   ROI_CALCULATOR_FORM: string;
   WEB_APP_URL: string;
   CHECKOUT_FORM_ID: string;
-  VITE_SENTRY_DSN_PUBLIC: string;
-  VITE_ENV: string;
+  VITE_SENTRY_DNS_PUBLIC: string;
+  VITE_APP_ENV: string;
 }
 
 declare global {
