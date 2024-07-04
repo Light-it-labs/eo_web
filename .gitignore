@@ -8,7 +8,8 @@ node_modules
 # testing
 coverage
 
-# production
+# builds
+dist
 build
 !./apps/eo_web/build/*
 
