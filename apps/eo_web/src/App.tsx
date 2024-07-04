@@ -3,9 +3,12 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { ToastContainer } from "react-toastify";
 
 import { env } from "./env";
-import { Router } from "./router";
-import "react-toastify/dist/ReactToastify.css";
 
+import "./configs/env";
+
+import { Router } from "./router";
+
+import "react-toastify/dist/ReactToastify.css";
 
 const queryClient = new QueryClient();
 type Hosts =
@@ -37,6 +40,8 @@ interface EnvironmentsConfigs {
   ROI_CALCULATOR_FORM: string;
   WEB_APP_URL: string;
   CHECKOUT_FORM_ID: string;
+  VITE_SENTRY_DNS_PUBLIC: string;
+  VITE_APP_ENV: string;
 }
 
 declare global {
@@ -67,7 +72,7 @@ function App() {
         draggable
         pauseOnHover
       />
-      {env.VITE_APP_ENV === "local" && (
+      {env.VITE_APP_ENV === "localhost" && (
         <ReactQueryDevtools initialIsOpen={false} />
       )}
     </QueryClientProvider>

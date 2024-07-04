@@ -8,7 +8,6 @@ import { LayoutDefault } from "~/layouts";
 import { FooterFull } from "~/layouts/FooterFull";
 import { useSurveyStore } from "~/stores/useSurveyStore";
 
-
 export const SeniorSurveyThankYou = () => {
   const { email, phase, channel } = useSurveyStore();
   const [searchParams] = useSearchParams();
@@ -24,7 +23,7 @@ export const SeniorSurveyThankYou = () => {
     <LayoutDefault>
       <ThankYou
         mutationKey={["postSeniorSurveyFormSubmission", submission_id]}
-        mutationFunction={postSeniorSurveyFormSubmission}
+        mutationFunction={postSeniorSurveyFormSubmission as never}
         mutationsParams={{ email, phase, submission_id, channel }}
       />
       <HowEOWorks />

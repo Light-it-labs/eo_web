@@ -1,3 +1,4 @@
+import { apiElixir, apiLaravel } from "~/api/axios";
 import {
   type AvoidPresentation,
   type Maladies,
@@ -6,7 +7,6 @@ import {
   type ThcProductPreferences,
   type WorseSymptomsMoment,
 } from "~/api/PrePlanTypes";
-import { apiElixir, apiLaravel } from "~/api/axios";
 import { useProfileStore, type Profile } from "~/stores/useProfileStore";
 import { type FlowType } from "~/stores/useProfilingStore";
 
@@ -74,6 +74,14 @@ export interface ProfileOne {
   };
 }
 
+interface CreatePreProfileParams {
+  first_name: string;
+  last_name: string;
+  email: string;
+  phone_number: string;
+  origin: string;
+}
+
 export const useApi = () => {
   const token = useProfileStore((state) => state.session?.token);
 
@@ -126,11 +134,8 @@ export const useApi = () => {
       authHeader,
     );
 
-  const eligibleEmail = async (email: string) =>
-    await apiElixir.post<LaravelSuccessBase<unknown> | LaravelErrorValidation>(
-      "/v2/profiles/eligible",
-      { email },
-    );
+  const eligibleEmail = (email: string) =>
+    apiLaravel.post<void>(`/api/profiles/eligible`, { email });
 
   const surveyStatus = async (email: string, phase: string) =>
     await apiElixir.get<{ active: boolean }>(
@@ -171,6 +176,9 @@ export const useApi = () => {
   const checkoutComplete = async (data: object) =>
     await apiLaravel.patch("/api/profiles/checkout-complete", data);
 
+  const createPreProfile = (data: CreatePreProfileParams) =>
+    apiLaravel.post<LaravelSuccessBase<void>>("api/pre-profiling", data);
+
   return {
     validateZipCode,
     combineProfileOne,
@@ -188,5 +196,6 @@ export const useApi = () => {
     surveyStatus,
     getProfilingFlow,
     checkoutComplete,
+    createPreProfile,
   };
 };

@@ -17,7 +17,6 @@ import {
   type FlowType,
 } from "~/stores/useProfilingStore";
 
-
 const flowsWithSmallFooter: FlowType[] = [
   Flows.c_org,
   Flows.cancer_pilot,
@@ -51,12 +50,13 @@ export const ProfilingThankYou = () => {
     <LayoutDefault>
       <ThankYou
         mutationKey={["checkoutComplete", submission_id]}
-        mutationFunction={checkoutComplete}
+        mutationFunction={checkoutComplete as never}
         isProfiling={true}
         mutateOnMount={usePayment}
         mutationsParams={{
           email: account.email,
           submission_id,
+          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
           channel: channel!,
         }}
       >

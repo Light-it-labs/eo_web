@@ -10,7 +10,6 @@ import { FooterFull } from "~/layouts/FooterFull";
 import { Flows, type FlowType } from "~/stores/useProfilingStore";
 import { useSurveyStore } from "~/stores/useSurveyStore";
 
-
 const flowsWithSmallFooter: FlowType[] = [
   Flows.c_org,
   Flows.cancer_pilot,
@@ -39,7 +38,7 @@ export const CancerSurveyThankYou = () => {
     <LayoutDefault>
       <ThankYou
         mutationKey={["postCancerSurveyFormSubmission", submission_id]}
-        mutationFunction={postCancerSurveyFormSubmission}
+        mutationFunction={postCancerSurveyFormSubmission as never}
         mutationsParams={{ email, phase, submission_id, channel }}
       />
       <HowEOWorks flow={flow} />
