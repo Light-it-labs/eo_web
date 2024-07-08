@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "@eo/eslint-config": "*",
-    "@tailwindcss/forms": "^0.5.3",
+    "@tailwindcss/forms": "^0.5.7",
     "@tailwindcss/typography": "^0.5.9",
     "@types/lodash": "^4.17.5",
     "@types/node": "^18.15.11",
