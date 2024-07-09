@@ -1,13 +1,12 @@
 import { useState, type HTMLAttributes } from "react";
 import { useMutation } from "@tanstack/react-query";
-import axios from "axios";
-import { toast } from "react-toastify";
 
 import { Typography } from "@eo/ui";
 
 import { Loading } from "~/components/Loading";
 import { useMount } from "~/hooks/useMount";
-import { type Channel } from "~/stores/useProfilingStore";
+import { useProfilingStore, type Channel } from "~/stores/useProfilingStore";
+import { useSurveyStore } from "~/stores/useSurveyStore";
 import { AllDonePanel } from "./AllDonePanel";
 
 type ThankYouProps = HTMLAttributes<HTMLElement> & {
@@ -30,6 +29,10 @@ export const ThankYou = ({
   mutationsParams,
   mutateOnMount = true,
 }: ThankYouProps) => {
+  const resetSurveyStore = useSurveyStore((store) => store.reset);
+  const resetProfilingStore = useProfilingStore(
+    (store) => store.resetProfilingStore,
+  );
   const [isLoading, setIsLoading] = useState(mutateOnMount);
 
   const { mutate } = useMutation({
@@ -37,15 +40,12 @@ export const ThankYou = ({
     mutationKey: mutationKey,
     onSuccess: () => {
       setIsLoading(false);
+      resetSurveyStore();
     },
-    onError: (result) => {
-      if (axios.isAxiosError(result)) {
-        if (result.response?.status !== 200) {
-          toast.error("Something went wrong");
-        }
-      } else {
-        toast.error("Something went wrong");
-      }
+    onError: () => {
+      setIsLoading(false);
+      resetSurveyStore();
+      resetProfilingStore();
     },
   });
 
