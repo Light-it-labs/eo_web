@@ -41,11 +41,10 @@ export const ProfilingThankYou = () => {
   const { checkoutComplete } = useApi();
 
   useEffect(() => {
-    console.log("entre");
     if (!submission_id && usePayment) {
       navigate(ROUTES.userRolSelector);
     }
-  });
+  }, [navigate, submission_id, usePayment]);
 
   const goToWebApp = () => {
     window.location.href = WEB_APP_URL;
