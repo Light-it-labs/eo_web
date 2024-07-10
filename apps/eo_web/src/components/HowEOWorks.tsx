@@ -11,7 +11,6 @@ import {
 import { Flows, type FlowType } from "~/stores/useProfilingStore";
 import { EoCarousel } from "./Carousel";
 
-
 interface HowEOWorksProps {
   flow?: FlowType;
 }
@@ -39,7 +38,7 @@ export const HowEOWorks = ({ flow }: HowEOWorksProps) => {
       <EoCarousel>
         {carouselItems.map(({ title, content, step, icon: Icon }) => (
           <article
-            key={step}
+            key={`${title}-${step}}`}
             className="mx-auto my-0 flex h-auto w-auto max-w-[361px] flex-col items-center justify-center gap-2 md:flex-none md:items-start"
           >
             <div className="flex h-[70.13px] w-[70.13px] flex-row items-center justify-center rounded-full bg-electric-blue fill-gray-50">

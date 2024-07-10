@@ -6,8 +6,8 @@ import { FAQs } from "~/components/FAQs";
 import { HowEOWorks } from "~/components/HowEOWorks";
 import { LayoutDefault } from "~/layouts";
 import { FooterFull } from "~/layouts/FooterFull";
+import { type Channel } from "~/stores/useProfilingStore";
 import { useSurveyStore } from "~/stores/useSurveyStore";
-
 
 export const SeniorSurveyThankYou = () => {
   const { email, phase, channel } = useSurveyStore();
@@ -16,7 +16,7 @@ export const SeniorSurveyThankYou = () => {
 
   const { postSeniorSurveyFormSubmission } = useApi();
 
-  if (!submission_id || !channel) {
+  if (!submission_id) {
     return <Navigate to={"/"} />;
   }
 
@@ -24,8 +24,13 @@ export const SeniorSurveyThankYou = () => {
     <LayoutDefault>
       <ThankYou
         mutationKey={["postSeniorSurveyFormSubmission", submission_id]}
-        mutationFunction={postSeniorSurveyFormSubmission}
-        mutationsParams={{ email, phase, submission_id, channel }}
+        mutationFunction={postSeniorSurveyFormSubmission as never}
+        mutationsParams={{
+          email,
+          phase,
+          submission_id,
+          channel: channel as Channel,
+        }}
       />
       <HowEOWorks />
       <FAQs />

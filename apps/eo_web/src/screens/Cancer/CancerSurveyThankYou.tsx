@@ -7,9 +7,8 @@ import { HowEOWorks } from "~/components/HowEOWorks";
 import { LayoutDefault } from "~/layouts";
 import { Footer } from "~/layouts/Footer";
 import { FooterFull } from "~/layouts/FooterFull";
-import { Flows, type FlowType } from "~/stores/useProfilingStore";
+import { type Channel, Flows, type FlowType } from "~/stores/useProfilingStore";
 import { useSurveyStore } from "~/stores/useSurveyStore";
-
 
 const flowsWithSmallFooter: FlowType[] = [
   Flows.c_org,
@@ -31,7 +30,7 @@ export const CancerSurveyThankYou = () => {
 
   const { postCancerSurveyFormSubmission } = useApi();
 
-  if (!submission_id || !channel) {
+  if (!submission_id) {
     return <Navigate to={"/"} />;
   }
 
@@ -39,8 +38,13 @@ export const CancerSurveyThankYou = () => {
     <LayoutDefault>
       <ThankYou
         mutationKey={["postCancerSurveyFormSubmission", submission_id]}
-        mutationFunction={postCancerSurveyFormSubmission}
-        mutationsParams={{ email, phase, submission_id, channel }}
+        mutationFunction={postCancerSurveyFormSubmission as never}
+        mutationsParams={{
+          email,
+          phase,
+          submission_id,
+          channel: channel as Channel,
+        }}
       />
       <HowEOWorks flow={flow} />
       <FAQs flow={flow} />

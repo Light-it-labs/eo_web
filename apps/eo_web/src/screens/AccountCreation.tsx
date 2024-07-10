@@ -9,13 +9,16 @@ import { tw } from "@eo/shared/src";
 import { Button, icons, Input, Typography } from "@eo/ui";
 import { CheckBox } from "@eo/ui/src/form/CheckBox";
 
-import { useApi } from "~/api/useApi";
 import { usePreProfile } from "~/api/usePreProfile";
+import { useProfile } from "~/api/useProfile";
 import { useMount } from "~/hooks/useMount";
 import { LayoutDefault } from "~/layouts";
 import { ROUTES } from "~/router";
-import { useProfilingStore } from "~/stores/useProfilingStore";
-
+import {
+  Flows,
+  useProfilingStore,
+  type FlowType,
+} from "~/stores/useProfilingStore";
 
 export const signUpSchema = z.object({
   // Profiling
@@ -71,8 +74,8 @@ export const AccountCreation = () => {
     channel,
     setState,
     setExperience,
+    flow,
   } = useProfilingStore((state) => state);
-  const { eligibleEmail } = useApi();
 
   const [validatingForm, setValidatingForm] = useState(false);
   const { mutate: createPreProfile } = usePreProfile().preProfileMutation;
@@ -81,22 +84,22 @@ export const AccountCreation = () => {
     handleSubmit,
     register,
     setError,
+    getValues,
   } = useForm<SignUpFormSchema>({
     resolver: zodResolver(signUpSchema),
     defaultValues: account,
   });
 
-  const errorMessage =
-    Object.keys(errors).length === 0 ? "" : Object.values(errors)[0];
-
-  const onFormSubmission = async (data: SignUpFormSchema) => {
-    setValidatingForm(true);
-    const result = await eligibleEmail(data.email);
-    if (!result.data.success) {
+  useProfile().useEligibleEmailQuery(getValues("email"), {
+    enabled: validatingForm,
+    retry: 1,
+    retryOnMount: false,
+    onSettled: () => setValidatingForm(false),
+    onError: () => {
       setError("email", { message: "Email was already taken" });
-      setValidatingForm(false);
-      return;
-    } else {
+    },
+    onSuccess: () => {
+      const data = getValues();
       setAccountData({
         ...data,
         phoneNumber: data.phoneNumber.replace(/\D/g, ""),
@@ -106,6 +109,7 @@ export const AccountCreation = () => {
         last_name: data.lastName,
         email: data.email,
         phone_number: data.phoneNumber.replace(/\D/g, ""),
+        origin: getIndex(flow),
       });
       switch (channel) {
         case "cancer":
@@ -117,8 +121,46 @@ export const AccountCreation = () => {
         default:
           navigate("/");
       }
+    },
+  });
+
+  const errorMessage =
+    Object.keys(errors).length === 0 ? "" : Object.values(errors)[0];
+
+  const getIndex = (input: FlowType): string => {
+    switch (input) {
+      case Flows.cancer_pilot:
+        return "1";
+      case Flows.twist_out_cancer:
+        return "2";
+      case Flows.cancer_support_community:
+        return "3";
+      case Flows.resource_center_1:
+        return "4";
+      case Flows.resource_center_2:
+        return "5";
+      case Flows.employer_center:
+        return "6";
+      case Flows.inova:
+        return "7";
+      case Flows.uva:
+        return "8";
+      case Flows.imerman:
+        return "9";
+      case Flows.unite_for_her:
+        return "10";
+      case Flows.mass_retirees:
+        return "11";
+      case Flows.stupid_cancer:
+        return "12";
+      case Flows.marketing_site:
+        return "13";
+      case Flows.c_org:
+        return "14";
     }
   };
+
+  const onFormSubmission = () => setValidatingForm(true);
 
   useMount(() => {
     const submissionId = useParams.get("submission_id");

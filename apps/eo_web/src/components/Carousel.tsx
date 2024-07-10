@@ -4,18 +4,14 @@ import { type Swiper as SwiperType } from "swiper";
 import { A11y, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import { useIsDesktop, useIsMobile } from "~/hooks/useIsMobile";
-// Import Swiper styles
+import { useIsDesktop, useIsMobile } from "~/hooks/useIsMobile"; // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
-import React, { Fragment, useRef } from "react";
+
+import React, { useRef } from "react";
 
 import { tw } from "@eo/shared";
 import { icons } from "@eo/ui";
-
-
-
-
 
 export interface EoCarouselProps {
   children: React.ReactNode[];
@@ -59,11 +55,9 @@ export const EoCarousel = ({ children }: EoCarouselProps) => {
         >
           {children.map((item, key) => {
             return (
-              <Fragment key={`${key}`}>
-                <SwiperSlide>
-                  <div className="mb-12">{item}</div>
-                </SwiperSlide>
-              </Fragment>
+              <SwiperSlide key={`carrousel-item-${key}`}>
+                <div className="mb-12">{item}</div>
+              </SwiperSlide>
             );
           })}
         </Swiper>

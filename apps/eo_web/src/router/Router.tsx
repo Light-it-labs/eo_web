@@ -16,12 +16,16 @@ import { Home } from "~/screens/Home";
 import { Login } from "~/screens/Login";
 import { PrePlan } from "~/screens/PrePlan";
 import { PrePlanV2 } from "~/screens/PrePlanV2";
+import { ProfilingOne } from "~/screens/profiling/ProfilingOne";
+import { ProfilingOneRedirect } from "~/screens/profiling/ProfilingOneRedirect";
+import { ProfilingTwo } from "~/screens/profiling/ProfilingTwo";
+import { ProfilingTwoRedirect } from "~/screens/profiling/ProfilingTwoRedirect";
 import { ProfilingIntroQuestions } from "~/screens/ProfilingIntroQuestions";
 import { ProfilingThankYou } from "~/screens/ProfilingThankYou";
-import { ROICalculator } from "~/screens/ROICalculator";
 import { RecoveryPassword } from "~/screens/RecoveryPassword";
 import { Register } from "~/screens/Register";
 import { RegisterComplete } from "~/screens/RegisterComplete";
+import { ROICalculator } from "~/screens/ROICalculator";
 import { RoiCalculatorThankYou } from "~/screens/RoiCalculatorThankYou";
 import { Profiling as SeniorProfiling } from "~/screens/Senior/Profiling";
 import { SeniorSurveyForm } from "~/screens/Senior/SeniorSurveyForm";
@@ -30,10 +34,6 @@ import { StartPlan } from "~/screens/StartPlan";
 import { UnavailableZipCode } from "~/screens/UnavailableZipCode";
 import { UserRolSelector } from "~/screens/UserRolSelector";
 import { ZipCodeValidation } from "~/screens/ZipCodeValidation";
-import { ProfilingOne } from "~/screens/profiling/ProfilingOne";
-import { ProfilingOneRedirect } from "~/screens/profiling/ProfilingOneRedirect";
-import { ProfilingTwo } from "~/screens/profiling/ProfilingTwo";
-import { ProfilingTwoRedirect } from "~/screens/profiling/ProfilingTwoRedirect";
 import { ProtectedRoute } from "./ProtectedRoute";
 
 
