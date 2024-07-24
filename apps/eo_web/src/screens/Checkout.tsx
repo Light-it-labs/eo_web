@@ -80,7 +80,7 @@ export const Checkout = () => {
       agree_terms_and_conditions: account.agreeTermsAndConditions,
       channel,
       flow,
-      referredBy,
+      referred_by: referredBy,
     }),
   );
 
