@@ -13,9 +13,10 @@ import { useProfilingStore } from "~/stores/useProfilingStore";
 
 export const ProfilingIntroQuestions = () => {
   const navigate = useNavigate();
-  const { channel, type, origin } = useProfilingStore((state) => state);
+  const { channel, type, origin, flow } = useProfilingStore((state) => state);
   const searchParams = new URLSearchParams({
     origin,
+    flow
   });
 
   let introQuestionsId: string | number | null = null;

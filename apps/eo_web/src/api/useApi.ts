@@ -80,6 +80,7 @@ interface CreatePreProfileParams {
   email: string;
   phone_number: string;
   origin: string;
+  referred_by: string;
 }
 
 export const useApi = () => {
