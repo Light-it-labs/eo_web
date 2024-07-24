@@ -100,6 +100,7 @@ export const AccountCreation = () => {
     setState,
     setExperience,
     flow,
+    setFlow,
     setReferredBy,
   } = useProfilingStore((state) => state);
 
@@ -138,7 +139,7 @@ export const AccountCreation = () => {
         last_name: data.lastName,
         email: data.email,
         phone_number: data.phoneNumber.replace(/\D/g, ""),
-        origin: referredFlow ? getIndex(referredFlow) : getIndex(flow),
+        origin: getIndex(flow),
         referred_by: referredBy ?? "",
       });
       switch (channel) {
@@ -210,6 +211,7 @@ export const AccountCreation = () => {
       setIntroQuestionSubmissionId(submissionId);
       setExperience(experience);
       setReferredBy(referredBy);
+      if (referredFlow) setFlow(referredFlow);
     }
   });
 
