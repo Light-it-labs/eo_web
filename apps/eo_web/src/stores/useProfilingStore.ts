@@ -49,6 +49,7 @@ export interface ProfilingStore {
   experience: string;
   account: Account;
   flow: FlowType;
+  referredBy: string;
   setAccountData: (account: Account) => void;
   setChannel: (channel: Channel) => void;
   setType: (type: Type) => void;
@@ -60,6 +61,7 @@ export interface ProfilingStore {
   setOrigin: (origin: string) => void;
   setExperience: (experience: string) => void;
   setFlow: (flow: FlowType) => void;
+  setReferredBy: (referredBy: string) => void;
 }
 
 const defaultState = {
@@ -81,6 +83,7 @@ const defaultState = {
   },
   usePayment: true,
   flow: Flows.marketing_site,
+  referredBy: "",
 };
 
 export const useProfilingStore = create<ProfilingStore>()(
@@ -118,6 +121,9 @@ export const useProfilingStore = create<ProfilingStore>()(
       },
       setFlow: (flow: FlowType) => {
         set({ flow });
+      },
+      setReferredBy: (referredBy: string) => {
+        set({ referredBy });
       },
       ...defaultState,
     }),

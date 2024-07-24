@@ -20,6 +20,30 @@ import {
   type FlowType,
 } from "~/stores/useProfilingStore";
 
+export const ReferralOptions = {
+  "Twist Out Cancer": Flows.twist_out_cancer,
+  "Unite for Her": Flows.unite_for_her,
+  "Imerman Angels": Flows.imerman,
+  "Stupid Cancer": Flows.stupid_cancer,
+  "Cancer Support Community": Flows.cancer_support_community,
+  "UVA": Flows.uva,
+  "Inova": Flows.inova,
+} as const;
+
+export type ReferralOptionsType = keyof typeof ReferralOptions;
+
+const getFlowFromReferral = (value: string) => {
+  const keys = Object.keys(ReferralOptions) as ReferralOptionsType[]
+  const key = keys.find(key => key === value)
+  return key ? ReferralOptions[key] : undefined
+}
+
+const getReferredBy = (searchParams: URLSearchParams) => {
+  const encodedReferredBy = searchParams.get("referred_by") ?? undefined
+  return encodedReferredBy ? decodeURIComponent(encodedReferredBy) : undefined
+}
+
+
 export const signUpSchema = z.object({
   // Profiling
   firstName: z.string().min(1, { message: "First name is required" }),
@@ -66,6 +90,7 @@ export type SignUpFormSchema = z.infer<typeof signUpSchema>;
 
 export const AccountCreation = () => {
   const navigate = useNavigate();
+
   const [useParams] = useSearchParams();
   const {
     account,
@@ -75,7 +100,11 @@ export const AccountCreation = () => {
     setState,
     setExperience,
     flow,
+    setReferredBy,
   } = useProfilingStore((state) => state);
+
+  const referredBy = getReferredBy(useParams)
+  const referredFlow = referredBy ? getFlowFromReferral(referredBy) : undefined
 
   const [validatingForm, setValidatingForm] = useState(false);
   const { mutate: createPreProfile } = usePreProfile().preProfileMutation;
@@ -109,7 +138,8 @@ export const AccountCreation = () => {
         last_name: data.lastName,
         email: data.email,
         phone_number: data.phoneNumber.replace(/\D/g, ""),
-        origin: getIndex(flow),
+        origin: referredFlow ? getIndex(referredFlow) : getIndex(flow),
+        referred_by: referredBy ?? "",
       });
       switch (channel) {
         case "cancer":
@@ -166,6 +196,7 @@ export const AccountCreation = () => {
     const submissionId = useParams.get("submission_id");
     const state = useParams.get("state");
     const experience = useParams.get("experience") ?? "";
+    const referredBy = getReferredBy(useParams) ?? "";
 
     if (!submissionId) {
       toast.error(
@@ -178,6 +209,7 @@ export const AccountCreation = () => {
       setState(state);
       setIntroQuestionSubmissionId(submissionId);
       setExperience(experience);
+      setReferredBy(referredBy);
     }
   });
 
@@ -260,7 +292,7 @@ export const AccountCreation = () => {
                       className={tw(
                         "font-nunito text-[11px] font-light ",
                         errors.agreeReceiveNotifications?.message &&
-                          "text-red-500",
+                        "text-red-500",
                       )}
                     >
                       I agree to receive emails and text messages related to my
@@ -282,7 +314,7 @@ export const AccountCreation = () => {
                       className={tw(
                         "font-nunito text-[11px] font-light !leading-4",
                         errors.agreeTermsAndConditions?.message &&
-                          "text-red-500",
+                        "text-red-500",
                       )}
                     >
                       I have read and agree to the{" "}
