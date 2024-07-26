@@ -26,8 +26,8 @@ export const ReferralOptions = {
   "Imerman Angels": Flows.imerman,
   "Stupid Cancer": Flows.stupid_cancer,
   "Cancer Support Community": Flows.cancer_support_community,
-  "UVA": Flows.uva,
-  "Inova": Flows.inova,
+  "UVA Health": Flows.uva,
+  "Inova Schar Cancer Institute": Flows.inova,
 } as const;
 
 export type ReferralOptionsType = keyof typeof ReferralOptions;
