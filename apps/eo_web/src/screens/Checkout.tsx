@@ -18,7 +18,7 @@ export const Checkout = () => {
   const { usePayment } = useProfilingStore();
   const [searchParams] = useSearchParams();
 
-  const { account, introQuestionSubmissionId, channel, flow, origin } =
+  const { account, introQuestionSubmissionId, channel, flow, origin, referredBy } =
     useProfilingStore();
 
   const formParams = new URLSearchParams({
@@ -80,6 +80,7 @@ export const Checkout = () => {
       agree_terms_and_conditions: account.agreeTermsAndConditions,
       channel,
       flow,
+      referred_by: referredBy,
     }),
   );
 

@@ -30,10 +30,6 @@ export const ROUTES = {
   cancerSurvey: "/cancer/survey",
   cancerSurveyThankYou: "/cancer/survey-thank-you",
 
-  // Athletes PATH
-  athleteSurvey: "/athletes/survey",
-  athleteSurveyThankYou: "athletes/survey-thank-you",
-
   // Senior PATH
   seniorForm: "/senior/profiling",
   seniorSurvey: "/senior/survey",

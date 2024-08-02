@@ -3,8 +3,6 @@ import { Route, Routes } from "react-router-dom";
 
 import { ROUTES } from "~/router/routes";
 import { AccountCreation } from "~/screens/AccountCreation";
-import { AthleteSurveyForm } from "~/screens/Athlete/AthleteSurveyForm";
-import { AthleteSurveyThankYou } from "~/screens/Athlete/AthleteSurveyThankYou";
 import { CancerSurveyThankYou } from "~/screens/Cancer/CancerSurveyThankYou";
 import { Profiling } from "~/screens/Cancer/Profiling";
 import { SurveyForm } from "~/screens/Cancer/SurveyForm";
@@ -111,13 +109,6 @@ export const Router = () => {
       <Route
         element={<CancerSurveyThankYou />}
         path={ROUTES.cancerSurveyThankYou}
-      />
-
-      {/* ATHLETES */}
-      <Route element={<AthleteSurveyForm />} path={ROUTES.athleteSurvey} />
-      <Route
-        element={<AthleteSurveyThankYou />}
-        path={ROUTES.athleteSurveyThankYou}
       />
 
       {/* SENIOR */}

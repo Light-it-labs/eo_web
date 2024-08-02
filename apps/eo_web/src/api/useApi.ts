@@ -1,4 +1,3 @@
-import { apiElixir, apiLaravel } from "~/api/axios";
 import {
   type AvoidPresentation,
   type Maladies,
@@ -7,6 +6,7 @@ import {
   type ThcProductPreferences,
   type WorseSymptomsMoment,
 } from "~/api/PrePlanTypes";
+import { apiElixir, apiLaravel } from "~/api/axios";
 import { useProfileStore, type Profile } from "~/stores/useProfileStore";
 import { type FlowType } from "~/stores/useProfilingStore";
 
@@ -80,6 +80,7 @@ interface CreatePreProfileParams {
   email: string;
   phone_number: string;
   origin: string;
+  referred_by: string;
 }
 
 export const useApi = () => {
@@ -154,11 +155,6 @@ export const useApi = () => {
       data,
     );
 
-  const postAthleteSurveyFormSubmission = async (data: object) =>
-    await apiLaravel.post<
-      LaravelSuccessBase<ProfileCreationResult> | LaravelErrorValidation
-    >("/api/athletes/survey", data);
-
   const postSeniorFormSubmission = async (data: object) =>
     await apiLaravel.post<
       LaravelSuccessBase<ProfileCreationResult> | LaravelErrorValidation
@@ -190,7 +186,6 @@ export const useApi = () => {
     eligibleEmail,
     postCancerFormSubmission,
     postCancerSurveyFormSubmission,
-    postAthleteSurveyFormSubmission,
     postSeniorFormSubmission,
     postSeniorSurveyFormSubmission,
     surveyStatus,
