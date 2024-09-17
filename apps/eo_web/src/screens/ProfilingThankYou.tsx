@@ -30,6 +30,12 @@ const flowsWithSmallFooter: FlowType[] = [
   Flows.uva,
   Flows.imerman,
   Flows.unite_for_her,
+
+  // The flows related to resources_center_1/2
+  Flows.cancer_buddy,
+  Flows.friend_family,
+  Flows.northwell_systems,
+  Flows.real_of_caring,
 ];
 
 export const ProfilingThankYou = () => {
