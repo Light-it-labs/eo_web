@@ -134,10 +134,10 @@ const stupid_cancer = [
   ...basicData,
 ];
 
-const cancer_buddy = [...basicData];
-const realm_of_caring = [...basicData];
-const friend_family = [...basicData];
-const northwell_systems = [...basicData];
+const cancer_buddy = resource_center_1;
+const realm_of_caring = resource_center_1;
+const friend_family = resource_center_1;
+const northwell_systems = resource_center_1;
 
 const allData = {
   c_org,
