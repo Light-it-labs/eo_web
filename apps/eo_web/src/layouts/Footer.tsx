@@ -1,10 +1,9 @@
 import React from "react";
 
 import { tw } from "@eo/shared";
-import { Typography, icons } from "@eo/ui";
+import { icons, Typography } from "@eo/ui";
 
 import { Flows, type FlowType } from "~/stores/useProfilingStore";
-
 
 interface FooterProps {
   flow: FlowType;
@@ -134,6 +133,12 @@ const stupid_cancer = [
   },
   ...basicData,
 ];
+
+const cancer_buddy = [...basicData];
+const realm_of_caring = [...basicData];
+const friend_family = [...basicData];
+const northwell_systems = [...basicData];
+
 const allData = {
   c_org,
   cancer_pilot,
@@ -149,6 +154,10 @@ const allData = {
   unite_for_her,
   mass_retirees,
   stupid_cancer,
+  cancer_buddy,
+  realm_of_caring,
+  friend_family,
+  northwell_systems,
 };
 
 export function Footer({ flow }: FooterProps) {
