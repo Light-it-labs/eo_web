@@ -20,7 +20,7 @@ import {
   type FlowType,
 } from "~/stores/useProfilingStore";
 
-export const ReferralOptions = {
+export const ReferralOptions: Record<string, FlowType> = {
   "Twist Out Cancer": Flows.twist_out_cancer,
   "Unite for Her": Flows.unite_for_her,
   "Imerman Angels": Flows.imerman,
@@ -28,21 +28,25 @@ export const ReferralOptions = {
   "Cancer Support Community": Flows.cancer_support_community,
   "UVA Health": Flows.uva,
   "Inova Schar Cancer Institute": Flows.inova,
+  "Mass Retirees": Flows.mass_retirees,
+  "Northwell Systems": Flows.northwell_systems,
+  "Friend / Family": Flows.friend_family,
+  "Cancer Buddy": Flows.cancer_buddy,
+  "Realm of Caring": Flows.realm_of_caring,
 } as const;
 
 export type ReferralOptionsType = keyof typeof ReferralOptions;
 
 const getFlowFromReferral = (value: string) => {
-  const keys = Object.keys(ReferralOptions) as ReferralOptionsType[]
-  const key = keys.find(key => key === value)
-  return key ? ReferralOptions[key] : undefined
-}
+  const keys: ReferralOptionsType[] = Object.keys(ReferralOptions);
+  const key = keys.find((key) => key === value);
+  return key ? ReferralOptions[key] : undefined;
+};
 
 const getReferredBy = (searchParams: URLSearchParams) => {
-  const encodedReferredBy = searchParams.get("referred_by") ?? undefined
-  return encodedReferredBy ? decodeURIComponent(encodedReferredBy) : undefined
-}
-
+  const encodedReferredBy = searchParams.get("referred_by") ?? undefined;
+  return encodedReferredBy ? decodeURIComponent(encodedReferredBy) : undefined;
+};
 
 export const signUpSchema = z.object({
   // Profiling
@@ -104,8 +108,8 @@ export const AccountCreation = () => {
     setReferredBy,
   } = useProfilingStore((state) => state);
 
-  const referredBy = getReferredBy(useParams)
-  const referredFlow = referredBy ? getFlowFromReferral(referredBy) : undefined
+  const referredBy = getReferredBy(useParams);
+  const referredFlow = referredBy ? getFlowFromReferral(referredBy) : undefined;
 
   const [validatingForm, setValidatingForm] = useState(false);
   const { mutate: createPreProfile } = usePreProfile().preProfileMutation;
@@ -188,6 +192,14 @@ export const AccountCreation = () => {
         return "13";
       case Flows.c_org:
         return "14";
+      case Flows.cancer_buddy:
+        return "15";
+      case Flows.realm_of_caring:
+        return "16";
+      case Flows.friend_family:
+        return "17";
+      case Flows.northwell_systems:
+        return "18";
     }
   };
 
@@ -294,7 +306,7 @@ export const AccountCreation = () => {
                       className={tw(
                         "font-nunito text-[11px] font-light ",
                         errors.agreeReceiveNotifications?.message &&
-                        "text-red-500",
+                          "text-red-500",
                       )}
                     >
                       I agree to receive emails and text messages related to my
@@ -316,7 +328,7 @@ export const AccountCreation = () => {
                       className={tw(
                         "font-nunito text-[11px] font-light !leading-4",
                         errors.agreeTermsAndConditions?.message &&
-                        "text-red-500",
+                          "text-red-500",
                       )}
                     >
                       I have read and agree to the{" "}

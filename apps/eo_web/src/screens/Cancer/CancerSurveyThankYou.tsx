@@ -7,7 +7,7 @@ import { HowEOWorks } from "~/components/HowEOWorks";
 import { LayoutDefault } from "~/layouts";
 import { Footer } from "~/layouts/Footer";
 import { FooterFull } from "~/layouts/FooterFull";
-import { type Channel, Flows, type FlowType } from "~/stores/useProfilingStore";
+import { Flows, type Channel, type FlowType } from "~/stores/useProfilingStore";
 import { useSurveyStore } from "~/stores/useSurveyStore";
 
 const flowsWithSmallFooter: FlowType[] = [
@@ -20,6 +20,12 @@ const flowsWithSmallFooter: FlowType[] = [
   Flows.employer_center,
   Flows.inova,
   Flows.uva,
+
+  // The flows related to resources_center_1/2
+  Flows.cancer_buddy,
+  Flows.friend_family,
+  Flows.northwell_systems,
+  Flows.realm_of_caring,
 ];
 
 export const CancerSurveyThankYou = () => {
