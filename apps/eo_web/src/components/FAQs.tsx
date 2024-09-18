@@ -26,7 +26,7 @@ const flowsWithCOrgFaqs: FlowType[] = [
   Flows.cancer_buddy,
   Flows.friend_family,
   Flows.northwell_systems,
-  Flows.real_of_caring,
+  Flows.realm_of_caring,
 ];
 
 const flowsWithInovaFaqs: FlowType[] = [Flows.inova, Flows.uva];

@@ -37,7 +37,7 @@ export const Flows = {
   // these are not real flows, because these came from resource_center_1 or resource_center_2
   // but we save these values in the same place that flows
   cancer_buddy: "cancer_buddy",
-  real_of_caring: "real_of_caring",
+  realm_of_caring: "realm_of_caring",
   friend_family: "friend_family",
   northwell_systems: "northwell_systems",
 } as const;

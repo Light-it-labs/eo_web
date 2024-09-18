@@ -32,7 +32,7 @@ export const ReferralOptions: Record<string, FlowType> = {
   "Northwell Systems": Flows.northwell_systems,
   "Friend / Family": Flows.friend_family,
   "Cancer Buddy": Flows.cancer_buddy,
-  "Realm of Caring": Flows.real_of_caring,
+  "Realm of Caring": Flows.realm_of_caring,
 } as const;
 
 export type ReferralOptionsType = keyof typeof ReferralOptions;
@@ -194,7 +194,7 @@ export const AccountCreation = () => {
         return "14";
       case Flows.cancer_buddy:
         return "15";
-      case Flows.real_of_caring:
+      case Flows.realm_of_caring:
         return "16";
       case Flows.friend_family:
         return "17";
