@@ -26,6 +26,7 @@ const flowsWithSmallFooter: FlowType[] = [
   Flows.friend_family,
   Flows.northwell_systems,
   Flows.realm_of_caring,
+  Flows.private_health_management,
 ];
 
 export const CancerSurveyThankYou = () => {

@@ -138,6 +138,7 @@ const cancer_buddy = resource_center_1;
 const realm_of_caring = resource_center_1;
 const friend_family = resource_center_1;
 const northwell_systems = resource_center_1;
+const private_health_management = resource_center_1;
 
 const allData = {
   c_org,
@@ -158,6 +159,7 @@ const allData = {
   realm_of_caring,
   friend_family,
   northwell_systems,
+  private_health_management,
 };
 
 export function Footer({ flow }: FooterProps) {
