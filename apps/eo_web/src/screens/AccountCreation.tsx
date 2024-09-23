@@ -33,6 +33,7 @@ export const ReferralOptions: Record<string, FlowType> = {
   "Friend / Family": Flows.friend_family,
   "Cancer Buddy": Flows.cancer_buddy,
   "Realm of Caring": Flows.realm_of_caring,
+  "Private Health Management": Flows.private_health_management,
 } as const;
 
 export type ReferralOptionsType = keyof typeof ReferralOptions;
@@ -200,6 +201,8 @@ export const AccountCreation = () => {
         return "17";
       case Flows.northwell_systems:
         return "18";
+      case Flows.private_health_management:
+        return "19";
     }
   };
 

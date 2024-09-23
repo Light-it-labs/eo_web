@@ -40,6 +40,7 @@ export const Flows = {
   realm_of_caring: "realm_of_caring",
   friend_family: "friend_family",
   northwell_systems: "northwell_systems",
+  private_health_management: "private_health_management",
 } as const;
 
 export type FlowType = keyof typeof Flows;
