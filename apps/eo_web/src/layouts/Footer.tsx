@@ -137,7 +137,7 @@ const stupid_cancer = [
 const cancer_buddy = resource_center_1;
 const realm_of_caring = resource_center_1;
 const friend_family = resource_center_1;
-const northwell_systems = resource_center_1;
+const northwell_health = resource_center_1;
 const private_health_management = resource_center_1;
 
 const allData = {
@@ -158,7 +158,7 @@ const allData = {
   cancer_buddy,
   realm_of_caring,
   friend_family,
-  northwell_systems,
+  northwell_health,
   private_health_management,
 };
 

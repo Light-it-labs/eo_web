@@ -25,7 +25,7 @@ const flowsWithCOrgFaqs: FlowType[] = [
   // The flows related to resources_center_1/2
   Flows.cancer_buddy,
   Flows.friend_family,
-  Flows.northwell_systems,
+  Flows.northwell_health,
   Flows.realm_of_caring,
   Flows.private_health_management,
 ];

@@ -29,7 +29,7 @@ export const ReferralOptions: Record<string, FlowType> = {
   "UVA Health": Flows.uva,
   "Inova Schar Cancer Institute": Flows.inova,
   "Mass Retirees": Flows.mass_retirees,
-  "Northwell Systems": Flows.northwell_systems,
+  "Northwell Health": Flows.northwell_health,
   "Friend / Family": Flows.friend_family,
   "Cancer Buddy": Flows.cancer_buddy,
   "Realm of Caring": Flows.realm_of_caring,
@@ -199,7 +199,7 @@ export const AccountCreation = () => {
         return "16";
       case Flows.friend_family:
         return "17";
-      case Flows.northwell_systems:
+      case Flows.northwell_health:
         return "18";
       case Flows.private_health_management:
         return "19";
@@ -309,7 +309,7 @@ export const AccountCreation = () => {
                       className={tw(
                         "font-nunito text-[11px] font-light ",
                         errors.agreeReceiveNotifications?.message &&
-                          "text-red-500",
+                        "text-red-500",
                       )}
                     >
                       I agree to receive emails and text messages related to my
@@ -331,7 +331,7 @@ export const AccountCreation = () => {
                       className={tw(
                         "font-nunito text-[11px] font-light !leading-4",
                         errors.agreeTermsAndConditions?.message &&
-                          "text-red-500",
+                        "text-red-500",
                       )}
                     >
                       I have read and agree to the{" "}
