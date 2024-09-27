@@ -39,7 +39,7 @@ export const Flows = {
   cancer_buddy: "cancer_buddy",
   realm_of_caring: "realm_of_caring",
   friend_family: "friend_family",
-  northwell_systems: "northwell_systems",
+  northwell_health: "northwell_health",
   private_health_management: "private_health_management",
 } as const;
 
