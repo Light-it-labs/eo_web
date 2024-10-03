@@ -74,10 +74,10 @@ export const ThankYou = ({
       >
         {children ?? (
           <>
-            We received your feedback!
+            We received your feedback.
             <br />
             <br />
-            Thank you!
+            Thank you.
           </>
         )}
         <br />
