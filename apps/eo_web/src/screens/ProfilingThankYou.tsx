@@ -55,7 +55,7 @@ export const ProfilingThankYou = () => {
     if (!submission_id && usePaymentState && !account.email) {
       navigate(ROUTES.userRolSelector);
     }
-  }, [account.email, flow, navigate, submission_id, usePaymentState]);
+  }, [account.email, navigate, submission_id, usePaymentState]);
 
   const goToWebApp = () => {
     window.location.href = WEB_APP_URL;
