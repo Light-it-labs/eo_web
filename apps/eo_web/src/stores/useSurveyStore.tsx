@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { persist } from "zustand/middleware";
+import { createJSONStorage, persist, type StateStorage } from "zustand/middleware";
 
 import { Flows, type Channel, type FlowType } from "~/stores/useProfilingStore";
 
@@ -26,6 +26,17 @@ const initialState = {
   flow: Flows.marketing_site,
   channel: undefined,
 } as const;
+
+const storage: StateStorage = {
+  getItem: (key: string) => {
+    return sessionStorage.getItem(key);
+  },
+  setItem: (key: string, value: string) => {
+    sessionStorage.setItem(key, value);
+  },
+  removeItem: (key: string) => sessionStorage.removeItem(key),
+};
+
 export const useSurveyStore = create<SurveyStorageState>()(
   persist(
     (set, _get) => ({
@@ -40,6 +51,7 @@ export const useSurveyStore = create<SurveyStorageState>()(
     }),
     {
       name: "useSurveyStore",
+      storage: createJSONStorage(() => storage),
     },
   ),
 );

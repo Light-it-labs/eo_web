@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 
 import { useApi } from "~/api/useApi";
@@ -41,6 +41,10 @@ const flowsWithSmallFooter: FlowType[] = [
 
 export const ProfilingThankYou = () => {
   const { flow, account, usePayment, channel } = useProfilingStore();
+
+  const [flowState] = useState(flow);
+  const [usePaymentState] = useState(usePayment);
+
   const [searchParams] = useSearchParams();
   const submission_id = searchParams.get("submission_id") ?? "";
   const navigate = useNavigate();
@@ -48,10 +52,10 @@ export const ProfilingThankYou = () => {
   const { checkoutComplete } = useApi();
 
   useEffect(() => {
-    if (!submission_id && usePayment) {
+    if (!submission_id && usePaymentState && !account.email) {
       navigate(ROUTES.userRolSelector);
     }
-  }, [navigate, submission_id, usePayment]);
+  }, [account.email, flow, navigate, submission_id, usePaymentState]);
 
   const goToWebApp = () => {
     window.location.href = WEB_APP_URL;
@@ -71,18 +75,18 @@ export const ProfilingThankYou = () => {
         }}
       >
         You’ll be able to review your initial, personalized, clinician-approved
-        care plan within 24 hours. When your care plan is ready, we will send you
-        a text message and an email with a link to{" "}
+        care plan within 24 hours. When your care plan is ready, we will send
+        you a text message and an email with a link to{" "}
         <span className="cursor-pointer underline" onClick={goToWebApp}>
           log into your account.
         </span>
       </ThankYou>
 
-      <HowEOWorks flow={flow} />
-      <FAQs flow={flow} />
+      <HowEOWorks flow={flowState} />
+      <FAQs flow={flowState} />
       <EOInYourInbox />
-      {flowsWithSmallFooter.includes(flow) ? (
-        <Footer flow={flow} />
+      {flowsWithSmallFooter.includes(flowState) ? (
+        <Footer flow={flowState} />
       ) : (
         <FooterFull />
       )}

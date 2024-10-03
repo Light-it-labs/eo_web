@@ -40,6 +40,7 @@ export const ThankYou = ({
     mutationKey: mutationKey,
     onSuccess: () => {
       setIsLoading(false);
+      resetProfilingStore();
       resetSurveyStore();
     },
     onError: () => {
@@ -52,6 +53,9 @@ export const ThankYou = ({
   useMount(() => {
     if (mutateOnMount) {
       mutate(mutationsParams);
+    } else {
+      resetSurveyStore();
+      resetProfilingStore();
     }
   });
 

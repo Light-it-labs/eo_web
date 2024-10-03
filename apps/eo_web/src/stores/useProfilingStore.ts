@@ -1,5 +1,9 @@
 import { create } from "zustand";
-import { persist } from "zustand/middleware";
+import {
+  createJSONStorage,
+  persist,
+  type StateStorage,
+} from "zustand/middleware";
 
 export const Channels = {
   senior: "senior",
@@ -93,6 +97,16 @@ const defaultState = {
   referredBy: "",
 };
 
+const storage: StateStorage = {
+  getItem: (key: string) => {
+    return sessionStorage.getItem(key);
+  },
+  setItem: (key: string, value: string) => {
+    sessionStorage.setItem(key, value);
+  },
+  removeItem: (key: string) => sessionStorage.removeItem(key),
+};
+
 export const useProfilingStore = create<ProfilingStore>()(
   persist(
     (set, get) => ({
@@ -136,6 +150,7 @@ export const useProfilingStore = create<ProfilingStore>()(
     }),
     {
       name: "useProfilingStore",
+      storage: createJSONStorage(() => storage),
     },
   ),
 );
