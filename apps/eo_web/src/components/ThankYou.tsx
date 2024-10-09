@@ -38,11 +38,7 @@ export const ThankYou = ({
   const { mutate } = useMutation({
     mutationFn: mutationFunction,
     mutationKey: mutationKey,
-    onSuccess: () => {
-      setIsLoading(false);
-      resetSurveyStore();
-    },
-    onError: () => {
+    onSettled: () => {
       setIsLoading(false);
       resetSurveyStore();
       resetProfilingStore();
@@ -52,6 +48,9 @@ export const ThankYou = ({
   useMount(() => {
     if (mutateOnMount) {
       mutate(mutationsParams);
+    } else {
+      resetSurveyStore();
+      resetProfilingStore();
     }
   });
 

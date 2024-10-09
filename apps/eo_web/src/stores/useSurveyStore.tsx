@@ -1,6 +1,7 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
+import { SessionStorage } from "~/stores/SessionStorage";
 import { Flows, type Channel, type FlowType } from "~/stores/useProfilingStore";
 
 export interface SurveyStorageState {
@@ -26,6 +27,7 @@ const initialState = {
   flow: Flows.marketing_site,
   channel: undefined,
 } as const;
+
 export const useSurveyStore = create<SurveyStorageState>()(
   persist(
     (set, _get) => ({
@@ -35,11 +37,13 @@ export const useSurveyStore = create<SurveyStorageState>()(
       setPhase: (phase: string) => set({ phase }),
       setFlow: (flow: FlowType) => set({ flow }),
       reset: () => {
+        // We don't remove the flow because it's needed to render components and they aren't PHI
         set({ ...initialState, flow: _get().flow });
       },
     }),
     {
       name: "useSurveyStore",
+      storage: SessionStorage,
     },
   ),
 );

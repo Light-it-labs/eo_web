@@ -20,6 +20,7 @@ const flowsWithSmallFooter: FlowType[] = [
   Flows.employer_center,
   Flows.inova,
   Flows.uva,
+  Flows.mass_retirees,
 
   // The flows related to resources_center_1/2
   Flows.cancer_buddy,
