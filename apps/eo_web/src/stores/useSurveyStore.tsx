@@ -37,6 +37,7 @@ export const useSurveyStore = create<SurveyStorageState>()(
       setPhase: (phase: string) => set({ phase }),
       setFlow: (flow: FlowType) => set({ flow }),
       reset: () => {
+        // We don't remove the flow because it's needed to render components and they aren't PHI
         set({ ...initialState, flow: _get().flow });
       },
     }),

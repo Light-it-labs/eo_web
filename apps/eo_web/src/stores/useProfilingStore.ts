@@ -120,7 +120,14 @@ export const useProfilingStore = create<ProfilingStore>()(
         set({ usePayment });
       },
       resetProfilingStore: () => {
-        set({ ...get(), ...defaultState });
+        const currentState: ProfilingStore = get();
+        set({
+          ...currentState,
+          ...defaultState,
+          // We don't remove the flow and usePayment because it's needed to render components and they aren't PHI
+          flow: currentState.flow,
+          usePayment: currentState.usePayment,
+        });
       },
       setOrigin: (origin: string) => {
         set({ origin });

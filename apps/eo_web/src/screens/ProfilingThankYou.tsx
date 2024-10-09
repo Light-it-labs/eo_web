@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 
 import { useApi } from "~/api/useApi";
@@ -42,9 +42,6 @@ const flowsWithSmallFooter: FlowType[] = [
 export const ProfilingThankYou = () => {
   const { flow, account, usePayment, channel } = useProfilingStore();
 
-  const [flowState] = useState(flow);
-  const [usePaymentState] = useState(usePayment);
-
   const [searchParams] = useSearchParams();
   const submission_id = searchParams.get("submission_id") ?? "";
   const navigate = useNavigate();
@@ -52,10 +49,10 @@ export const ProfilingThankYou = () => {
   const { checkoutComplete } = useApi();
 
   useEffect(() => {
-    if (!submission_id && usePaymentState && !account.email) {
+    if (!submission_id && usePayment) {
       navigate(ROUTES.userRolSelector);
     }
-  }, [account.email, navigate, submission_id, usePaymentState]);
+  }, [navigate, submission_id, usePayment]);
 
   const goToWebApp = () => {
     window.location.href = WEB_APP_URL;
@@ -82,11 +79,11 @@ export const ProfilingThankYou = () => {
         </span>
       </ThankYou>
 
-      <HowEOWorks flow={flowState} />
-      <FAQs flow={flowState} />
+      <HowEOWorks flow={flow} />
+      <FAQs flow={flow} />
       <EOInYourInbox />
-      {flowsWithSmallFooter.includes(flowState) ? (
-        <Footer flow={flowState} />
+      {flowsWithSmallFooter.includes(flow) ? (
+        <Footer flow={flow} />
       ) : (
         <FooterFull />
       )}

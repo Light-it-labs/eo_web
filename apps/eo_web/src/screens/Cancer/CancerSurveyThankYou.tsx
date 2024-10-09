@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Navigate, useSearchParams } from "react-router-dom";
 
 import { useApi } from "~/api/useApi";
@@ -34,8 +33,6 @@ const flowsWithSmallFooter: FlowType[] = [
 export const CancerSurveyThankYou = () => {
   const { flow, email, phase, channel } = useSurveyStore();
 
-  const [flowState] = useState(flow);
-
   const [searchParams] = useSearchParams();
   const submission_id = searchParams.get("submission_id") ?? "";
 
@@ -57,10 +54,10 @@ export const CancerSurveyThankYou = () => {
           channel: channel as Channel,
         }}
       />
-      <HowEOWorks flow={flowState} />
-      <FAQs flow={flowState} />
-      {flowsWithSmallFooter.includes(flowState) ? (
-        <Footer flow={flowState} />
+      <HowEOWorks flow={flow} />
+      <FAQs flow={flow} />
+      {flowsWithSmallFooter.includes(flow) ? (
+        <Footer flow={flow} />
       ) : (
         <FooterFull />
       )}
