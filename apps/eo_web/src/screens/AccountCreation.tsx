@@ -24,7 +24,6 @@ export const ReferralOptions: Record<string, FlowType> = {
   "Twist Out Cancer": Flows.twist_out_cancer,
   "Unite for Her": Flows.unite_for_her,
   "Imerman Angels": Flows.imerman,
-  "Stupid Cancer": Flows.stupid_cancer,
   "Cancer Support Community": Flows.cancer_support_community,
   "UVA Health": Flows.uva,
   "Inova Schar Cancer Institute": Flows.inova,
