@@ -35,7 +35,7 @@ export const Flows = {
   imerman: "imerman",
   unite_for_her: "unite_for_her",
   mass_retirees: "mass_retirees",
-  // we don't use stupid cancer more, but we still need to show faqs and how EO works in the surveys for the currents users
+  // we don't use stupid cancer anymore, but we still need to show faqs and how EO works in the surveys for the current users
   stupid_cancer: "stupid_cancer",
   // these are not real flows, because these came from resource_center_1 or resource_center_2
   // but we save these values in the same place that flows
