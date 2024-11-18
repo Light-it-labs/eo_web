@@ -33,6 +33,7 @@ export const ReferralOptions: Record<string, FlowType> = {
   "Cancer Buddy": Flows.cancer_buddy,
   "Realm of Caring": Flows.realm_of_caring,
   "Private Health Management": Flows.private_health_management,
+  "Memorial Sloan Kettering Cancer Center": Flows.memorial_sloan_kettering_cancer_center,
 } as const;
 
 export type ReferralOptionsType = keyof typeof ReferralOptions;
@@ -202,6 +203,8 @@ export const AccountCreation = () => {
         return "18";
       case Flows.private_health_management:
         return "19";
+      case Flows.memorial_sloan_kettering_cancer_center:
+        return "20";
     }
   };
 
