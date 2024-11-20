@@ -139,14 +139,7 @@ const realm_of_caring = resource_center_1;
 const friend_family = resource_center_1;
 const northwell_health = resource_center_1;
 const private_health_management = resource_center_1;
-
-const memorial_sloan_kettering_cancer_center = [
-  {
-    title: "About EO",
-    url: "https://partner.eo.care/memorial-sloan-kettering-cancer-center/about",
-  },
-  ...basicData
-]
+const memorial_sloan_kettering_cancer_center = resource_center_1;
 
 const allData = {
   c_org,

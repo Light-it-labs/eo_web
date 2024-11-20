@@ -21,7 +21,6 @@ const flowsWithSmallFooter: FlowType[] = [
   Flows.inova,
   Flows.uva,
   Flows.mass_retirees,
-  Flows.memorial_sloan_kettering_cancer_center,
 
   // The flows related to resources_center_1/2
   Flows.cancer_buddy,
@@ -29,6 +28,7 @@ const flowsWithSmallFooter: FlowType[] = [
   Flows.northwell_health,
   Flows.realm_of_caring,
   Flows.private_health_management,
+  Flows.memorial_sloan_kettering_cancer_center,
 ];
 
 export const CancerSurveyThankYou = () => {
