@@ -60,6 +60,7 @@
     "WORKDIR",
     "xlink",
     "zuko",
-    "zustand"
+    "zustand",
+    "schar"
   ]
 }
