@@ -18,7 +18,7 @@
     "@eo/ui": "*",
     "@headlessui/react": "^1.7.13",
     "@hookform/resolvers": "^3.6.0",
-    "@react-oauth/google": "^0.9.0",
+    "@react-oauth/google": "^0.12.1",
     "@sentry/react": "^8.13.0",
     "@tanstack/react-query": "^4.29.3",
     "@tanstack/react-query-devtools": "^5.45.1",
