@@ -44,6 +44,8 @@ export const Flows = {
   friend_family: "friend_family",
   northwell_health: "northwell_health",
   private_health_management: "private_health_management",
+  memorial_sloan_kettering_cancer_center:
+    "memorial_sloan_kettering_cancer_center",
 } as const;
 
 export type FlowType = keyof typeof Flows;
