@@ -59,8 +59,8 @@
     "Viewports",
     "WORKDIR",
     "xlink",
-    "Zuko",
-    "ZUKO",
-    "zustand"
+    "zuko",
+    "zustand",
+    "schar"
   ]
 }

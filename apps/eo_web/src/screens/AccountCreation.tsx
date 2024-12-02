@@ -24,7 +24,6 @@ export const ReferralOptions: Record<string, FlowType> = {
   "Twist Out Cancer": Flows.twist_out_cancer,
   "Unite for Her": Flows.unite_for_her,
   "Imerman Angels": Flows.imerman,
-  "Stupid Cancer": Flows.stupid_cancer,
   "Cancer Support Community": Flows.cancer_support_community,
   "UVA Health": Flows.uva,
   "Inova Schar Cancer Institute": Flows.inova,
@@ -34,6 +33,7 @@ export const ReferralOptions: Record<string, FlowType> = {
   "Cancer Buddy": Flows.cancer_buddy,
   "Realm of Caring": Flows.realm_of_caring,
   "Private Health Management": Flows.private_health_management,
+  "Memorial Sloan Kettering Cancer Center": Flows.memorial_sloan_kettering_cancer_center,
 } as const;
 
 export type ReferralOptionsType = keyof typeof ReferralOptions;
@@ -203,6 +203,8 @@ export const AccountCreation = () => {
         return "18";
       case Flows.private_health_management:
         return "19";
+      case Flows.memorial_sloan_kettering_cancer_center:
+        return "20";
     }
   };
 

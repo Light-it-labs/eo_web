@@ -35,6 +35,7 @@ export const Flows = {
   imerman: "imerman",
   unite_for_her: "unite_for_her",
   mass_retirees: "mass_retirees",
+  // we don't use stupid cancer anymore, but we still need to show faqs and how EO works in the surveys for the current users
   stupid_cancer: "stupid_cancer",
   // these are not real flows, because these came from resource_center_1 or resource_center_2
   // but we save these values in the same place that flows
@@ -43,6 +44,8 @@ export const Flows = {
   friend_family: "friend_family",
   northwell_health: "northwell_health",
   private_health_management: "private_health_management",
+  memorial_sloan_kettering_cancer_center:
+    "memorial_sloan_kettering_cancer_center",
 } as const;
 
 export type FlowType = keyof typeof Flows;
