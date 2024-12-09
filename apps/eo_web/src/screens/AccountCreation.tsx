@@ -152,7 +152,7 @@ export const AccountCreation = () => {
           navigate(ROUTES.cancerForm);
           break;
         case "senior":
-          navigate(ROUTES.seniorForm);
+          navigate(ROUTES.olderAdultForm);
           break;
         default:
           navigate("/");
