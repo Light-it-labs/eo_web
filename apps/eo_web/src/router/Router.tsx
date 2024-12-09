@@ -119,6 +119,14 @@ export const Router = () => {
         path={ROUTES.seniorSurveyThankYou}
       />
 
+      {/* OLDER ADULT (NEW SENIOR) */}
+      <Route element={<SeniorProfiling />} path={ROUTES.olderAdultForm} />
+      <Route element={<SeniorSurveyForm />} path={ROUTES.olderAdultSurvey} />
+      <Route
+        element={<SeniorSurveyThankYou />}
+        path={ROUTES.olderAdultSurveyThankYou}
+      />
+
       <Route element={<Checkout />} path={ROUTES.checkout} />
     </Routes>
   );

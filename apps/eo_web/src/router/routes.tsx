@@ -30,10 +30,15 @@ export const ROUTES = {
   cancerSurvey: "/cancer/survey",
   cancerSurveyThankYou: "/cancer/survey-thank-you",
 
-  // Senior PATH
+  // Senior PATH -- Old ones, can be deleted in the future once everything points to older-adult
   seniorForm: "/senior/profiling",
   seniorSurvey: "/senior/survey",
   seniorSurveyThankYou: "/senior/survey-thank-you",
+
+  // New Senior PATH
+  olderAdultForm: "/older-adult/profiling",
+  olderAdultSurvey: "/older-adult/survey",
+  olderAdultSurveyThankYou: "/older-adult/survey-thank-you",
 
   checkout: "/checkout",
 } as const;
