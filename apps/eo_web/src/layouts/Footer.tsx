@@ -9,6 +9,12 @@ interface FooterProps {
   flow: FlowType;
 }
 
+type ConfigType = {
+  title: string;
+  url: string;
+  extraClasses?: string;
+}
+
 const basicData = [
   { title: "Terms of use", url: "https://eo.care/web/terms-of-use" },
   { title: "Privacy Policy", url: "https://eo.care/web/privacy-policy" },
@@ -142,7 +148,7 @@ const private_health_management = resource_center_1;
 const memorial_sloan_kettering_cancer_center = resource_center_1;
 const new_england_cancer_specialists = resource_center_1;
 
-const allData = {
+const allData: Record<FlowType, ConfigType[]> = {
   c_org,
   cancer_pilot,
   twist_out_cancer,
@@ -210,7 +216,7 @@ export function Footer({ flow }: FooterProps) {
               href={url}
               className={tw(
                 "mb-0 py-2 font-new-hero text-[14px] font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mb-2 md:mr-2",
-                extraClasses ? extraClasses : "",
+                extraClasses,
               )}
             >
               {title}
