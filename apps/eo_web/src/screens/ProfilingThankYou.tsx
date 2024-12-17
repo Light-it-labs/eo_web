@@ -38,6 +38,7 @@ const flowsWithSmallFooter: FlowType[] = [
   Flows.realm_of_caring,
   Flows.private_health_management,
   Flows.memorial_sloan_kettering_cancer_center,
+  Flows.new_england_cancer_specialists,
 ];
 
 export const ProfilingThankYou = () => {

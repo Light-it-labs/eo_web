@@ -140,6 +140,7 @@ const friend_family = resource_center_1;
 const northwell_health = resource_center_1;
 const private_health_management = resource_center_1;
 const memorial_sloan_kettering_cancer_center = resource_center_1;
+const new_england_cancer_specialists = resource_center_1;
 
 const allData = {
   c_org,
@@ -161,7 +162,8 @@ const allData = {
   friend_family,
   northwell_health,
   private_health_management,
-  memorial_sloan_kettering_cancer_center
+  memorial_sloan_kettering_cancer_center,
+  new_england_cancer_specialists,
 };
 
 export function Footer({ flow }: FooterProps) {
@@ -208,7 +210,7 @@ export function Footer({ flow }: FooterProps) {
               href={url}
               className={tw(
                 "mb-0 py-2 font-new-hero text-[14px] font-normal leading-[22px] text-white hover:underline hover:opacity-50 md:mb-2 md:mr-2",
-                extraClasses,
+                extraClasses ? extraClasses : "",
               )}
             >
               {title}
