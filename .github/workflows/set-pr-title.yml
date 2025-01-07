@@ -40,7 +40,7 @@ jobs:
             let updatedBody = body;
 
             if (["main", "master"].includes(baseBranch)) {
-              title = `[Release] vX.X.X 🚀 - ${today.toLocaleDateString('en-GB')}`;
+              title = `[Release] vX.X.X 🚀 - ${today.toLocaleDateString('en-US')}`;
               updatedBody = '';
             } else {
               try {
