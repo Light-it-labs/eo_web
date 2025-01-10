@@ -21,7 +21,7 @@ import {
 } from "~/stores/useProfilingStore";
 
 export const ReferralOptions: Record<string, FlowType> = {
-  "Twist Out Cancer": Flows.twist_out_cancer,
+  "TEST": Flows.twist_out_cancer,
   "Unite for Her": Flows.unite_for_her,
   "Imerman Angels": Flows.imerman,
   "Cancer Support Community": Flows.cancer_support_community,
