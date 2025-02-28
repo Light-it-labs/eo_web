@@ -147,6 +147,7 @@ const northwell_health = resource_center_1;
 const private_health_management = resource_center_1;
 const memorial_sloan_kettering_cancer_center = resource_center_1;
 const new_england_cancer_specialists = resource_center_1;
+const penn_medicine = resource_center_1;
 
 const allData: Record<FlowType, ConfigType[]> = {
   c_org,
@@ -170,6 +171,7 @@ const allData: Record<FlowType, ConfigType[]> = {
   private_health_management,
   memorial_sloan_kettering_cancer_center,
   new_england_cancer_specialists,
+  penn_medicine,
 };
 
 export function Footer({ flow }: FooterProps) {
