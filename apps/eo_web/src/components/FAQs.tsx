@@ -30,6 +30,7 @@ const flowsWithCOrgFaqs: FlowType[] = [
   Flows.private_health_management,
   Flows.memorial_sloan_kettering_cancer_center,
   Flows.new_england_cancer_specialists,
+  Flows.penn_medicine,
 ];
 
 const flowsWithInovaFaqs: FlowType[] = [Flows.inova, Flows.uva];
