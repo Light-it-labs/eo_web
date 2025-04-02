@@ -2,10 +2,6 @@ import { type ElementType, type ReactNode } from "react";
 
 import { icons } from "@eo/ui";
 
-
-
-
-
 export type CarrouselItem = {
   step: string;
   title: string;
@@ -95,53 +91,12 @@ export const cOrgFaqs: Copy[] = [
   {
     title: "How much does an EO care plan cost?",
     content:
-      "As a valued member of our community, your care is completely free. This includes your clinician-reviewed plan, ongoing plan optimization based on your feedback and unlimited phone calls and in-app messaging with our care team. All you pay for are your products.",
+      "EO costs $14 per month for your clinician-reviewed plan, ongoing plan optimization based on your feedback and unlimited phone calls and in-app messaging with our care team. You can cancel your subscription any time. Note that the cost of your recommended products is NOT included in your plan.",
   },
   {
     title: "How do I get my products?",
-    content: (
-      <>
-        Recommended CBD and Delta-9 THC products can be ordered through your
-        care plan for home delivery. They are delivered just like any other
-        package you might receive from the USPS or others.
-        <br />
-        <br />
-        At times, we may recommend products to be picked-up from a dispensary
-        near you. For these products, you’ll simply select a time to pick them
-        up in your care plan and our team will then order the products for you.
-        You just show up at the dispensary at the time you chose, pick-up your
-        products and pay for them.
-      </>
-    ),
-  },
-  {
-    title: "Why am I obtaining my products from multiple retailers?",
-    content: (
-      <>
-        We want to connect you with the most clinically appropriate products
-        while also providing the easiest possible experience. In most cases,
-        we’ll attempt to address your product needs using CBD and Delta-9 THC
-        products available via online retailers (including our own EO Store).
-        These products have been shown to be clinically effective, can be
-        shipped right to your home and don’t require you to visit a dispensary.
-        <br />
-        <br />
-        However, if the nature and intensity of your symptoms suggest the need
-        for products that can only be sourced from a local dispensary, we will
-        recommend those products instead.
-      </>
-    ),
-  },
-  {
-    title:
-      "What should I bring with me when I pick-up products at a dispensary?",
     content:
-      "Bring your valid medical card (if you have one), a state I.D. or driver’s license and a debit card or enough cash to pay for products.",
-  },
-  {
-    title: "Do I need a medical card to use EO?",
-    content:
-      "No. You can use EO without a medical card. We’ll ask you about your medical card status when you’re sharing your profile information.",
+      "Recommended CBD and Delta-9 THC products can be ordered through your care plan for home delivery. They are delivered just like any other package you might receive from the USPS or others.",
   },
   {
     title:
@@ -208,14 +163,9 @@ export const cOrgFaqs: Copy[] = [
   },
   {
     title:
-      "Can I use a different dispensary or delivery provider than the one you’ve recommended?",
+      "What if I need a cannabis product that’s more potent than the ones that EO provides?",
     content:
-      "The answer is an honest “maybe”. If you’d like to make a change just email us at support@eo.care or call 888-823-6143. We’ll do everything we can to accommodate your request.",
-  },
-  {
-    title: "What happens if I run out of a particular product?",
-    content:
-      "No problem. Just email us at support@eo.care or call 888-823-6143. We’ll update your care plan in the very near term to accommodate the absence of that product if/as appropriate and coordinate the ordering of the needed product or a responsible replacement.",
+      "If you’d like more potent non-EO products to be included in your care plan, just email us at support@eo.care or call 888-823-6143. We’ll do everything we can to accommodate your request.",
   },
 ];
 
@@ -227,49 +177,8 @@ export const pilotFaqs: Copy[] = [
   },
   {
     title: "How do I get my products?",
-    content: (
-      <>
-        Recommended CBD and Delta-9 THC products can be ordered through your
-        care plan for home delivery. They are delivered just like any other
-        package you might receive from the USPS or others.
-        <br />
-        <br />
-        At times, we may recommend products to be picked-up from a dispensary
-        near you. For these products, you’ll simply select a time to pick them
-        up in your care plan and our team will then order the products for you.
-        You just show up at the dispensary at the time you chose, pick-up your
-        products and pay for them.
-      </>
-    ),
-  },
-  {
-    title: "Why am I obtaining my products from multiple retailers?",
-    content: (
-      <>
-        We want to connect you with the most clinically appropriate products
-        while also providing the easiest possible experience. In most cases,
-        we’ll attempt to address your product needs using CBD and Delta-9 THC
-        products available via online retailers (including our own EO Store).
-        These products have been shown to be clinically effective, can be
-        shipped right to your home and don’t require you to visit a dispensary.
-        <br />
-        <br />
-        However, if the nature and intensity of your symptoms suggest the need
-        for products that can only be sourced from a local dispensary, we will
-        recommend those products instead.
-      </>
-    ),
-  },
-  {
-    title:
-      "What should I bring with me when I pick-up products at a dispensary?",
     content:
-      "Bring your valid medical card (if you have one), a state I.D. or driver’s license and a debit card or enough cash to pay for products.",
-  },
-  {
-    title: "Do I need a medical card to use EO?",
-    content:
-      "No. You can use EO without a medical card. We’ll ask you about your medical card status when you’re sharing your profile information.",
+      "Recommended CBD and Delta-9 THC products can be ordered through your care plan for home delivery. They are delivered just like any other package you might receive from the USPS or others.",
   },
   {
     title:
@@ -336,14 +245,9 @@ export const pilotFaqs: Copy[] = [
   },
   {
     title:
-      "Can I use a different dispensary or delivery provider than the one you’ve recommended?",
+      "What if I need a cannabis product that’s more potent than the ones that EO provides?",
     content:
-      "The answer is an honest “maybe”. If you’d like to make a change just email us at support@eo.care or call 888-823-6143. We’ll do everything we can to accommodate your request.",
-  },
-  {
-    title: "What happens if I run out of a particular product?",
-    content:
-      "No problem. Just email us at support@eo.care or call 888-823-6143. We’ll update your care plan in the very near term to accommodate the absence of that product if/as appropriate and coordinate the ordering of the needed product or a responsible replacement.",
+      "If you’d like more potent non-EO products to be included in your care plan, just email us at support@eo.care or call 888-823-6143. We’ll do everything we can to accommodate your request.",
   },
 ];
 
@@ -355,44 +259,8 @@ export const inovaFaqs: Copy[] = [
   },
   {
     title: "How do I get my products?",
-    content: (
-      <>
-        Recommended CBD and Delta-9 THC products can be ordered through your
-        care plan for home delivery. They are delivered just like any other
-        package you might receive from the USPS or others.
-        <br />
-        <br />
-        At times, we may recommend products to be picked-up from a dispensary
-        near you. For these products, you’ll simply select a time to pick them
-        up in your care plan and our team will then order the products for you.
-        You just show up at the dispensary at the time you chose, pick-up your
-        products and pay for them.
-      </>
-    ),
-  },
-  {
-    title: "Why am I obtaining my products from multiple retailers?",
-    content: (
-      <>
-        We want to connect you with the most clinically appropriate products
-        while also providing the easiest possible experience. In most cases,
-        we’ll attempt to address your product needs using CBD and Delta-9 THC
-        products available via online retailers (including our own EO Store).
-        These products have been shown to be clinically effective, can be
-        shipped right to your home and don’t require you to visit a dispensary.
-        <br />
-        <br />
-        However, if the nature and intensity of your symptoms suggest the need
-        for products that can only be sourced from a local dispensary, we will
-        recommend those products instead.
-      </>
-    ),
-  },
-  {
-    title:
-      "What should I bring with me when I pick-up products at a dispensary?",
     content:
-      "Bring your valid cannabis certification, a state I.D. or driver’s license and a debit card or enough cash to pay for products.",
+      "Recommended CBD and Delta-9 THC products can be ordered through your care plan for home delivery. They are delivered just like any other package you might receive from the USPS or others.",
   },
   {
     title: "What if I don’t have a cannabis certification?",
@@ -464,14 +332,9 @@ export const inovaFaqs: Copy[] = [
   },
   {
     title:
-      "Can I use a different dispensary or delivery provider than the one you’ve recommended?",
+      "What if I need a cannabis product that’s more potent than the ones that EO provides?",
     content:
-      "The answer is an honest “maybe”. If you’d like to make a change just email us at support@eo.care or call 888-823-6143. We’ll do everything we can to accommodate your request.",
-  },
-  {
-    title: "What happens if I run out of a particular product?",
-    content:
-      "No problem. Just email us at support@eo.care or call 888-823-6143. We’ll update your care plan in the very near term to accommodate the absence of that product if/as appropriate and coordinate the ordering of the needed product or a responsible replacement.",
+      "If you’d like more potent non-EO products to be included in your care plan, just email us at support@eo.care or call 888-823-6143. We’ll do everything we can to accommodate your request.",
   },
 ];
 
@@ -483,49 +346,8 @@ export const paidFaqs: Copy[] = [
   },
   {
     title: "How do I get my products?",
-    content: (
-      <>
-        Recommended CBD and Delta-9 THC products can be ordered through your
-        care plan for home delivery. They are delivered just like any other
-        package you might receive from the USPS or others.
-        <br />
-        <br />
-        At times, we may recommend products to be picked-up from a dispensary
-        near you. For these products, you’ll simply select a time to pick them
-        up in your care plan and our team will then order the products for you.
-        You just show up at the dispensary at the time you chose, pick-up your
-        products and pay for them.
-      </>
-    ),
-  },
-  {
-    title: "Why am I obtaining my products from multiple retailers?",
-    content: (
-      <>
-        We want to connect you with the most clinically appropriate products
-        while also providing the easiest possible experience. In most cases,
-        we’ll attempt to address your product needs using CBD and Delta-9 THC
-        products available via online retailers (including our own EO Store).
-        These products have been shown to be clinically effective, can be
-        shipped right to your home and don’t require you to visit a dispensary.
-        <br />
-        <br />
-        However, if the nature and intensity of your symptoms suggest the need
-        for products that can only be sourced from a local dispensary, we will
-        recommend those products instead.
-      </>
-    ),
-  },
-  {
-    title:
-      "What should I bring with me when I pick-up products at a dispensary?",
     content:
-      "Bring your valid medical card (if you have one), a state I.D. or driver’s license and a debit card or enough cash to pay for products.",
-  },
-  {
-    title: "Do I need a medical card to use EO?",
-    content:
-      "No. You can use EO without a medical card. We’ll ask you about your medical card status when you’re sharing your profile information.",
+      "Recommended CBD and Delta-9 THC products can be ordered through your care plan for home delivery. They are delivered just like any other package you might receive from the USPS or others.",
   },
   {
     title:
@@ -592,13 +414,8 @@ export const paidFaqs: Copy[] = [
   },
   {
     title:
-      "Can I use a different dispensary or delivery provider than the one you’ve recommended?",
+      "What if I need a cannabis product that’s more potent than the ones that EO provides?",
     content:
-      "The answer is an honest “maybe”. If you’d like to make a change just email us at support@eo.care or call 888-823-6143. We’ll do everything we can to accommodate your request.",
-  },
-  {
-    title: "What happens if I run out of a particular product?",
-    content:
-      "No problem. Just email us at support@eo.care or call 888-823-6143. We’ll update your care plan in the very near term to accommodate the absence of that product if/as appropriate and coordinate the ordering of the needed product or a responsible replacement.",
+      "If you’d like more potent non-EO products to be included in your care plan, just email us at support@eo.care or call 888-823-6143. We’ll do everything we can to accommodate your request.",
   },
 ];
