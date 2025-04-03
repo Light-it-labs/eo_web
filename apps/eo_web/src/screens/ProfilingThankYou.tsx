@@ -82,7 +82,7 @@ export const ProfilingThankYou = () => {
         </span>
       </ThankYou>
 
-      <HowEOWorks flow={flow} />
+      <HowEOWorks />
       <FAQs flow={flow} />
       <EOInYourInbox />
       {flowsWithSmallFooter.includes(flow) ? (
