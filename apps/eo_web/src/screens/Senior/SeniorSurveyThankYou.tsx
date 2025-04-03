@@ -37,7 +37,7 @@ export const SeniorSurveyThankYou = () => {
         }}
       />
 
-      <HowEOWorks flow={flow} />
+      <HowEOWorks />
       <FAQs flow={flow} />
       {flowsWithSmallFooter.includes(flow) ? (
         <Footer flow={flow} />

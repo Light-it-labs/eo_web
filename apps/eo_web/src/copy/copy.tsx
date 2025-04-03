@@ -31,7 +31,7 @@ const STEP_3: CarrouselItem = {
   step: "STEP 3",
   title: "Get your products",
   content:
-    "You’ll order recommended CDB and Delta-9 THC products online for easy home delivery. Typically, there’s no need to visit a dispensary.",
+    "You can order your recommended products online for easy home delivery. There’s no need to visit a dispensary.",
   icon: icons.PillsWhite,
 };
 const STEP_4: CarrouselItem = {

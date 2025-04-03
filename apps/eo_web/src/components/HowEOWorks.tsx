@@ -2,41 +2,17 @@ import React from "react";
 
 import { Typography } from "@eo/ui";
 
-import {
-  CancerPilotCarrouselItems,
-  CarrouselItems,
-  InovaItems,
-  type CarrouselItem,
-} from "~/copy/copy";
-import { Flows, type FlowType } from "~/stores/useProfilingStore";
+import { CarrouselItems } from "~/copy/copy";
 import { EoCarousel } from "./Carousel";
 
-interface HowEOWorksProps {
-  flow?: FlowType;
-}
-
-export const HowEOWorks = ({ flow }: HowEOWorksProps) => {
-  let carouselItems: CarrouselItem[] = [];
-  switch (flow) {
-    case Flows.cancer_pilot:
-      carouselItems = CancerPilotCarrouselItems;
-      break;
-    case Flows.inova:
-      carouselItems = InovaItems;
-      break;
-    default:
-      carouselItems = CarrouselItems;
-  }
-
+export const HowEOWorks = () => {
   return (
     <section className="bg-white px-6 py-12 md:px-[50px] md:py-[100px] ">
       <Typography font="bold" variant="large" className="mb-20 text-center">
-        {flow === Flows.cancer_pilot
-          ? "How the EO Pilot Works"
-          : "How EO Care Plans Work"}
+        How EO Care Plans Work
       </Typography>
       <EoCarousel>
-        {carouselItems.map(({ title, content, step, icon: Icon }) => (
+        {CarrouselItems.map(({ title, content, step, icon: Icon }) => (
           <article
             key={`${title}-${step}}`}
             className="mx-auto my-0 flex h-auto w-auto max-w-[361px] flex-col items-center justify-center gap-2 md:flex-none md:items-start"

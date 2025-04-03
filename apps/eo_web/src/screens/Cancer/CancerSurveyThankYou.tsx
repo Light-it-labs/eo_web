@@ -56,7 +56,7 @@ export const CancerSurveyThankYou = () => {
           channel: channel as Channel,
         }}
       />
-      <HowEOWorks flow={flow} />
+      <HowEOWorks />
       <FAQs flow={flow} />
       {flowsWithSmallFooter.includes(flow) ? (
         <Footer flow={flow} />
