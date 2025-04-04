@@ -38,7 +38,6 @@ const partnerSiteFlows: FlowType[] = [
 
 const getFAQCopies = (flow?: FlowType) => {
   if (flow && partnerSiteFlows.includes(flow)) return partnerFlowFaqs;
-  // if (flow && flow === 'marketing_site') return cOrgFaqs;
 
   return paidFaqs;
 };
