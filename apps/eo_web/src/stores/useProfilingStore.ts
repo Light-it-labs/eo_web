@@ -48,6 +48,7 @@ export const Flows = {
     "memorial_sloan_kettering_cancer_center",
   new_england_cancer_specialists: "new_england_cancer_specialists",
   penn_medicine: "penn_medicine",
+  free_care_plan: "free_care_plan",
 } as const;
 
 export type FlowType = keyof typeof Flows;
