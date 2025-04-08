@@ -160,7 +160,7 @@ const private_health_management = resource_center_1;
 const memorial_sloan_kettering_cancer_center = resource_center_1;
 const new_england_cancer_specialists = resource_center_1;
 const penn_medicine = resource_center_1;
-const care_plan_ad_1 = mass_retirees;
+const care_plan_ad_1 = free_care_plan;
 
 const allData: Record<FlowType, ConfigType[]> = {
   c_org,
