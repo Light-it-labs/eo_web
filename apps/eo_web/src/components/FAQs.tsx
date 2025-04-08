@@ -2,7 +2,7 @@ import React, { useId } from "react";
 
 import { Typography } from "@eo/ui";
 
-import { cOrgFaqs, inovaFaqs, paidFaqs, pilotFaqs } from "~/copy/copy";
+import { paidFaqs, partnerFlowFaqs } from "~/copy/copy";
 import { Flows, type FlowType } from "~/stores/useProfilingStore";
 import { Collapsible } from "./Collapsible";
 
@@ -10,7 +10,7 @@ interface FAQsProps {
   flow?: FlowType;
 }
 
-const flowsWithCOrgFaqs: FlowType[] = [
+const partnerSiteFlows: FlowType[] = [
   Flows.c_org,
   Flows.twist_out_cancer,
   Flows.cancer_support_community,
@@ -31,14 +31,13 @@ const flowsWithCOrgFaqs: FlowType[] = [
   Flows.memorial_sloan_kettering_cancer_center,
   Flows.new_england_cancer_specialists,
   Flows.penn_medicine,
+  Flows.cancer_pilot,
+  Flows.inova,
+  Flows.uva,
 ];
 
-const flowsWithInovaFaqs: FlowType[] = [Flows.inova, Flows.uva];
-
 const getFAQCopies = (flow?: FlowType) => {
-  if (flow && flowsWithCOrgFaqs.includes(flow)) return cOrgFaqs;
-  if (flow && flowsWithInovaFaqs.includes(flow)) return inovaFaqs;
-  if (flow === Flows.cancer_pilot) return pilotFaqs;
+  if (flow && partnerSiteFlows.includes(flow)) return partnerFlowFaqs;
 
   return paidFaqs;
 };
