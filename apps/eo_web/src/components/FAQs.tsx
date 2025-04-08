@@ -21,6 +21,7 @@ const partnerSiteFlows: FlowType[] = [
   Flows.unite_for_her,
   Flows.mass_retirees,
   Flows.stupid_cancer,
+  Flows.free_care_plan,
 
   // The flows related to resources_center_1/2
   Flows.cancer_buddy,
