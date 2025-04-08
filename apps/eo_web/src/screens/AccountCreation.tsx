@@ -37,6 +37,8 @@ export const ReferralOptions: Record<string, FlowType> = {
     Flows.memorial_sloan_kettering_cancer_center,
   "New England Cancer Specialists": Flows.new_england_cancer_specialists,
   "Penn Medicine": Flows.penn_medicine,
+  "Free Care Plan": Flows.free_care_plan,
+  "Care Plan Ad 1": Flows.care_plan_ad_1,
 } as const;
 
 export type ReferralOptionsType = keyof typeof ReferralOptions;
@@ -212,6 +214,10 @@ export const AccountCreation = () => {
         return "21";
       case Flows.penn_medicine:
         return "22";
+      case Flows.free_care_plan:
+        return "23";
+      case Flows.care_plan_ad_1:
+        return "24"
     }
   };
 

@@ -128,6 +128,18 @@ const mass_retirees = [
   ...basicData,
 ];
 
+const free_care_plan = [
+  {
+    title: "About EO",
+    url: "https://partner.eo.care/free-care-plan/about",
+  },
+  {
+    title: "Cannabis 101",
+    url: "https://partner.eo.care/free-care-plan/cannabis-101",
+  },
+  ...basicData,
+];
+
 const stupid_cancer = [
   {
     title: "About EO",
@@ -148,6 +160,7 @@ const private_health_management = resource_center_1;
 const memorial_sloan_kettering_cancer_center = resource_center_1;
 const new_england_cancer_specialists = resource_center_1;
 const penn_medicine = resource_center_1;
+const care_plan_ad_1 = free_care_plan;
 
 const allData: Record<FlowType, ConfigType[]> = {
   c_org,
@@ -172,6 +185,8 @@ const allData: Record<FlowType, ConfigType[]> = {
   memorial_sloan_kettering_cancer_center,
   new_england_cancer_specialists,
   penn_medicine,
+  free_care_plan,
+  care_plan_ad_1
 };
 
 export function Footer({ flow }: FooterProps) {
